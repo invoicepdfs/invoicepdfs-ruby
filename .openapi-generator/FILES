@@ -15,6 +15,8 @@ docs/ApiKeyPatchRequest.md
 docs/ApiKeyRevokeResponse.md
 docs/ApiKeyRotateResponse.md
 docs/ApiKeysApi.md
+docs/ApiRequestLogOut.md
+docs/ApiRequestLogsListResponse.md
 docs/AuditEventOut.md
 docs/AuditEventResponse.md
 docs/AuditEventsListResponse.md
@@ -142,6 +144,7 @@ docs/JobProgressOut.md
 docs/JobResponse.md
 docs/JobsApi.md
 docs/LocationInner.md
+docs/LogsApi.md
 docs/Money.md
 docs/MoneyOut.md
 docs/NumberingSequenceCreateRequest.md
@@ -168,6 +171,11 @@ docs/RecurringInvoicesListResponse.md
 docs/ReferenceApi.md
 docs/RendersApi.md
 docs/SimpleBoolResponse.md
+docs/StatsApi.md
+docs/StatsCounts.md
+docs/StatsOverview.md
+docs/StatsRecentInvoice.md
+docs/StatsResponse.md
 docs/TaxRateCreateRequest.md
 docs/TaxRateOut.md
 docs/TaxRatePatchRequest.md
@@ -233,11 +241,13 @@ lib/invoicepdfs/api/imports_api.rb
 lib/invoicepdfs/api/invoice_attachments_api.rb
 lib/invoicepdfs/api/invoices_api.rb
 lib/invoicepdfs/api/jobs_api.rb
+lib/invoicepdfs/api/logs_api.rb
 lib/invoicepdfs/api/numbering_sequences_api.rb
 lib/invoicepdfs/api/payments_api.rb
 lib/invoicepdfs/api/recurring_invoices_api.rb
 lib/invoicepdfs/api/reference_api.rb
 lib/invoicepdfs/api/renders_api.rb
+lib/invoicepdfs/api/stats_api.rb
 lib/invoicepdfs/api/tax_rates_api.rb
 lib/invoicepdfs/api/template_versions_api.rb
 lib/invoicepdfs/api/templates_api.rb
@@ -256,6 +266,8 @@ lib/invoicepdfs/models/api_key_list_response.rb
 lib/invoicepdfs/models/api_key_patch_request.rb
 lib/invoicepdfs/models/api_key_revoke_response.rb
 lib/invoicepdfs/models/api_key_rotate_response.rb
+lib/invoicepdfs/models/api_request_log_out.rb
+lib/invoicepdfs/models/api_request_logs_list_response.rb
 lib/invoicepdfs/models/audit_event_out.rb
 lib/invoicepdfs/models/audit_event_response.rb
 lib/invoicepdfs/models/audit_events_list_response.rb
@@ -388,6 +400,10 @@ lib/invoicepdfs/models/recurring_invoice_patch_request.rb
 lib/invoicepdfs/models/recurring_invoice_response.rb
 lib/invoicepdfs/models/recurring_invoices_list_response.rb
 lib/invoicepdfs/models/simple_bool_response.rb
+lib/invoicepdfs/models/stats_counts.rb
+lib/invoicepdfs/models/stats_overview.rb
+lib/invoicepdfs/models/stats_recent_invoice.rb
+lib/invoicepdfs/models/stats_response.rb
 lib/invoicepdfs/models/tax_rate_create_request.rb
 lib/invoicepdfs/models/tax_rate_out.rb
 lib/invoicepdfs/models/tax_rate_patch_request.rb
@@ -428,4 +444,12 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
+spec/api/logs_api_spec.rb
+spec/api/stats_api_spec.rb
+spec/models/api_request_log_out_spec.rb
+spec/models/api_request_logs_list_response_spec.rb
+spec/models/stats_counts_spec.rb
+spec/models/stats_overview_spec.rb
+spec/models/stats_recent_invoice_spec.rb
+spec/models/stats_response_spec.rb
 spec/spec_helper.rb
