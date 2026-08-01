@@ -436,14 +436,4 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
-spec/models/app_documents_schemas_document_render_request_spec.rb
-spec/models/app_schemas_v1_document_render_request_spec.rb
-spec/models/document_create_request_spec.rb
-spec/models/document_out_spec.rb
-spec/models/document_patch_request_spec.rb
-spec/models/document_response_spec.rb
-spec/models/documents_list_response_spec.rb
-spec/models/line_item_discount_input_spec.rb
-spec/models/line_item_tax_input_spec.rb
-spec/models/standard_line_item_input_spec.rb
 spec/spec_helper.rb

@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**calculate_document_api_v1_documents_calculate_post**](DocumentsApi.md#calculate_document_api_v1_documents_calculate_post) | **POST** /api/v1/documents/calculate | Calculate Document |
 | [**create_document_api_v1_documents_post**](DocumentsApi.md#create_document_api_v1_documents_post) | **POST** /api/v1/documents | Create Document |
 | [**delete_document_api_v1_documents_document_id_delete**](DocumentsApi.md#delete_document_api_v1_documents_document_id_delete) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
+| [**duplicate_document_api_v1_documents_document_id_duplicate_post**](DocumentsApi.md#duplicate_document_api_v1_documents_document_id_duplicate_post) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
 | [**finalize_document_api_v1_documents_document_id_finalize_post**](DocumentsApi.md#finalize_document_api_v1_documents_document_id_finalize_post) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
 | [**get_document_api_v1_documents_document_id_get**](DocumentsApi.md#get_document_api_v1_documents_document_id_get) | **GET** /api/v1/documents/{document_id} | Get Document |
 | [**list_document_deliveries_api_v1_documents_document_id_deliveries_get**](DocumentsApi.md#list_document_deliveries_api_v1_documents_document_id_deliveries_get) | **GET** /api/v1/documents/{document_id}/deliveries | List Document Deliveries |
@@ -285,6 +286,73 @@ end
 ### Return type
 
 [**SimpleBoolResponse**](SimpleBoolResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## duplicate_document_api_v1_documents_document_id_duplicate_post
+
+> <DocumentResponse> duplicate_document_api_v1_documents_document_id_duplicate_post(document_id)
+
+Duplicate Document
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::DocumentsApi.new
+document_id = 'document_id_example' # String | 
+
+begin
+  # Duplicate Document
+  result = api_instance.duplicate_document_api_v1_documents_document_id_duplicate_post(document_id)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->duplicate_document_api_v1_documents_document_id_duplicate_post: #{e}"
+end
+```
+
+#### Using the duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DocumentResponse>, Integer, Hash)> duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info(document_id)
+
+```ruby
+begin
+  # Duplicate Document
+  data, status_code, headers = api_instance.duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info(document_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DocumentResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_id** | **String** |  |  |
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
 
 ### Authorization
 
