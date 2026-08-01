@@ -1,0 +1,52 @@
+name: Publish to RubyGems
+
+# On release (or manual run), regenerate the client at the version and push to
+# RubyGems. Needs repo secret RUBYGEMS_API_KEY.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version (e.g. 0.1.1)"
+        required: true
+        default: "0.1.1"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve version
+        id: v
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Fetch OpenAPI spec
+        run: |
+          curl -fsSL -H "Accept: application/vnd.github.raw+json" \
+            "https://api.github.com/repos/invoicepdfs/invoicepdfs-openapi/contents/openapi-3.0.json?ref=main" \
+            -o openapi.json
+      - name: Generate client
+        run: |
+          docker run --rm -v "${{ github.workspace }}:/local" \
+            openapitools/openapi-generator-cli:v7.7.0 generate \
+            -i /local/openapi.json -g ruby -o /local/dist-src \
+            --additional-properties=gemName=invoicepdfs,moduleName=InvoicePDFs,gemVersion=${{ steps.v.outputs.version }},gemLicense=MIT,gemHomepage=https://github.com/invoicepdfs/invoicepdfs-ruby
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - name: Build & publish
+        working-directory: dist-src
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: |
+          sudo chown -R "$(id -u):$(id -g)" .  # docker generates as root
+          gem build *.gemspec
+          gem push *.gem
