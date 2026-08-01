@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_payment_api_v1_invoices_invoice_id_payments_post**](PaymentsApi.md#create_payment_api_v1_invoices_invoice_id_payments_post) | **POST** /api/v1/invoices/{invoice_id}/payments | Create Payment |
+| [**create_payment_api_v1_documents_invoice_id_payments_post**](PaymentsApi.md#create_payment_api_v1_documents_invoice_id_payments_post) | **POST** /api/v1/documents/{invoice_id}/payments | Create Payment |
 | [**delete_payment_api_v1_payments_payment_id_delete**](PaymentsApi.md#delete_payment_api_v1_payments_payment_id_delete) | **DELETE** /api/v1/payments/{payment_id} | Delete Payment |
 | [**get_payment_api_v1_payments_payment_id_get**](PaymentsApi.md#get_payment_api_v1_payments_payment_id_get) | **GET** /api/v1/payments/{payment_id} | Get Payment |
-| [**list_invoice_payments_api_v1_invoices_invoice_id_payments_get**](PaymentsApi.md#list_invoice_payments_api_v1_invoices_invoice_id_payments_get) | **GET** /api/v1/invoices/{invoice_id}/payments | List Invoice Payments |
+| [**list_invoice_payments_api_v1_documents_invoice_id_payments_get**](PaymentsApi.md#list_invoice_payments_api_v1_documents_invoice_id_payments_get) | **GET** /api/v1/documents/{invoice_id}/payments | List Invoice Payments |
 | [**update_payment_api_v1_payments_payment_id_patch**](PaymentsApi.md#update_payment_api_v1_payments_payment_id_patch) | **PATCH** /api/v1/payments/{payment_id} | Update Payment |
 
 
-## create_payment_api_v1_invoices_invoice_id_payments_post
+## create_payment_api_v1_documents_invoice_id_payments_post
 
-> <PaymentResponse> create_payment_api_v1_invoices_invoice_id_payments_post(invoice_id, payment_create_request)
+> <PaymentResponse> create_payment_api_v1_documents_invoice_id_payments_post(invoice_id, payment_create_request)
 
 Create Payment
 
@@ -34,28 +34,28 @@ payment_create_request = InvoicePDFs::PaymentCreateRequest.new({amount: '53.10',
 
 begin
   # Create Payment
-  result = api_instance.create_payment_api_v1_invoices_invoice_id_payments_post(invoice_id, payment_create_request)
+  result = api_instance.create_payment_api_v1_documents_invoice_id_payments_post(invoice_id, payment_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->create_payment_api_v1_invoices_invoice_id_payments_post: #{e}"
+  puts "Error when calling PaymentsApi->create_payment_api_v1_documents_invoice_id_payments_post: #{e}"
 end
 ```
 
-#### Using the create_payment_api_v1_invoices_invoice_id_payments_post_with_http_info variant
+#### Using the create_payment_api_v1_documents_invoice_id_payments_post_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentResponse>, Integer, Hash)> create_payment_api_v1_invoices_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request)
+> <Array(<PaymentResponse>, Integer, Hash)> create_payment_api_v1_documents_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request)
 
 ```ruby
 begin
   # Create Payment
-  data, status_code, headers = api_instance.create_payment_api_v1_invoices_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request)
+  data, status_code, headers = api_instance.create_payment_api_v1_documents_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PaymentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->create_payment_api_v1_invoices_invoice_id_payments_post_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->create_payment_api_v1_documents_invoice_id_payments_post_with_http_info: #{e}"
 end
 ```
 
@@ -214,9 +214,9 @@ end
 - **Accept**: application/json
 
 
-## list_invoice_payments_api_v1_invoices_invoice_id_payments_get
+## list_invoice_payments_api_v1_documents_invoice_id_payments_get
 
-> <PaymentsListResponse> list_invoice_payments_api_v1_invoices_invoice_id_payments_get(invoice_id, opts)
+> <PaymentsListResponse> list_invoice_payments_api_v1_documents_invoice_id_payments_get(invoice_id, opts)
 
 List Invoice Payments
 
@@ -240,28 +240,28 @@ opts = {
 
 begin
   # List Invoice Payments
-  result = api_instance.list_invoice_payments_api_v1_invoices_invoice_id_payments_get(invoice_id, opts)
+  result = api_instance.list_invoice_payments_api_v1_documents_invoice_id_payments_get(invoice_id, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->list_invoice_payments_api_v1_invoices_invoice_id_payments_get: #{e}"
+  puts "Error when calling PaymentsApi->list_invoice_payments_api_v1_documents_invoice_id_payments_get: #{e}"
 end
 ```
 
-#### Using the list_invoice_payments_api_v1_invoices_invoice_id_payments_get_with_http_info variant
+#### Using the list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentsListResponse>, Integer, Hash)> list_invoice_payments_api_v1_invoices_invoice_id_payments_get_with_http_info(invoice_id, opts)
+> <Array(<PaymentsListResponse>, Integer, Hash)> list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info(invoice_id, opts)
 
 ```ruby
 begin
   # List Invoice Payments
-  data, status_code, headers = api_instance.list_invoice_payments_api_v1_invoices_invoice_id_payments_get_with_http_info(invoice_id, opts)
+  data, status_code, headers = api_instance.list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info(invoice_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PaymentsListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->list_invoice_payments_api_v1_invoices_invoice_id_payments_get_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info: #{e}"
 end
 ```
 

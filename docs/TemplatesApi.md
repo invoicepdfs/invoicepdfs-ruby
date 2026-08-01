@@ -560,7 +560,7 @@ end
 
 ## preview_template_api_v1_templates_template_id_preview_post
 
-> Object preview_template_api_v1_templates_template_id_preview_post(template_id, document_render_request, opts)
+> Object preview_template_api_v1_templates_template_id_preview_post(template_id, app_schemas_v1_document_render_request, opts)
 
 Preview Template
 
@@ -577,14 +577,14 @@ end
 
 api_instance = InvoicePDFs::TemplatesApi.new
 template_id = 'template_id_example' # String | 
-document_render_request = InvoicePDFs::DocumentRenderRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), template: InvoicePDFs::DocumentTemplateRef.new({id: 'id_example'})}) # DocumentRenderRequest | 
+app_schemas_v1_document_render_request = InvoicePDFs::AppSchemasV1DocumentRenderRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), template: InvoicePDFs::DocumentTemplateRef.new({id: 'id_example'})}) # AppSchemasV1DocumentRenderRequest | 
 opts = {
   idempotency_key: 'idempotency_key_example' # String | 
 }
 
 begin
   # Preview Template
-  result = api_instance.preview_template_api_v1_templates_template_id_preview_post(template_id, document_render_request, opts)
+  result = api_instance.preview_template_api_v1_templates_template_id_preview_post(template_id, app_schemas_v1_document_render_request, opts)
   p result
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling TemplatesApi->preview_template_api_v1_templates_template_id_preview_post: #{e}"
@@ -595,12 +595,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> preview_template_api_v1_templates_template_id_preview_post_with_http_info(template_id, document_render_request, opts)
+> <Array(Object, Integer, Hash)> preview_template_api_v1_templates_template_id_preview_post_with_http_info(template_id, app_schemas_v1_document_render_request, opts)
 
 ```ruby
 begin
   # Preview Template
-  data, status_code, headers = api_instance.preview_template_api_v1_templates_template_id_preview_post_with_http_info(template_id, document_render_request, opts)
+  data, status_code, headers = api_instance.preview_template_api_v1_templates_template_id_preview_post_with_http_info(template_id, app_schemas_v1_document_render_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -614,7 +614,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **String** |  |  |
-| **document_render_request** | [**DocumentRenderRequest**](DocumentRenderRequest.md) |  |  |
+| **app_schemas_v1_document_render_request** | [**AppSchemasV1DocumentRenderRequest**](AppSchemasV1DocumentRenderRequest.md) |  |  |
 | **idempotency_key** | **String** |  | [optional] |
 
 ### Return type
