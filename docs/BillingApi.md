@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**create_checkout_api_v1_billing_checkout_session_post**](BillingApi.md#create_checkout_api_v1_billing_checkout_session_post) | **POST** /api/v1/billing/checkout-session | Create Checkout |
 | [**create_portal_api_v1_billing_portal_session_post**](BillingApi.md#create_portal_api_v1_billing_portal_session_post) | **POST** /api/v1/billing/portal-session | Create Portal |
 | [**get_subscription_api_v1_billing_subscription_get**](BillingApi.md#get_subscription_api_v1_billing_subscription_get) | **GET** /api/v1/billing/subscription | Get Subscription |
+| [**list_plans_api_v1_billing_plans_get**](BillingApi.md#list_plans_api_v1_billing_plans_get) | **GET** /api/v1/billing/plans | List Plans |
 
 
 ## create_checkout_api_v1_billing_checkout_session_post
@@ -199,6 +200,72 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**BillingSubscriptionResponse**](BillingSubscriptionResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_plans_api_v1_billing_plans_get
+
+> <BillingPlansListResponse> list_plans_api_v1_billing_plans_get
+
+List Plans
+
+Purchasable plans — the ones wired to a Stripe price.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::BillingApi.new
+
+begin
+  # List Plans
+  result = api_instance.list_plans_api_v1_billing_plans_get
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling BillingApi->list_plans_api_v1_billing_plans_get: #{e}"
+end
+```
+
+#### Using the list_plans_api_v1_billing_plans_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BillingPlansListResponse>, Integer, Hash)> list_plans_api_v1_billing_plans_get_with_http_info
+
+```ruby
+begin
+  # List Plans
+  data, status_code, headers = api_instance.list_plans_api_v1_billing_plans_get_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BillingPlansListResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling BillingApi->list_plans_api_v1_billing_plans_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BillingPlansListResponse**](BillingPlansListResponse.md)
 
 ### Authorization
 

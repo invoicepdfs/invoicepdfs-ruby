@@ -52,6 +52,8 @@ docs/BillingApi.md
 docs/BillingCheckoutData.md
 docs/BillingCheckoutRequest.md
 docs/BillingCheckoutResponse.md
+docs/BillingPlan.md
+docs/BillingPlansListResponse.md
 docs/BillingPortalData.md
 docs/BillingPortalResponse.md
 docs/BillingSubscriptionData.md
@@ -295,6 +297,8 @@ lib/invoicepdfs/models/batches_list_response.rb
 lib/invoicepdfs/models/billing_checkout_data.rb
 lib/invoicepdfs/models/billing_checkout_request.rb
 lib/invoicepdfs/models/billing_checkout_response.rb
+lib/invoicepdfs/models/billing_plan.rb
+lib/invoicepdfs/models/billing_plans_list_response.rb
 lib/invoicepdfs/models/billing_portal_data.rb
 lib/invoicepdfs/models/billing_portal_response.rb
 lib/invoicepdfs/models/billing_subscription_data.rb
@@ -440,4 +444,6 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
+spec/models/billing_plan_spec.rb
+spec/models/billing_plans_list_response_spec.rb
 spec/spec_helper.rb

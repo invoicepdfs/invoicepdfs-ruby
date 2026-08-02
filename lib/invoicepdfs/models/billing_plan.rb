@@ -14,28 +14,22 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class BillingSubscriptionData
-    attr_accessor :subscription_id
+  class BillingPlan
+    attr_accessor :id
 
-    attr_accessor :status
+    attr_accessor :name
 
-    attr_accessor :plan_id
+    attr_accessor :price_id
 
-    attr_accessor :plan_name
-
-    attr_accessor :stripe_configured
-
-    attr_accessor :has_billing_account
+    attr_accessor :monthly_render_quota
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'subscription_id' => :'subscription_id',
-        :'status' => :'status',
-        :'plan_id' => :'plan_id',
-        :'plan_name' => :'plan_name',
-        :'stripe_configured' => :'stripe_configured',
-        :'has_billing_account' => :'has_billing_account'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'price_id' => :'price_id',
+        :'monthly_render_quota' => :'monthly_render_quota'
       }
     end
 
@@ -47,20 +41,16 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'subscription_id' => :'String',
-        :'status' => :'String',
-        :'plan_id' => :'String',
-        :'plan_name' => :'String',
-        :'stripe_configured' => :'Boolean',
-        :'has_billing_account' => :'Boolean'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'price_id' => :'String',
+        :'monthly_render_quota' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'subscription_id',
-        :'status',
       ])
     end
 
@@ -68,47 +58,39 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::BillingSubscriptionData` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::BillingPlan` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::BillingSubscriptionData`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::BillingPlan`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'subscription_id')
-        self.subscription_id = attributes[:'subscription_id']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'plan_id')
-        self.plan_id = attributes[:'plan_id']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       else
-        self.plan_id = nil
+        self.id = nil
       end
 
-      if attributes.key?(:'plan_name')
-        self.plan_name = attributes[:'plan_name']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.plan_name = nil
+        self.name = nil
       end
 
-      if attributes.key?(:'stripe_configured')
-        self.stripe_configured = attributes[:'stripe_configured']
+      if attributes.key?(:'price_id')
+        self.price_id = attributes[:'price_id']
       else
-        self.stripe_configured = false
+        self.price_id = nil
       end
 
-      if attributes.key?(:'has_billing_account')
-        self.has_billing_account = attributes[:'has_billing_account']
+      if attributes.key?(:'monthly_render_quota')
+        self.monthly_render_quota = attributes[:'monthly_render_quota']
       else
-        self.has_billing_account = false
+        self.monthly_render_quota = nil
       end
     end
 
@@ -117,12 +99,20 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @plan_id.nil?
-        invalid_properties.push('invalid value for "plan_id", plan_id cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @plan_name.nil?
-        invalid_properties.push('invalid value for "plan_name", plan_name cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @price_id.nil?
+        invalid_properties.push('invalid value for "price_id", price_id cannot be nil.')
+      end
+
+      if @monthly_render_quota.nil?
+        invalid_properties.push('invalid value for "monthly_render_quota", monthly_render_quota cannot be nil.')
       end
 
       invalid_properties
@@ -132,8 +122,10 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @plan_id.nil?
-      return false if @plan_name.nil?
+      return false if @id.nil?
+      return false if @name.nil?
+      return false if @price_id.nil?
+      return false if @monthly_render_quota.nil?
       true
     end
 
@@ -142,12 +134,10 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          subscription_id == o.subscription_id &&
-          status == o.status &&
-          plan_id == o.plan_id &&
-          plan_name == o.plan_name &&
-          stripe_configured == o.stripe_configured &&
-          has_billing_account == o.has_billing_account
+          id == o.id &&
+          name == o.name &&
+          price_id == o.price_id &&
+          monthly_render_quota == o.monthly_render_quota
     end
 
     # @see the `==` method
@@ -159,7 +149,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subscription_id, status, plan_id, plan_name, stripe_configured, has_billing_account].hash
+      [id, name, price_id, monthly_render_quota].hash
     end
 
     # Builds the object from hash

@@ -200,5 +200,62 @@ module InvoicePDFs
       end
       return data, status_code, headers
     end
+
+    # List Plans
+    # Purchasable plans — the ones wired to a Stripe price.
+    # @param [Hash] opts the optional parameters
+    # @return [BillingPlansListResponse]
+    def list_plans_api_v1_billing_plans_get(opts = {})
+      data, _status_code, _headers = list_plans_api_v1_billing_plans_get_with_http_info(opts)
+      data
+    end
+
+    # List Plans
+    # Purchasable plans — the ones wired to a Stripe price.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BillingPlansListResponse, Integer, Hash)>] BillingPlansListResponse data, response status code and response headers
+    def list_plans_api_v1_billing_plans_get_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BillingApi.list_plans_api_v1_billing_plans_get ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/billing/plans'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'BillingPlansListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"BillingApi.list_plans_api_v1_billing_plans_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BillingApi#list_plans_api_v1_billing_plans_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end
