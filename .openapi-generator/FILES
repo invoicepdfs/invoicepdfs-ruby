@@ -440,10 +440,4 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
-spec/api/branding_profiles_api_spec.rb
-spec/models/branding_profile_create_request_spec.rb
-spec/models/branding_profile_out_spec.rb
-spec/models/branding_profile_patch_request_spec.rb
-spec/models/branding_profile_response_spec.rb
-spec/models/branding_profiles_list_response_spec.rb
 spec/spec_helper.rb
