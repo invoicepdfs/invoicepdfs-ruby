@@ -23,6 +23,7 @@
 | **custom_fields** | [**Array&lt;InvoiceCustomFieldInput&gt;**](InvoiceCustomFieldInput.md) |  | [optional] |
 | **payment** | [**InvoicePaymentInput**](InvoicePaymentInput.md) |  | [optional] |
 | **branding** | [**InvoiceBrandingInput**](InvoiceBrandingInput.md) |  | [optional] |
+| **branding_profile_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -48,7 +49,8 @@ instance = InvoicePDFs::DocumentCreateRequest.new(
   terms: null,
   custom_fields: null,
   payment: null,
-  branding: null
+  branding: null,
+  branding_profile_id: null
 )
 ```
 

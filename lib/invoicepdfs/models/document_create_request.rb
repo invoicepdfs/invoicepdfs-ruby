@@ -53,6 +53,8 @@ module InvoicePDFs
 
     attr_accessor :branding
 
+    attr_accessor :branding_profile_id
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -96,7 +98,8 @@ module InvoicePDFs
         :'terms' => :'terms',
         :'custom_fields' => :'custom_fields',
         :'payment' => :'payment',
-        :'branding' => :'branding'
+        :'branding' => :'branding',
+        :'branding_profile_id' => :'branding_profile_id'
       }
     end
 
@@ -126,7 +129,8 @@ module InvoicePDFs
         :'terms' => :'Array<InvoiceTermInput>',
         :'custom_fields' => :'Array<InvoiceCustomFieldInput>',
         :'payment' => :'InvoicePaymentInput',
-        :'branding' => :'InvoiceBrandingInput'
+        :'branding' => :'InvoiceBrandingInput',
+        :'branding_profile_id' => :'String'
       }
     end
 
@@ -140,7 +144,8 @@ module InvoicePDFs
         :'ship_to',
         :'shipping',
         :'payment',
-        :'branding'
+        :'branding',
+        :'branding_profile_id'
       ])
     end
 
@@ -258,6 +263,10 @@ module InvoicePDFs
       if attributes.key?(:'branding')
         self.branding = attributes[:'branding']
       end
+
+      if attributes.key?(:'branding_profile_id')
+        self.branding_profile_id = attributes[:'branding_profile_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -368,7 +377,8 @@ module InvoicePDFs
           terms == o.terms &&
           custom_fields == o.custom_fields &&
           payment == o.payment &&
-          branding == o.branding
+          branding == o.branding &&
+          branding_profile_id == o.branding_profile_id
     end
 
     # @see the `==` method
@@ -380,7 +390,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [document_type, number, issue_date, due_date, currency, locale, business_profile_id, customer_id, source_document_id, reason, ship_to, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding].hash
+      [document_type, number, issue_date, due_date, currency, locale, business_profile_id, customer_id, source_document_id, reason, ship_to, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding, branding_profile_id].hash
     end
 
     # Builds the object from hash
