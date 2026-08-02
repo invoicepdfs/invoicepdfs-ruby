@@ -444,6 +444,4 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
-spec/models/billing_plan_spec.rb
-spec/models/billing_plans_list_response_spec.rb
 spec/spec_helper.rb
