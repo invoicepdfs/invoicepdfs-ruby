@@ -130,6 +130,7 @@ module InvoicePDFs
     end
 
     # List Document Types
+    # List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (``standard`` = priced, ``shipped`` = quantities only), and the lifecycle actions available to it.
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
     def list_document_types_api_v1_reference_document_types_get(opts = {})
@@ -138,6 +139,7 @@ module InvoicePDFs
     end
 
     # List Document Types
+    # List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (&#x60;&#x60;standard&#x60;&#x60; &#x3D; priced, &#x60;&#x60;shipped&#x60;&#x60; &#x3D; quantities only), and the lifecycle actions available to it.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
     def list_document_types_api_v1_reference_document_types_get_with_http_info(opts = {})
