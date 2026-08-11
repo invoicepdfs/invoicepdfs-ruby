@@ -5,6 +5,8 @@
 .travis.yml
 Gemfile
 Rakefile
+docs/ApiErrorResponse.md
+docs/ApiErrorResponseError.md
 docs/ApiKeyCreateRequest.md
 docs/ApiKeyCreateResponse.md
 docs/ApiKeyCreated.md
@@ -110,7 +112,6 @@ docs/DocumentsListResponse.md
 docs/FileOut.md
 docs/FileResponse.md
 docs/FilesApi.md
-docs/HTTPValidationError.md
 docs/HealthApi.md
 docs/HealthResponse.md
 docs/ImportCreateRequest.md
@@ -142,7 +143,6 @@ docs/JobResponse.md
 docs/JobsApi.md
 docs/LineItemDiscountInput.md
 docs/LineItemTaxInput.md
-docs/LocationInner.md
 docs/LogsApi.md
 docs/Money.md
 docs/MoneyOut.md
@@ -199,7 +199,6 @@ docs/UsageData.md
 docs/UsagePeriod.md
 docs/UsageRenders.md
 docs/UsageResponse.md
-docs/ValidationError.md
 docs/VersionResponse.md
 docs/WebhookDeliveriesListResponse.md
 docs/WebhookDeliveryOut.md
@@ -255,6 +254,8 @@ lib/invoicepdfs/api/workspaces_api.rb
 lib/invoicepdfs/api_client.rb
 lib/invoicepdfs/api_error.rb
 lib/invoicepdfs/configuration.rb
+lib/invoicepdfs/models/api_error_response.rb
+lib/invoicepdfs/models/api_error_response_error.rb
 lib/invoicepdfs/models/api_key_create_request.rb
 lib/invoicepdfs/models/api_key_create_response.rb
 lib/invoicepdfs/models/api_key_created.rb
@@ -350,7 +351,6 @@ lib/invoicepdfs/models/documents_list_response.rb
 lib/invoicepdfs/models/file_out.rb
 lib/invoicepdfs/models/file_response.rb
 lib/invoicepdfs/models/health_response.rb
-lib/invoicepdfs/models/http_validation_error.rb
 lib/invoicepdfs/models/import_create_request.rb
 lib/invoicepdfs/models/import_out.rb
 lib/invoicepdfs/models/import_response.rb
@@ -377,7 +377,6 @@ lib/invoicepdfs/models/job_progress_out.rb
 lib/invoicepdfs/models/job_response.rb
 lib/invoicepdfs/models/line_item_discount_input.rb
 lib/invoicepdfs/models/line_item_tax_input.rb
-lib/invoicepdfs/models/location_inner.rb
 lib/invoicepdfs/models/money.rb
 lib/invoicepdfs/models/money_out.rb
 lib/invoicepdfs/models/numbering_sequence_create_request.rb
@@ -423,7 +422,6 @@ lib/invoicepdfs/models/usage_data.rb
 lib/invoicepdfs/models/usage_period.rb
 lib/invoicepdfs/models/usage_renders.rb
 lib/invoicepdfs/models/usage_response.rb
-lib/invoicepdfs/models/validation_error.rb
 lib/invoicepdfs/models/version_response.rb
 lib/invoicepdfs/models/webhook_deliveries_list_response.rb
 lib/invoicepdfs/models/webhook_delivery_out.rb
@@ -444,4 +442,6 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
+spec/models/api_error_response_error_spec.rb
+spec/models/api_error_response_spec.rb
 spec/spec_helper.rb
