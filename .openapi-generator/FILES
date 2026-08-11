@@ -442,6 +442,4 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
-spec/models/api_error_response_error_spec.rb
-spec/models/api_error_response_spec.rb
 spec/spec_helper.rb

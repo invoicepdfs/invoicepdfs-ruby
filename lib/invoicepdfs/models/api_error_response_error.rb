@@ -15,6 +15,9 @@ require 'time'
 
 module InvoicePDFs
   class ApiErrorResponseError
+    # HTTP status, mirroring the response status line.
+    attr_accessor :status
+
     attr_accessor :code
 
     attr_accessor :message
@@ -28,6 +31,7 @@ module InvoicePDFs
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'status' => :'status',
         :'code' => :'code',
         :'message' => :'message',
         :'request_id' => :'request_id',
@@ -43,6 +47,7 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'status' => :'Integer',
         :'code' => :'String',
         :'message' => :'String',
         :'request_id' => :'String',
@@ -73,6 +78,12 @@ module InvoicePDFs
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'status')
+        self.status = attributes[:'status']
+      else
+        self.status = nil
+      end
+
       if attributes.key?(:'code')
         self.code = attributes[:'code']
       else
@@ -99,6 +110,10 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
       if @code.nil?
         invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
@@ -114,6 +129,7 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @status.nil?
       return false if @code.nil?
       return false if @message.nil?
       true
@@ -124,6 +140,7 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          status == o.status &&
           code == o.code &&
           message == o.message &&
           request_id == o.request_id &&
@@ -139,7 +156,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, message, request_id, details].hash
+      [status, code, message, request_id, details].hash
     end
 
     # Builds the object from hash
