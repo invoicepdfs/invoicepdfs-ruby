@@ -19,20 +19,20 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Health
+    # Get Health
     # @param [Hash] opts the optional parameters
     # @return [HealthResponse]
-    def health_health_get(opts = {})
-      data, _status_code, _headers = health_health_get_with_http_info(opts)
+    def get_health(opts = {})
+      data, _status_code, _headers = get_health_with_http_info(opts)
       data
     end
 
-    # Health
+    # Get Health
     # @param [Hash] opts the optional parameters
     # @return [Array<(HealthResponse, Integer, Hash)>] HealthResponse data, response status code and response headers
-    def health_health_get_with_http_info(opts = {})
+    def get_health_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HealthApi.health_health_get ...'
+        @api_client.config.logger.debug 'Calling API: HealthApi.get_health ...'
       end
       # resource path
       local_var_path = '/health'
@@ -58,7 +58,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"HealthApi.health_health_get",
+        :operation => :"HealthApi.get_health",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -69,25 +69,25 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HealthApi#health_health_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HealthApi#get_health\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Ready
+    # Get Readiness
     # @param [Hash] opts the optional parameters
     # @return [ReadyResponse]
-    def ready_ready_get(opts = {})
-      data, _status_code, _headers = ready_ready_get_with_http_info(opts)
+    def get_readiness(opts = {})
+      data, _status_code, _headers = get_readiness_with_http_info(opts)
       data
     end
 
-    # Ready
+    # Get Readiness
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReadyResponse, Integer, Hash)>] ReadyResponse data, response status code and response headers
-    def ready_ready_get_with_http_info(opts = {})
+    def get_readiness_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HealthApi.ready_ready_get ...'
+        @api_client.config.logger.debug 'Calling API: HealthApi.get_readiness ...'
       end
       # resource path
       local_var_path = '/ready'
@@ -113,7 +113,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"HealthApi.ready_ready_get",
+        :operation => :"HealthApi.get_readiness",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -124,25 +124,25 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HealthApi#ready_ready_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HealthApi#get_readiness\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Version
+    # Get Version
     # @param [Hash] opts the optional parameters
     # @return [VersionResponse]
-    def version_version_get(opts = {})
-      data, _status_code, _headers = version_version_get_with_http_info(opts)
+    def get_version(opts = {})
+      data, _status_code, _headers = get_version_with_http_info(opts)
       data
     end
 
-    # Version
+    # Get Version
     # @param [Hash] opts the optional parameters
     # @return [Array<(VersionResponse, Integer, Hash)>] VersionResponse data, response status code and response headers
-    def version_version_get_with_http_info(opts = {})
+    def get_version_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: HealthApi.version_version_get ...'
+        @api_client.config.logger.debug 'Calling API: HealthApi.get_version ...'
       end
       # resource path
       local_var_path = '/version'
@@ -168,7 +168,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"HealthApi.version_version_get",
+        :operation => :"HealthApi.get_version",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -179,7 +179,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: HealthApi#version_version_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: HealthApi#get_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

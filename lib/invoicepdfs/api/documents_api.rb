@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def archive_document_api_v1_documents_document_id_archive_post(document_id, opts = {})
-      data, _status_code, _headers = archive_document_api_v1_documents_document_id_archive_post_with_http_info(document_id, opts)
+    def archive_document(document_id, opts = {})
+      data, _status_code, _headers = archive_document_with_http_info(document_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def archive_document_api_v1_documents_document_id_archive_post_with_http_info(document_id, opts = {})
+    def archive_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.archive_document_api_v1_documents_document_id_archive_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.archive_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.archive_document_api_v1_documents_document_id_archive_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.archive_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/archive'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.archive_document_api_v1_documents_document_id_archive_post",
+        :operation => :"DocumentsApi.archive_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#archive_document_api_v1_documents_document_id_archive_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#archive_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param document_calculate_request [DocumentCalculateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentCalculateResponse]
-    def calculate_document_api_v1_documents_calculate_post(document_calculate_request, opts = {})
-      data, _status_code, _headers = calculate_document_api_v1_documents_calculate_post_with_http_info(document_calculate_request, opts)
+    def calculate_document(document_calculate_request, opts = {})
+      data, _status_code, _headers = calculate_document_with_http_info(document_calculate_request, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param document_calculate_request [DocumentCalculateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentCalculateResponse, Integer, Hash)>] DocumentCalculateResponse data, response status code and response headers
-    def calculate_document_api_v1_documents_calculate_post_with_http_info(document_calculate_request, opts = {})
+    def calculate_document_with_http_info(document_calculate_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.calculate_document_api_v1_documents_calculate_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.calculate_document ...'
       end
       # verify the required parameter 'document_calculate_request' is set
       if @api_client.config.client_side_validation && document_calculate_request.nil?
-        fail ArgumentError, "Missing the required parameter 'document_calculate_request' when calling DocumentsApi.calculate_document_api_v1_documents_calculate_post"
+        fail ArgumentError, "Missing the required parameter 'document_calculate_request' when calling DocumentsApi.calculate_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/calculate'
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.calculate_document_api_v1_documents_calculate_post",
+        :operation => :"DocumentsApi.calculate_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#calculate_document_api_v1_documents_calculate_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#calculate_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -151,8 +151,8 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [DocumentResponse]
-    def create_document_api_v1_documents_post(document_create_request, opts = {})
-      data, _status_code, _headers = create_document_api_v1_documents_post_with_http_info(document_create_request, opts)
+    def create_document(document_create_request, opts = {})
+      data, _status_code, _headers = create_document_with_http_info(document_create_request, opts)
       data
     end
 
@@ -161,13 +161,13 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def create_document_api_v1_documents_post_with_http_info(document_create_request, opts = {})
+    def create_document_with_http_info(document_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.create_document_api_v1_documents_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.create_document ...'
       end
       # verify the required parameter 'document_create_request' is set
       if @api_client.config.client_side_validation && document_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'document_create_request' when calling DocumentsApi.create_document_api_v1_documents_post"
+        fail ArgumentError, "Missing the required parameter 'document_create_request' when calling DocumentsApi.create_document"
       end
       # resource path
       local_var_path = '/api/v1/documents'
@@ -199,7 +199,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.create_document_api_v1_documents_post",
+        :operation => :"DocumentsApi.create_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -210,7 +210,82 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#create_document_api_v1_documents_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#create_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create Document Render
+    # @param document_id [String] 
+    # @param document_render_options [DocumentRenderOptions] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key 
+    # @return [Object]
+    def create_document_render(document_id, document_render_options, opts = {})
+      data, _status_code, _headers = create_document_render_with_http_info(document_id, document_render_options, opts)
+      data
+    end
+
+    # Create Document Render
+    # @param document_id [String] 
+    # @param document_render_options [DocumentRenderOptions] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key 
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def create_document_render_with_http_info(document_id, document_render_options, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.create_document_render ...'
+      end
+      # verify the required parameter 'document_id' is set
+      if @api_client.config.client_side_validation && document_id.nil?
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.create_document_render"
+      end
+      # verify the required parameter 'document_render_options' is set
+      if @api_client.config.client_side_validation && document_render_options.nil?
+        fail ArgumentError, "Missing the required parameter 'document_render_options' when calling DocumentsApi.create_document_render"
+      end
+      # resource path
+      local_var_path = '/api/v1/documents/{document_id}/renders'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_render_options)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.create_document_render",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#create_document_render\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -219,8 +294,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_document_api_v1_documents_document_id_delete(document_id, opts = {})
-      data, _status_code, _headers = delete_document_api_v1_documents_document_id_delete_with_http_info(document_id, opts)
+    def delete_document(document_id, opts = {})
+      data, _status_code, _headers = delete_document_with_http_info(document_id, opts)
       data
     end
 
@@ -228,13 +303,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_document_api_v1_documents_document_id_delete_with_http_info(document_id, opts = {})
+    def delete_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.delete_document_api_v1_documents_document_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.delete_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.delete_document_api_v1_documents_document_id_delete"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.delete_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -260,7 +335,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.delete_document_api_v1_documents_document_id_delete",
+        :operation => :"DocumentsApi.delete_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -271,7 +346,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#delete_document_api_v1_documents_document_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#delete_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -280,8 +355,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def duplicate_document_api_v1_documents_document_id_duplicate_post(document_id, opts = {})
-      data, _status_code, _headers = duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info(document_id, opts)
+    def duplicate_document(document_id, opts = {})
+      data, _status_code, _headers = duplicate_document_with_http_info(document_id, opts)
       data
     end
 
@@ -289,13 +364,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info(document_id, opts = {})
+    def duplicate_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.duplicate_document_api_v1_documents_document_id_duplicate_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.duplicate_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.duplicate_document_api_v1_documents_document_id_duplicate_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.duplicate_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/duplicate'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -321,7 +396,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.duplicate_document_api_v1_documents_document_id_duplicate_post",
+        :operation => :"DocumentsApi.duplicate_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -332,7 +407,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#duplicate_document_api_v1_documents_document_id_duplicate_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#duplicate_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -341,8 +416,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def finalize_document_api_v1_documents_document_id_finalize_post(document_id, opts = {})
-      data, _status_code, _headers = finalize_document_api_v1_documents_document_id_finalize_post_with_http_info(document_id, opts)
+    def finalize_document(document_id, opts = {})
+      data, _status_code, _headers = finalize_document_with_http_info(document_id, opts)
       data
     end
 
@@ -350,13 +425,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def finalize_document_api_v1_documents_document_id_finalize_post_with_http_info(document_id, opts = {})
+    def finalize_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.finalize_document_api_v1_documents_document_id_finalize_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.finalize_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.finalize_document_api_v1_documents_document_id_finalize_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.finalize_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/finalize'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -382,7 +457,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.finalize_document_api_v1_documents_document_id_finalize_post",
+        :operation => :"DocumentsApi.finalize_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -393,7 +468,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#finalize_document_api_v1_documents_document_id_finalize_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#finalize_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -402,8 +477,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def get_document_api_v1_documents_document_id_get(document_id, opts = {})
-      data, _status_code, _headers = get_document_api_v1_documents_document_id_get_with_http_info(document_id, opts)
+    def get_document(document_id, opts = {})
+      data, _status_code, _headers = get_document_with_http_info(document_id, opts)
       data
     end
 
@@ -411,13 +486,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def get_document_api_v1_documents_document_id_get_with_http_info(document_id, opts = {})
+    def get_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.get_document_api_v1_documents_document_id_get ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.get_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.get_document_api_v1_documents_document_id_get"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.get_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -443,7 +518,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.get_document_api_v1_documents_document_id_get",
+        :operation => :"DocumentsApi.get_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -454,7 +529,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#get_document_api_v1_documents_document_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#get_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -465,8 +540,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [DeliveriesListResponse]
-    def list_document_deliveries_api_v1_documents_document_id_deliveries_get(document_id, opts = {})
-      data, _status_code, _headers = list_document_deliveries_api_v1_documents_document_id_deliveries_get_with_http_info(document_id, opts)
+    def list_document_deliveries(document_id, opts = {})
+      data, _status_code, _headers = list_document_deliveries_with_http_info(document_id, opts)
       data
     end
 
@@ -476,20 +551,20 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(DeliveriesListResponse, Integer, Hash)>] DeliveriesListResponse data, response status code and response headers
-    def list_document_deliveries_api_v1_documents_document_id_deliveries_get_with_http_info(document_id, opts = {})
+    def list_document_deliveries_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.list_document_deliveries_api_v1_documents_document_id_deliveries_get ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.list_document_deliveries ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.list_document_deliveries_api_v1_documents_document_id_deliveries_get"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.list_document_deliveries"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_document_deliveries_api_v1_documents_document_id_deliveries_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_document_deliveries, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_document_deliveries_api_v1_documents_document_id_deliveries_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_document_deliveries, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -518,7 +593,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.list_document_deliveries_api_v1_documents_document_id_deliveries_get",
+        :operation => :"DocumentsApi.list_document_deliveries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -529,7 +604,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#list_document_deliveries_api_v1_documents_document_id_deliveries_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#list_document_deliveries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -541,8 +616,8 @@ module InvoicePDFs
     # @option opts [String] :document_type 
     # @option opts [String] :status 
     # @return [DocumentsListResponse]
-    def list_documents_api_v1_documents_get(opts = {})
-      data, _status_code, _headers = list_documents_api_v1_documents_get_with_http_info(opts)
+    def list_documents(opts = {})
+      data, _status_code, _headers = list_documents_with_http_info(opts)
       data
     end
 
@@ -553,16 +628,16 @@ module InvoicePDFs
     # @option opts [String] :document_type 
     # @option opts [String] :status 
     # @return [Array<(DocumentsListResponse, Integer, Hash)>] DocumentsListResponse data, response status code and response headers
-    def list_documents_api_v1_documents_get_with_http_info(opts = {})
+    def list_documents_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.list_documents_api_v1_documents_get ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.list_documents ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_documents_api_v1_documents_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_documents, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_documents_api_v1_documents_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DocumentsApi.list_documents, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -593,7 +668,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.list_documents_api_v1_documents_get",
+        :operation => :"DocumentsApi.list_documents",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -604,7 +679,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#list_documents_api_v1_documents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#list_documents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -613,8 +688,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def mark_paid_api_v1_documents_document_id_mark_paid_post(document_id, opts = {})
-      data, _status_code, _headers = mark_paid_api_v1_documents_document_id_mark_paid_post_with_http_info(document_id, opts)
+    def mark_paid(document_id, opts = {})
+      data, _status_code, _headers = mark_paid_with_http_info(document_id, opts)
       data
     end
 
@@ -622,13 +697,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def mark_paid_api_v1_documents_document_id_mark_paid_post_with_http_info(document_id, opts = {})
+    def mark_paid_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.mark_paid_api_v1_documents_document_id_mark_paid_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.mark_paid ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.mark_paid_api_v1_documents_document_id_mark_paid_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.mark_paid"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/mark-paid'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -654,7 +729,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.mark_paid_api_v1_documents_document_id_mark_paid_post",
+        :operation => :"DocumentsApi.mark_paid",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -665,7 +740,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#mark_paid_api_v1_documents_document_id_mark_paid_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#mark_paid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -674,8 +749,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def mark_sent_api_v1_documents_document_id_mark_sent_post(document_id, opts = {})
-      data, _status_code, _headers = mark_sent_api_v1_documents_document_id_mark_sent_post_with_http_info(document_id, opts)
+    def mark_sent(document_id, opts = {})
+      data, _status_code, _headers = mark_sent_with_http_info(document_id, opts)
       data
     end
 
@@ -683,13 +758,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def mark_sent_api_v1_documents_document_id_mark_sent_post_with_http_info(document_id, opts = {})
+    def mark_sent_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.mark_sent_api_v1_documents_document_id_mark_sent_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.mark_sent ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.mark_sent_api_v1_documents_document_id_mark_sent_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.mark_sent"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/mark-sent'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -715,7 +790,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.mark_sent_api_v1_documents_document_id_mark_sent_post",
+        :operation => :"DocumentsApi.mark_sent",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -726,7 +801,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#mark_sent_api_v1_documents_document_id_mark_sent_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#mark_sent\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -735,8 +810,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def mark_unpaid_api_v1_documents_document_id_mark_unpaid_post(document_id, opts = {})
-      data, _status_code, _headers = mark_unpaid_api_v1_documents_document_id_mark_unpaid_post_with_http_info(document_id, opts)
+    def mark_unpaid(document_id, opts = {})
+      data, _status_code, _headers = mark_unpaid_with_http_info(document_id, opts)
       data
     end
 
@@ -744,13 +819,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def mark_unpaid_api_v1_documents_document_id_mark_unpaid_post_with_http_info(document_id, opts = {})
+    def mark_unpaid_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.mark_unpaid_api_v1_documents_document_id_mark_unpaid_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.mark_unpaid ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.mark_unpaid_api_v1_documents_document_id_mark_unpaid_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.mark_unpaid"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/mark-unpaid'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -776,7 +851,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.mark_unpaid_api_v1_documents_document_id_mark_unpaid_post",
+        :operation => :"DocumentsApi.mark_unpaid",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -787,180 +862,33 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#mark_unpaid_api_v1_documents_document_id_mark_unpaid_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Patch Document
-    # @param document_id [String] 
-    # @param document_patch_request [DocumentPatchRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [DocumentResponse]
-    def patch_document_api_v1_documents_document_id_patch(document_id, document_patch_request, opts = {})
-      data, _status_code, _headers = patch_document_api_v1_documents_document_id_patch_with_http_info(document_id, document_patch_request, opts)
-      data
-    end
-
-    # Patch Document
-    # @param document_id [String] 
-    # @param document_patch_request [DocumentPatchRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def patch_document_api_v1_documents_document_id_patch_with_http_info(document_id, document_patch_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.patch_document_api_v1_documents_document_id_patch ...'
-      end
-      # verify the required parameter 'document_id' is set
-      if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.patch_document_api_v1_documents_document_id_patch"
-      end
-      # verify the required parameter 'document_patch_request' is set
-      if @api_client.config.client_side_validation && document_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'document_patch_request' when calling DocumentsApi.patch_document_api_v1_documents_document_id_patch"
-      end
-      # resource path
-      local_var_path = '/api/v1/documents/{document_id}'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_patch_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'DocumentResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"DocumentsApi.patch_document_api_v1_documents_document_id_patch",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#patch_document_api_v1_documents_document_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#mark_unpaid\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Render Document
-    # @param document_id [String] 
-    # @param app_documents_schemas_document_render_request [AppDocumentsSchemasDocumentRenderRequest] 
+    # @param document_render_request [DocumentRenderRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Object]
-    def render_document_api_v1_documents_document_id_renders_post(document_id, app_documents_schemas_document_render_request, opts = {})
-      data, _status_code, _headers = render_document_api_v1_documents_document_id_renders_post_with_http_info(document_id, app_documents_schemas_document_render_request, opts)
+    def render_document(document_render_request, opts = {})
+      data, _status_code, _headers = render_document_with_http_info(document_render_request, opts)
       data
     end
 
     # Render Document
-    # @param document_id [String] 
-    # @param app_documents_schemas_document_render_request [AppDocumentsSchemasDocumentRenderRequest] 
+    # @param document_render_request [DocumentRenderRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def render_document_api_v1_documents_document_id_renders_post_with_http_info(document_id, app_documents_schemas_document_render_request, opts = {})
+    def render_document_with_http_info(document_render_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.render_document_api_v1_documents_document_id_renders_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.render_document ...'
       end
-      # verify the required parameter 'document_id' is set
-      if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.render_document_api_v1_documents_document_id_renders_post"
-      end
-      # verify the required parameter 'app_documents_schemas_document_render_request' is set
-      if @api_client.config.client_side_validation && app_documents_schemas_document_render_request.nil?
-        fail ArgumentError, "Missing the required parameter 'app_documents_schemas_document_render_request' when calling DocumentsApi.render_document_api_v1_documents_document_id_renders_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/documents/{document_id}/renders'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(app_documents_schemas_document_render_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'Object'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"DocumentsApi.render_document_api_v1_documents_document_id_renders_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#render_document_api_v1_documents_document_id_renders_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Render Document
-    # @param app_schemas_v1_document_render_request [AppSchemasV1DocumentRenderRequest] 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key 
-    # @return [Object]
-    def render_document_api_v1_documents_render_post(app_schemas_v1_document_render_request, opts = {})
-      data, _status_code, _headers = render_document_api_v1_documents_render_post_with_http_info(app_schemas_v1_document_render_request, opts)
-      data
-    end
-
-    # Render Document
-    # @param app_schemas_v1_document_render_request [AppSchemasV1DocumentRenderRequest] 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key 
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def render_document_api_v1_documents_render_post_with_http_info(app_schemas_v1_document_render_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.render_document_api_v1_documents_render_post ...'
-      end
-      # verify the required parameter 'app_schemas_v1_document_render_request' is set
-      if @api_client.config.client_side_validation && app_schemas_v1_document_render_request.nil?
-        fail ArgumentError, "Missing the required parameter 'app_schemas_v1_document_render_request' when calling DocumentsApi.render_document_api_v1_documents_render_post"
+      # verify the required parameter 'document_render_request' is set
+      if @api_client.config.client_side_validation && document_render_request.nil?
+        fail ArgumentError, "Missing the required parameter 'document_render_request' when calling DocumentsApi.render_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/render'
@@ -983,7 +911,7 @@ module InvoicePDFs
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(app_schemas_v1_document_render_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_render_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'Object'
@@ -992,7 +920,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.render_document_api_v1_documents_render_post",
+        :operation => :"DocumentsApi.render_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1003,7 +931,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#render_document_api_v1_documents_render_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#render_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1012,8 +940,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def restore_document_api_v1_documents_document_id_restore_post(document_id, opts = {})
-      data, _status_code, _headers = restore_document_api_v1_documents_document_id_restore_post_with_http_info(document_id, opts)
+    def restore_document(document_id, opts = {})
+      data, _status_code, _headers = restore_document_with_http_info(document_id, opts)
       data
     end
 
@@ -1021,13 +949,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def restore_document_api_v1_documents_document_id_restore_post_with_http_info(document_id, opts = {})
+    def restore_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.restore_document_api_v1_documents_document_id_restore_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.restore_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.restore_document_api_v1_documents_document_id_restore_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.restore_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/restore'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -1053,7 +981,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.restore_document_api_v1_documents_document_id_restore_post",
+        :operation => :"DocumentsApi.restore_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1064,7 +992,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#restore_document_api_v1_documents_document_id_restore_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#restore_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1074,8 +1002,8 @@ module InvoicePDFs
     # @param delivery_send_request [DeliverySendRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DeliveryResponse]
-    def send_document_api_v1_documents_document_id_send_post(document_id, delivery_send_request, opts = {})
-      data, _status_code, _headers = send_document_api_v1_documents_document_id_send_post_with_http_info(document_id, delivery_send_request, opts)
+    def send_document(document_id, delivery_send_request, opts = {})
+      data, _status_code, _headers = send_document_with_http_info(document_id, delivery_send_request, opts)
       data
     end
 
@@ -1084,17 +1012,17 @@ module InvoicePDFs
     # @param delivery_send_request [DeliverySendRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeliveryResponse, Integer, Hash)>] DeliveryResponse data, response status code and response headers
-    def send_document_api_v1_documents_document_id_send_post_with_http_info(document_id, delivery_send_request, opts = {})
+    def send_document_with_http_info(document_id, delivery_send_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.send_document_api_v1_documents_document_id_send_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.send_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.send_document_api_v1_documents_document_id_send_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.send_document"
       end
       # verify the required parameter 'delivery_send_request' is set
       if @api_client.config.client_side_validation && delivery_send_request.nil?
-        fail ArgumentError, "Missing the required parameter 'delivery_send_request' when calling DocumentsApi.send_document_api_v1_documents_document_id_send_post"
+        fail ArgumentError, "Missing the required parameter 'delivery_send_request' when calling DocumentsApi.send_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/send'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -1125,7 +1053,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.send_document_api_v1_documents_document_id_send_post",
+        :operation => :"DocumentsApi.send_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1136,7 +1064,79 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#send_document_api_v1_documents_document_id_send_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#send_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Document
+    # @param document_id [String] 
+    # @param document_patch_request [DocumentPatchRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentResponse]
+    def update_document(document_id, document_patch_request, opts = {})
+      data, _status_code, _headers = update_document_with_http_info(document_id, document_patch_request, opts)
+      data
+    end
+
+    # Update Document
+    # @param document_id [String] 
+    # @param document_patch_request [DocumentPatchRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
+    def update_document_with_http_info(document_id, document_patch_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.update_document ...'
+      end
+      # verify the required parameter 'document_id' is set
+      if @api_client.config.client_side_validation && document_id.nil?
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.update_document"
+      end
+      # verify the required parameter 'document_patch_request' is set
+      if @api_client.config.client_side_validation && document_patch_request.nil?
+        fail ArgumentError, "Missing the required parameter 'document_patch_request' when calling DocumentsApi.update_document"
+      end
+      # resource path
+      local_var_path = '/api/v1/documents/{document_id}'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_patch_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DocumentResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.update_document",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#update_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1145,8 +1145,8 @@ module InvoicePDFs
     # @param document_validate_request [DocumentValidateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentValidateResponse]
-    def validate_document_api_v1_documents_validate_post(document_validate_request, opts = {})
-      data, _status_code, _headers = validate_document_api_v1_documents_validate_post_with_http_info(document_validate_request, opts)
+    def validate_document(document_validate_request, opts = {})
+      data, _status_code, _headers = validate_document_with_http_info(document_validate_request, opts)
       data
     end
 
@@ -1154,13 +1154,13 @@ module InvoicePDFs
     # @param document_validate_request [DocumentValidateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentValidateResponse, Integer, Hash)>] DocumentValidateResponse data, response status code and response headers
-    def validate_document_api_v1_documents_validate_post_with_http_info(document_validate_request, opts = {})
+    def validate_document_with_http_info(document_validate_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.validate_document_api_v1_documents_validate_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.validate_document ...'
       end
       # verify the required parameter 'document_validate_request' is set
       if @api_client.config.client_side_validation && document_validate_request.nil?
-        fail ArgumentError, "Missing the required parameter 'document_validate_request' when calling DocumentsApi.validate_document_api_v1_documents_validate_post"
+        fail ArgumentError, "Missing the required parameter 'document_validate_request' when calling DocumentsApi.validate_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/validate'
@@ -1191,7 +1191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.validate_document_api_v1_documents_validate_post",
+        :operation => :"DocumentsApi.validate_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1202,7 +1202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#validate_document_api_v1_documents_validate_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#validate_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1211,8 +1211,8 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DocumentResponse]
-    def void_document_api_v1_documents_document_id_void_post(document_id, opts = {})
-      data, _status_code, _headers = void_document_api_v1_documents_document_id_void_post_with_http_info(document_id, opts)
+    def void_document(document_id, opts = {})
+      data, _status_code, _headers = void_document_with_http_info(document_id, opts)
       data
     end
 
@@ -1220,13 +1220,13 @@ module InvoicePDFs
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DocumentResponse, Integer, Hash)>] DocumentResponse data, response status code and response headers
-    def void_document_api_v1_documents_document_id_void_post_with_http_info(document_id, opts = {})
+    def void_document_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DocumentsApi.void_document_api_v1_documents_document_id_void_post ...'
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.void_document ...'
       end
       # verify the required parameter 'document_id' is set
       if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.void_document_api_v1_documents_document_id_void_post"
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.void_document"
       end
       # resource path
       local_var_path = '/api/v1/documents/{document_id}/void'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
@@ -1252,7 +1252,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DocumentsApi.void_document_api_v1_documents_document_id_void_post",
+        :operation => :"DocumentsApi.void_document",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1263,7 +1263,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DocumentsApi#void_document_api_v1_documents_document_id_void_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DocumentsApi#void_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

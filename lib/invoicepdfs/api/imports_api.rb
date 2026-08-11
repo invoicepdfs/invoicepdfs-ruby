@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
-    def cancel_import_api_v1_imports_import_id_cancel_post(import_id, opts = {})
-      data, _status_code, _headers = cancel_import_api_v1_imports_import_id_cancel_post_with_http_info(import_id, opts)
+    def cancel_import(import_id, opts = {})
+      data, _status_code, _headers = cancel_import_with_http_info(import_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
-    def cancel_import_api_v1_imports_import_id_cancel_post_with_http_info(import_id, opts = {})
+    def cancel_import_with_http_info(import_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImportsApi.cancel_import_api_v1_imports_import_id_cancel_post ...'
+        @api_client.config.logger.debug 'Calling API: ImportsApi.cancel_import ...'
       end
       # verify the required parameter 'import_id' is set
       if @api_client.config.client_side_validation && import_id.nil?
-        fail ArgumentError, "Missing the required parameter 'import_id' when calling ImportsApi.cancel_import_api_v1_imports_import_id_cancel_post"
+        fail ArgumentError, "Missing the required parameter 'import_id' when calling ImportsApi.cancel_import"
       end
       # resource path
       local_var_path = '/api/v1/imports/{import_id}/cancel'.sub('{' + 'import_id' + '}', CGI.escape(import_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ImportsApi.cancel_import_api_v1_imports_import_id_cancel_post",
+        :operation => :"ImportsApi.cancel_import",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImportsApi#cancel_import_api_v1_imports_import_id_cancel_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImportsApi#cancel_import\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
-    def confirm_import_api_v1_imports_import_id_confirm_post(import_id, opts = {})
-      data, _status_code, _headers = confirm_import_api_v1_imports_import_id_confirm_post_with_http_info(import_id, opts)
+    def confirm_import(import_id, opts = {})
+      data, _status_code, _headers = confirm_import_with_http_info(import_id, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
-    def confirm_import_api_v1_imports_import_id_confirm_post_with_http_info(import_id, opts = {})
+    def confirm_import_with_http_info(import_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImportsApi.confirm_import_api_v1_imports_import_id_confirm_post ...'
+        @api_client.config.logger.debug 'Calling API: ImportsApi.confirm_import ...'
       end
       # verify the required parameter 'import_id' is set
       if @api_client.config.client_side_validation && import_id.nil?
-        fail ArgumentError, "Missing the required parameter 'import_id' when calling ImportsApi.confirm_import_api_v1_imports_import_id_confirm_post"
+        fail ArgumentError, "Missing the required parameter 'import_id' when calling ImportsApi.confirm_import"
       end
       # resource path
       local_var_path = '/api/v1/imports/{import_id}/confirm'.sub('{' + 'import_id' + '}', CGI.escape(import_id.to_s))
@@ -125,7 +125,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ImportsApi.confirm_import_api_v1_imports_import_id_confirm_post",
+        :operation => :"ImportsApi.confirm_import",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -136,7 +136,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImportsApi#confirm_import_api_v1_imports_import_id_confirm_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImportsApi#confirm_import\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -145,8 +145,8 @@ module InvoicePDFs
     # @param import_create_request [ImportCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
-    def create_import_api_v1_imports_post(import_create_request, opts = {})
-      data, _status_code, _headers = create_import_api_v1_imports_post_with_http_info(import_create_request, opts)
+    def create_import(import_create_request, opts = {})
+      data, _status_code, _headers = create_import_with_http_info(import_create_request, opts)
       data
     end
 
@@ -154,13 +154,13 @@ module InvoicePDFs
     # @param import_create_request [ImportCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
-    def create_import_api_v1_imports_post_with_http_info(import_create_request, opts = {})
+    def create_import_with_http_info(import_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImportsApi.create_import_api_v1_imports_post ...'
+        @api_client.config.logger.debug 'Calling API: ImportsApi.create_import ...'
       end
       # verify the required parameter 'import_create_request' is set
       if @api_client.config.client_side_validation && import_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'import_create_request' when calling ImportsApi.create_import_api_v1_imports_post"
+        fail ArgumentError, "Missing the required parameter 'import_create_request' when calling ImportsApi.create_import"
       end
       # resource path
       local_var_path = '/api/v1/imports'
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ImportsApi.create_import_api_v1_imports_post",
+        :operation => :"ImportsApi.create_import",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,7 +202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImportsApi#create_import_api_v1_imports_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImportsApi#create_import\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -211,8 +211,8 @@ module InvoicePDFs
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
-    def get_import_api_v1_imports_import_id_get(import_id, opts = {})
-      data, _status_code, _headers = get_import_api_v1_imports_import_id_get_with_http_info(import_id, opts)
+    def get_import(import_id, opts = {})
+      data, _status_code, _headers = get_import_with_http_info(import_id, opts)
       data
     end
 
@@ -220,13 +220,13 @@ module InvoicePDFs
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
-    def get_import_api_v1_imports_import_id_get_with_http_info(import_id, opts = {})
+    def get_import_with_http_info(import_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImportsApi.get_import_api_v1_imports_import_id_get ...'
+        @api_client.config.logger.debug 'Calling API: ImportsApi.get_import ...'
       end
       # verify the required parameter 'import_id' is set
       if @api_client.config.client_side_validation && import_id.nil?
-        fail ArgumentError, "Missing the required parameter 'import_id' when calling ImportsApi.get_import_api_v1_imports_import_id_get"
+        fail ArgumentError, "Missing the required parameter 'import_id' when calling ImportsApi.get_import"
       end
       # resource path
       local_var_path = '/api/v1/imports/{import_id}'.sub('{' + 'import_id' + '}', CGI.escape(import_id.to_s))
@@ -252,7 +252,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ImportsApi.get_import_api_v1_imports_import_id_get",
+        :operation => :"ImportsApi.get_import",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImportsApi#get_import_api_v1_imports_import_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImportsApi#get_import\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_template_version_api_v1_templates_template_id_versions_post**](TemplateVersionsApi.md#create_template_version_api_v1_templates_template_id_versions_post) | **POST** /api/v1/templates/{template_id}/versions | Create Template Version |
-| [**get_template_version_api_v1_templates_template_id_versions_version_get**](TemplateVersionsApi.md#get_template_version_api_v1_templates_template_id_versions_version_get) | **GET** /api/v1/templates/{template_id}/versions/{version} | Get Template Version |
-| [**list_template_versions_api_v1_templates_template_id_versions_get**](TemplateVersionsApi.md#list_template_versions_api_v1_templates_template_id_versions_get) | **GET** /api/v1/templates/{template_id}/versions | List Template Versions |
+| [**create_template_version**](TemplateVersionsApi.md#create_template_version) | **POST** /api/v1/templates/{template_id}/versions | Create Template Version |
+| [**get_template_version**](TemplateVersionsApi.md#get_template_version) | **GET** /api/v1/templates/{template_id}/versions/{version} | Get Template Version |
+| [**list_template_versions**](TemplateVersionsApi.md#list_template_versions) | **GET** /api/v1/templates/{template_id}/versions | List Template Versions |
 
 
-## create_template_version_api_v1_templates_template_id_versions_post
+## create_template_version
 
-> <TemplateVersionResponse> create_template_version_api_v1_templates_template_id_versions_post(template_id, template_version_create_request)
+> <TemplateVersionResponse> create_template_version(template_id, template_version_create_request)
 
 Create Template Version
 
@@ -32,28 +32,28 @@ template_version_create_request = InvoicePDFs::TemplateVersionCreateRequest.new 
 
 begin
   # Create Template Version
-  result = api_instance.create_template_version_api_v1_templates_template_id_versions_post(template_id, template_version_create_request)
+  result = api_instance.create_template_version(template_id, template_version_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TemplateVersionsApi->create_template_version_api_v1_templates_template_id_versions_post: #{e}"
+  puts "Error when calling TemplateVersionsApi->create_template_version: #{e}"
 end
 ```
 
-#### Using the create_template_version_api_v1_templates_template_id_versions_post_with_http_info variant
+#### Using the create_template_version_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TemplateVersionResponse>, Integer, Hash)> create_template_version_api_v1_templates_template_id_versions_post_with_http_info(template_id, template_version_create_request)
+> <Array(<TemplateVersionResponse>, Integer, Hash)> create_template_version_with_http_info(template_id, template_version_create_request)
 
 ```ruby
 begin
   # Create Template Version
-  data, status_code, headers = api_instance.create_template_version_api_v1_templates_template_id_versions_post_with_http_info(template_id, template_version_create_request)
+  data, status_code, headers = api_instance.create_template_version_with_http_info(template_id, template_version_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersionResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TemplateVersionsApi->create_template_version_api_v1_templates_template_id_versions_post_with_http_info: #{e}"
+  puts "Error when calling TemplateVersionsApi->create_template_version_with_http_info: #{e}"
 end
 ```
 
@@ -78,9 +78,9 @@ end
 - **Accept**: application/json
 
 
-## get_template_version_api_v1_templates_template_id_versions_version_get
+## get_template_version
 
-> <TemplateVersionResponse> get_template_version_api_v1_templates_template_id_versions_version_get(template_id, version)
+> <TemplateVersionResponse> get_template_version(template_id, version)
 
 Get Template Version
 
@@ -101,28 +101,28 @@ version = 56 # Integer |
 
 begin
   # Get Template Version
-  result = api_instance.get_template_version_api_v1_templates_template_id_versions_version_get(template_id, version)
+  result = api_instance.get_template_version(template_id, version)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TemplateVersionsApi->get_template_version_api_v1_templates_template_id_versions_version_get: #{e}"
+  puts "Error when calling TemplateVersionsApi->get_template_version: #{e}"
 end
 ```
 
-#### Using the get_template_version_api_v1_templates_template_id_versions_version_get_with_http_info variant
+#### Using the get_template_version_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TemplateVersionResponse>, Integer, Hash)> get_template_version_api_v1_templates_template_id_versions_version_get_with_http_info(template_id, version)
+> <Array(<TemplateVersionResponse>, Integer, Hash)> get_template_version_with_http_info(template_id, version)
 
 ```ruby
 begin
   # Get Template Version
-  data, status_code, headers = api_instance.get_template_version_api_v1_templates_template_id_versions_version_get_with_http_info(template_id, version)
+  data, status_code, headers = api_instance.get_template_version_with_http_info(template_id, version)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersionResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TemplateVersionsApi->get_template_version_api_v1_templates_template_id_versions_version_get_with_http_info: #{e}"
+  puts "Error when calling TemplateVersionsApi->get_template_version_with_http_info: #{e}"
 end
 ```
 
@@ -147,9 +147,9 @@ end
 - **Accept**: application/json
 
 
-## list_template_versions_api_v1_templates_template_id_versions_get
+## list_template_versions
 
-> <TemplateVersionsListResponse> list_template_versions_api_v1_templates_template_id_versions_get(template_id)
+> <TemplateVersionsListResponse> list_template_versions(template_id)
 
 List Template Versions
 
@@ -169,28 +169,28 @@ template_id = 'template_id_example' # String |
 
 begin
   # List Template Versions
-  result = api_instance.list_template_versions_api_v1_templates_template_id_versions_get(template_id)
+  result = api_instance.list_template_versions(template_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TemplateVersionsApi->list_template_versions_api_v1_templates_template_id_versions_get: #{e}"
+  puts "Error when calling TemplateVersionsApi->list_template_versions: #{e}"
 end
 ```
 
-#### Using the list_template_versions_api_v1_templates_template_id_versions_get_with_http_info variant
+#### Using the list_template_versions_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TemplateVersionsListResponse>, Integer, Hash)> list_template_versions_api_v1_templates_template_id_versions_get_with_http_info(template_id)
+> <Array(<TemplateVersionsListResponse>, Integer, Hash)> list_template_versions_with_http_info(template_id)
 
 ```ruby
 begin
   # List Template Versions
-  data, status_code, headers = api_instance.list_template_versions_api_v1_templates_template_id_versions_get_with_http_info(template_id)
+  data, status_code, headers = api_instance.list_template_versions_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TemplateVersionsListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TemplateVersionsApi->list_template_versions_api_v1_templates_template_id_versions_get_with_http_info: #{e}"
+  puts "Error when calling TemplateVersionsApi->list_template_versions_with_http_info: #{e}"
 end
 ```
 

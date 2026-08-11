@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**delete_file_api_v1_files_file_id_delete**](FilesApi.md#delete_file_api_v1_files_file_id_delete) | **DELETE** /api/v1/files/{file_id} | Delete File |
-| [**get_file_api_v1_files_file_id_get**](FilesApi.md#get_file_api_v1_files_file_id_get) | **GET** /api/v1/files/{file_id} | Get File |
-| [**upload_file_api_v1_files_post**](FilesApi.md#upload_file_api_v1_files_post) | **POST** /api/v1/files | Upload File |
+| [**delete_file**](FilesApi.md#delete_file) | **DELETE** /api/v1/files/{file_id} | Delete File |
+| [**get_file**](FilesApi.md#get_file) | **GET** /api/v1/files/{file_id} | Get File |
+| [**upload_file**](FilesApi.md#upload_file) | **POST** /api/v1/files | Upload File |
 
 
-## delete_file_api_v1_files_file_id_delete
+## delete_file
 
-> <SimpleBoolResponse> delete_file_api_v1_files_file_id_delete(file_id)
+> <SimpleBoolResponse> delete_file(file_id)
 
 Delete File
 
@@ -31,28 +31,28 @@ file_id = 'file_id_example' # String |
 
 begin
   # Delete File
-  result = api_instance.delete_file_api_v1_files_file_id_delete(file_id)
+  result = api_instance.delete_file(file_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling FilesApi->delete_file_api_v1_files_file_id_delete: #{e}"
+  puts "Error when calling FilesApi->delete_file: #{e}"
 end
 ```
 
-#### Using the delete_file_api_v1_files_file_id_delete_with_http_info variant
+#### Using the delete_file_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_file_api_v1_files_file_id_delete_with_http_info(file_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_file_with_http_info(file_id)
 
 ```ruby
 begin
   # Delete File
-  data, status_code, headers = api_instance.delete_file_api_v1_files_file_id_delete_with_http_info(file_id)
+  data, status_code, headers = api_instance.delete_file_with_http_info(file_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling FilesApi->delete_file_api_v1_files_file_id_delete_with_http_info: #{e}"
+  puts "Error when calling FilesApi->delete_file_with_http_info: #{e}"
 end
 ```
 
@@ -76,9 +76,9 @@ end
 - **Accept**: application/json
 
 
-## get_file_api_v1_files_file_id_get
+## get_file
 
-> <FileResponse> get_file_api_v1_files_file_id_get(file_id)
+> <FileResponse> get_file(file_id)
 
 Get File
 
@@ -98,28 +98,28 @@ file_id = 'file_id_example' # String |
 
 begin
   # Get File
-  result = api_instance.get_file_api_v1_files_file_id_get(file_id)
+  result = api_instance.get_file(file_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling FilesApi->get_file_api_v1_files_file_id_get: #{e}"
+  puts "Error when calling FilesApi->get_file: #{e}"
 end
 ```
 
-#### Using the get_file_api_v1_files_file_id_get_with_http_info variant
+#### Using the get_file_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FileResponse>, Integer, Hash)> get_file_api_v1_files_file_id_get_with_http_info(file_id)
+> <Array(<FileResponse>, Integer, Hash)> get_file_with_http_info(file_id)
 
 ```ruby
 begin
   # Get File
-  data, status_code, headers = api_instance.get_file_api_v1_files_file_id_get_with_http_info(file_id)
+  data, status_code, headers = api_instance.get_file_with_http_info(file_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling FilesApi->get_file_api_v1_files_file_id_get_with_http_info: #{e}"
+  puts "Error when calling FilesApi->get_file_with_http_info: #{e}"
 end
 ```
 
@@ -143,9 +143,9 @@ end
 - **Accept**: application/json
 
 
-## upload_file_api_v1_files_post
+## upload_file
 
-> <FileResponse> upload_file_api_v1_files_post(file, opts)
+> <FileResponse> upload_file(file, opts)
 
 Upload File
 
@@ -168,28 +168,28 @@ opts = {
 
 begin
   # Upload File
-  result = api_instance.upload_file_api_v1_files_post(file, opts)
+  result = api_instance.upload_file(file, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling FilesApi->upload_file_api_v1_files_post: #{e}"
+  puts "Error when calling FilesApi->upload_file: #{e}"
 end
 ```
 
-#### Using the upload_file_api_v1_files_post_with_http_info variant
+#### Using the upload_file_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FileResponse>, Integer, Hash)> upload_file_api_v1_files_post_with_http_info(file, opts)
+> <Array(<FileResponse>, Integer, Hash)> upload_file_with_http_info(file, opts)
 
 ```ruby
 begin
   # Upload File
-  data, status_code, headers = api_instance.upload_file_api_v1_files_post_with_http_info(file, opts)
+  data, status_code, headers = api_instance.upload_file_with_http_info(file, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <FileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling FilesApi->upload_file_api_v1_files_post_with_http_info: #{e}"
+  puts "Error when calling FilesApi->upload_file_with_http_info: #{e}"
 end
 ```
 

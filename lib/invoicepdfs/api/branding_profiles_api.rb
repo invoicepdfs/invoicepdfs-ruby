@@ -19,26 +19,26 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create Profile
+    # Create Branding Profile
     # @param branding_profile_create_request [BrandingProfileCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
-    def create_profile_api_v1_branding_profiles_post(branding_profile_create_request, opts = {})
-      data, _status_code, _headers = create_profile_api_v1_branding_profiles_post_with_http_info(branding_profile_create_request, opts)
+    def create_branding_profile(branding_profile_create_request, opts = {})
+      data, _status_code, _headers = create_branding_profile_with_http_info(branding_profile_create_request, opts)
       data
     end
 
-    # Create Profile
+    # Create Branding Profile
     # @param branding_profile_create_request [BrandingProfileCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
-    def create_profile_api_v1_branding_profiles_post_with_http_info(branding_profile_create_request, opts = {})
+    def create_branding_profile_with_http_info(branding_profile_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.create_profile_api_v1_branding_profiles_post ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.create_branding_profile ...'
       end
       # verify the required parameter 'branding_profile_create_request' is set
       if @api_client.config.client_side_validation && branding_profile_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'branding_profile_create_request' when calling BrandingProfilesApi.create_profile_api_v1_branding_profiles_post"
+        fail ArgumentError, "Missing the required parameter 'branding_profile_create_request' when calling BrandingProfilesApi.create_branding_profile"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles'
@@ -69,7 +69,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.create_profile_api_v1_branding_profiles_post",
+        :operation => :"BrandingProfilesApi.create_branding_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,31 +80,31 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#create_profile_api_v1_branding_profiles_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#create_branding_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Delete Logo
+    # Delete Branding Logo
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_logo_api_v1_branding_profiles_profile_id_logo_delete(profile_id, opts = {})
-      data, _status_code, _headers = delete_logo_api_v1_branding_profiles_profile_id_logo_delete_with_http_info(profile_id, opts)
+    def delete_branding_logo(profile_id, opts = {})
+      data, _status_code, _headers = delete_branding_logo_with_http_info(profile_id, opts)
       data
     end
 
-    # Delete Logo
+    # Delete Branding Logo
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_logo_api_v1_branding_profiles_profile_id_logo_delete_with_http_info(profile_id, opts = {})
+    def delete_branding_logo_with_http_info(profile_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.delete_logo_api_v1_branding_profiles_profile_id_logo_delete ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.delete_branding_logo ...'
       end
       # verify the required parameter 'profile_id' is set
       if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.delete_logo_api_v1_branding_profiles_profile_id_logo_delete"
+        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.delete_branding_logo"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles/{profile_id}/logo'.sub('{' + 'profile_id' + '}', CGI.escape(profile_id.to_s))
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.delete_logo_api_v1_branding_profiles_profile_id_logo_delete",
+        :operation => :"BrandingProfilesApi.delete_branding_logo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,31 +141,31 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#delete_logo_api_v1_branding_profiles_profile_id_logo_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#delete_branding_logo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Delete Profile
+    # Delete Branding Profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_profile_api_v1_branding_profiles_profile_id_delete(profile_id, opts = {})
-      data, _status_code, _headers = delete_profile_api_v1_branding_profiles_profile_id_delete_with_http_info(profile_id, opts)
+    def delete_branding_profile(profile_id, opts = {})
+      data, _status_code, _headers = delete_branding_profile_with_http_info(profile_id, opts)
       data
     end
 
-    # Delete Profile
+    # Delete Branding Profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_profile_api_v1_branding_profiles_profile_id_delete_with_http_info(profile_id, opts = {})
+    def delete_branding_profile_with_http_info(profile_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.delete_profile_api_v1_branding_profiles_profile_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.delete_branding_profile ...'
       end
       # verify the required parameter 'profile_id' is set
       if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.delete_profile_api_v1_branding_profiles_profile_id_delete"
+        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.delete_branding_profile"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles/{profile_id}'.sub('{' + 'profile_id' + '}', CGI.escape(profile_id.to_s))
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.delete_profile_api_v1_branding_profiles_profile_id_delete",
+        :operation => :"BrandingProfilesApi.delete_branding_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,31 +202,31 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#delete_profile_api_v1_branding_profiles_profile_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#delete_branding_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Get Profile
+    # Get Branding Profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
-    def get_profile_api_v1_branding_profiles_profile_id_get(profile_id, opts = {})
-      data, _status_code, _headers = get_profile_api_v1_branding_profiles_profile_id_get_with_http_info(profile_id, opts)
+    def get_branding_profile(profile_id, opts = {})
+      data, _status_code, _headers = get_branding_profile_with_http_info(profile_id, opts)
       data
     end
 
-    # Get Profile
+    # Get Branding Profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
-    def get_profile_api_v1_branding_profiles_profile_id_get_with_http_info(profile_id, opts = {})
+    def get_branding_profile_with_http_info(profile_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.get_profile_api_v1_branding_profiles_profile_id_get ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.get_branding_profile ...'
       end
       # verify the required parameter 'profile_id' is set
       if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.get_profile_api_v1_branding_profiles_profile_id_get"
+        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.get_branding_profile"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles/{profile_id}'.sub('{' + 'profile_id' + '}', CGI.escape(profile_id.to_s))
@@ -252,7 +252,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.get_profile_api_v1_branding_profiles_profile_id_get",
+        :operation => :"BrandingProfilesApi.get_branding_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,25 +263,25 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#get_profile_api_v1_branding_profiles_profile_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#get_branding_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # List Profiles
+    # List Branding Profiles
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfilesListResponse]
-    def list_profiles_api_v1_branding_profiles_get(opts = {})
-      data, _status_code, _headers = list_profiles_api_v1_branding_profiles_get_with_http_info(opts)
+    def list_branding_profiles(opts = {})
+      data, _status_code, _headers = list_branding_profiles_with_http_info(opts)
       data
     end
 
-    # List Profiles
+    # List Branding Profiles
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfilesListResponse, Integer, Hash)>] BrandingProfilesListResponse data, response status code and response headers
-    def list_profiles_api_v1_branding_profiles_get_with_http_info(opts = {})
+    def list_branding_profiles_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.list_profiles_api_v1_branding_profiles_get ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.list_branding_profiles ...'
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles'
@@ -307,7 +307,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.list_profiles_api_v1_branding_profiles_get",
+        :operation => :"BrandingProfilesApi.list_branding_profiles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -318,31 +318,31 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#list_profiles_api_v1_branding_profiles_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#list_branding_profiles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Set Default
+    # Set Default Branding Profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
-    def set_default_api_v1_branding_profiles_profile_id_default_post(profile_id, opts = {})
-      data, _status_code, _headers = set_default_api_v1_branding_profiles_profile_id_default_post_with_http_info(profile_id, opts)
+    def set_default_branding_profile(profile_id, opts = {})
+      data, _status_code, _headers = set_default_branding_profile_with_http_info(profile_id, opts)
       data
     end
 
-    # Set Default
+    # Set Default Branding Profile
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
-    def set_default_api_v1_branding_profiles_profile_id_default_post_with_http_info(profile_id, opts = {})
+    def set_default_branding_profile_with_http_info(profile_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.set_default_api_v1_branding_profiles_profile_id_default_post ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.set_default_branding_profile ...'
       end
       # verify the required parameter 'profile_id' is set
       if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.set_default_api_v1_branding_profiles_profile_id_default_post"
+        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.set_default_branding_profile"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles/{profile_id}/default'.sub('{' + 'profile_id' + '}', CGI.escape(profile_id.to_s))
@@ -368,7 +368,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.set_default_api_v1_branding_profiles_profile_id_default_post",
+        :operation => :"BrandingProfilesApi.set_default_branding_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -379,37 +379,37 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#set_default_api_v1_branding_profiles_profile_id_default_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#set_default_branding_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Update Profile
+    # Update Branding Profile
     # @param profile_id [String] 
     # @param branding_profile_patch_request [BrandingProfilePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
-    def update_profile_api_v1_branding_profiles_profile_id_patch(profile_id, branding_profile_patch_request, opts = {})
-      data, _status_code, _headers = update_profile_api_v1_branding_profiles_profile_id_patch_with_http_info(profile_id, branding_profile_patch_request, opts)
+    def update_branding_profile(profile_id, branding_profile_patch_request, opts = {})
+      data, _status_code, _headers = update_branding_profile_with_http_info(profile_id, branding_profile_patch_request, opts)
       data
     end
 
-    # Update Profile
+    # Update Branding Profile
     # @param profile_id [String] 
     # @param branding_profile_patch_request [BrandingProfilePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
-    def update_profile_api_v1_branding_profiles_profile_id_patch_with_http_info(profile_id, branding_profile_patch_request, opts = {})
+    def update_branding_profile_with_http_info(profile_id, branding_profile_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.update_profile_api_v1_branding_profiles_profile_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.update_branding_profile ...'
       end
       # verify the required parameter 'profile_id' is set
       if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.update_profile_api_v1_branding_profiles_profile_id_patch"
+        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.update_branding_profile"
       end
       # verify the required parameter 'branding_profile_patch_request' is set
       if @api_client.config.client_side_validation && branding_profile_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'branding_profile_patch_request' when calling BrandingProfilesApi.update_profile_api_v1_branding_profiles_profile_id_patch"
+        fail ArgumentError, "Missing the required parameter 'branding_profile_patch_request' when calling BrandingProfilesApi.update_branding_profile"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles/{profile_id}'.sub('{' + 'profile_id' + '}', CGI.escape(profile_id.to_s))
@@ -440,7 +440,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.update_profile_api_v1_branding_profiles_profile_id_patch",
+        :operation => :"BrandingProfilesApi.update_branding_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -451,37 +451,37 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#update_profile_api_v1_branding_profiles_profile_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#update_branding_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Upload Logo
+    # Upload Branding Logo
     # @param profile_id [String] 
     # @param file [File] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
-    def upload_logo_api_v1_branding_profiles_profile_id_logo_post(profile_id, file, opts = {})
-      data, _status_code, _headers = upload_logo_api_v1_branding_profiles_profile_id_logo_post_with_http_info(profile_id, file, opts)
+    def upload_branding_logo(profile_id, file, opts = {})
+      data, _status_code, _headers = upload_branding_logo_with_http_info(profile_id, file, opts)
       data
     end
 
-    # Upload Logo
+    # Upload Branding Logo
     # @param profile_id [String] 
     # @param file [File] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
-    def upload_logo_api_v1_branding_profiles_profile_id_logo_post_with_http_info(profile_id, file, opts = {})
+    def upload_branding_logo_with_http_info(profile_id, file, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.upload_logo_api_v1_branding_profiles_profile_id_logo_post ...'
+        @api_client.config.logger.debug 'Calling API: BrandingProfilesApi.upload_branding_logo ...'
       end
       # verify the required parameter 'profile_id' is set
       if @api_client.config.client_side_validation && profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.upload_logo_api_v1_branding_profiles_profile_id_logo_post"
+        fail ArgumentError, "Missing the required parameter 'profile_id' when calling BrandingProfilesApi.upload_branding_logo"
       end
       # verify the required parameter 'file' is set
       if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling BrandingProfilesApi.upload_logo_api_v1_branding_profiles_profile_id_logo_post"
+        fail ArgumentError, "Missing the required parameter 'file' when calling BrandingProfilesApi.upload_branding_logo"
       end
       # resource path
       local_var_path = '/api/v1/branding-profiles/{profile_id}/logo'.sub('{' + 'profile_id' + '}', CGI.escape(profile_id.to_s))
@@ -513,7 +513,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BrandingProfilesApi.upload_logo_api_v1_branding_profiles_profile_id_logo_post",
+        :operation => :"BrandingProfilesApi.upload_branding_logo",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -524,7 +524,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BrandingProfilesApi#upload_logo_api_v1_branding_profiles_profile_id_logo_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BrandingProfilesApi#upload_branding_logo\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

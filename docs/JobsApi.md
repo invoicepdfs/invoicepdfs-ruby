@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**cancel_job_api_v1_jobs_job_id_cancel_post**](JobsApi.md#cancel_job_api_v1_jobs_job_id_cancel_post) | **POST** /api/v1/jobs/{job_id}/cancel | Cancel Job |
-| [**get_job_api_v1_jobs_job_id_get**](JobsApi.md#get_job_api_v1_jobs_job_id_get) | **GET** /api/v1/jobs/{job_id} | Get Job |
-| [**retry_job_api_v1_jobs_job_id_retry_post**](JobsApi.md#retry_job_api_v1_jobs_job_id_retry_post) | **POST** /api/v1/jobs/{job_id}/retry | Retry Job |
+| [**cancel_job**](JobsApi.md#cancel_job) | **POST** /api/v1/jobs/{job_id}/cancel | Cancel Job |
+| [**get_job**](JobsApi.md#get_job) | **GET** /api/v1/jobs/{job_id} | Get Job |
+| [**retry_job**](JobsApi.md#retry_job) | **POST** /api/v1/jobs/{job_id}/retry | Retry Job |
 
 
-## cancel_job_api_v1_jobs_job_id_cancel_post
+## cancel_job
 
-> <JobResponse> cancel_job_api_v1_jobs_job_id_cancel_post(job_id)
+> <JobResponse> cancel_job(job_id)
 
 Cancel Job
 
@@ -31,28 +31,28 @@ job_id = 'job_id_example' # String |
 
 begin
   # Cancel Job
-  result = api_instance.cancel_job_api_v1_jobs_job_id_cancel_post(job_id)
+  result = api_instance.cancel_job(job_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling JobsApi->cancel_job_api_v1_jobs_job_id_cancel_post: #{e}"
+  puts "Error when calling JobsApi->cancel_job: #{e}"
 end
 ```
 
-#### Using the cancel_job_api_v1_jobs_job_id_cancel_post_with_http_info variant
+#### Using the cancel_job_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<JobResponse>, Integer, Hash)> cancel_job_api_v1_jobs_job_id_cancel_post_with_http_info(job_id)
+> <Array(<JobResponse>, Integer, Hash)> cancel_job_with_http_info(job_id)
 
 ```ruby
 begin
   # Cancel Job
-  data, status_code, headers = api_instance.cancel_job_api_v1_jobs_job_id_cancel_post_with_http_info(job_id)
+  data, status_code, headers = api_instance.cancel_job_with_http_info(job_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JobResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling JobsApi->cancel_job_api_v1_jobs_job_id_cancel_post_with_http_info: #{e}"
+  puts "Error when calling JobsApi->cancel_job_with_http_info: #{e}"
 end
 ```
 
@@ -76,9 +76,9 @@ end
 - **Accept**: application/json
 
 
-## get_job_api_v1_jobs_job_id_get
+## get_job
 
-> <JobResponse> get_job_api_v1_jobs_job_id_get(job_id)
+> <JobResponse> get_job(job_id)
 
 Get Job
 
@@ -98,28 +98,28 @@ job_id = 'job_id_example' # String |
 
 begin
   # Get Job
-  result = api_instance.get_job_api_v1_jobs_job_id_get(job_id)
+  result = api_instance.get_job(job_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling JobsApi->get_job_api_v1_jobs_job_id_get: #{e}"
+  puts "Error when calling JobsApi->get_job: #{e}"
 end
 ```
 
-#### Using the get_job_api_v1_jobs_job_id_get_with_http_info variant
+#### Using the get_job_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<JobResponse>, Integer, Hash)> get_job_api_v1_jobs_job_id_get_with_http_info(job_id)
+> <Array(<JobResponse>, Integer, Hash)> get_job_with_http_info(job_id)
 
 ```ruby
 begin
   # Get Job
-  data, status_code, headers = api_instance.get_job_api_v1_jobs_job_id_get_with_http_info(job_id)
+  data, status_code, headers = api_instance.get_job_with_http_info(job_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JobResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling JobsApi->get_job_api_v1_jobs_job_id_get_with_http_info: #{e}"
+  puts "Error when calling JobsApi->get_job_with_http_info: #{e}"
 end
 ```
 
@@ -143,9 +143,9 @@ end
 - **Accept**: application/json
 
 
-## retry_job_api_v1_jobs_job_id_retry_post
+## retry_job
 
-> <JobResponse> retry_job_api_v1_jobs_job_id_retry_post(job_id)
+> <JobResponse> retry_job(job_id)
 
 Retry Job
 
@@ -165,28 +165,28 @@ job_id = 'job_id_example' # String |
 
 begin
   # Retry Job
-  result = api_instance.retry_job_api_v1_jobs_job_id_retry_post(job_id)
+  result = api_instance.retry_job(job_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling JobsApi->retry_job_api_v1_jobs_job_id_retry_post: #{e}"
+  puts "Error when calling JobsApi->retry_job: #{e}"
 end
 ```
 
-#### Using the retry_job_api_v1_jobs_job_id_retry_post_with_http_info variant
+#### Using the retry_job_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<JobResponse>, Integer, Hash)> retry_job_api_v1_jobs_job_id_retry_post_with_http_info(job_id)
+> <Array(<JobResponse>, Integer, Hash)> retry_job_with_http_info(job_id)
 
 ```ruby
 begin
   # Retry Job
-  data, status_code, headers = api_instance.retry_job_api_v1_jobs_job_id_retry_post_with_http_info(job_id)
+  data, status_code, headers = api_instance.retry_job_with_http_info(job_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JobResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling JobsApi->retry_job_api_v1_jobs_job_id_retry_post_with_http_info: #{e}"
+  puts "Error when calling JobsApi->retry_job_with_http_info: #{e}"
 end
 ```
 

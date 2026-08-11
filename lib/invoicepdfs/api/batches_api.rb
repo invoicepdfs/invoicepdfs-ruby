@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BatchResponse]
-    def cancel_batch_api_v1_batches_batch_id_cancel_post(batch_id, opts = {})
-      data, _status_code, _headers = cancel_batch_api_v1_batches_batch_id_cancel_post_with_http_info(batch_id, opts)
+    def cancel_batch(batch_id, opts = {})
+      data, _status_code, _headers = cancel_batch_with_http_info(batch_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BatchResponse, Integer, Hash)>] BatchResponse data, response status code and response headers
-    def cancel_batch_api_v1_batches_batch_id_cancel_post_with_http_info(batch_id, opts = {})
+    def cancel_batch_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BatchesApi.cancel_batch_api_v1_batches_batch_id_cancel_post ...'
+        @api_client.config.logger.debug 'Calling API: BatchesApi.cancel_batch ...'
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
-        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.cancel_batch_api_v1_batches_batch_id_cancel_post"
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.cancel_batch"
       end
       # resource path
       local_var_path = '/api/v1/batches/{batch_id}/cancel'.sub('{' + 'batch_id' + '}', CGI.escape(batch_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BatchesApi.cancel_batch_api_v1_batches_batch_id_cancel_post",
+        :operation => :"BatchesApi.cancel_batch",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BatchesApi#cancel_batch_api_v1_batches_batch_id_cancel_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BatchesApi#cancel_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param batch_create_request [BatchCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [BatchResponse]
-    def create_batch_api_v1_batches_post(batch_create_request, opts = {})
-      data, _status_code, _headers = create_batch_api_v1_batches_post_with_http_info(batch_create_request, opts)
+    def create_batch(batch_create_request, opts = {})
+      data, _status_code, _headers = create_batch_with_http_info(batch_create_request, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param batch_create_request [BatchCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BatchResponse, Integer, Hash)>] BatchResponse data, response status code and response headers
-    def create_batch_api_v1_batches_post_with_http_info(batch_create_request, opts = {})
+    def create_batch_with_http_info(batch_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BatchesApi.create_batch_api_v1_batches_post ...'
+        @api_client.config.logger.debug 'Calling API: BatchesApi.create_batch ...'
       end
       # verify the required parameter 'batch_create_request' is set
       if @api_client.config.client_side_validation && batch_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'batch_create_request' when calling BatchesApi.create_batch_api_v1_batches_post"
+        fail ArgumentError, "Missing the required parameter 'batch_create_request' when calling BatchesApi.create_batch"
       end
       # resource path
       local_var_path = '/api/v1/batches'
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BatchesApi.create_batch_api_v1_batches_post",
+        :operation => :"BatchesApi.create_batch",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BatchesApi#create_batch_api_v1_batches_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BatchesApi#create_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -150,8 +150,8 @@ module InvoicePDFs
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def download_batch_api_v1_batches_batch_id_download_get(batch_id, opts = {})
-      data, _status_code, _headers = download_batch_api_v1_batches_batch_id_download_get_with_http_info(batch_id, opts)
+    def download_batch(batch_id, opts = {})
+      data, _status_code, _headers = download_batch_with_http_info(batch_id, opts)
       data
     end
 
@@ -159,13 +159,13 @@ module InvoicePDFs
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def download_batch_api_v1_batches_batch_id_download_get_with_http_info(batch_id, opts = {})
+    def download_batch_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BatchesApi.download_batch_api_v1_batches_batch_id_download_get ...'
+        @api_client.config.logger.debug 'Calling API: BatchesApi.download_batch ...'
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
-        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.download_batch_api_v1_batches_batch_id_download_get"
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.download_batch"
       end
       # resource path
       local_var_path = '/api/v1/batches/{batch_id}/download'.sub('{' + 'batch_id' + '}', CGI.escape(batch_id.to_s))
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BatchesApi.download_batch_api_v1_batches_batch_id_download_get",
+        :operation => :"BatchesApi.download_batch",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,7 +202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BatchesApi#download_batch_api_v1_batches_batch_id_download_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BatchesApi#download_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -211,8 +211,8 @@ module InvoicePDFs
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BatchResponse]
-    def get_batch_api_v1_batches_batch_id_get(batch_id, opts = {})
-      data, _status_code, _headers = get_batch_api_v1_batches_batch_id_get_with_http_info(batch_id, opts)
+    def get_batch(batch_id, opts = {})
+      data, _status_code, _headers = get_batch_with_http_info(batch_id, opts)
       data
     end
 
@@ -220,13 +220,13 @@ module InvoicePDFs
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BatchResponse, Integer, Hash)>] BatchResponse data, response status code and response headers
-    def get_batch_api_v1_batches_batch_id_get_with_http_info(batch_id, opts = {})
+    def get_batch_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BatchesApi.get_batch_api_v1_batches_batch_id_get ...'
+        @api_client.config.logger.debug 'Calling API: BatchesApi.get_batch ...'
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
-        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.get_batch_api_v1_batches_batch_id_get"
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.get_batch"
       end
       # resource path
       local_var_path = '/api/v1/batches/{batch_id}'.sub('{' + 'batch_id' + '}', CGI.escape(batch_id.to_s))
@@ -252,7 +252,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BatchesApi.get_batch_api_v1_batches_batch_id_get",
+        :operation => :"BatchesApi.get_batch",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BatchesApi#get_batch_api_v1_batches_batch_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BatchesApi#get_batch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -274,8 +274,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [BatchItemsListResponse]
-    def list_batch_items_api_v1_batches_batch_id_items_get(batch_id, opts = {})
-      data, _status_code, _headers = list_batch_items_api_v1_batches_batch_id_items_get_with_http_info(batch_id, opts)
+    def list_batch_items(batch_id, opts = {})
+      data, _status_code, _headers = list_batch_items_with_http_info(batch_id, opts)
       data
     end
 
@@ -285,20 +285,20 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(BatchItemsListResponse, Integer, Hash)>] BatchItemsListResponse data, response status code and response headers
-    def list_batch_items_api_v1_batches_batch_id_items_get_with_http_info(batch_id, opts = {})
+    def list_batch_items_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BatchesApi.list_batch_items_api_v1_batches_batch_id_items_get ...'
+        @api_client.config.logger.debug 'Calling API: BatchesApi.list_batch_items ...'
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
-        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.list_batch_items_api_v1_batches_batch_id_items_get"
+        fail ArgumentError, "Missing the required parameter 'batch_id' when calling BatchesApi.list_batch_items"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batch_items_api_v1_batches_batch_id_items_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batch_items, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batch_items_api_v1_batches_batch_id_items_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batch_items, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -327,7 +327,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BatchesApi.list_batch_items_api_v1_batches_batch_id_items_get",
+        :operation => :"BatchesApi.list_batch_items",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -338,7 +338,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BatchesApi#list_batch_items_api_v1_batches_batch_id_items_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BatchesApi#list_batch_items\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -348,8 +348,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [BatchesListResponse]
-    def list_batches_api_v1_batches_get(opts = {})
-      data, _status_code, _headers = list_batches_api_v1_batches_get_with_http_info(opts)
+    def list_batches(opts = {})
+      data, _status_code, _headers = list_batches_with_http_info(opts)
       data
     end
 
@@ -358,16 +358,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(BatchesListResponse, Integer, Hash)>] BatchesListResponse data, response status code and response headers
-    def list_batches_api_v1_batches_get_with_http_info(opts = {})
+    def list_batches_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BatchesApi.list_batches_api_v1_batches_get ...'
+        @api_client.config.logger.debug 'Calling API: BatchesApi.list_batches ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batches_api_v1_batches_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batches, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batches_api_v1_batches_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BatchesApi.list_batches, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -396,7 +396,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BatchesApi.list_batches_api_v1_batches_get",
+        :operation => :"BatchesApi.list_batches",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -407,7 +407,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BatchesApi#list_batches_api_v1_batches_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BatchesApi#list_batches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

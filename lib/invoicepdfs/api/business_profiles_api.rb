@@ -24,8 +24,8 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [BusinessProfileResponse]
-    def create_business_profile_api_v1_business_profiles_post(business_profile_create, opts = {})
-      data, _status_code, _headers = create_business_profile_api_v1_business_profiles_post_with_http_info(business_profile_create, opts)
+    def create_business_profile(business_profile_create, opts = {})
+      data, _status_code, _headers = create_business_profile_with_http_info(business_profile_create, opts)
       data
     end
 
@@ -34,13 +34,13 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(BusinessProfileResponse, Integer, Hash)>] BusinessProfileResponse data, response status code and response headers
-    def create_business_profile_api_v1_business_profiles_post_with_http_info(business_profile_create, opts = {})
+    def create_business_profile_with_http_info(business_profile_create, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.create_business_profile_api_v1_business_profiles_post ...'
+        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.create_business_profile ...'
       end
       # verify the required parameter 'business_profile_create' is set
       if @api_client.config.client_side_validation && business_profile_create.nil?
-        fail ArgumentError, "Missing the required parameter 'business_profile_create' when calling BusinessProfilesApi.create_business_profile_api_v1_business_profiles_post"
+        fail ArgumentError, "Missing the required parameter 'business_profile_create' when calling BusinessProfilesApi.create_business_profile"
       end
       # resource path
       local_var_path = '/api/v1/business-profiles'
@@ -72,7 +72,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BusinessProfilesApi.create_business_profile_api_v1_business_profiles_post",
+        :operation => :"BusinessProfilesApi.create_business_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -83,7 +83,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BusinessProfilesApi#create_business_profile_api_v1_business_profiles_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BusinessProfilesApi#create_business_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -92,8 +92,8 @@ module InvoicePDFs
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_business_profile_api_v1_business_profiles_business_profile_id_delete(business_profile_id, opts = {})
-      data, _status_code, _headers = delete_business_profile_api_v1_business_profiles_business_profile_id_delete_with_http_info(business_profile_id, opts)
+    def delete_business_profile(business_profile_id, opts = {})
+      data, _status_code, _headers = delete_business_profile_with_http_info(business_profile_id, opts)
       data
     end
 
@@ -101,13 +101,13 @@ module InvoicePDFs
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_business_profile_api_v1_business_profiles_business_profile_id_delete_with_http_info(business_profile_id, opts = {})
+    def delete_business_profile_with_http_info(business_profile_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.delete_business_profile_api_v1_business_profiles_business_profile_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.delete_business_profile ...'
       end
       # verify the required parameter 'business_profile_id' is set
       if @api_client.config.client_side_validation && business_profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'business_profile_id' when calling BusinessProfilesApi.delete_business_profile_api_v1_business_profiles_business_profile_id_delete"
+        fail ArgumentError, "Missing the required parameter 'business_profile_id' when calling BusinessProfilesApi.delete_business_profile"
       end
       # resource path
       local_var_path = '/api/v1/business-profiles/{business_profile_id}'.sub('{' + 'business_profile_id' + '}', CGI.escape(business_profile_id.to_s))
@@ -133,7 +133,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BusinessProfilesApi.delete_business_profile_api_v1_business_profiles_business_profile_id_delete",
+        :operation => :"BusinessProfilesApi.delete_business_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -144,7 +144,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BusinessProfilesApi#delete_business_profile_api_v1_business_profiles_business_profile_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BusinessProfilesApi#delete_business_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -153,8 +153,8 @@ module InvoicePDFs
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BusinessProfileResponse]
-    def get_business_profile_api_v1_business_profiles_business_profile_id_get(business_profile_id, opts = {})
-      data, _status_code, _headers = get_business_profile_api_v1_business_profiles_business_profile_id_get_with_http_info(business_profile_id, opts)
+    def get_business_profile(business_profile_id, opts = {})
+      data, _status_code, _headers = get_business_profile_with_http_info(business_profile_id, opts)
       data
     end
 
@@ -162,13 +162,13 @@ module InvoicePDFs
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BusinessProfileResponse, Integer, Hash)>] BusinessProfileResponse data, response status code and response headers
-    def get_business_profile_api_v1_business_profiles_business_profile_id_get_with_http_info(business_profile_id, opts = {})
+    def get_business_profile_with_http_info(business_profile_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.get_business_profile_api_v1_business_profiles_business_profile_id_get ...'
+        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.get_business_profile ...'
       end
       # verify the required parameter 'business_profile_id' is set
       if @api_client.config.client_side_validation && business_profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'business_profile_id' when calling BusinessProfilesApi.get_business_profile_api_v1_business_profiles_business_profile_id_get"
+        fail ArgumentError, "Missing the required parameter 'business_profile_id' when calling BusinessProfilesApi.get_business_profile"
       end
       # resource path
       local_var_path = '/api/v1/business-profiles/{business_profile_id}'.sub('{' + 'business_profile_id' + '}', CGI.escape(business_profile_id.to_s))
@@ -194,7 +194,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BusinessProfilesApi.get_business_profile_api_v1_business_profiles_business_profile_id_get",
+        :operation => :"BusinessProfilesApi.get_business_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -205,7 +205,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BusinessProfilesApi#get_business_profile_api_v1_business_profiles_business_profile_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BusinessProfilesApi#get_business_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -215,8 +215,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [BusinessProfilesListResponse]
-    def list_business_profiles_api_v1_business_profiles_get(opts = {})
-      data, _status_code, _headers = list_business_profiles_api_v1_business_profiles_get_with_http_info(opts)
+    def list_business_profiles(opts = {})
+      data, _status_code, _headers = list_business_profiles_with_http_info(opts)
       data
     end
 
@@ -225,16 +225,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(BusinessProfilesListResponse, Integer, Hash)>] BusinessProfilesListResponse data, response status code and response headers
-    def list_business_profiles_api_v1_business_profiles_get_with_http_info(opts = {})
+    def list_business_profiles_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.list_business_profiles_api_v1_business_profiles_get ...'
+        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.list_business_profiles ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BusinessProfilesApi.list_business_profiles_api_v1_business_profiles_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BusinessProfilesApi.list_business_profiles, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BusinessProfilesApi.list_business_profiles_api_v1_business_profiles_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling BusinessProfilesApi.list_business_profiles, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -263,7 +263,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BusinessProfilesApi.list_business_profiles_api_v1_business_profiles_get",
+        :operation => :"BusinessProfilesApi.list_business_profiles",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -274,39 +274,39 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BusinessProfilesApi#list_business_profiles_api_v1_business_profiles_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BusinessProfilesApi#list_business_profiles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Business Profile
+    # Update Business Profile
     # @param business_profile_id [String] 
     # @param business_profile_patch [BusinessProfilePatch] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [BusinessProfileResponse]
-    def patch_business_profile_api_v1_business_profiles_business_profile_id_patch(business_profile_id, business_profile_patch, opts = {})
-      data, _status_code, _headers = patch_business_profile_api_v1_business_profiles_business_profile_id_patch_with_http_info(business_profile_id, business_profile_patch, opts)
+    def update_business_profile(business_profile_id, business_profile_patch, opts = {})
+      data, _status_code, _headers = update_business_profile_with_http_info(business_profile_id, business_profile_patch, opts)
       data
     end
 
-    # Patch Business Profile
+    # Update Business Profile
     # @param business_profile_id [String] 
     # @param business_profile_patch [BusinessProfilePatch] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(BusinessProfileResponse, Integer, Hash)>] BusinessProfileResponse data, response status code and response headers
-    def patch_business_profile_api_v1_business_profiles_business_profile_id_patch_with_http_info(business_profile_id, business_profile_patch, opts = {})
+    def update_business_profile_with_http_info(business_profile_id, business_profile_patch, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.patch_business_profile_api_v1_business_profiles_business_profile_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: BusinessProfilesApi.update_business_profile ...'
       end
       # verify the required parameter 'business_profile_id' is set
       if @api_client.config.client_side_validation && business_profile_id.nil?
-        fail ArgumentError, "Missing the required parameter 'business_profile_id' when calling BusinessProfilesApi.patch_business_profile_api_v1_business_profiles_business_profile_id_patch"
+        fail ArgumentError, "Missing the required parameter 'business_profile_id' when calling BusinessProfilesApi.update_business_profile"
       end
       # verify the required parameter 'business_profile_patch' is set
       if @api_client.config.client_side_validation && business_profile_patch.nil?
-        fail ArgumentError, "Missing the required parameter 'business_profile_patch' when calling BusinessProfilesApi.patch_business_profile_api_v1_business_profiles_business_profile_id_patch"
+        fail ArgumentError, "Missing the required parameter 'business_profile_patch' when calling BusinessProfilesApi.update_business_profile"
       end
       # resource path
       local_var_path = '/api/v1/business-profiles/{business_profile_id}'.sub('{' + 'business_profile_id' + '}', CGI.escape(business_profile_id.to_s))
@@ -338,7 +338,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BusinessProfilesApi.patch_business_profile_api_v1_business_profiles_business_profile_id_patch",
+        :operation => :"BusinessProfilesApi.update_business_profile",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -349,7 +349,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BusinessProfilesApi#patch_business_profile_api_v1_business_profiles_business_profile_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BusinessProfilesApi#update_business_profile\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

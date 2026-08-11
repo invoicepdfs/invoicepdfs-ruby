@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_audit_event_api_v1_audit_events_audit_event_id_get**](AuditLogApi.md#get_audit_event_api_v1_audit_events_audit_event_id_get) | **GET** /api/v1/audit-events/{audit_event_id} | Get Audit Event |
-| [**list_audit_events_api_v1_audit_events_get**](AuditLogApi.md#list_audit_events_api_v1_audit_events_get) | **GET** /api/v1/audit-events | List Audit Events |
+| [**get_audit_event**](AuditLogApi.md#get_audit_event) | **GET** /api/v1/audit-events/{audit_event_id} | Get Audit Event |
+| [**list_audit_events**](AuditLogApi.md#list_audit_events) | **GET** /api/v1/audit-events | List Audit Events |
 
 
-## get_audit_event_api_v1_audit_events_audit_event_id_get
+## get_audit_event
 
-> <AuditEventResponse> get_audit_event_api_v1_audit_events_audit_event_id_get(audit_event_id)
+> <AuditEventResponse> get_audit_event(audit_event_id)
 
 Get Audit Event
 
@@ -30,28 +30,28 @@ audit_event_id = 'audit_event_id_example' # String |
 
 begin
   # Get Audit Event
-  result = api_instance.get_audit_event_api_v1_audit_events_audit_event_id_get(audit_event_id)
+  result = api_instance.get_audit_event(audit_event_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuditLogApi->get_audit_event_api_v1_audit_events_audit_event_id_get: #{e}"
+  puts "Error when calling AuditLogApi->get_audit_event: #{e}"
 end
 ```
 
-#### Using the get_audit_event_api_v1_audit_events_audit_event_id_get_with_http_info variant
+#### Using the get_audit_event_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuditEventResponse>, Integer, Hash)> get_audit_event_api_v1_audit_events_audit_event_id_get_with_http_info(audit_event_id)
+> <Array(<AuditEventResponse>, Integer, Hash)> get_audit_event_with_http_info(audit_event_id)
 
 ```ruby
 begin
   # Get Audit Event
-  data, status_code, headers = api_instance.get_audit_event_api_v1_audit_events_audit_event_id_get_with_http_info(audit_event_id)
+  data, status_code, headers = api_instance.get_audit_event_with_http_info(audit_event_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AuditEventResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuditLogApi->get_audit_event_api_v1_audit_events_audit_event_id_get_with_http_info: #{e}"
+  puts "Error when calling AuditLogApi->get_audit_event_with_http_info: #{e}"
 end
 ```
 
@@ -75,9 +75,9 @@ end
 - **Accept**: application/json
 
 
-## list_audit_events_api_v1_audit_events_get
+## list_audit_events
 
-> <AuditEventsListResponse> list_audit_events_api_v1_audit_events_get(opts)
+> <AuditEventsListResponse> list_audit_events(opts)
 
 List Audit Events
 
@@ -103,28 +103,28 @@ opts = {
 
 begin
   # List Audit Events
-  result = api_instance.list_audit_events_api_v1_audit_events_get(opts)
+  result = api_instance.list_audit_events(opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuditLogApi->list_audit_events_api_v1_audit_events_get: #{e}"
+  puts "Error when calling AuditLogApi->list_audit_events: #{e}"
 end
 ```
 
-#### Using the list_audit_events_api_v1_audit_events_get_with_http_info variant
+#### Using the list_audit_events_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuditEventsListResponse>, Integer, Hash)> list_audit_events_api_v1_audit_events_get_with_http_info(opts)
+> <Array(<AuditEventsListResponse>, Integer, Hash)> list_audit_events_with_http_info(opts)
 
 ```ruby
 begin
   # List Audit Events
-  data, status_code, headers = api_instance.list_audit_events_api_v1_audit_events_get_with_http_info(opts)
+  data, status_code, headers = api_instance.list_audit_events_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AuditEventsListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuditLogApi->list_audit_events_api_v1_audit_events_get_with_http_info: #{e}"
+  puts "Error when calling AuditLogApi->list_audit_events_with_http_info: #{e}"
 end
 ```
 

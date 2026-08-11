@@ -19,28 +19,28 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Consume Next
+    # Consume Sequence Number
     # Consume and return the next number, incrementing the counter.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequenceResponse]
-    def consume_next_api_v1_numbering_sequences_sequence_id_next_post(sequence_id, opts = {})
-      data, _status_code, _headers = consume_next_api_v1_numbering_sequences_sequence_id_next_post_with_http_info(sequence_id, opts)
+    def consume_sequence_number(sequence_id, opts = {})
+      data, _status_code, _headers = consume_sequence_number_with_http_info(sequence_id, opts)
       data
     end
 
-    # Consume Next
+    # Consume Sequence Number
     # Consume and return the next number, incrementing the counter.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
-    def consume_next_api_v1_numbering_sequences_sequence_id_next_post_with_http_info(sequence_id, opts = {})
+    def consume_sequence_number_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.consume_next_api_v1_numbering_sequences_sequence_id_next_post ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.consume_sequence_number ...'
       end
       # verify the required parameter 'sequence_id' is set
       if @api_client.config.client_side_validation && sequence_id.nil?
-        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.consume_next_api_v1_numbering_sequences_sequence_id_next_post"
+        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.consume_sequence_number"
       end
       # resource path
       local_var_path = '/api/v1/numbering-sequences/{sequence_id}/next'.sub('{' + 'sequence_id' + '}', CGI.escape(sequence_id.to_s))
@@ -66,7 +66,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.consume_next_api_v1_numbering_sequences_sequence_id_next_post",
+        :operation => :"NumberingSequencesApi.consume_sequence_number",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -77,7 +77,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#consume_next_api_v1_numbering_sequences_sequence_id_next_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#consume_sequence_number\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -86,8 +86,8 @@ module InvoicePDFs
     # @param numbering_sequence_create_request [NumberingSequenceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequenceResponse]
-    def create_sequence_api_v1_numbering_sequences_post(numbering_sequence_create_request, opts = {})
-      data, _status_code, _headers = create_sequence_api_v1_numbering_sequences_post_with_http_info(numbering_sequence_create_request, opts)
+    def create_sequence(numbering_sequence_create_request, opts = {})
+      data, _status_code, _headers = create_sequence_with_http_info(numbering_sequence_create_request, opts)
       data
     end
 
@@ -95,13 +95,13 @@ module InvoicePDFs
     # @param numbering_sequence_create_request [NumberingSequenceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
-    def create_sequence_api_v1_numbering_sequences_post_with_http_info(numbering_sequence_create_request, opts = {})
+    def create_sequence_with_http_info(numbering_sequence_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.create_sequence_api_v1_numbering_sequences_post ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.create_sequence ...'
       end
       # verify the required parameter 'numbering_sequence_create_request' is set
       if @api_client.config.client_side_validation && numbering_sequence_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'numbering_sequence_create_request' when calling NumberingSequencesApi.create_sequence_api_v1_numbering_sequences_post"
+        fail ArgumentError, "Missing the required parameter 'numbering_sequence_create_request' when calling NumberingSequencesApi.create_sequence"
       end
       # resource path
       local_var_path = '/api/v1/numbering-sequences'
@@ -132,7 +132,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.create_sequence_api_v1_numbering_sequences_post",
+        :operation => :"NumberingSequencesApi.create_sequence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -143,7 +143,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#create_sequence_api_v1_numbering_sequences_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#create_sequence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -152,8 +152,8 @@ module InvoicePDFs
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_sequence_api_v1_numbering_sequences_sequence_id_delete(sequence_id, opts = {})
-      data, _status_code, _headers = delete_sequence_api_v1_numbering_sequences_sequence_id_delete_with_http_info(sequence_id, opts)
+    def delete_sequence(sequence_id, opts = {})
+      data, _status_code, _headers = delete_sequence_with_http_info(sequence_id, opts)
       data
     end
 
@@ -161,13 +161,13 @@ module InvoicePDFs
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_sequence_api_v1_numbering_sequences_sequence_id_delete_with_http_info(sequence_id, opts = {})
+    def delete_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.delete_sequence_api_v1_numbering_sequences_sequence_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.delete_sequence ...'
       end
       # verify the required parameter 'sequence_id' is set
       if @api_client.config.client_side_validation && sequence_id.nil?
-        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.delete_sequence_api_v1_numbering_sequences_sequence_id_delete"
+        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.delete_sequence"
       end
       # resource path
       local_var_path = '/api/v1/numbering-sequences/{sequence_id}'.sub('{' + 'sequence_id' + '}', CGI.escape(sequence_id.to_s))
@@ -193,7 +193,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.delete_sequence_api_v1_numbering_sequences_sequence_id_delete",
+        :operation => :"NumberingSequencesApi.delete_sequence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -204,7 +204,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#delete_sequence_api_v1_numbering_sequences_sequence_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#delete_sequence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -213,8 +213,8 @@ module InvoicePDFs
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequenceResponse]
-    def get_sequence_api_v1_numbering_sequences_sequence_id_get(sequence_id, opts = {})
-      data, _status_code, _headers = get_sequence_api_v1_numbering_sequences_sequence_id_get_with_http_info(sequence_id, opts)
+    def get_sequence(sequence_id, opts = {})
+      data, _status_code, _headers = get_sequence_with_http_info(sequence_id, opts)
       data
     end
 
@@ -222,13 +222,13 @@ module InvoicePDFs
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
-    def get_sequence_api_v1_numbering_sequences_sequence_id_get_with_http_info(sequence_id, opts = {})
+    def get_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.get_sequence_api_v1_numbering_sequences_sequence_id_get ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.get_sequence ...'
       end
       # verify the required parameter 'sequence_id' is set
       if @api_client.config.client_side_validation && sequence_id.nil?
-        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.get_sequence_api_v1_numbering_sequences_sequence_id_get"
+        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.get_sequence"
       end
       # resource path
       local_var_path = '/api/v1/numbering-sequences/{sequence_id}'.sub('{' + 'sequence_id' + '}', CGI.escape(sequence_id.to_s))
@@ -254,7 +254,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.get_sequence_api_v1_numbering_sequences_sequence_id_get",
+        :operation => :"NumberingSequencesApi.get_sequence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -265,7 +265,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#get_sequence_api_v1_numbering_sequences_sequence_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#get_sequence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -275,8 +275,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [NumberingSequencesListResponse]
-    def list_sequences_api_v1_numbering_sequences_get(opts = {})
-      data, _status_code, _headers = list_sequences_api_v1_numbering_sequences_get_with_http_info(opts)
+    def list_sequences(opts = {})
+      data, _status_code, _headers = list_sequences_with_http_info(opts)
       data
     end
 
@@ -285,16 +285,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(NumberingSequencesListResponse, Integer, Hash)>] NumberingSequencesListResponse data, response status code and response headers
-    def list_sequences_api_v1_numbering_sequences_get_with_http_info(opts = {})
+    def list_sequences_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.list_sequences_api_v1_numbering_sequences_get ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.list_sequences ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling NumberingSequencesApi.list_sequences_api_v1_numbering_sequences_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling NumberingSequencesApi.list_sequences, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling NumberingSequencesApi.list_sequences_api_v1_numbering_sequences_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling NumberingSequencesApi.list_sequences, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -323,7 +323,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.list_sequences_api_v1_numbering_sequences_get",
+        :operation => :"NumberingSequencesApi.list_sequences",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -334,7 +334,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#list_sequences_api_v1_numbering_sequences_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#list_sequences\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -343,8 +343,8 @@ module InvoicePDFs
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequencePreviewResponse]
-    def preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post(sequence_id, opts = {})
-      data, _status_code, _headers = preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post_with_http_info(sequence_id, opts)
+    def preview_sequence(sequence_id, opts = {})
+      data, _status_code, _headers = preview_sequence_with_http_info(sequence_id, opts)
       data
     end
 
@@ -352,13 +352,13 @@ module InvoicePDFs
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequencePreviewResponse, Integer, Hash)>] NumberingSequencePreviewResponse data, response status code and response headers
-    def preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post_with_http_info(sequence_id, opts = {})
+    def preview_sequence_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.preview_sequence ...'
       end
       # verify the required parameter 'sequence_id' is set
       if @api_client.config.client_side_validation && sequence_id.nil?
-        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post"
+        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.preview_sequence"
       end
       # resource path
       local_var_path = '/api/v1/numbering-sequences/{sequence_id}/preview'.sub('{' + 'sequence_id' + '}', CGI.escape(sequence_id.to_s))
@@ -384,7 +384,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post",
+        :operation => :"NumberingSequencesApi.preview_sequence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -395,7 +395,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#preview_sequence_api_v1_numbering_sequences_sequence_id_preview_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#preview_sequence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -405,8 +405,8 @@ module InvoicePDFs
     # @param numbering_sequence_patch_request [NumberingSequencePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequenceResponse]
-    def update_sequence_api_v1_numbering_sequences_sequence_id_patch(sequence_id, numbering_sequence_patch_request, opts = {})
-      data, _status_code, _headers = update_sequence_api_v1_numbering_sequences_sequence_id_patch_with_http_info(sequence_id, numbering_sequence_patch_request, opts)
+    def update_sequence(sequence_id, numbering_sequence_patch_request, opts = {})
+      data, _status_code, _headers = update_sequence_with_http_info(sequence_id, numbering_sequence_patch_request, opts)
       data
     end
 
@@ -415,17 +415,17 @@ module InvoicePDFs
     # @param numbering_sequence_patch_request [NumberingSequencePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
-    def update_sequence_api_v1_numbering_sequences_sequence_id_patch_with_http_info(sequence_id, numbering_sequence_patch_request, opts = {})
+    def update_sequence_with_http_info(sequence_id, numbering_sequence_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.update_sequence_api_v1_numbering_sequences_sequence_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.update_sequence ...'
       end
       # verify the required parameter 'sequence_id' is set
       if @api_client.config.client_side_validation && sequence_id.nil?
-        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.update_sequence_api_v1_numbering_sequences_sequence_id_patch"
+        fail ArgumentError, "Missing the required parameter 'sequence_id' when calling NumberingSequencesApi.update_sequence"
       end
       # verify the required parameter 'numbering_sequence_patch_request' is set
       if @api_client.config.client_side_validation && numbering_sequence_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'numbering_sequence_patch_request' when calling NumberingSequencesApi.update_sequence_api_v1_numbering_sequences_sequence_id_patch"
+        fail ArgumentError, "Missing the required parameter 'numbering_sequence_patch_request' when calling NumberingSequencesApi.update_sequence"
       end
       # resource path
       local_var_path = '/api/v1/numbering-sequences/{sequence_id}'.sub('{' + 'sequence_id' + '}', CGI.escape(sequence_id.to_s))
@@ -456,7 +456,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"NumberingSequencesApi.update_sequence_api_v1_numbering_sequences_sequence_id_patch",
+        :operation => :"NumberingSequencesApi.update_sequence",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -467,7 +467,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: NumberingSequencesApi#update_sequence_api_v1_numbering_sequences_sequence_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: NumberingSequencesApi#update_sequence\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

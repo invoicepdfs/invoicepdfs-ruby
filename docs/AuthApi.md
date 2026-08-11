@@ -4,23 +4,23 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**forgot_password_api_v1_auth_forgot_password_post**](AuthApi.md#forgot_password_api_v1_auth_forgot_password_post) | **POST** /api/v1/auth/forgot-password | Forgot Password |
-| [**logout_api_v1_auth_logout_post**](AuthApi.md#logout_api_v1_auth_logout_post) | **POST** /api/v1/auth/logout | Logout |
-| [**me_api_v1_auth_me_get**](AuthApi.md#me_api_v1_auth_me_get) | **GET** /api/v1/auth/me | Me |
-| [**patch_me_api_v1_auth_me_patch**](AuthApi.md#patch_me_api_v1_auth_me_patch) | **PATCH** /api/v1/auth/me | Patch Me |
-| [**refresh_api_v1_auth_refresh_post**](AuthApi.md#refresh_api_v1_auth_refresh_post) | **POST** /api/v1/auth/refresh | Refresh |
-| [**register_api_v1_auth_register_post**](AuthApi.md#register_api_v1_auth_register_post) | **POST** /api/v1/auth/register | Register |
-| [**reset_password_api_v1_auth_reset_password_post**](AuthApi.md#reset_password_api_v1_auth_reset_password_post) | **POST** /api/v1/auth/reset-password | Reset Password |
-| [**token_exchange_api_v1_auth_token_post**](AuthApi.md#token_exchange_api_v1_auth_token_post) | **POST** /api/v1/auth/token | Token Exchange |
+| [**exchange_auth_token**](AuthApi.md#exchange_auth_token) | **POST** /api/v1/auth/token | Exchange Auth Token |
+| [**get_current_user**](AuthApi.md#get_current_user) | **GET** /api/v1/auth/me | Get Current User |
+| [**logout**](AuthApi.md#logout) | **POST** /api/v1/auth/logout | Logout |
+| [**refresh_access_token**](AuthApi.md#refresh_access_token) | **POST** /api/v1/auth/refresh | Refresh Access Token |
+| [**register**](AuthApi.md#register) | **POST** /api/v1/auth/register | Register |
+| [**request_password_reset**](AuthApi.md#request_password_reset) | **POST** /api/v1/auth/forgot-password | Request Password Reset |
+| [**reset_password**](AuthApi.md#reset_password) | **POST** /api/v1/auth/reset-password | Reset Password |
+| [**update_current_user**](AuthApi.md#update_current_user) | **PATCH** /api/v1/auth/me | Update Current User |
 
 
-## forgot_password_api_v1_auth_forgot_password_post
+## exchange_auth_token
 
-> <AuthMessageResponse> forgot_password_api_v1_auth_forgot_password_post(auth_forgot_password_request)
+> <AuthTokenResponse> exchange_auth_token(auth_token_request)
 
-Forgot Password
+Exchange Auth Token
 
-Send a password reset email via Firebase.
+Exchange a Firebase ID token for account info.  Use this on login: the client authenticates with Firebase, sends the ID token here, and receives the InvoicePDFs account details. The Firebase token itself is used as the Bearer token for subsequent API calls.
 
 ### Examples
 
@@ -29,32 +29,32 @@ require 'time'
 require 'invoicepdfs'
 
 api_instance = InvoicePDFs::AuthApi.new
-auth_forgot_password_request = InvoicePDFs::AuthForgotPasswordRequest.new({email: 'email_example'}) # AuthForgotPasswordRequest | 
+auth_token_request = InvoicePDFs::AuthTokenRequest.new({id_token: 'id_token_example'}) # AuthTokenRequest | 
 
 begin
-  # Forgot Password
-  result = api_instance.forgot_password_api_v1_auth_forgot_password_post(auth_forgot_password_request)
+  # Exchange Auth Token
+  result = api_instance.exchange_auth_token(auth_token_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->forgot_password_api_v1_auth_forgot_password_post: #{e}"
+  puts "Error when calling AuthApi->exchange_auth_token: #{e}"
 end
 ```
 
-#### Using the forgot_password_api_v1_auth_forgot_password_post_with_http_info variant
+#### Using the exchange_auth_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuthMessageResponse>, Integer, Hash)> forgot_password_api_v1_auth_forgot_password_post_with_http_info(auth_forgot_password_request)
+> <Array(<AuthTokenResponse>, Integer, Hash)> exchange_auth_token_with_http_info(auth_token_request)
 
 ```ruby
 begin
-  # Forgot Password
-  data, status_code, headers = api_instance.forgot_password_api_v1_auth_forgot_password_post_with_http_info(auth_forgot_password_request)
+  # Exchange Auth Token
+  data, status_code, headers = api_instance.exchange_auth_token_with_http_info(auth_token_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AuthMessageResponse>
+  p data # => <AuthTokenResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->forgot_password_api_v1_auth_forgot_password_post_with_http_info: #{e}"
+  puts "Error when calling AuthApi->exchange_auth_token_with_http_info: #{e}"
 end
 ```
 
@@ -62,11 +62,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **auth_forgot_password_request** | [**AuthForgotPasswordRequest**](AuthForgotPasswordRequest.md) |  |  |
+| **auth_token_request** | [**AuthTokenRequest**](AuthTokenRequest.md) |  |  |
 
 ### Return type
 
-[**AuthMessageResponse**](AuthMessageResponse.md)
+[**AuthTokenResponse**](AuthTokenResponse.md)
 
 ### Authorization
 
@@ -78,9 +78,73 @@ No authorization required
 - **Accept**: application/json
 
 
-## logout_api_v1_auth_logout_post
+## get_current_user
 
-> <AuthMessageResponse> logout_api_v1_auth_logout_post
+> <AuthMeResponse> get_current_user
+
+Get Current User
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::AuthApi.new
+
+begin
+  # Get Current User
+  result = api_instance.get_current_user
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling AuthApi->get_current_user: #{e}"
+end
+```
+
+#### Using the get_current_user_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMeResponse>, Integer, Hash)> get_current_user_with_http_info
+
+```ruby
+begin
+  # Get Current User
+  data, status_code, headers = api_instance.get_current_user_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMeResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling AuthApi->get_current_user_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AuthMeResponse**](AuthMeResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## logout
+
+> <AuthMessageResponse> logout
 
 Logout
 
@@ -101,28 +165,28 @@ api_instance = InvoicePDFs::AuthApi.new
 
 begin
   # Logout
-  result = api_instance.logout_api_v1_auth_logout_post
+  result = api_instance.logout
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->logout_api_v1_auth_logout_post: #{e}"
+  puts "Error when calling AuthApi->logout: #{e}"
 end
 ```
 
-#### Using the logout_api_v1_auth_logout_post_with_http_info variant
+#### Using the logout_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuthMessageResponse>, Integer, Hash)> logout_api_v1_auth_logout_post_with_http_info
+> <Array(<AuthMessageResponse>, Integer, Hash)> logout_with_http_info
 
 ```ruby
 begin
   # Logout
-  data, status_code, headers = api_instance.logout_api_v1_auth_logout_post_with_http_info
+  data, status_code, headers = api_instance.logout_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AuthMessageResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->logout_api_v1_auth_logout_post_with_http_info: #{e}"
+  puts "Error when calling AuthApi->logout_with_http_info: #{e}"
 end
 ```
 
@@ -144,144 +208,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## me_api_v1_auth_me_get
+## refresh_access_token
 
-> <AuthMeResponse> me_api_v1_auth_me_get
+> <AuthRefreshResponse> refresh_access_token(auth_refresh_request)
 
-Me
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::AuthApi.new
-
-begin
-  # Me
-  result = api_instance.me_api_v1_auth_me_get
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->me_api_v1_auth_me_get: #{e}"
-end
-```
-
-#### Using the me_api_v1_auth_me_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<AuthMeResponse>, Integer, Hash)> me_api_v1_auth_me_get_with_http_info
-
-```ruby
-begin
-  # Me
-  data, status_code, headers = api_instance.me_api_v1_auth_me_get_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <AuthMeResponse>
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->me_api_v1_auth_me_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**AuthMeResponse**](AuthMeResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## patch_me_api_v1_auth_me_patch
-
-> <AuthMeResponse> patch_me_api_v1_auth_me_patch(auth_me_patch_request)
-
-Patch Me
-
-Update the authenticated account's name or email.
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::AuthApi.new
-auth_me_patch_request = InvoicePDFs::AuthMePatchRequest.new # AuthMePatchRequest | 
-
-begin
-  # Patch Me
-  result = api_instance.patch_me_api_v1_auth_me_patch(auth_me_patch_request)
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->patch_me_api_v1_auth_me_patch: #{e}"
-end
-```
-
-#### Using the patch_me_api_v1_auth_me_patch_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<AuthMeResponse>, Integer, Hash)> patch_me_api_v1_auth_me_patch_with_http_info(auth_me_patch_request)
-
-```ruby
-begin
-  # Patch Me
-  data, status_code, headers = api_instance.patch_me_api_v1_auth_me_patch_with_http_info(auth_me_patch_request)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <AuthMeResponse>
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->patch_me_api_v1_auth_me_patch_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **auth_me_patch_request** | [**AuthMePatchRequest**](AuthMePatchRequest.md) |  |  |
-
-### Return type
-
-[**AuthMeResponse**](AuthMeResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## refresh_api_v1_auth_refresh_post
-
-> <AuthRefreshResponse> refresh_api_v1_auth_refresh_post(auth_refresh_request)
-
-Refresh
+Refresh Access Token
 
 Exchange a Firebase refresh token for a new ID token.
 
@@ -295,29 +226,29 @@ api_instance = InvoicePDFs::AuthApi.new
 auth_refresh_request = InvoicePDFs::AuthRefreshRequest.new({refresh_token: 'refresh_token_example'}) # AuthRefreshRequest | 
 
 begin
-  # Refresh
-  result = api_instance.refresh_api_v1_auth_refresh_post(auth_refresh_request)
+  # Refresh Access Token
+  result = api_instance.refresh_access_token(auth_refresh_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->refresh_api_v1_auth_refresh_post: #{e}"
+  puts "Error when calling AuthApi->refresh_access_token: #{e}"
 end
 ```
 
-#### Using the refresh_api_v1_auth_refresh_post_with_http_info variant
+#### Using the refresh_access_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuthRefreshResponse>, Integer, Hash)> refresh_api_v1_auth_refresh_post_with_http_info(auth_refresh_request)
+> <Array(<AuthRefreshResponse>, Integer, Hash)> refresh_access_token_with_http_info(auth_refresh_request)
 
 ```ruby
 begin
-  # Refresh
-  data, status_code, headers = api_instance.refresh_api_v1_auth_refresh_post_with_http_info(auth_refresh_request)
+  # Refresh Access Token
+  data, status_code, headers = api_instance.refresh_access_token_with_http_info(auth_refresh_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AuthRefreshResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->refresh_api_v1_auth_refresh_post_with_http_info: #{e}"
+  puts "Error when calling AuthApi->refresh_access_token_with_http_info: #{e}"
 end
 ```
 
@@ -341,9 +272,9 @@ No authorization required
 - **Accept**: application/json
 
 
-## register_api_v1_auth_register_post
+## register
 
-> <AuthRegisterResponse> register_api_v1_auth_register_post(auth_register_request)
+> <AuthRegisterResponse> register(auth_register_request)
 
 Register
 
@@ -360,28 +291,28 @@ auth_register_request = InvoicePDFs::AuthRegisterRequest.new({id_token: 'id_toke
 
 begin
   # Register
-  result = api_instance.register_api_v1_auth_register_post(auth_register_request)
+  result = api_instance.register(auth_register_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->register_api_v1_auth_register_post: #{e}"
+  puts "Error when calling AuthApi->register: #{e}"
 end
 ```
 
-#### Using the register_api_v1_auth_register_post_with_http_info variant
+#### Using the register_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuthRegisterResponse>, Integer, Hash)> register_api_v1_auth_register_post_with_http_info(auth_register_request)
+> <Array(<AuthRegisterResponse>, Integer, Hash)> register_with_http_info(auth_register_request)
 
 ```ruby
 begin
   # Register
-  data, status_code, headers = api_instance.register_api_v1_auth_register_post_with_http_info(auth_register_request)
+  data, status_code, headers = api_instance.register_with_http_info(auth_register_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AuthRegisterResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->register_api_v1_auth_register_post_with_http_info: #{e}"
+  puts "Error when calling AuthApi->register_with_http_info: #{e}"
 end
 ```
 
@@ -405,9 +336,73 @@ No authorization required
 - **Accept**: application/json
 
 
-## reset_password_api_v1_auth_reset_password_post
+## request_password_reset
 
-> <AuthMessageResponse> reset_password_api_v1_auth_reset_password_post(auth_reset_password_request)
+> <AuthMessageResponse> request_password_reset(auth_forgot_password_request)
+
+Request Password Reset
+
+Send a password reset email via Firebase.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+
+api_instance = InvoicePDFs::AuthApi.new
+auth_forgot_password_request = InvoicePDFs::AuthForgotPasswordRequest.new({email: 'email_example'}) # AuthForgotPasswordRequest | 
+
+begin
+  # Request Password Reset
+  result = api_instance.request_password_reset(auth_forgot_password_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling AuthApi->request_password_reset: #{e}"
+end
+```
+
+#### Using the request_password_reset_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthMessageResponse>, Integer, Hash)> request_password_reset_with_http_info(auth_forgot_password_request)
+
+```ruby
+begin
+  # Request Password Reset
+  data, status_code, headers = api_instance.request_password_reset_with_http_info(auth_forgot_password_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthMessageResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling AuthApi->request_password_reset_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **auth_forgot_password_request** | [**AuthForgotPasswordRequest**](AuthForgotPasswordRequest.md) |  |  |
+
+### Return type
+
+[**AuthMessageResponse**](AuthMessageResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## reset_password
+
+> <AuthMessageResponse> reset_password(auth_reset_password_request)
 
 Reset Password
 
@@ -424,28 +419,28 @@ auth_reset_password_request = InvoicePDFs::AuthResetPasswordRequest.new({oob_cod
 
 begin
   # Reset Password
-  result = api_instance.reset_password_api_v1_auth_reset_password_post(auth_reset_password_request)
+  result = api_instance.reset_password(auth_reset_password_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->reset_password_api_v1_auth_reset_password_post: #{e}"
+  puts "Error when calling AuthApi->reset_password: #{e}"
 end
 ```
 
-#### Using the reset_password_api_v1_auth_reset_password_post_with_http_info variant
+#### Using the reset_password_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuthMessageResponse>, Integer, Hash)> reset_password_api_v1_auth_reset_password_post_with_http_info(auth_reset_password_request)
+> <Array(<AuthMessageResponse>, Integer, Hash)> reset_password_with_http_info(auth_reset_password_request)
 
 ```ruby
 begin
   # Reset Password
-  data, status_code, headers = api_instance.reset_password_api_v1_auth_reset_password_post_with_http_info(auth_reset_password_request)
+  data, status_code, headers = api_instance.reset_password_with_http_info(auth_reset_password_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AuthMessageResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->reset_password_api_v1_auth_reset_password_post_with_http_info: #{e}"
+  puts "Error when calling AuthApi->reset_password_with_http_info: #{e}"
 end
 ```
 
@@ -469,47 +464,52 @@ No authorization required
 - **Accept**: application/json
 
 
-## token_exchange_api_v1_auth_token_post
+## update_current_user
 
-> <AuthTokenResponse> token_exchange_api_v1_auth_token_post(auth_token_request)
+> <AuthMeResponse> update_current_user(auth_me_patch_request)
 
-Token Exchange
+Update Current User
 
-Exchange a Firebase ID token for account info.  Use this on login: the client authenticates with Firebase, sends the ID token here, and receives the InvoicePDFs account details. The Firebase token itself is used as the Bearer token for subsequent API calls.
+Update the authenticated account's name or email.
 
 ### Examples
 
 ```ruby
 require 'time'
 require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
 
 api_instance = InvoicePDFs::AuthApi.new
-auth_token_request = InvoicePDFs::AuthTokenRequest.new({id_token: 'id_token_example'}) # AuthTokenRequest | 
+auth_me_patch_request = InvoicePDFs::AuthMePatchRequest.new # AuthMePatchRequest | 
 
 begin
-  # Token Exchange
-  result = api_instance.token_exchange_api_v1_auth_token_post(auth_token_request)
+  # Update Current User
+  result = api_instance.update_current_user(auth_me_patch_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->token_exchange_api_v1_auth_token_post: #{e}"
+  puts "Error when calling AuthApi->update_current_user: #{e}"
 end
 ```
 
-#### Using the token_exchange_api_v1_auth_token_post_with_http_info variant
+#### Using the update_current_user_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AuthTokenResponse>, Integer, Hash)> token_exchange_api_v1_auth_token_post_with_http_info(auth_token_request)
+> <Array(<AuthMeResponse>, Integer, Hash)> update_current_user_with_http_info(auth_me_patch_request)
 
 ```ruby
 begin
-  # Token Exchange
-  data, status_code, headers = api_instance.token_exchange_api_v1_auth_token_post_with_http_info(auth_token_request)
+  # Update Current User
+  data, status_code, headers = api_instance.update_current_user_with_http_info(auth_me_patch_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <AuthTokenResponse>
+  p data # => <AuthMeResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling AuthApi->token_exchange_api_v1_auth_token_post_with_http_info: #{e}"
+  puts "Error when calling AuthApi->update_current_user_with_http_info: #{e}"
 end
 ```
 
@@ -517,15 +517,15 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **auth_token_request** | [**AuthTokenRequest**](AuthTokenRequest.md) |  |  |
+| **auth_me_patch_request** | [**AuthMePatchRequest**](AuthMePatchRequest.md) |  |  |
 
 ### Return type
 
-[**AuthTokenResponse**](AuthTokenResponse.md)
+[**AuthMeResponse**](AuthMeResponse.md)
 
 ### Authorization
 
-No authorization required
+[HTTPBearer](../README.md#HTTPBearer)
 
 ### HTTP request headers
 

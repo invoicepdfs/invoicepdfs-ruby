@@ -19,34 +19,34 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create Member
+    # Add Workspace Member
     # @param workspace_id [String] 
     # @param workspace_member_create_request [WorkspaceMemberCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [WorkspaceMembersListResponse]
-    def create_member_api_v1_workspaces_workspace_id_members_post(workspace_id, workspace_member_create_request, opts = {})
-      data, _status_code, _headers = create_member_api_v1_workspaces_workspace_id_members_post_with_http_info(workspace_id, workspace_member_create_request, opts)
+    def add_workspace_member(workspace_id, workspace_member_create_request, opts = {})
+      data, _status_code, _headers = add_workspace_member_with_http_info(workspace_id, workspace_member_create_request, opts)
       data
     end
 
-    # Create Member
+    # Add Workspace Member
     # @param workspace_id [String] 
     # @param workspace_member_create_request [WorkspaceMemberCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(WorkspaceMembersListResponse, Integer, Hash)>] WorkspaceMembersListResponse data, response status code and response headers
-    def create_member_api_v1_workspaces_workspace_id_members_post_with_http_info(workspace_id, workspace_member_create_request, opts = {})
+    def add_workspace_member_with_http_info(workspace_id, workspace_member_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.create_member_api_v1_workspaces_workspace_id_members_post ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.add_workspace_member ...'
       end
       # verify the required parameter 'workspace_id' is set
       if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.create_member_api_v1_workspaces_workspace_id_members_post"
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.add_workspace_member"
       end
       # verify the required parameter 'workspace_member_create_request' is set
       if @api_client.config.client_side_validation && workspace_member_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_member_create_request' when calling WorkspacesApi.create_member_api_v1_workspaces_workspace_id_members_post"
+        fail ArgumentError, "Missing the required parameter 'workspace_member_create_request' when calling WorkspacesApi.add_workspace_member"
       end
       # resource path
       local_var_path = '/api/v1/workspaces/{workspace_id}/members'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s))
@@ -78,7 +78,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.create_member_api_v1_workspaces_workspace_id_members_post",
+        :operation => :"WorkspacesApi.add_workspace_member",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -89,7 +89,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#create_member_api_v1_workspaces_workspace_id_members_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#add_workspace_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -99,8 +99,8 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [WorkspaceResponse]
-    def create_workspace_api_v1_workspaces_post(workspace_create_request, opts = {})
-      data, _status_code, _headers = create_workspace_api_v1_workspaces_post_with_http_info(workspace_create_request, opts)
+    def create_workspace(workspace_create_request, opts = {})
+      data, _status_code, _headers = create_workspace_with_http_info(workspace_create_request, opts)
       data
     end
 
@@ -109,13 +109,13 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(WorkspaceResponse, Integer, Hash)>] WorkspaceResponse data, response status code and response headers
-    def create_workspace_api_v1_workspaces_post_with_http_info(workspace_create_request, opts = {})
+    def create_workspace_with_http_info(workspace_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.create_workspace_api_v1_workspaces_post ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.create_workspace ...'
       end
       # verify the required parameter 'workspace_create_request' is set
       if @api_client.config.client_side_validation && workspace_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_create_request' when calling WorkspacesApi.create_workspace_api_v1_workspaces_post"
+        fail ArgumentError, "Missing the required parameter 'workspace_create_request' when calling WorkspacesApi.create_workspace"
       end
       # resource path
       local_var_path = '/api/v1/workspaces'
@@ -147,7 +147,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.create_workspace_api_v1_workspaces_post",
+        :operation => :"WorkspacesApi.create_workspace",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -158,74 +158,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#create_workspace_api_v1_workspaces_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete Member
-    # @param workspace_id [String] 
-    # @param member_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [SimpleBoolResponse]
-    def delete_member_api_v1_workspaces_workspace_id_members_member_id_delete(workspace_id, member_id, opts = {})
-      data, _status_code, _headers = delete_member_api_v1_workspaces_workspace_id_members_member_id_delete_with_http_info(workspace_id, member_id, opts)
-      data
-    end
-
-    # Delete Member
-    # @param workspace_id [String] 
-    # @param member_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_member_api_v1_workspaces_workspace_id_members_member_id_delete_with_http_info(workspace_id, member_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.delete_member_api_v1_workspaces_workspace_id_members_member_id_delete ...'
-      end
-      # verify the required parameter 'workspace_id' is set
-      if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.delete_member_api_v1_workspaces_workspace_id_members_member_id_delete"
-      end
-      # verify the required parameter 'member_id' is set
-      if @api_client.config.client_side_validation && member_id.nil?
-        fail ArgumentError, "Missing the required parameter 'member_id' when calling WorkspacesApi.delete_member_api_v1_workspaces_workspace_id_members_member_id_delete"
-      end
-      # resource path
-      local_var_path = '/api/v1/workspaces/{workspace_id}/members/{member_id}'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s)).sub('{' + 'member_id' + '}', CGI.escape(member_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'SimpleBoolResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"WorkspacesApi.delete_member_api_v1_workspaces_workspace_id_members_member_id_delete",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#delete_member_api_v1_workspaces_workspace_id_members_member_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#create_workspace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -234,8 +167,8 @@ module InvoicePDFs
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_workspace_api_v1_workspaces_workspace_id_delete(workspace_id, opts = {})
-      data, _status_code, _headers = delete_workspace_api_v1_workspaces_workspace_id_delete_with_http_info(workspace_id, opts)
+    def delete_workspace(workspace_id, opts = {})
+      data, _status_code, _headers = delete_workspace_with_http_info(workspace_id, opts)
       data
     end
 
@@ -243,13 +176,13 @@ module InvoicePDFs
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_workspace_api_v1_workspaces_workspace_id_delete_with_http_info(workspace_id, opts = {})
+    def delete_workspace_with_http_info(workspace_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.delete_workspace_api_v1_workspaces_workspace_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.delete_workspace ...'
       end
       # verify the required parameter 'workspace_id' is set
       if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.delete_workspace_api_v1_workspaces_workspace_id_delete"
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.delete_workspace"
       end
       # resource path
       local_var_path = '/api/v1/workspaces/{workspace_id}'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s))
@@ -275,7 +208,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.delete_workspace_api_v1_workspaces_workspace_id_delete",
+        :operation => :"WorkspacesApi.delete_workspace",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -286,7 +219,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#delete_workspace_api_v1_workspaces_workspace_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#delete_workspace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -295,8 +228,8 @@ module InvoicePDFs
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WorkspaceResponse]
-    def get_workspace_api_v1_workspaces_workspace_id_get(workspace_id, opts = {})
-      data, _status_code, _headers = get_workspace_api_v1_workspaces_workspace_id_get_with_http_info(workspace_id, opts)
+    def get_workspace(workspace_id, opts = {})
+      data, _status_code, _headers = get_workspace_with_http_info(workspace_id, opts)
       data
     end
 
@@ -304,13 +237,13 @@ module InvoicePDFs
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WorkspaceResponse, Integer, Hash)>] WorkspaceResponse data, response status code and response headers
-    def get_workspace_api_v1_workspaces_workspace_id_get_with_http_info(workspace_id, opts = {})
+    def get_workspace_with_http_info(workspace_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.get_workspace_api_v1_workspaces_workspace_id_get ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.get_workspace ...'
       end
       # verify the required parameter 'workspace_id' is set
       if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.get_workspace_api_v1_workspaces_workspace_id_get"
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.get_workspace"
       end
       # resource path
       local_var_path = '/api/v1/workspaces/{workspace_id}'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s))
@@ -336,7 +269,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.get_workspace_api_v1_workspaces_workspace_id_get",
+        :operation => :"WorkspacesApi.get_workspace",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -347,31 +280,31 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#get_workspace_api_v1_workspaces_workspace_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#get_workspace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # List Members
+    # List Workspace Members
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WorkspaceMembersListResponse]
-    def list_members_api_v1_workspaces_workspace_id_members_get(workspace_id, opts = {})
-      data, _status_code, _headers = list_members_api_v1_workspaces_workspace_id_members_get_with_http_info(workspace_id, opts)
+    def list_workspace_members(workspace_id, opts = {})
+      data, _status_code, _headers = list_workspace_members_with_http_info(workspace_id, opts)
       data
     end
 
-    # List Members
+    # List Workspace Members
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WorkspaceMembersListResponse, Integer, Hash)>] WorkspaceMembersListResponse data, response status code and response headers
-    def list_members_api_v1_workspaces_workspace_id_members_get_with_http_info(workspace_id, opts = {})
+    def list_workspace_members_with_http_info(workspace_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.list_members_api_v1_workspaces_workspace_id_members_get ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.list_workspace_members ...'
       end
       # verify the required parameter 'workspace_id' is set
       if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.list_members_api_v1_workspaces_workspace_id_members_get"
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.list_workspace_members"
       end
       # resource path
       local_var_path = '/api/v1/workspaces/{workspace_id}/members'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s))
@@ -397,7 +330,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.list_members_api_v1_workspaces_workspace_id_members_get",
+        :operation => :"WorkspacesApi.list_workspace_members",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -408,7 +341,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#list_members_api_v1_workspaces_workspace_id_members_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#list_workspace_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -418,8 +351,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [WorkspacesListResponse]
-    def list_workspaces_api_v1_workspaces_get(opts = {})
-      data, _status_code, _headers = list_workspaces_api_v1_workspaces_get_with_http_info(opts)
+    def list_workspaces(opts = {})
+      data, _status_code, _headers = list_workspaces_with_http_info(opts)
       data
     end
 
@@ -428,16 +361,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(WorkspacesListResponse, Integer, Hash)>] WorkspacesListResponse data, response status code and response headers
-    def list_workspaces_api_v1_workspaces_get_with_http_info(opts = {})
+    def list_workspaces_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.list_workspaces_api_v1_workspaces_get ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.list_workspaces ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WorkspacesApi.list_workspaces_api_v1_workspaces_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WorkspacesApi.list_workspaces, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WorkspacesApi.list_workspaces_api_v1_workspaces_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WorkspacesApi.list_workspaces, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -466,7 +399,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.list_workspaces_api_v1_workspaces_get",
+        :operation => :"WorkspacesApi.list_workspaces",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -477,43 +410,37 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#list_workspaces_api_v1_workspaces_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#list_workspaces\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Member
+    # Remove Workspace Member
     # @param workspace_id [String] 
     # @param member_id [String] 
-    # @param workspace_member_patch_request [WorkspaceMemberPatchRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [WorkspaceMemberOut]
-    def patch_member_api_v1_workspaces_workspace_id_members_member_id_patch(workspace_id, member_id, workspace_member_patch_request, opts = {})
-      data, _status_code, _headers = patch_member_api_v1_workspaces_workspace_id_members_member_id_patch_with_http_info(workspace_id, member_id, workspace_member_patch_request, opts)
+    # @return [SimpleBoolResponse]
+    def remove_workspace_member(workspace_id, member_id, opts = {})
+      data, _status_code, _headers = remove_workspace_member_with_http_info(workspace_id, member_id, opts)
       data
     end
 
-    # Patch Member
+    # Remove Workspace Member
     # @param workspace_id [String] 
     # @param member_id [String] 
-    # @param workspace_member_patch_request [WorkspaceMemberPatchRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(WorkspaceMemberOut, Integer, Hash)>] WorkspaceMemberOut data, response status code and response headers
-    def patch_member_api_v1_workspaces_workspace_id_members_member_id_patch_with_http_info(workspace_id, member_id, workspace_member_patch_request, opts = {})
+    # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
+    def remove_workspace_member_with_http_info(workspace_id, member_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.remove_workspace_member ...'
       end
       # verify the required parameter 'workspace_id' is set
       if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch"
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.remove_workspace_member"
       end
       # verify the required parameter 'member_id' is set
       if @api_client.config.client_side_validation && member_id.nil?
-        fail ArgumentError, "Missing the required parameter 'member_id' when calling WorkspacesApi.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch"
-      end
-      # verify the required parameter 'workspace_member_patch_request' is set
-      if @api_client.config.client_side_validation && workspace_member_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_member_patch_request' when calling WorkspacesApi.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch"
+        fail ArgumentError, "Missing the required parameter 'member_id' when calling WorkspacesApi.remove_workspace_member"
       end
       # resource path
       local_var_path = '/api/v1/workspaces/{workspace_id}/members/{member_id}'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s)).sub('{' + 'member_id' + '}', CGI.escape(member_id.to_s))
@@ -525,26 +452,21 @@ module InvoicePDFs
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(workspace_member_patch_request)
+      post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'WorkspaceMemberOut'
+      return_type = opts[:debug_return_type] || 'SimpleBoolResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch",
+        :operation => :"WorkspacesApi.remove_workspace_member",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -553,41 +475,41 @@ module InvoicePDFs
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#patch_member_api_v1_workspaces_workspace_id_members_member_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#remove_workspace_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Workspace
+    # Update Workspace
     # @param workspace_id [String] 
     # @param workspace_patch_request [WorkspacePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [WorkspaceResponse]
-    def patch_workspace_api_v1_workspaces_workspace_id_patch(workspace_id, workspace_patch_request, opts = {})
-      data, _status_code, _headers = patch_workspace_api_v1_workspaces_workspace_id_patch_with_http_info(workspace_id, workspace_patch_request, opts)
+    def update_workspace(workspace_id, workspace_patch_request, opts = {})
+      data, _status_code, _headers = update_workspace_with_http_info(workspace_id, workspace_patch_request, opts)
       data
     end
 
-    # Patch Workspace
+    # Update Workspace
     # @param workspace_id [String] 
     # @param workspace_patch_request [WorkspacePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(WorkspaceResponse, Integer, Hash)>] WorkspaceResponse data, response status code and response headers
-    def patch_workspace_api_v1_workspaces_workspace_id_patch_with_http_info(workspace_id, workspace_patch_request, opts = {})
+    def update_workspace_with_http_info(workspace_id, workspace_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WorkspacesApi.patch_workspace_api_v1_workspaces_workspace_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.update_workspace ...'
       end
       # verify the required parameter 'workspace_id' is set
       if @api_client.config.client_side_validation && workspace_id.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.patch_workspace_api_v1_workspaces_workspace_id_patch"
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.update_workspace"
       end
       # verify the required parameter 'workspace_patch_request' is set
       if @api_client.config.client_side_validation && workspace_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'workspace_patch_request' when calling WorkspacesApi.patch_workspace_api_v1_workspaces_workspace_id_patch"
+        fail ArgumentError, "Missing the required parameter 'workspace_patch_request' when calling WorkspacesApi.update_workspace"
       end
       # resource path
       local_var_path = '/api/v1/workspaces/{workspace_id}'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s))
@@ -619,7 +541,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WorkspacesApi.patch_workspace_api_v1_workspaces_workspace_id_patch",
+        :operation => :"WorkspacesApi.update_workspace",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -630,7 +552,85 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WorkspacesApi#patch_workspace_api_v1_workspaces_workspace_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WorkspacesApi#update_workspace\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Workspace Member
+    # @param workspace_id [String] 
+    # @param member_id [String] 
+    # @param workspace_member_patch_request [WorkspaceMemberPatchRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [WorkspaceMemberOut]
+    def update_workspace_member(workspace_id, member_id, workspace_member_patch_request, opts = {})
+      data, _status_code, _headers = update_workspace_member_with_http_info(workspace_id, member_id, workspace_member_patch_request, opts)
+      data
+    end
+
+    # Update Workspace Member
+    # @param workspace_id [String] 
+    # @param member_id [String] 
+    # @param workspace_member_patch_request [WorkspaceMemberPatchRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(WorkspaceMemberOut, Integer, Hash)>] WorkspaceMemberOut data, response status code and response headers
+    def update_workspace_member_with_http_info(workspace_id, member_id, workspace_member_patch_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WorkspacesApi.update_workspace_member ...'
+      end
+      # verify the required parameter 'workspace_id' is set
+      if @api_client.config.client_side_validation && workspace_id.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace_id' when calling WorkspacesApi.update_workspace_member"
+      end
+      # verify the required parameter 'member_id' is set
+      if @api_client.config.client_side_validation && member_id.nil?
+        fail ArgumentError, "Missing the required parameter 'member_id' when calling WorkspacesApi.update_workspace_member"
+      end
+      # verify the required parameter 'workspace_member_patch_request' is set
+      if @api_client.config.client_side_validation && workspace_member_patch_request.nil?
+        fail ArgumentError, "Missing the required parameter 'workspace_member_patch_request' when calling WorkspacesApi.update_workspace_member"
+      end
+      # resource path
+      local_var_path = '/api/v1/workspaces/{workspace_id}/members/{member_id}'.sub('{' + 'workspace_id' + '}', CGI.escape(workspace_id.to_s)).sub('{' + 'member_id' + '}', CGI.escape(member_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(workspace_member_patch_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WorkspaceMemberOut'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"WorkspacesApi.update_workspace_member",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WorkspacesApi#update_workspace_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

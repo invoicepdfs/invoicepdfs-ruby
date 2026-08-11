@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [File]
-    def download_render_api_v1_renders_render_id_download_get(render_id, opts = {})
-      data, _status_code, _headers = download_render_api_v1_renders_render_id_download_get_with_http_info(render_id, opts)
+    def download_render(render_id, opts = {})
+      data, _status_code, _headers = download_render_with_http_info(render_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def download_render_api_v1_renders_render_id_download_get_with_http_info(render_id, opts = {})
+    def download_render_with_http_info(render_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RendersApi.download_render_api_v1_renders_render_id_download_get ...'
+        @api_client.config.logger.debug 'Calling API: RendersApi.download_render ...'
       end
       # verify the required parameter 'render_id' is set
       if @api_client.config.client_side_validation && render_id.nil?
-        fail ArgumentError, "Missing the required parameter 'render_id' when calling RendersApi.download_render_api_v1_renders_render_id_download_get"
+        fail ArgumentError, "Missing the required parameter 'render_id' when calling RendersApi.download_render"
       end
       # resource path
       local_var_path = '/api/v1/renders/{render_id}/download'.sub('{' + 'render_id' + '}', CGI.escape(render_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RendersApi.download_render_api_v1_renders_render_id_download_get",
+        :operation => :"RendersApi.download_render",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RendersApi#download_render_api_v1_renders_render_id_download_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RendersApi#download_render\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def get_render_api_v1_renders_render_id_get(render_id, opts = {})
-      data, _status_code, _headers = get_render_api_v1_renders_render_id_get_with_http_info(render_id, opts)
+    def get_render(render_id, opts = {})
+      data, _status_code, _headers = get_render_with_http_info(render_id, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def get_render_api_v1_renders_render_id_get_with_http_info(render_id, opts = {})
+    def get_render_with_http_info(render_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RendersApi.get_render_api_v1_renders_render_id_get ...'
+        @api_client.config.logger.debug 'Calling API: RendersApi.get_render ...'
       end
       # verify the required parameter 'render_id' is set
       if @api_client.config.client_side_validation && render_id.nil?
-        fail ArgumentError, "Missing the required parameter 'render_id' when calling RendersApi.get_render_api_v1_renders_render_id_get"
+        fail ArgumentError, "Missing the required parameter 'render_id' when calling RendersApi.get_render"
       end
       # resource path
       local_var_path = '/api/v1/renders/{render_id}'.sub('{' + 'render_id' + '}', CGI.escape(render_id.to_s))
@@ -125,7 +125,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RendersApi.get_render_api_v1_renders_render_id_get",
+        :operation => :"RendersApi.get_render",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -136,7 +136,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RendersApi#get_render_api_v1_renders_render_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RendersApi#get_render\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

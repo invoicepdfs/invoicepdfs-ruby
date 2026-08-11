@@ -4,21 +4,21 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_profile_api_v1_branding_profiles_post**](BrandingProfilesApi.md#create_profile_api_v1_branding_profiles_post) | **POST** /api/v1/branding-profiles | Create Profile |
-| [**delete_logo_api_v1_branding_profiles_profile_id_logo_delete**](BrandingProfilesApi.md#delete_logo_api_v1_branding_profiles_profile_id_logo_delete) | **DELETE** /api/v1/branding-profiles/{profile_id}/logo | Delete Logo |
-| [**delete_profile_api_v1_branding_profiles_profile_id_delete**](BrandingProfilesApi.md#delete_profile_api_v1_branding_profiles_profile_id_delete) | **DELETE** /api/v1/branding-profiles/{profile_id} | Delete Profile |
-| [**get_profile_api_v1_branding_profiles_profile_id_get**](BrandingProfilesApi.md#get_profile_api_v1_branding_profiles_profile_id_get) | **GET** /api/v1/branding-profiles/{profile_id} | Get Profile |
-| [**list_profiles_api_v1_branding_profiles_get**](BrandingProfilesApi.md#list_profiles_api_v1_branding_profiles_get) | **GET** /api/v1/branding-profiles | List Profiles |
-| [**set_default_api_v1_branding_profiles_profile_id_default_post**](BrandingProfilesApi.md#set_default_api_v1_branding_profiles_profile_id_default_post) | **POST** /api/v1/branding-profiles/{profile_id}/default | Set Default |
-| [**update_profile_api_v1_branding_profiles_profile_id_patch**](BrandingProfilesApi.md#update_profile_api_v1_branding_profiles_profile_id_patch) | **PATCH** /api/v1/branding-profiles/{profile_id} | Update Profile |
-| [**upload_logo_api_v1_branding_profiles_profile_id_logo_post**](BrandingProfilesApi.md#upload_logo_api_v1_branding_profiles_profile_id_logo_post) | **POST** /api/v1/branding-profiles/{profile_id}/logo | Upload Logo |
+| [**create_branding_profile**](BrandingProfilesApi.md#create_branding_profile) | **POST** /api/v1/branding-profiles | Create Branding Profile |
+| [**delete_branding_logo**](BrandingProfilesApi.md#delete_branding_logo) | **DELETE** /api/v1/branding-profiles/{profile_id}/logo | Delete Branding Logo |
+| [**delete_branding_profile**](BrandingProfilesApi.md#delete_branding_profile) | **DELETE** /api/v1/branding-profiles/{profile_id} | Delete Branding Profile |
+| [**get_branding_profile**](BrandingProfilesApi.md#get_branding_profile) | **GET** /api/v1/branding-profiles/{profile_id} | Get Branding Profile |
+| [**list_branding_profiles**](BrandingProfilesApi.md#list_branding_profiles) | **GET** /api/v1/branding-profiles | List Branding Profiles |
+| [**set_default_branding_profile**](BrandingProfilesApi.md#set_default_branding_profile) | **POST** /api/v1/branding-profiles/{profile_id}/default | Set Default Branding Profile |
+| [**update_branding_profile**](BrandingProfilesApi.md#update_branding_profile) | **PATCH** /api/v1/branding-profiles/{profile_id} | Update Branding Profile |
+| [**upload_branding_logo**](BrandingProfilesApi.md#upload_branding_logo) | **POST** /api/v1/branding-profiles/{profile_id}/logo | Upload Branding Logo |
 
 
-## create_profile_api_v1_branding_profiles_post
+## create_branding_profile
 
-> <BrandingProfileResponse> create_profile_api_v1_branding_profiles_post(branding_profile_create_request)
+> <BrandingProfileResponse> create_branding_profile(branding_profile_create_request)
 
-Create Profile
+Create Branding Profile
 
 ### Examples
 
@@ -35,29 +35,29 @@ api_instance = InvoicePDFs::BrandingProfilesApi.new
 branding_profile_create_request = InvoicePDFs::BrandingProfileCreateRequest.new({name: 'Acme Corp'}) # BrandingProfileCreateRequest | 
 
 begin
-  # Create Profile
-  result = api_instance.create_profile_api_v1_branding_profiles_post(branding_profile_create_request)
+  # Create Branding Profile
+  result = api_instance.create_branding_profile(branding_profile_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->create_profile_api_v1_branding_profiles_post: #{e}"
+  puts "Error when calling BrandingProfilesApi->create_branding_profile: #{e}"
 end
 ```
 
-#### Using the create_profile_api_v1_branding_profiles_post_with_http_info variant
+#### Using the create_branding_profile_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BrandingProfileResponse>, Integer, Hash)> create_profile_api_v1_branding_profiles_post_with_http_info(branding_profile_create_request)
+> <Array(<BrandingProfileResponse>, Integer, Hash)> create_branding_profile_with_http_info(branding_profile_create_request)
 
 ```ruby
 begin
-  # Create Profile
-  data, status_code, headers = api_instance.create_profile_api_v1_branding_profiles_post_with_http_info(branding_profile_create_request)
+  # Create Branding Profile
+  data, status_code, headers = api_instance.create_branding_profile_with_http_info(branding_profile_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BrandingProfileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->create_profile_api_v1_branding_profiles_post_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->create_branding_profile_with_http_info: #{e}"
 end
 ```
 
@@ -81,11 +81,11 @@ end
 - **Accept**: application/json
 
 
-## delete_logo_api_v1_branding_profiles_profile_id_logo_delete
+## delete_branding_logo
 
-> <SimpleBoolResponse> delete_logo_api_v1_branding_profiles_profile_id_logo_delete(profile_id)
+> <SimpleBoolResponse> delete_branding_logo(profile_id)
 
-Delete Logo
+Delete Branding Logo
 
 ### Examples
 
@@ -102,29 +102,29 @@ api_instance = InvoicePDFs::BrandingProfilesApi.new
 profile_id = 'profile_id_example' # String | 
 
 begin
-  # Delete Logo
-  result = api_instance.delete_logo_api_v1_branding_profiles_profile_id_logo_delete(profile_id)
+  # Delete Branding Logo
+  result = api_instance.delete_branding_logo(profile_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->delete_logo_api_v1_branding_profiles_profile_id_logo_delete: #{e}"
+  puts "Error when calling BrandingProfilesApi->delete_branding_logo: #{e}"
 end
 ```
 
-#### Using the delete_logo_api_v1_branding_profiles_profile_id_logo_delete_with_http_info variant
+#### Using the delete_branding_logo_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_logo_api_v1_branding_profiles_profile_id_logo_delete_with_http_info(profile_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_branding_logo_with_http_info(profile_id)
 
 ```ruby
 begin
-  # Delete Logo
-  data, status_code, headers = api_instance.delete_logo_api_v1_branding_profiles_profile_id_logo_delete_with_http_info(profile_id)
+  # Delete Branding Logo
+  data, status_code, headers = api_instance.delete_branding_logo_with_http_info(profile_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->delete_logo_api_v1_branding_profiles_profile_id_logo_delete_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->delete_branding_logo_with_http_info: #{e}"
 end
 ```
 
@@ -148,11 +148,11 @@ end
 - **Accept**: application/json
 
 
-## delete_profile_api_v1_branding_profiles_profile_id_delete
+## delete_branding_profile
 
-> <SimpleBoolResponse> delete_profile_api_v1_branding_profiles_profile_id_delete(profile_id)
+> <SimpleBoolResponse> delete_branding_profile(profile_id)
 
-Delete Profile
+Delete Branding Profile
 
 ### Examples
 
@@ -169,29 +169,29 @@ api_instance = InvoicePDFs::BrandingProfilesApi.new
 profile_id = 'profile_id_example' # String | 
 
 begin
-  # Delete Profile
-  result = api_instance.delete_profile_api_v1_branding_profiles_profile_id_delete(profile_id)
+  # Delete Branding Profile
+  result = api_instance.delete_branding_profile(profile_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->delete_profile_api_v1_branding_profiles_profile_id_delete: #{e}"
+  puts "Error when calling BrandingProfilesApi->delete_branding_profile: #{e}"
 end
 ```
 
-#### Using the delete_profile_api_v1_branding_profiles_profile_id_delete_with_http_info variant
+#### Using the delete_branding_profile_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_profile_api_v1_branding_profiles_profile_id_delete_with_http_info(profile_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_branding_profile_with_http_info(profile_id)
 
 ```ruby
 begin
-  # Delete Profile
-  data, status_code, headers = api_instance.delete_profile_api_v1_branding_profiles_profile_id_delete_with_http_info(profile_id)
+  # Delete Branding Profile
+  data, status_code, headers = api_instance.delete_branding_profile_with_http_info(profile_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->delete_profile_api_v1_branding_profiles_profile_id_delete_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->delete_branding_profile_with_http_info: #{e}"
 end
 ```
 
@@ -215,11 +215,11 @@ end
 - **Accept**: application/json
 
 
-## get_profile_api_v1_branding_profiles_profile_id_get
+## get_branding_profile
 
-> <BrandingProfileResponse> get_profile_api_v1_branding_profiles_profile_id_get(profile_id)
+> <BrandingProfileResponse> get_branding_profile(profile_id)
 
-Get Profile
+Get Branding Profile
 
 ### Examples
 
@@ -236,29 +236,29 @@ api_instance = InvoicePDFs::BrandingProfilesApi.new
 profile_id = 'profile_id_example' # String | 
 
 begin
-  # Get Profile
-  result = api_instance.get_profile_api_v1_branding_profiles_profile_id_get(profile_id)
+  # Get Branding Profile
+  result = api_instance.get_branding_profile(profile_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->get_profile_api_v1_branding_profiles_profile_id_get: #{e}"
+  puts "Error when calling BrandingProfilesApi->get_branding_profile: #{e}"
 end
 ```
 
-#### Using the get_profile_api_v1_branding_profiles_profile_id_get_with_http_info variant
+#### Using the get_branding_profile_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BrandingProfileResponse>, Integer, Hash)> get_profile_api_v1_branding_profiles_profile_id_get_with_http_info(profile_id)
+> <Array(<BrandingProfileResponse>, Integer, Hash)> get_branding_profile_with_http_info(profile_id)
 
 ```ruby
 begin
-  # Get Profile
-  data, status_code, headers = api_instance.get_profile_api_v1_branding_profiles_profile_id_get_with_http_info(profile_id)
+  # Get Branding Profile
+  data, status_code, headers = api_instance.get_branding_profile_with_http_info(profile_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BrandingProfileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->get_profile_api_v1_branding_profiles_profile_id_get_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->get_branding_profile_with_http_info: #{e}"
 end
 ```
 
@@ -282,11 +282,11 @@ end
 - **Accept**: application/json
 
 
-## list_profiles_api_v1_branding_profiles_get
+## list_branding_profiles
 
-> <BrandingProfilesListResponse> list_profiles_api_v1_branding_profiles_get
+> <BrandingProfilesListResponse> list_branding_profiles
 
-List Profiles
+List Branding Profiles
 
 ### Examples
 
@@ -302,29 +302,29 @@ end
 api_instance = InvoicePDFs::BrandingProfilesApi.new
 
 begin
-  # List Profiles
-  result = api_instance.list_profiles_api_v1_branding_profiles_get
+  # List Branding Profiles
+  result = api_instance.list_branding_profiles
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->list_profiles_api_v1_branding_profiles_get: #{e}"
+  puts "Error when calling BrandingProfilesApi->list_branding_profiles: #{e}"
 end
 ```
 
-#### Using the list_profiles_api_v1_branding_profiles_get_with_http_info variant
+#### Using the list_branding_profiles_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BrandingProfilesListResponse>, Integer, Hash)> list_profiles_api_v1_branding_profiles_get_with_http_info
+> <Array(<BrandingProfilesListResponse>, Integer, Hash)> list_branding_profiles_with_http_info
 
 ```ruby
 begin
-  # List Profiles
-  data, status_code, headers = api_instance.list_profiles_api_v1_branding_profiles_get_with_http_info
+  # List Branding Profiles
+  data, status_code, headers = api_instance.list_branding_profiles_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BrandingProfilesListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->list_profiles_api_v1_branding_profiles_get_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->list_branding_profiles_with_http_info: #{e}"
 end
 ```
 
@@ -346,11 +346,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## set_default_api_v1_branding_profiles_profile_id_default_post
+## set_default_branding_profile
 
-> <BrandingProfileResponse> set_default_api_v1_branding_profiles_profile_id_default_post(profile_id)
+> <BrandingProfileResponse> set_default_branding_profile(profile_id)
 
-Set Default
+Set Default Branding Profile
 
 ### Examples
 
@@ -367,29 +367,29 @@ api_instance = InvoicePDFs::BrandingProfilesApi.new
 profile_id = 'profile_id_example' # String | 
 
 begin
-  # Set Default
-  result = api_instance.set_default_api_v1_branding_profiles_profile_id_default_post(profile_id)
+  # Set Default Branding Profile
+  result = api_instance.set_default_branding_profile(profile_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->set_default_api_v1_branding_profiles_profile_id_default_post: #{e}"
+  puts "Error when calling BrandingProfilesApi->set_default_branding_profile: #{e}"
 end
 ```
 
-#### Using the set_default_api_v1_branding_profiles_profile_id_default_post_with_http_info variant
+#### Using the set_default_branding_profile_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BrandingProfileResponse>, Integer, Hash)> set_default_api_v1_branding_profiles_profile_id_default_post_with_http_info(profile_id)
+> <Array(<BrandingProfileResponse>, Integer, Hash)> set_default_branding_profile_with_http_info(profile_id)
 
 ```ruby
 begin
-  # Set Default
-  data, status_code, headers = api_instance.set_default_api_v1_branding_profiles_profile_id_default_post_with_http_info(profile_id)
+  # Set Default Branding Profile
+  data, status_code, headers = api_instance.set_default_branding_profile_with_http_info(profile_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BrandingProfileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->set_default_api_v1_branding_profiles_profile_id_default_post_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->set_default_branding_profile_with_http_info: #{e}"
 end
 ```
 
@@ -413,11 +413,11 @@ end
 - **Accept**: application/json
 
 
-## update_profile_api_v1_branding_profiles_profile_id_patch
+## update_branding_profile
 
-> <BrandingProfileResponse> update_profile_api_v1_branding_profiles_profile_id_patch(profile_id, branding_profile_patch_request)
+> <BrandingProfileResponse> update_branding_profile(profile_id, branding_profile_patch_request)
 
-Update Profile
+Update Branding Profile
 
 ### Examples
 
@@ -435,29 +435,29 @@ profile_id = 'profile_id_example' # String |
 branding_profile_patch_request = InvoicePDFs::BrandingProfilePatchRequest.new # BrandingProfilePatchRequest | 
 
 begin
-  # Update Profile
-  result = api_instance.update_profile_api_v1_branding_profiles_profile_id_patch(profile_id, branding_profile_patch_request)
+  # Update Branding Profile
+  result = api_instance.update_branding_profile(profile_id, branding_profile_patch_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->update_profile_api_v1_branding_profiles_profile_id_patch: #{e}"
+  puts "Error when calling BrandingProfilesApi->update_branding_profile: #{e}"
 end
 ```
 
-#### Using the update_profile_api_v1_branding_profiles_profile_id_patch_with_http_info variant
+#### Using the update_branding_profile_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BrandingProfileResponse>, Integer, Hash)> update_profile_api_v1_branding_profiles_profile_id_patch_with_http_info(profile_id, branding_profile_patch_request)
+> <Array(<BrandingProfileResponse>, Integer, Hash)> update_branding_profile_with_http_info(profile_id, branding_profile_patch_request)
 
 ```ruby
 begin
-  # Update Profile
-  data, status_code, headers = api_instance.update_profile_api_v1_branding_profiles_profile_id_patch_with_http_info(profile_id, branding_profile_patch_request)
+  # Update Branding Profile
+  data, status_code, headers = api_instance.update_branding_profile_with_http_info(profile_id, branding_profile_patch_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BrandingProfileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->update_profile_api_v1_branding_profiles_profile_id_patch_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->update_branding_profile_with_http_info: #{e}"
 end
 ```
 
@@ -482,11 +482,11 @@ end
 - **Accept**: application/json
 
 
-## upload_logo_api_v1_branding_profiles_profile_id_logo_post
+## upload_branding_logo
 
-> <BrandingProfileResponse> upload_logo_api_v1_branding_profiles_profile_id_logo_post(profile_id, file)
+> <BrandingProfileResponse> upload_branding_logo(profile_id, file)
 
-Upload Logo
+Upload Branding Logo
 
 ### Examples
 
@@ -504,29 +504,29 @@ profile_id = 'profile_id_example' # String |
 file = File.new('/path/to/some/file') # File | 
 
 begin
-  # Upload Logo
-  result = api_instance.upload_logo_api_v1_branding_profiles_profile_id_logo_post(profile_id, file)
+  # Upload Branding Logo
+  result = api_instance.upload_branding_logo(profile_id, file)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->upload_logo_api_v1_branding_profiles_profile_id_logo_post: #{e}"
+  puts "Error when calling BrandingProfilesApi->upload_branding_logo: #{e}"
 end
 ```
 
-#### Using the upload_logo_api_v1_branding_profiles_profile_id_logo_post_with_http_info variant
+#### Using the upload_branding_logo_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BrandingProfileResponse>, Integer, Hash)> upload_logo_api_v1_branding_profiles_profile_id_logo_post_with_http_info(profile_id, file)
+> <Array(<BrandingProfileResponse>, Integer, Hash)> upload_branding_logo_with_http_info(profile_id, file)
 
 ```ruby
 begin
-  # Upload Logo
-  data, status_code, headers = api_instance.upload_logo_api_v1_branding_profiles_profile_id_logo_post_with_http_info(profile_id, file)
+  # Upload Branding Logo
+  data, status_code, headers = api_instance.upload_branding_logo_with_http_info(profile_id, file)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BrandingProfileResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BrandingProfilesApi->upload_logo_api_v1_branding_profiles_profile_id_logo_post_with_http_info: #{e}"
+  puts "Error when calling BrandingProfilesApi->upload_branding_logo_with_http_info: #{e}"
 end
 ```
 

@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [JobResponse]
-    def cancel_job_api_v1_jobs_job_id_cancel_post(job_id, opts = {})
-      data, _status_code, _headers = cancel_job_api_v1_jobs_job_id_cancel_post_with_http_info(job_id, opts)
+    def cancel_job(job_id, opts = {})
+      data, _status_code, _headers = cancel_job_with_http_info(job_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobResponse, Integer, Hash)>] JobResponse data, response status code and response headers
-    def cancel_job_api_v1_jobs_job_id_cancel_post_with_http_info(job_id, opts = {})
+    def cancel_job_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: JobsApi.cancel_job_api_v1_jobs_job_id_cancel_post ...'
+        @api_client.config.logger.debug 'Calling API: JobsApi.cancel_job ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling JobsApi.cancel_job_api_v1_jobs_job_id_cancel_post"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling JobsApi.cancel_job"
       end
       # resource path
       local_var_path = '/api/v1/jobs/{job_id}/cancel'.sub('{' + 'job_id' + '}', CGI.escape(job_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"JobsApi.cancel_job_api_v1_jobs_job_id_cancel_post",
+        :operation => :"JobsApi.cancel_job",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: JobsApi#cancel_job_api_v1_jobs_job_id_cancel_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: JobsApi#cancel_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [JobResponse]
-    def get_job_api_v1_jobs_job_id_get(job_id, opts = {})
-      data, _status_code, _headers = get_job_api_v1_jobs_job_id_get_with_http_info(job_id, opts)
+    def get_job(job_id, opts = {})
+      data, _status_code, _headers = get_job_with_http_info(job_id, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobResponse, Integer, Hash)>] JobResponse data, response status code and response headers
-    def get_job_api_v1_jobs_job_id_get_with_http_info(job_id, opts = {})
+    def get_job_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: JobsApi.get_job_api_v1_jobs_job_id_get ...'
+        @api_client.config.logger.debug 'Calling API: JobsApi.get_job ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling JobsApi.get_job_api_v1_jobs_job_id_get"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling JobsApi.get_job"
       end
       # resource path
       local_var_path = '/api/v1/jobs/{job_id}'.sub('{' + 'job_id' + '}', CGI.escape(job_id.to_s))
@@ -125,7 +125,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"JobsApi.get_job_api_v1_jobs_job_id_get",
+        :operation => :"JobsApi.get_job",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -136,7 +136,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: JobsApi#get_job_api_v1_jobs_job_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: JobsApi#get_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -145,8 +145,8 @@ module InvoicePDFs
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [JobResponse]
-    def retry_job_api_v1_jobs_job_id_retry_post(job_id, opts = {})
-      data, _status_code, _headers = retry_job_api_v1_jobs_job_id_retry_post_with_http_info(job_id, opts)
+    def retry_job(job_id, opts = {})
+      data, _status_code, _headers = retry_job_with_http_info(job_id, opts)
       data
     end
 
@@ -154,13 +154,13 @@ module InvoicePDFs
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobResponse, Integer, Hash)>] JobResponse data, response status code and response headers
-    def retry_job_api_v1_jobs_job_id_retry_post_with_http_info(job_id, opts = {})
+    def retry_job_with_http_info(job_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: JobsApi.retry_job_api_v1_jobs_job_id_retry_post ...'
+        @api_client.config.logger.debug 'Calling API: JobsApi.retry_job ...'
       end
       # verify the required parameter 'job_id' is set
       if @api_client.config.client_side_validation && job_id.nil?
-        fail ArgumentError, "Missing the required parameter 'job_id' when calling JobsApi.retry_job_api_v1_jobs_job_id_retry_post"
+        fail ArgumentError, "Missing the required parameter 'job_id' when calling JobsApi.retry_job"
       end
       # resource path
       local_var_path = '/api/v1/jobs/{job_id}/retry'.sub('{' + 'job_id' + '}', CGI.escape(job_id.to_s))
@@ -186,7 +186,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"JobsApi.retry_job_api_v1_jobs_job_id_retry_post",
+        :operation => :"JobsApi.retry_job",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -197,7 +197,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: JobsApi#retry_job_api_v1_jobs_job_id_retry_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: JobsApi#retry_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

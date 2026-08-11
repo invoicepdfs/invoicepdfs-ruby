@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**cancel_import_api_v1_imports_import_id_cancel_post**](ImportsApi.md#cancel_import_api_v1_imports_import_id_cancel_post) | **POST** /api/v1/imports/{import_id}/cancel | Cancel Import |
-| [**confirm_import_api_v1_imports_import_id_confirm_post**](ImportsApi.md#confirm_import_api_v1_imports_import_id_confirm_post) | **POST** /api/v1/imports/{import_id}/confirm | Confirm Import |
-| [**create_import_api_v1_imports_post**](ImportsApi.md#create_import_api_v1_imports_post) | **POST** /api/v1/imports | Create Import |
-| [**get_import_api_v1_imports_import_id_get**](ImportsApi.md#get_import_api_v1_imports_import_id_get) | **GET** /api/v1/imports/{import_id} | Get Import |
+| [**cancel_import**](ImportsApi.md#cancel_import) | **POST** /api/v1/imports/{import_id}/cancel | Cancel Import |
+| [**confirm_import**](ImportsApi.md#confirm_import) | **POST** /api/v1/imports/{import_id}/confirm | Confirm Import |
+| [**create_import**](ImportsApi.md#create_import) | **POST** /api/v1/imports | Create Import |
+| [**get_import**](ImportsApi.md#get_import) | **GET** /api/v1/imports/{import_id} | Get Import |
 
 
-## cancel_import_api_v1_imports_import_id_cancel_post
+## cancel_import
 
-> <ImportResponse> cancel_import_api_v1_imports_import_id_cancel_post(import_id)
+> <ImportResponse> cancel_import(import_id)
 
 Cancel Import
 
@@ -32,28 +32,28 @@ import_id = 'import_id_example' # String |
 
 begin
   # Cancel Import
-  result = api_instance.cancel_import_api_v1_imports_import_id_cancel_post(import_id)
+  result = api_instance.cancel_import(import_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->cancel_import_api_v1_imports_import_id_cancel_post: #{e}"
+  puts "Error when calling ImportsApi->cancel_import: #{e}"
 end
 ```
 
-#### Using the cancel_import_api_v1_imports_import_id_cancel_post_with_http_info variant
+#### Using the cancel_import_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ImportResponse>, Integer, Hash)> cancel_import_api_v1_imports_import_id_cancel_post_with_http_info(import_id)
+> <Array(<ImportResponse>, Integer, Hash)> cancel_import_with_http_info(import_id)
 
 ```ruby
 begin
   # Cancel Import
-  data, status_code, headers = api_instance.cancel_import_api_v1_imports_import_id_cancel_post_with_http_info(import_id)
+  data, status_code, headers = api_instance.cancel_import_with_http_info(import_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ImportResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->cancel_import_api_v1_imports_import_id_cancel_post_with_http_info: #{e}"
+  puts "Error when calling ImportsApi->cancel_import_with_http_info: #{e}"
 end
 ```
 
@@ -77,9 +77,9 @@ end
 - **Accept**: application/json
 
 
-## confirm_import_api_v1_imports_import_id_confirm_post
+## confirm_import
 
-> <ImportResponse> confirm_import_api_v1_imports_import_id_confirm_post(import_id)
+> <ImportResponse> confirm_import(import_id)
 
 Confirm Import
 
@@ -99,28 +99,28 @@ import_id = 'import_id_example' # String |
 
 begin
   # Confirm Import
-  result = api_instance.confirm_import_api_v1_imports_import_id_confirm_post(import_id)
+  result = api_instance.confirm_import(import_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->confirm_import_api_v1_imports_import_id_confirm_post: #{e}"
+  puts "Error when calling ImportsApi->confirm_import: #{e}"
 end
 ```
 
-#### Using the confirm_import_api_v1_imports_import_id_confirm_post_with_http_info variant
+#### Using the confirm_import_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ImportResponse>, Integer, Hash)> confirm_import_api_v1_imports_import_id_confirm_post_with_http_info(import_id)
+> <Array(<ImportResponse>, Integer, Hash)> confirm_import_with_http_info(import_id)
 
 ```ruby
 begin
   # Confirm Import
-  data, status_code, headers = api_instance.confirm_import_api_v1_imports_import_id_confirm_post_with_http_info(import_id)
+  data, status_code, headers = api_instance.confirm_import_with_http_info(import_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ImportResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->confirm_import_api_v1_imports_import_id_confirm_post_with_http_info: #{e}"
+  puts "Error when calling ImportsApi->confirm_import_with_http_info: #{e}"
 end
 ```
 
@@ -144,9 +144,9 @@ end
 - **Accept**: application/json
 
 
-## create_import_api_v1_imports_post
+## create_import
 
-> <ImportResponse> create_import_api_v1_imports_post(import_create_request)
+> <ImportResponse> create_import(import_create_request)
 
 Create Import
 
@@ -166,28 +166,28 @@ import_create_request = InvoicePDFs::ImportCreateRequest.new({source_format: 'js
 
 begin
   # Create Import
-  result = api_instance.create_import_api_v1_imports_post(import_create_request)
+  result = api_instance.create_import(import_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->create_import_api_v1_imports_post: #{e}"
+  puts "Error when calling ImportsApi->create_import: #{e}"
 end
 ```
 
-#### Using the create_import_api_v1_imports_post_with_http_info variant
+#### Using the create_import_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ImportResponse>, Integer, Hash)> create_import_api_v1_imports_post_with_http_info(import_create_request)
+> <Array(<ImportResponse>, Integer, Hash)> create_import_with_http_info(import_create_request)
 
 ```ruby
 begin
   # Create Import
-  data, status_code, headers = api_instance.create_import_api_v1_imports_post_with_http_info(import_create_request)
+  data, status_code, headers = api_instance.create_import_with_http_info(import_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ImportResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->create_import_api_v1_imports_post_with_http_info: #{e}"
+  puts "Error when calling ImportsApi->create_import_with_http_info: #{e}"
 end
 ```
 
@@ -211,9 +211,9 @@ end
 - **Accept**: application/json
 
 
-## get_import_api_v1_imports_import_id_get
+## get_import
 
-> <ImportResponse> get_import_api_v1_imports_import_id_get(import_id)
+> <ImportResponse> get_import(import_id)
 
 Get Import
 
@@ -233,28 +233,28 @@ import_id = 'import_id_example' # String |
 
 begin
   # Get Import
-  result = api_instance.get_import_api_v1_imports_import_id_get(import_id)
+  result = api_instance.get_import(import_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->get_import_api_v1_imports_import_id_get: #{e}"
+  puts "Error when calling ImportsApi->get_import: #{e}"
 end
 ```
 
-#### Using the get_import_api_v1_imports_import_id_get_with_http_info variant
+#### Using the get_import_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ImportResponse>, Integer, Hash)> get_import_api_v1_imports_import_id_get_with_http_info(import_id)
+> <Array(<ImportResponse>, Integer, Hash)> get_import_with_http_info(import_id)
 
 ```ruby
 begin
   # Get Import
-  data, status_code, headers = api_instance.get_import_api_v1_imports_import_id_get_with_http_info(import_id)
+  data, status_code, headers = api_instance.get_import_with_http_info(import_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ImportResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ImportsApi->get_import_api_v1_imports_import_id_get_with_http_info: #{e}"
+  puts "Error when calling ImportsApi->get_import_with_http_info: #{e}"
 end
 ```
 

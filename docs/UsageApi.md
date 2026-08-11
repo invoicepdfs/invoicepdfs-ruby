@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_limits_api_v1_usage_limits_get**](UsageApi.md#get_limits_api_v1_usage_limits_get) | **GET** /api/v1/usage/limits | Get Limits |
-| [**list_usage_events_api_v1_usage_events_get**](UsageApi.md#list_usage_events_api_v1_usage_events_get) | **GET** /api/v1/usage/events | List Usage Events |
-| [**usage_api_v1_usage_get**](UsageApi.md#usage_api_v1_usage_get) | **GET** /api/v1/usage | Usage |
+| [**get_usage**](UsageApi.md#get_usage) | **GET** /api/v1/usage | Get Usage |
+| [**get_usage_limits**](UsageApi.md#get_usage_limits) | **GET** /api/v1/usage/limits | Get Usage Limits |
+| [**list_usage_events**](UsageApi.md#list_usage_events) | **GET** /api/v1/usage/events | List Usage Events |
 
 
-## get_limits_api_v1_usage_limits_get
+## get_usage
 
-> Hash&lt;String, Object&gt; get_limits_api_v1_usage_limits_get
+> <UsageResponse> get_usage
 
-Get Limits
+Get Usage
 
 ### Examples
 
@@ -29,29 +29,93 @@ end
 api_instance = InvoicePDFs::UsageApi.new
 
 begin
-  # Get Limits
-  result = api_instance.get_limits_api_v1_usage_limits_get
+  # Get Usage
+  result = api_instance.get_usage
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling UsageApi->get_limits_api_v1_usage_limits_get: #{e}"
+  puts "Error when calling UsageApi->get_usage: #{e}"
 end
 ```
 
-#### Using the get_limits_api_v1_usage_limits_get_with_http_info variant
+#### Using the get_usage_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_limits_api_v1_usage_limits_get_with_http_info
+> <Array(<UsageResponse>, Integer, Hash)> get_usage_with_http_info
 
 ```ruby
 begin
-  # Get Limits
-  data, status_code, headers = api_instance.get_limits_api_v1_usage_limits_get_with_http_info
+  # Get Usage
+  data, status_code, headers = api_instance.get_usage_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <UsageResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling UsageApi->get_usage_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**UsageResponse**](UsageResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_usage_limits
+
+> Hash&lt;String, Object&gt; get_usage_limits
+
+Get Usage Limits
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::UsageApi.new
+
+begin
+  # Get Usage Limits
+  result = api_instance.get_usage_limits
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling UsageApi->get_usage_limits: #{e}"
+end
+```
+
+#### Using the get_usage_limits_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_usage_limits_with_http_info
+
+```ruby
+begin
+  # Get Usage Limits
+  data, status_code, headers = api_instance.get_usage_limits_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Hash&lt;String, Object&gt;
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling UsageApi->get_limits_api_v1_usage_limits_get_with_http_info: #{e}"
+  puts "Error when calling UsageApi->get_usage_limits_with_http_info: #{e}"
 end
 ```
 
@@ -73,9 +137,9 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## list_usage_events_api_v1_usage_events_get
+## list_usage_events
 
-> Hash&lt;String, Object&gt; list_usage_events_api_v1_usage_events_get(opts)
+> Hash&lt;String, Object&gt; list_usage_events(opts)
 
 List Usage Events
 
@@ -98,28 +162,28 @@ opts = {
 
 begin
   # List Usage Events
-  result = api_instance.list_usage_events_api_v1_usage_events_get(opts)
+  result = api_instance.list_usage_events(opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling UsageApi->list_usage_events_api_v1_usage_events_get: #{e}"
+  puts "Error when calling UsageApi->list_usage_events: #{e}"
 end
 ```
 
-#### Using the list_usage_events_api_v1_usage_events_get_with_http_info variant
+#### Using the list_usage_events_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_usage_events_api_v1_usage_events_get_with_http_info(opts)
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_usage_events_with_http_info(opts)
 
 ```ruby
 begin
   # List Usage Events
-  data, status_code, headers = api_instance.list_usage_events_api_v1_usage_events_get_with_http_info(opts)
+  data, status_code, headers = api_instance.list_usage_events_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Hash&lt;String, Object&gt;
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling UsageApi->list_usage_events_api_v1_usage_events_get_with_http_info: #{e}"
+  puts "Error when calling UsageApi->list_usage_events_with_http_info: #{e}"
 end
 ```
 
@@ -133,70 +197,6 @@ end
 ### Return type
 
 **Hash&lt;String, Object&gt;**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## usage_api_v1_usage_get
-
-> <UsageResponse> usage_api_v1_usage_get
-
-Usage
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::UsageApi.new
-
-begin
-  # Usage
-  result = api_instance.usage_api_v1_usage_get
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling UsageApi->usage_api_v1_usage_get: #{e}"
-end
-```
-
-#### Using the usage_api_v1_usage_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<UsageResponse>, Integer, Hash)> usage_api_v1_usage_get_with_http_info
-
-```ruby
-begin
-  # Usage
-  data, status_code, headers = api_instance.usage_api_v1_usage_get_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <UsageResponse>
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling UsageApi->usage_api_v1_usage_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**UsageResponse**](UsageResponse.md)
 
 ### Authorization
 

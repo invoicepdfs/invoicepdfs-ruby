@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param api_key_create_request [ApiKeyCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyCreateResponse]
-    def create_api_key_api_v1_api_keys_post(api_key_create_request, opts = {})
-      data, _status_code, _headers = create_api_key_api_v1_api_keys_post_with_http_info(api_key_create_request, opts)
+    def create_api_key(api_key_create_request, opts = {})
+      data, _status_code, _headers = create_api_key_with_http_info(api_key_create_request, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param api_key_create_request [ApiKeyCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyCreateResponse, Integer, Hash)>] ApiKeyCreateResponse data, response status code and response headers
-    def create_api_key_api_v1_api_keys_post_with_http_info(api_key_create_request, opts = {})
+    def create_api_key_with_http_info(api_key_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiKeysApi.create_api_key_api_v1_api_keys_post ...'
+        @api_client.config.logger.debug 'Calling API: ApiKeysApi.create_api_key ...'
       end
       # verify the required parameter 'api_key_create_request' is set
       if @api_client.config.client_side_validation && api_key_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key_create_request' when calling ApiKeysApi.create_api_key_api_v1_api_keys_post"
+        fail ArgumentError, "Missing the required parameter 'api_key_create_request' when calling ApiKeysApi.create_api_key"
       end
       # resource path
       local_var_path = '/api/v1/api-keys'
@@ -69,7 +69,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ApiKeysApi.create_api_key_api_v1_api_keys_post",
+        :operation => :"ApiKeysApi.create_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,7 +80,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiKeysApi#create_api_key_api_v1_api_keys_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiKeysApi#create_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -89,8 +89,8 @@ module InvoicePDFs
     # @param api_key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyDetailResponse]
-    def get_api_key_api_v1_api_keys_api_key_id_get(api_key_id, opts = {})
-      data, _status_code, _headers = get_api_key_api_v1_api_keys_api_key_id_get_with_http_info(api_key_id, opts)
+    def get_api_key(api_key_id, opts = {})
+      data, _status_code, _headers = get_api_key_with_http_info(api_key_id, opts)
       data
     end
 
@@ -98,13 +98,13 @@ module InvoicePDFs
     # @param api_key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyDetailResponse, Integer, Hash)>] ApiKeyDetailResponse data, response status code and response headers
-    def get_api_key_api_v1_api_keys_api_key_id_get_with_http_info(api_key_id, opts = {})
+    def get_api_key_with_http_info(api_key_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiKeysApi.get_api_key_api_v1_api_keys_api_key_id_get ...'
+        @api_client.config.logger.debug 'Calling API: ApiKeysApi.get_api_key ...'
       end
       # verify the required parameter 'api_key_id' is set
       if @api_client.config.client_side_validation && api_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.get_api_key_api_v1_api_keys_api_key_id_get"
+        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.get_api_key"
       end
       # resource path
       local_var_path = '/api/v1/api-keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ApiKeysApi.get_api_key_api_v1_api_keys_api_key_id_get",
+        :operation => :"ApiKeysApi.get_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiKeysApi#get_api_key_api_v1_api_keys_api_key_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiKeysApi#get_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -149,17 +149,17 @@ module InvoicePDFs
     # List Api Keys
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyListResponse]
-    def list_api_keys_api_v1_api_keys_get(opts = {})
-      data, _status_code, _headers = list_api_keys_api_v1_api_keys_get_with_http_info(opts)
+    def list_api_keys(opts = {})
+      data, _status_code, _headers = list_api_keys_with_http_info(opts)
       data
     end
 
     # List Api Keys
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
-    def list_api_keys_api_v1_api_keys_get_with_http_info(opts = {})
+    def list_api_keys_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiKeysApi.list_api_keys_api_v1_api_keys_get ...'
+        @api_client.config.logger.debug 'Calling API: ApiKeysApi.list_api_keys ...'
       end
       # resource path
       local_var_path = '/api/v1/api-keys'
@@ -185,7 +185,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ApiKeysApi.list_api_keys_api_v1_api_keys_get",
+        :operation => :"ApiKeysApi.list_api_keys",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,37 +196,161 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiKeysApi#list_api_keys_api_v1_api_keys_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiKeysApi#list_api_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Api Key
+    # Revoke Api Key
+    # @param api_key_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [ApiKeyRevokeResponse]
+    def revoke_api_key(api_key_id, opts = {})
+      data, _status_code, _headers = revoke_api_key_with_http_info(api_key_id, opts)
+      data
+    end
+
+    # Revoke Api Key
+    # @param api_key_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiKeyRevokeResponse, Integer, Hash)>] ApiKeyRevokeResponse data, response status code and response headers
+    def revoke_api_key_with_http_info(api_key_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ApiKeysApi.revoke_api_key ...'
+      end
+      # verify the required parameter 'api_key_id' is set
+      if @api_client.config.client_side_validation && api_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.revoke_api_key"
+      end
+      # resource path
+      local_var_path = '/api/v1/api-keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiKeyRevokeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"ApiKeysApi.revoke_api_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ApiKeysApi#revoke_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rotate Api Key
+    # Revoke the existing key and create a new one with the same name.
+    # @param api_key_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [ApiKeyRotateResponse]
+    def rotate_api_key(api_key_id, opts = {})
+      data, _status_code, _headers = rotate_api_key_with_http_info(api_key_id, opts)
+      data
+    end
+
+    # Rotate Api Key
+    # Revoke the existing key and create a new one with the same name.
+    # @param api_key_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiKeyRotateResponse, Integer, Hash)>] ApiKeyRotateResponse data, response status code and response headers
+    def rotate_api_key_with_http_info(api_key_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ApiKeysApi.rotate_api_key ...'
+      end
+      # verify the required parameter 'api_key_id' is set
+      if @api_client.config.client_side_validation && api_key_id.nil?
+        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.rotate_api_key"
+      end
+      # resource path
+      local_var_path = '/api/v1/api-keys/{api_key_id}/rotate'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiKeyRotateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"ApiKeysApi.rotate_api_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ApiKeysApi#rotate_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Api Key
     # @param api_key_id [String] 
     # @param api_key_patch_request [ApiKeyPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyDetailResponse]
-    def patch_api_key_api_v1_api_keys_api_key_id_patch(api_key_id, api_key_patch_request, opts = {})
-      data, _status_code, _headers = patch_api_key_api_v1_api_keys_api_key_id_patch_with_http_info(api_key_id, api_key_patch_request, opts)
+    def update_api_key(api_key_id, api_key_patch_request, opts = {})
+      data, _status_code, _headers = update_api_key_with_http_info(api_key_id, api_key_patch_request, opts)
       data
     end
 
-    # Patch Api Key
+    # Update Api Key
     # @param api_key_id [String] 
     # @param api_key_patch_request [ApiKeyPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyDetailResponse, Integer, Hash)>] ApiKeyDetailResponse data, response status code and response headers
-    def patch_api_key_api_v1_api_keys_api_key_id_patch_with_http_info(api_key_id, api_key_patch_request, opts = {})
+    def update_api_key_with_http_info(api_key_id, api_key_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiKeysApi.patch_api_key_api_v1_api_keys_api_key_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: ApiKeysApi.update_api_key ...'
       end
       # verify the required parameter 'api_key_id' is set
       if @api_client.config.client_side_validation && api_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.patch_api_key_api_v1_api_keys_api_key_id_patch"
+        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.update_api_key"
       end
       # verify the required parameter 'api_key_patch_request' is set
       if @api_client.config.client_side_validation && api_key_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key_patch_request' when calling ApiKeysApi.patch_api_key_api_v1_api_keys_api_key_id_patch"
+        fail ArgumentError, "Missing the required parameter 'api_key_patch_request' when calling ApiKeysApi.update_api_key"
       end
       # resource path
       local_var_path = '/api/v1/api-keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
@@ -257,7 +381,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"ApiKeysApi.patch_api_key_api_v1_api_keys_api_key_id_patch",
+        :operation => :"ApiKeysApi.update_api_key",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -268,131 +392,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiKeysApi#patch_api_key_api_v1_api_keys_api_key_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Revoke Api Key
-    # @param api_key_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [ApiKeyRevokeResponse]
-    def revoke_api_key_api_v1_api_keys_api_key_id_delete(api_key_id, opts = {})
-      data, _status_code, _headers = revoke_api_key_api_v1_api_keys_api_key_id_delete_with_http_info(api_key_id, opts)
-      data
-    end
-
-    # Revoke Api Key
-    # @param api_key_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiKeyRevokeResponse, Integer, Hash)>] ApiKeyRevokeResponse data, response status code and response headers
-    def revoke_api_key_api_v1_api_keys_api_key_id_delete_with_http_info(api_key_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiKeysApi.revoke_api_key_api_v1_api_keys_api_key_id_delete ...'
-      end
-      # verify the required parameter 'api_key_id' is set
-      if @api_client.config.client_side_validation && api_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.revoke_api_key_api_v1_api_keys_api_key_id_delete"
-      end
-      # resource path
-      local_var_path = '/api/v1/api-keys/{api_key_id}'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ApiKeyRevokeResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"ApiKeysApi.revoke_api_key_api_v1_api_keys_api_key_id_delete",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiKeysApi#revoke_api_key_api_v1_api_keys_api_key_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Rotate Api Key
-    # Revoke the existing key and create a new one with the same name.
-    # @param api_key_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [ApiKeyRotateResponse]
-    def rotate_api_key_api_v1_api_keys_api_key_id_rotate_post(api_key_id, opts = {})
-      data, _status_code, _headers = rotate_api_key_api_v1_api_keys_api_key_id_rotate_post_with_http_info(api_key_id, opts)
-      data
-    end
-
-    # Rotate Api Key
-    # Revoke the existing key and create a new one with the same name.
-    # @param api_key_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ApiKeyRotateResponse, Integer, Hash)>] ApiKeyRotateResponse data, response status code and response headers
-    def rotate_api_key_api_v1_api_keys_api_key_id_rotate_post_with_http_info(api_key_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ApiKeysApi.rotate_api_key_api_v1_api_keys_api_key_id_rotate_post ...'
-      end
-      # verify the required parameter 'api_key_id' is set
-      if @api_client.config.client_side_validation && api_key_id.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key_id' when calling ApiKeysApi.rotate_api_key_api_v1_api_keys_api_key_id_rotate_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/api-keys/{api_key_id}/rotate'.sub('{' + 'api_key_id' + '}', CGI.escape(api_key_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'ApiKeyRotateResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"ApiKeysApi.rotate_api_key_api_v1_api_keys_api_key_id_rotate_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ApiKeysApi#rotate_api_key_api_v1_api_keys_api_key_id_rotate_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ApiKeysApi#update_api_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

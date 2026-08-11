@@ -24,8 +24,8 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [CustomerResponse]
-    def create_customer_api_v1_customers_post(customer_create, opts = {})
-      data, _status_code, _headers = create_customer_api_v1_customers_post_with_http_info(customer_create, opts)
+    def create_customer(customer_create, opts = {})
+      data, _status_code, _headers = create_customer_with_http_info(customer_create, opts)
       data
     end
 
@@ -34,13 +34,13 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(CustomerResponse, Integer, Hash)>] CustomerResponse data, response status code and response headers
-    def create_customer_api_v1_customers_post_with_http_info(customer_create, opts = {})
+    def create_customer_with_http_info(customer_create, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomersApi.create_customer_api_v1_customers_post ...'
+        @api_client.config.logger.debug 'Calling API: CustomersApi.create_customer ...'
       end
       # verify the required parameter 'customer_create' is set
       if @api_client.config.client_side_validation && customer_create.nil?
-        fail ArgumentError, "Missing the required parameter 'customer_create' when calling CustomersApi.create_customer_api_v1_customers_post"
+        fail ArgumentError, "Missing the required parameter 'customer_create' when calling CustomersApi.create_customer"
       end
       # resource path
       local_var_path = '/api/v1/customers'
@@ -72,7 +72,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"CustomersApi.create_customer_api_v1_customers_post",
+        :operation => :"CustomersApi.create_customer",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -83,7 +83,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#create_customer_api_v1_customers_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#create_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -92,8 +92,8 @@ module InvoicePDFs
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_customer_api_v1_customers_customer_id_delete(customer_id, opts = {})
-      data, _status_code, _headers = delete_customer_api_v1_customers_customer_id_delete_with_http_info(customer_id, opts)
+    def delete_customer(customer_id, opts = {})
+      data, _status_code, _headers = delete_customer_with_http_info(customer_id, opts)
       data
     end
 
@@ -101,13 +101,13 @@ module InvoicePDFs
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_customer_api_v1_customers_customer_id_delete_with_http_info(customer_id, opts = {})
+    def delete_customer_with_http_info(customer_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomersApi.delete_customer_api_v1_customers_customer_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: CustomersApi.delete_customer ...'
       end
       # verify the required parameter 'customer_id' is set
       if @api_client.config.client_side_validation && customer_id.nil?
-        fail ArgumentError, "Missing the required parameter 'customer_id' when calling CustomersApi.delete_customer_api_v1_customers_customer_id_delete"
+        fail ArgumentError, "Missing the required parameter 'customer_id' when calling CustomersApi.delete_customer"
       end
       # resource path
       local_var_path = '/api/v1/customers/{customer_id}'.sub('{' + 'customer_id' + '}', CGI.escape(customer_id.to_s))
@@ -133,7 +133,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"CustomersApi.delete_customer_api_v1_customers_customer_id_delete",
+        :operation => :"CustomersApi.delete_customer",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -144,7 +144,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#delete_customer_api_v1_customers_customer_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#delete_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -153,8 +153,8 @@ module InvoicePDFs
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [CustomerResponse]
-    def get_customer_api_v1_customers_customer_id_get(customer_id, opts = {})
-      data, _status_code, _headers = get_customer_api_v1_customers_customer_id_get_with_http_info(customer_id, opts)
+    def get_customer(customer_id, opts = {})
+      data, _status_code, _headers = get_customer_with_http_info(customer_id, opts)
       data
     end
 
@@ -162,13 +162,13 @@ module InvoicePDFs
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CustomerResponse, Integer, Hash)>] CustomerResponse data, response status code and response headers
-    def get_customer_api_v1_customers_customer_id_get_with_http_info(customer_id, opts = {})
+    def get_customer_with_http_info(customer_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomersApi.get_customer_api_v1_customers_customer_id_get ...'
+        @api_client.config.logger.debug 'Calling API: CustomersApi.get_customer ...'
       end
       # verify the required parameter 'customer_id' is set
       if @api_client.config.client_side_validation && customer_id.nil?
-        fail ArgumentError, "Missing the required parameter 'customer_id' when calling CustomersApi.get_customer_api_v1_customers_customer_id_get"
+        fail ArgumentError, "Missing the required parameter 'customer_id' when calling CustomersApi.get_customer"
       end
       # resource path
       local_var_path = '/api/v1/customers/{customer_id}'.sub('{' + 'customer_id' + '}', CGI.escape(customer_id.to_s))
@@ -194,7 +194,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"CustomersApi.get_customer_api_v1_customers_customer_id_get",
+        :operation => :"CustomersApi.get_customer",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -205,7 +205,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#get_customer_api_v1_customers_customer_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#get_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -215,8 +215,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [CustomersListResponse]
-    def list_customers_api_v1_customers_get(opts = {})
-      data, _status_code, _headers = list_customers_api_v1_customers_get_with_http_info(opts)
+    def list_customers(opts = {})
+      data, _status_code, _headers = list_customers_with_http_info(opts)
       data
     end
 
@@ -225,16 +225,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(CustomersListResponse, Integer, Hash)>] CustomersListResponse data, response status code and response headers
-    def list_customers_api_v1_customers_get_with_http_info(opts = {})
+    def list_customers_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomersApi.list_customers_api_v1_customers_get ...'
+        @api_client.config.logger.debug 'Calling API: CustomersApi.list_customers ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CustomersApi.list_customers_api_v1_customers_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CustomersApi.list_customers, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CustomersApi.list_customers_api_v1_customers_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CustomersApi.list_customers, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -263,7 +263,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"CustomersApi.list_customers_api_v1_customers_get",
+        :operation => :"CustomersApi.list_customers",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -274,39 +274,39 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#list_customers_api_v1_customers_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#list_customers\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Customer
+    # Update Customer
     # @param customer_id [String] 
     # @param customer_patch [CustomerPatch] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [CustomerResponse]
-    def patch_customer_api_v1_customers_customer_id_patch(customer_id, customer_patch, opts = {})
-      data, _status_code, _headers = patch_customer_api_v1_customers_customer_id_patch_with_http_info(customer_id, customer_patch, opts)
+    def update_customer(customer_id, customer_patch, opts = {})
+      data, _status_code, _headers = update_customer_with_http_info(customer_id, customer_patch, opts)
       data
     end
 
-    # Patch Customer
+    # Update Customer
     # @param customer_id [String] 
     # @param customer_patch [CustomerPatch] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(CustomerResponse, Integer, Hash)>] CustomerResponse data, response status code and response headers
-    def patch_customer_api_v1_customers_customer_id_patch_with_http_info(customer_id, customer_patch, opts = {})
+    def update_customer_with_http_info(customer_id, customer_patch, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomersApi.patch_customer_api_v1_customers_customer_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: CustomersApi.update_customer ...'
       end
       # verify the required parameter 'customer_id' is set
       if @api_client.config.client_side_validation && customer_id.nil?
-        fail ArgumentError, "Missing the required parameter 'customer_id' when calling CustomersApi.patch_customer_api_v1_customers_customer_id_patch"
+        fail ArgumentError, "Missing the required parameter 'customer_id' when calling CustomersApi.update_customer"
       end
       # verify the required parameter 'customer_patch' is set
       if @api_client.config.client_side_validation && customer_patch.nil?
-        fail ArgumentError, "Missing the required parameter 'customer_patch' when calling CustomersApi.patch_customer_api_v1_customers_customer_id_patch"
+        fail ArgumentError, "Missing the required parameter 'customer_patch' when calling CustomersApi.update_customer"
       end
       # resource path
       local_var_path = '/api/v1/customers/{customer_id}'.sub('{' + 'customer_id' + '}', CGI.escape(customer_id.to_s))
@@ -338,7 +338,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"CustomersApi.patch_customer_api_v1_customers_customer_id_patch",
+        :operation => :"CustomersApi.update_customer",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -349,7 +349,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomersApi#patch_customer_api_v1_customers_customer_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomersApi#update_customer\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

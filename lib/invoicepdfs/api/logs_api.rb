@@ -24,8 +24,8 @@ module InvoicePDFs
     # @option opts [String] :status  (default to '')
     # @option opts [Integer] :limit  (default to 100)
     # @return [ApiRequestLogsListResponse]
-    def list_logs_api_v1_logs_get(opts = {})
-      data, _status_code, _headers = list_logs_api_v1_logs_get_with_http_info(opts)
+    def list_logs(opts = {})
+      data, _status_code, _headers = list_logs_with_http_info(opts)
       data
     end
 
@@ -34,21 +34,21 @@ module InvoicePDFs
     # @option opts [String] :status  (default to '')
     # @option opts [Integer] :limit  (default to 100)
     # @return [Array<(ApiRequestLogsListResponse, Integer, Hash)>] ApiRequestLogsListResponse data, response status code and response headers
-    def list_logs_api_v1_logs_get_with_http_info(opts = {})
+    def list_logs_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: LogsApi.list_logs_api_v1_logs_get ...'
+        @api_client.config.logger.debug 'Calling API: LogsApi.list_logs ...'
       end
       pattern = Regexp.new(/^(success|error)?$/)
       if @api_client.config.client_side_validation && !opts[:'status'].nil? && opts[:'status'] !~ pattern
-        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling LogsApi.list_logs_api_v1_logs_get, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'opts[:\"status\"]' when calling LogsApi.list_logs, must conform to the pattern #{pattern}."
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling LogsApi.list_logs_api_v1_logs_get, must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling LogsApi.list_logs, must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling LogsApi.list_logs_api_v1_logs_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling LogsApi.list_logs, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -77,7 +77,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"LogsApi.list_logs_api_v1_logs_get",
+        :operation => :"LogsApi.list_logs",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -88,7 +88,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: LogsApi#list_logs_api_v1_logs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: LogsApi#list_logs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

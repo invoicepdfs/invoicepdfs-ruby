@@ -19,480 +19,28 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Forgot Password
-    # Send a password reset email via Firebase.
-    # @param auth_forgot_password_request [AuthForgotPasswordRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [AuthMessageResponse]
-    def forgot_password_api_v1_auth_forgot_password_post(auth_forgot_password_request, opts = {})
-      data, _status_code, _headers = forgot_password_api_v1_auth_forgot_password_post_with_http_info(auth_forgot_password_request, opts)
-      data
-    end
-
-    # Forgot Password
-    # Send a password reset email via Firebase.
-    # @param auth_forgot_password_request [AuthForgotPasswordRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthMessageResponse, Integer, Hash)>] AuthMessageResponse data, response status code and response headers
-    def forgot_password_api_v1_auth_forgot_password_post_with_http_info(auth_forgot_password_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.forgot_password_api_v1_auth_forgot_password_post ...'
-      end
-      # verify the required parameter 'auth_forgot_password_request' is set
-      if @api_client.config.client_side_validation && auth_forgot_password_request.nil?
-        fail ArgumentError, "Missing the required parameter 'auth_forgot_password_request' when calling AuthApi.forgot_password_api_v1_auth_forgot_password_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/forgot-password'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_forgot_password_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthMessageResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.forgot_password_api_v1_auth_forgot_password_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#forgot_password_api_v1_auth_forgot_password_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Logout
-    # Revoke all Firebase refresh tokens for the authenticated user.
-    # @param [Hash] opts the optional parameters
-    # @return [AuthMessageResponse]
-    def logout_api_v1_auth_logout_post(opts = {})
-      data, _status_code, _headers = logout_api_v1_auth_logout_post_with_http_info(opts)
-      data
-    end
-
-    # Logout
-    # Revoke all Firebase refresh tokens for the authenticated user.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthMessageResponse, Integer, Hash)>] AuthMessageResponse data, response status code and response headers
-    def logout_api_v1_auth_logout_post_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.logout_api_v1_auth_logout_post ...'
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/logout'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthMessageResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.logout_api_v1_auth_logout_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#logout_api_v1_auth_logout_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Me
-    # @param [Hash] opts the optional parameters
-    # @return [AuthMeResponse]
-    def me_api_v1_auth_me_get(opts = {})
-      data, _status_code, _headers = me_api_v1_auth_me_get_with_http_info(opts)
-      data
-    end
-
-    # Me
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthMeResponse, Integer, Hash)>] AuthMeResponse data, response status code and response headers
-    def me_api_v1_auth_me_get_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.me_api_v1_auth_me_get ...'
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/me'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthMeResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.me_api_v1_auth_me_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#me_api_v1_auth_me_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Patch Me
-    # Update the authenticated account's name or email.
-    # @param auth_me_patch_request [AuthMePatchRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [AuthMeResponse]
-    def patch_me_api_v1_auth_me_patch(auth_me_patch_request, opts = {})
-      data, _status_code, _headers = patch_me_api_v1_auth_me_patch_with_http_info(auth_me_patch_request, opts)
-      data
-    end
-
-    # Patch Me
-    # Update the authenticated account&#39;s name or email.
-    # @param auth_me_patch_request [AuthMePatchRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthMeResponse, Integer, Hash)>] AuthMeResponse data, response status code and response headers
-    def patch_me_api_v1_auth_me_patch_with_http_info(auth_me_patch_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.patch_me_api_v1_auth_me_patch ...'
-      end
-      # verify the required parameter 'auth_me_patch_request' is set
-      if @api_client.config.client_side_validation && auth_me_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'auth_me_patch_request' when calling AuthApi.patch_me_api_v1_auth_me_patch"
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/me'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_me_patch_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthMeResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.patch_me_api_v1_auth_me_patch",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#patch_me_api_v1_auth_me_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Refresh
-    # Exchange a Firebase refresh token for a new ID token.
-    # @param auth_refresh_request [AuthRefreshRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [AuthRefreshResponse]
-    def refresh_api_v1_auth_refresh_post(auth_refresh_request, opts = {})
-      data, _status_code, _headers = refresh_api_v1_auth_refresh_post_with_http_info(auth_refresh_request, opts)
-      data
-    end
-
-    # Refresh
-    # Exchange a Firebase refresh token for a new ID token.
-    # @param auth_refresh_request [AuthRefreshRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthRefreshResponse, Integer, Hash)>] AuthRefreshResponse data, response status code and response headers
-    def refresh_api_v1_auth_refresh_post_with_http_info(auth_refresh_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.refresh_api_v1_auth_refresh_post ...'
-      end
-      # verify the required parameter 'auth_refresh_request' is set
-      if @api_client.config.client_side_validation && auth_refresh_request.nil?
-        fail ArgumentError, "Missing the required parameter 'auth_refresh_request' when calling AuthApi.refresh_api_v1_auth_refresh_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/refresh'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_refresh_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthRefreshResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.refresh_api_v1_auth_refresh_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#refresh_api_v1_auth_refresh_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Register
-    # Register a new account using a Firebase ID token.  The client authenticates with Firebase (email/password, Google, etc.) and sends the resulting ID token here to create an InvoicePDFs account.
-    # @param auth_register_request [AuthRegisterRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [AuthRegisterResponse]
-    def register_api_v1_auth_register_post(auth_register_request, opts = {})
-      data, _status_code, _headers = register_api_v1_auth_register_post_with_http_info(auth_register_request, opts)
-      data
-    end
-
-    # Register
-    # Register a new account using a Firebase ID token.  The client authenticates with Firebase (email/password, Google, etc.) and sends the resulting ID token here to create an InvoicePDFs account.
-    # @param auth_register_request [AuthRegisterRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthRegisterResponse, Integer, Hash)>] AuthRegisterResponse data, response status code and response headers
-    def register_api_v1_auth_register_post_with_http_info(auth_register_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.register_api_v1_auth_register_post ...'
-      end
-      # verify the required parameter 'auth_register_request' is set
-      if @api_client.config.client_side_validation && auth_register_request.nil?
-        fail ArgumentError, "Missing the required parameter 'auth_register_request' when calling AuthApi.register_api_v1_auth_register_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/register'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_register_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthRegisterResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.register_api_v1_auth_register_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#register_api_v1_auth_register_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Reset Password
-    # Confirm a password reset using the code from the reset email.
-    # @param auth_reset_password_request [AuthResetPasswordRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [AuthMessageResponse]
-    def reset_password_api_v1_auth_reset_password_post(auth_reset_password_request, opts = {})
-      data, _status_code, _headers = reset_password_api_v1_auth_reset_password_post_with_http_info(auth_reset_password_request, opts)
-      data
-    end
-
-    # Reset Password
-    # Confirm a password reset using the code from the reset email.
-    # @param auth_reset_password_request [AuthResetPasswordRequest] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AuthMessageResponse, Integer, Hash)>] AuthMessageResponse data, response status code and response headers
-    def reset_password_api_v1_auth_reset_password_post_with_http_info(auth_reset_password_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.reset_password_api_v1_auth_reset_password_post ...'
-      end
-      # verify the required parameter 'auth_reset_password_request' is set
-      if @api_client.config.client_side_validation && auth_reset_password_request.nil?
-        fail ArgumentError, "Missing the required parameter 'auth_reset_password_request' when calling AuthApi.reset_password_api_v1_auth_reset_password_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/auth/reset-password'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_reset_password_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AuthMessageResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"AuthApi.reset_password_api_v1_auth_reset_password_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#reset_password_api_v1_auth_reset_password_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Token Exchange
+    # Exchange Auth Token
     # Exchange a Firebase ID token for account info.  Use this on login: the client authenticates with Firebase, sends the ID token here, and receives the InvoicePDFs account details. The Firebase token itself is used as the Bearer token for subsequent API calls.
     # @param auth_token_request [AuthTokenRequest] 
     # @param [Hash] opts the optional parameters
     # @return [AuthTokenResponse]
-    def token_exchange_api_v1_auth_token_post(auth_token_request, opts = {})
-      data, _status_code, _headers = token_exchange_api_v1_auth_token_post_with_http_info(auth_token_request, opts)
+    def exchange_auth_token(auth_token_request, opts = {})
+      data, _status_code, _headers = exchange_auth_token_with_http_info(auth_token_request, opts)
       data
     end
 
-    # Token Exchange
+    # Exchange Auth Token
     # Exchange a Firebase ID token for account info.  Use this on login: the client authenticates with Firebase, sends the ID token here, and receives the InvoicePDFs account details. The Firebase token itself is used as the Bearer token for subsequent API calls.
     # @param auth_token_request [AuthTokenRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AuthTokenResponse, Integer, Hash)>] AuthTokenResponse data, response status code and response headers
-    def token_exchange_api_v1_auth_token_post_with_http_info(auth_token_request, opts = {})
+    def exchange_auth_token_with_http_info(auth_token_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuthApi.token_exchange_api_v1_auth_token_post ...'
+        @api_client.config.logger.debug 'Calling API: AuthApi.exchange_auth_token ...'
       end
       # verify the required parameter 'auth_token_request' is set
       if @api_client.config.client_side_validation && auth_token_request.nil?
-        fail ArgumentError, "Missing the required parameter 'auth_token_request' when calling AuthApi.token_exchange_api_v1_auth_token_post"
+        fail ArgumentError, "Missing the required parameter 'auth_token_request' when calling AuthApi.exchange_auth_token"
       end
       # resource path
       local_var_path = '/api/v1/auth/token'
@@ -523,7 +71,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"AuthApi.token_exchange_api_v1_auth_token_post",
+        :operation => :"AuthApi.exchange_auth_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -534,7 +82,459 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuthApi#token_exchange_api_v1_auth_token_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuthApi#exchange_auth_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Current User
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMeResponse]
+    def get_current_user(opts = {})
+      data, _status_code, _headers = get_current_user_with_http_info(opts)
+      data
+    end
+
+    # Get Current User
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMeResponse, Integer, Hash)>] AuthMeResponse data, response status code and response headers
+    def get_current_user_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.get_current_user ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/me'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.get_current_user",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#get_current_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Logout
+    # Revoke all Firebase refresh tokens for the authenticated user.
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMessageResponse]
+    def logout(opts = {})
+      data, _status_code, _headers = logout_with_http_info(opts)
+      data
+    end
+
+    # Logout
+    # Revoke all Firebase refresh tokens for the authenticated user.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMessageResponse, Integer, Hash)>] AuthMessageResponse data, response status code and response headers
+    def logout_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.logout ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/logout'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMessageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.logout",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#logout\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Refresh Access Token
+    # Exchange a Firebase refresh token for a new ID token.
+    # @param auth_refresh_request [AuthRefreshRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthRefreshResponse]
+    def refresh_access_token(auth_refresh_request, opts = {})
+      data, _status_code, _headers = refresh_access_token_with_http_info(auth_refresh_request, opts)
+      data
+    end
+
+    # Refresh Access Token
+    # Exchange a Firebase refresh token for a new ID token.
+    # @param auth_refresh_request [AuthRefreshRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthRefreshResponse, Integer, Hash)>] AuthRefreshResponse data, response status code and response headers
+    def refresh_access_token_with_http_info(auth_refresh_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.refresh_access_token ...'
+      end
+      # verify the required parameter 'auth_refresh_request' is set
+      if @api_client.config.client_side_validation && auth_refresh_request.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_refresh_request' when calling AuthApi.refresh_access_token"
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/refresh'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_refresh_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthRefreshResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.refresh_access_token",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#refresh_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Register
+    # Register a new account using a Firebase ID token.  The client authenticates with Firebase (email/password, Google, etc.) and sends the resulting ID token here to create an InvoicePDFs account.
+    # @param auth_register_request [AuthRegisterRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthRegisterResponse]
+    def register(auth_register_request, opts = {})
+      data, _status_code, _headers = register_with_http_info(auth_register_request, opts)
+      data
+    end
+
+    # Register
+    # Register a new account using a Firebase ID token.  The client authenticates with Firebase (email/password, Google, etc.) and sends the resulting ID token here to create an InvoicePDFs account.
+    # @param auth_register_request [AuthRegisterRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthRegisterResponse, Integer, Hash)>] AuthRegisterResponse data, response status code and response headers
+    def register_with_http_info(auth_register_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.register ...'
+      end
+      # verify the required parameter 'auth_register_request' is set
+      if @api_client.config.client_side_validation && auth_register_request.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_register_request' when calling AuthApi.register"
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/register'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_register_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthRegisterResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.register",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#register\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Request Password Reset
+    # Send a password reset email via Firebase.
+    # @param auth_forgot_password_request [AuthForgotPasswordRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMessageResponse]
+    def request_password_reset(auth_forgot_password_request, opts = {})
+      data, _status_code, _headers = request_password_reset_with_http_info(auth_forgot_password_request, opts)
+      data
+    end
+
+    # Request Password Reset
+    # Send a password reset email via Firebase.
+    # @param auth_forgot_password_request [AuthForgotPasswordRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMessageResponse, Integer, Hash)>] AuthMessageResponse data, response status code and response headers
+    def request_password_reset_with_http_info(auth_forgot_password_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.request_password_reset ...'
+      end
+      # verify the required parameter 'auth_forgot_password_request' is set
+      if @api_client.config.client_side_validation && auth_forgot_password_request.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_forgot_password_request' when calling AuthApi.request_password_reset"
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/forgot-password'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_forgot_password_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMessageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.request_password_reset",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#request_password_reset\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reset Password
+    # Confirm a password reset using the code from the reset email.
+    # @param auth_reset_password_request [AuthResetPasswordRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMessageResponse]
+    def reset_password(auth_reset_password_request, opts = {})
+      data, _status_code, _headers = reset_password_with_http_info(auth_reset_password_request, opts)
+      data
+    end
+
+    # Reset Password
+    # Confirm a password reset using the code from the reset email.
+    # @param auth_reset_password_request [AuthResetPasswordRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMessageResponse, Integer, Hash)>] AuthMessageResponse data, response status code and response headers
+    def reset_password_with_http_info(auth_reset_password_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.reset_password ...'
+      end
+      # verify the required parameter 'auth_reset_password_request' is set
+      if @api_client.config.client_side_validation && auth_reset_password_request.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_reset_password_request' when calling AuthApi.reset_password"
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/reset-password'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_reset_password_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMessageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.reset_password",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#reset_password\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Current User
+    # Update the authenticated account's name or email.
+    # @param auth_me_patch_request [AuthMePatchRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [AuthMeResponse]
+    def update_current_user(auth_me_patch_request, opts = {})
+      data, _status_code, _headers = update_current_user_with_http_info(auth_me_patch_request, opts)
+      data
+    end
+
+    # Update Current User
+    # Update the authenticated account&#39;s name or email.
+    # @param auth_me_patch_request [AuthMePatchRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthMeResponse, Integer, Hash)>] AuthMeResponse data, response status code and response headers
+    def update_current_user_with_http_info(auth_me_patch_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: AuthApi.update_current_user ...'
+      end
+      # verify the required parameter 'auth_me_patch_request' is set
+      if @api_client.config.client_side_validation && auth_me_patch_request.nil?
+        fail ArgumentError, "Missing the required parameter 'auth_me_patch_request' when calling AuthApi.update_current_user"
+      end
+      # resource path
+      local_var_path = '/api/v1/auth/me'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(auth_me_patch_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthMeResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"AuthApi.update_current_user",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: AuthApi#update_current_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

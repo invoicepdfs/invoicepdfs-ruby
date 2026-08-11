@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeliveryResponse]
-    def get_delivery_api_v1_deliveries_delivery_id_get(delivery_id, opts = {})
-      data, _status_code, _headers = get_delivery_api_v1_deliveries_delivery_id_get_with_http_info(delivery_id, opts)
+    def get_delivery(delivery_id, opts = {})
+      data, _status_code, _headers = get_delivery_with_http_info(delivery_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeliveryResponse, Integer, Hash)>] DeliveryResponse data, response status code and response headers
-    def get_delivery_api_v1_deliveries_delivery_id_get_with_http_info(delivery_id, opts = {})
+    def get_delivery_with_http_info(delivery_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeliveriesApi.get_delivery_api_v1_deliveries_delivery_id_get ...'
+        @api_client.config.logger.debug 'Calling API: DeliveriesApi.get_delivery ...'
       end
       # verify the required parameter 'delivery_id' is set
       if @api_client.config.client_side_validation && delivery_id.nil?
-        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling DeliveriesApi.get_delivery_api_v1_deliveries_delivery_id_get"
+        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling DeliveriesApi.get_delivery"
       end
       # resource path
       local_var_path = '/api/v1/deliveries/{delivery_id}'.sub('{' + 'delivery_id' + '}', CGI.escape(delivery_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DeliveriesApi.get_delivery_api_v1_deliveries_delivery_id_get",
+        :operation => :"DeliveriesApi.get_delivery",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeliveriesApi#get_delivery_api_v1_deliveries_delivery_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeliveriesApi#get_delivery\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeliveryResponse]
-    def retry_delivery_api_v1_deliveries_delivery_id_retry_post(delivery_id, opts = {})
-      data, _status_code, _headers = retry_delivery_api_v1_deliveries_delivery_id_retry_post_with_http_info(delivery_id, opts)
+    def retry_delivery(delivery_id, opts = {})
+      data, _status_code, _headers = retry_delivery_with_http_info(delivery_id, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeliveryResponse, Integer, Hash)>] DeliveryResponse data, response status code and response headers
-    def retry_delivery_api_v1_deliveries_delivery_id_retry_post_with_http_info(delivery_id, opts = {})
+    def retry_delivery_with_http_info(delivery_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: DeliveriesApi.retry_delivery_api_v1_deliveries_delivery_id_retry_post ...'
+        @api_client.config.logger.debug 'Calling API: DeliveriesApi.retry_delivery ...'
       end
       # verify the required parameter 'delivery_id' is set
       if @api_client.config.client_side_validation && delivery_id.nil?
-        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling DeliveriesApi.retry_delivery_api_v1_deliveries_delivery_id_retry_post"
+        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling DeliveriesApi.retry_delivery"
       end
       # resource path
       local_var_path = '/api/v1/deliveries/{delivery_id}/retry'.sub('{' + 'delivery_id' + '}', CGI.escape(delivery_id.to_s))
@@ -125,7 +125,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"DeliveriesApi.retry_delivery_api_v1_deliveries_delivery_id_retry_post",
+        :operation => :"DeliveriesApi.retry_delivery",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -136,7 +136,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DeliveriesApi#retry_delivery_api_v1_deliveries_delivery_id_retry_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DeliveriesApi#retry_delivery\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

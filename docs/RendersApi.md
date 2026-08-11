@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**download_render_api_v1_renders_render_id_download_get**](RendersApi.md#download_render_api_v1_renders_render_id_download_get) | **GET** /api/v1/renders/{render_id}/download | Download Render |
-| [**get_render_api_v1_renders_render_id_get**](RendersApi.md#get_render_api_v1_renders_render_id_get) | **GET** /api/v1/renders/{render_id} | Get Render |
+| [**download_render**](RendersApi.md#download_render) | **GET** /api/v1/renders/{render_id}/download | Download Render |
+| [**get_render**](RendersApi.md#get_render) | **GET** /api/v1/renders/{render_id} | Get Render |
 
 
-## download_render_api_v1_renders_render_id_download_get
+## download_render
 
-> File download_render_api_v1_renders_render_id_download_get(render_id)
+> File download_render(render_id)
 
 Download Render
 
@@ -30,28 +30,28 @@ render_id = 'render_id_example' # String |
 
 begin
   # Download Render
-  result = api_instance.download_render_api_v1_renders_render_id_download_get(render_id)
+  result = api_instance.download_render(render_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling RendersApi->download_render_api_v1_renders_render_id_download_get: #{e}"
+  puts "Error when calling RendersApi->download_render: #{e}"
 end
 ```
 
-#### Using the download_render_api_v1_renders_render_id_download_get_with_http_info variant
+#### Using the download_render_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(File, Integer, Hash)> download_render_api_v1_renders_render_id_download_get_with_http_info(render_id)
+> <Array(File, Integer, Hash)> download_render_with_http_info(render_id)
 
 ```ruby
 begin
   # Download Render
-  data, status_code, headers = api_instance.download_render_api_v1_renders_render_id_download_get_with_http_info(render_id)
+  data, status_code, headers = api_instance.download_render_with_http_info(render_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => File
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling RendersApi->download_render_api_v1_renders_render_id_download_get_with_http_info: #{e}"
+  puts "Error when calling RendersApi->download_render_with_http_info: #{e}"
 end
 ```
 
@@ -75,9 +75,9 @@ end
 - **Accept**: application/pdf, application/json
 
 
-## get_render_api_v1_renders_render_id_get
+## get_render
 
-> Hash&lt;String, Object&gt; get_render_api_v1_renders_render_id_get(render_id)
+> Hash&lt;String, Object&gt; get_render(render_id)
 
 Get Render
 
@@ -97,28 +97,28 @@ render_id = 'render_id_example' # String |
 
 begin
   # Get Render
-  result = api_instance.get_render_api_v1_renders_render_id_get(render_id)
+  result = api_instance.get_render(render_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling RendersApi->get_render_api_v1_renders_render_id_get: #{e}"
+  puts "Error when calling RendersApi->get_render: #{e}"
 end
 ```
 
-#### Using the get_render_api_v1_renders_render_id_get_with_http_info variant
+#### Using the get_render_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_render_api_v1_renders_render_id_get_with_http_info(render_id)
+> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_render_with_http_info(render_id)
 
 ```ruby
 begin
   # Get Render
-  data, status_code, headers = api_instance.get_render_api_v1_renders_render_id_get_with_http_info(render_id)
+  data, status_code, headers = api_instance.get_render_with_http_info(render_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Hash&lt;String, Object&gt;
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling RendersApi->get_render_api_v1_renders_render_id_get_with_http_info: #{e}"
+  puts "Error when calling RendersApi->get_render_with_http_info: #{e}"
 end
 ```
 

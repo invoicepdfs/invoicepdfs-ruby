@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param tax_rate_create_request [TaxRateCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TaxRateResponse]
-    def create_tax_rate_api_v1_tax_rates_post(tax_rate_create_request, opts = {})
-      data, _status_code, _headers = create_tax_rate_api_v1_tax_rates_post_with_http_info(tax_rate_create_request, opts)
+    def create_tax_rate(tax_rate_create_request, opts = {})
+      data, _status_code, _headers = create_tax_rate_with_http_info(tax_rate_create_request, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param tax_rate_create_request [TaxRateCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TaxRateResponse, Integer, Hash)>] TaxRateResponse data, response status code and response headers
-    def create_tax_rate_api_v1_tax_rates_post_with_http_info(tax_rate_create_request, opts = {})
+    def create_tax_rate_with_http_info(tax_rate_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TaxRatesApi.create_tax_rate_api_v1_tax_rates_post ...'
+        @api_client.config.logger.debug 'Calling API: TaxRatesApi.create_tax_rate ...'
       end
       # verify the required parameter 'tax_rate_create_request' is set
       if @api_client.config.client_side_validation && tax_rate_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'tax_rate_create_request' when calling TaxRatesApi.create_tax_rate_api_v1_tax_rates_post"
+        fail ArgumentError, "Missing the required parameter 'tax_rate_create_request' when calling TaxRatesApi.create_tax_rate"
       end
       # resource path
       local_var_path = '/api/v1/tax-rates'
@@ -69,7 +69,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TaxRatesApi.create_tax_rate_api_v1_tax_rates_post",
+        :operation => :"TaxRatesApi.create_tax_rate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,7 +80,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TaxRatesApi#create_tax_rate_api_v1_tax_rates_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TaxRatesApi#create_tax_rate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -89,8 +89,8 @@ module InvoicePDFs
     # @param tax_rate_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete(tax_rate_id, opts = {})
-      data, _status_code, _headers = delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete_with_http_info(tax_rate_id, opts)
+    def delete_tax_rate(tax_rate_id, opts = {})
+      data, _status_code, _headers = delete_tax_rate_with_http_info(tax_rate_id, opts)
       data
     end
 
@@ -98,13 +98,13 @@ module InvoicePDFs
     # @param tax_rate_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete_with_http_info(tax_rate_id, opts = {})
+    def delete_tax_rate_with_http_info(tax_rate_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TaxRatesApi.delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: TaxRatesApi.delete_tax_rate ...'
       end
       # verify the required parameter 'tax_rate_id' is set
       if @api_client.config.client_side_validation && tax_rate_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tax_rate_id' when calling TaxRatesApi.delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete"
+        fail ArgumentError, "Missing the required parameter 'tax_rate_id' when calling TaxRatesApi.delete_tax_rate"
       end
       # resource path
       local_var_path = '/api/v1/tax-rates/{tax_rate_id}'.sub('{' + 'tax_rate_id' + '}', CGI.escape(tax_rate_id.to_s))
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TaxRatesApi.delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete",
+        :operation => :"TaxRatesApi.delete_tax_rate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TaxRatesApi#delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TaxRatesApi#delete_tax_rate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -150,8 +150,8 @@ module InvoicePDFs
     # @param tax_rate_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [TaxRateResponse]
-    def get_tax_rate_api_v1_tax_rates_tax_rate_id_get(tax_rate_id, opts = {})
-      data, _status_code, _headers = get_tax_rate_api_v1_tax_rates_tax_rate_id_get_with_http_info(tax_rate_id, opts)
+    def get_tax_rate(tax_rate_id, opts = {})
+      data, _status_code, _headers = get_tax_rate_with_http_info(tax_rate_id, opts)
       data
     end
 
@@ -159,13 +159,13 @@ module InvoicePDFs
     # @param tax_rate_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TaxRateResponse, Integer, Hash)>] TaxRateResponse data, response status code and response headers
-    def get_tax_rate_api_v1_tax_rates_tax_rate_id_get_with_http_info(tax_rate_id, opts = {})
+    def get_tax_rate_with_http_info(tax_rate_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TaxRatesApi.get_tax_rate_api_v1_tax_rates_tax_rate_id_get ...'
+        @api_client.config.logger.debug 'Calling API: TaxRatesApi.get_tax_rate ...'
       end
       # verify the required parameter 'tax_rate_id' is set
       if @api_client.config.client_side_validation && tax_rate_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tax_rate_id' when calling TaxRatesApi.get_tax_rate_api_v1_tax_rates_tax_rate_id_get"
+        fail ArgumentError, "Missing the required parameter 'tax_rate_id' when calling TaxRatesApi.get_tax_rate"
       end
       # resource path
       local_var_path = '/api/v1/tax-rates/{tax_rate_id}'.sub('{' + 'tax_rate_id' + '}', CGI.escape(tax_rate_id.to_s))
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TaxRatesApi.get_tax_rate_api_v1_tax_rates_tax_rate_id_get",
+        :operation => :"TaxRatesApi.get_tax_rate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,7 +202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TaxRatesApi#get_tax_rate_api_v1_tax_rates_tax_rate_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TaxRatesApi#get_tax_rate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -212,8 +212,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [TaxRatesListResponse]
-    def list_tax_rates_api_v1_tax_rates_get(opts = {})
-      data, _status_code, _headers = list_tax_rates_api_v1_tax_rates_get_with_http_info(opts)
+    def list_tax_rates(opts = {})
+      data, _status_code, _headers = list_tax_rates_with_http_info(opts)
       data
     end
 
@@ -222,16 +222,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(TaxRatesListResponse, Integer, Hash)>] TaxRatesListResponse data, response status code and response headers
-    def list_tax_rates_api_v1_tax_rates_get_with_http_info(opts = {})
+    def list_tax_rates_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TaxRatesApi.list_tax_rates_api_v1_tax_rates_get ...'
+        @api_client.config.logger.debug 'Calling API: TaxRatesApi.list_tax_rates ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TaxRatesApi.list_tax_rates_api_v1_tax_rates_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TaxRatesApi.list_tax_rates, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TaxRatesApi.list_tax_rates_api_v1_tax_rates_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TaxRatesApi.list_tax_rates, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -260,7 +260,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TaxRatesApi.list_tax_rates_api_v1_tax_rates_get",
+        :operation => :"TaxRatesApi.list_tax_rates",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -271,7 +271,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TaxRatesApi#list_tax_rates_api_v1_tax_rates_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TaxRatesApi#list_tax_rates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -281,8 +281,8 @@ module InvoicePDFs
     # @param tax_rate_patch_request [TaxRatePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TaxRateResponse]
-    def update_tax_rate_api_v1_tax_rates_tax_rate_id_patch(tax_rate_id, tax_rate_patch_request, opts = {})
-      data, _status_code, _headers = update_tax_rate_api_v1_tax_rates_tax_rate_id_patch_with_http_info(tax_rate_id, tax_rate_patch_request, opts)
+    def update_tax_rate(tax_rate_id, tax_rate_patch_request, opts = {})
+      data, _status_code, _headers = update_tax_rate_with_http_info(tax_rate_id, tax_rate_patch_request, opts)
       data
     end
 
@@ -291,17 +291,17 @@ module InvoicePDFs
     # @param tax_rate_patch_request [TaxRatePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TaxRateResponse, Integer, Hash)>] TaxRateResponse data, response status code and response headers
-    def update_tax_rate_api_v1_tax_rates_tax_rate_id_patch_with_http_info(tax_rate_id, tax_rate_patch_request, opts = {})
+    def update_tax_rate_with_http_info(tax_rate_id, tax_rate_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TaxRatesApi.update_tax_rate_api_v1_tax_rates_tax_rate_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: TaxRatesApi.update_tax_rate ...'
       end
       # verify the required parameter 'tax_rate_id' is set
       if @api_client.config.client_side_validation && tax_rate_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tax_rate_id' when calling TaxRatesApi.update_tax_rate_api_v1_tax_rates_tax_rate_id_patch"
+        fail ArgumentError, "Missing the required parameter 'tax_rate_id' when calling TaxRatesApi.update_tax_rate"
       end
       # verify the required parameter 'tax_rate_patch_request' is set
       if @api_client.config.client_side_validation && tax_rate_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'tax_rate_patch_request' when calling TaxRatesApi.update_tax_rate_api_v1_tax_rates_tax_rate_id_patch"
+        fail ArgumentError, "Missing the required parameter 'tax_rate_patch_request' when calling TaxRatesApi.update_tax_rate"
       end
       # resource path
       local_var_path = '/api/v1/tax-rates/{tax_rate_id}'.sub('{' + 'tax_rate_id' + '}', CGI.escape(tax_rate_id.to_s))
@@ -332,7 +332,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TaxRatesApi.update_tax_rate_api_v1_tax_rates_tax_rate_id_patch",
+        :operation => :"TaxRatesApi.update_tax_rate",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -343,7 +343,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TaxRatesApi#update_tax_rate_api_v1_tax_rates_tax_rate_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TaxRatesApi#update_tax_rate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

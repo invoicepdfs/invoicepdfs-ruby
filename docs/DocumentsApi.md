@@ -4,30 +4,30 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**archive_document_api_v1_documents_document_id_archive_post**](DocumentsApi.md#archive_document_api_v1_documents_document_id_archive_post) | **POST** /api/v1/documents/{document_id}/archive | Archive Document |
-| [**calculate_document_api_v1_documents_calculate_post**](DocumentsApi.md#calculate_document_api_v1_documents_calculate_post) | **POST** /api/v1/documents/calculate | Calculate Document |
-| [**create_document_api_v1_documents_post**](DocumentsApi.md#create_document_api_v1_documents_post) | **POST** /api/v1/documents | Create Document |
-| [**delete_document_api_v1_documents_document_id_delete**](DocumentsApi.md#delete_document_api_v1_documents_document_id_delete) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
-| [**duplicate_document_api_v1_documents_document_id_duplicate_post**](DocumentsApi.md#duplicate_document_api_v1_documents_document_id_duplicate_post) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
-| [**finalize_document_api_v1_documents_document_id_finalize_post**](DocumentsApi.md#finalize_document_api_v1_documents_document_id_finalize_post) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
-| [**get_document_api_v1_documents_document_id_get**](DocumentsApi.md#get_document_api_v1_documents_document_id_get) | **GET** /api/v1/documents/{document_id} | Get Document |
-| [**list_document_deliveries_api_v1_documents_document_id_deliveries_get**](DocumentsApi.md#list_document_deliveries_api_v1_documents_document_id_deliveries_get) | **GET** /api/v1/documents/{document_id}/deliveries | List Document Deliveries |
-| [**list_documents_api_v1_documents_get**](DocumentsApi.md#list_documents_api_v1_documents_get) | **GET** /api/v1/documents | List Documents |
-| [**mark_paid_api_v1_documents_document_id_mark_paid_post**](DocumentsApi.md#mark_paid_api_v1_documents_document_id_mark_paid_post) | **POST** /api/v1/documents/{document_id}/mark-paid | Mark Paid |
-| [**mark_sent_api_v1_documents_document_id_mark_sent_post**](DocumentsApi.md#mark_sent_api_v1_documents_document_id_mark_sent_post) | **POST** /api/v1/documents/{document_id}/mark-sent | Mark Sent |
-| [**mark_unpaid_api_v1_documents_document_id_mark_unpaid_post**](DocumentsApi.md#mark_unpaid_api_v1_documents_document_id_mark_unpaid_post) | **POST** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid |
-| [**patch_document_api_v1_documents_document_id_patch**](DocumentsApi.md#patch_document_api_v1_documents_document_id_patch) | **PATCH** /api/v1/documents/{document_id} | Patch Document |
-| [**render_document_api_v1_documents_document_id_renders_post**](DocumentsApi.md#render_document_api_v1_documents_document_id_renders_post) | **POST** /api/v1/documents/{document_id}/renders | Render Document |
-| [**render_document_api_v1_documents_render_post**](DocumentsApi.md#render_document_api_v1_documents_render_post) | **POST** /api/v1/documents/render | Render Document |
-| [**restore_document_api_v1_documents_document_id_restore_post**](DocumentsApi.md#restore_document_api_v1_documents_document_id_restore_post) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
-| [**send_document_api_v1_documents_document_id_send_post**](DocumentsApi.md#send_document_api_v1_documents_document_id_send_post) | **POST** /api/v1/documents/{document_id}/send | Send Document |
-| [**validate_document_api_v1_documents_validate_post**](DocumentsApi.md#validate_document_api_v1_documents_validate_post) | **POST** /api/v1/documents/validate | Validate Document |
-| [**void_document_api_v1_documents_document_id_void_post**](DocumentsApi.md#void_document_api_v1_documents_document_id_void_post) | **POST** /api/v1/documents/{document_id}/void | Void Document |
+| [**archive_document**](DocumentsApi.md#archive_document) | **POST** /api/v1/documents/{document_id}/archive | Archive Document |
+| [**calculate_document**](DocumentsApi.md#calculate_document) | **POST** /api/v1/documents/calculate | Calculate Document |
+| [**create_document**](DocumentsApi.md#create_document) | **POST** /api/v1/documents | Create Document |
+| [**create_document_render**](DocumentsApi.md#create_document_render) | **POST** /api/v1/documents/{document_id}/renders | Create Document Render |
+| [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
+| [**duplicate_document**](DocumentsApi.md#duplicate_document) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
+| [**finalize_document**](DocumentsApi.md#finalize_document) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
+| [**get_document**](DocumentsApi.md#get_document) | **GET** /api/v1/documents/{document_id} | Get Document |
+| [**list_document_deliveries**](DocumentsApi.md#list_document_deliveries) | **GET** /api/v1/documents/{document_id}/deliveries | List Document Deliveries |
+| [**list_documents**](DocumentsApi.md#list_documents) | **GET** /api/v1/documents | List Documents |
+| [**mark_paid**](DocumentsApi.md#mark_paid) | **POST** /api/v1/documents/{document_id}/mark-paid | Mark Paid |
+| [**mark_sent**](DocumentsApi.md#mark_sent) | **POST** /api/v1/documents/{document_id}/mark-sent | Mark Sent |
+| [**mark_unpaid**](DocumentsApi.md#mark_unpaid) | **POST** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid |
+| [**render_document**](DocumentsApi.md#render_document) | **POST** /api/v1/documents/render | Render Document |
+| [**restore_document**](DocumentsApi.md#restore_document) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
+| [**send_document**](DocumentsApi.md#send_document) | **POST** /api/v1/documents/{document_id}/send | Send Document |
+| [**update_document**](DocumentsApi.md#update_document) | **PATCH** /api/v1/documents/{document_id} | Update Document |
+| [**validate_document**](DocumentsApi.md#validate_document) | **POST** /api/v1/documents/validate | Validate Document |
+| [**void_document**](DocumentsApi.md#void_document) | **POST** /api/v1/documents/{document_id}/void | Void Document |
 
 
-## archive_document_api_v1_documents_document_id_archive_post
+## archive_document
 
-> <DocumentResponse> archive_document_api_v1_documents_document_id_archive_post(document_id)
+> <DocumentResponse> archive_document(document_id)
 
 Archive Document
 
@@ -47,28 +47,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Archive Document
-  result = api_instance.archive_document_api_v1_documents_document_id_archive_post(document_id)
+  result = api_instance.archive_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->archive_document_api_v1_documents_document_id_archive_post: #{e}"
+  puts "Error when calling DocumentsApi->archive_document: #{e}"
 end
 ```
 
-#### Using the archive_document_api_v1_documents_document_id_archive_post_with_http_info variant
+#### Using the archive_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> archive_document_api_v1_documents_document_id_archive_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> archive_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Archive Document
-  data, status_code, headers = api_instance.archive_document_api_v1_documents_document_id_archive_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.archive_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->archive_document_api_v1_documents_document_id_archive_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->archive_document_with_http_info: #{e}"
 end
 ```
 
@@ -92,9 +92,9 @@ end
 - **Accept**: application/json
 
 
-## calculate_document_api_v1_documents_calculate_post
+## calculate_document
 
-> <DocumentCalculateResponse> calculate_document_api_v1_documents_calculate_post(document_calculate_request)
+> <DocumentCalculateResponse> calculate_document(document_calculate_request)
 
 Calculate Document
 
@@ -114,28 +114,28 @@ document_calculate_request = InvoicePDFs::DocumentCalculateRequest.new({data: In
 
 begin
   # Calculate Document
-  result = api_instance.calculate_document_api_v1_documents_calculate_post(document_calculate_request)
+  result = api_instance.calculate_document(document_calculate_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->calculate_document_api_v1_documents_calculate_post: #{e}"
+  puts "Error when calling DocumentsApi->calculate_document: #{e}"
 end
 ```
 
-#### Using the calculate_document_api_v1_documents_calculate_post_with_http_info variant
+#### Using the calculate_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentCalculateResponse>, Integer, Hash)> calculate_document_api_v1_documents_calculate_post_with_http_info(document_calculate_request)
+> <Array(<DocumentCalculateResponse>, Integer, Hash)> calculate_document_with_http_info(document_calculate_request)
 
 ```ruby
 begin
   # Calculate Document
-  data, status_code, headers = api_instance.calculate_document_api_v1_documents_calculate_post_with_http_info(document_calculate_request)
+  data, status_code, headers = api_instance.calculate_document_with_http_info(document_calculate_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentCalculateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->calculate_document_api_v1_documents_calculate_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->calculate_document_with_http_info: #{e}"
 end
 ```
 
@@ -159,9 +159,9 @@ end
 - **Accept**: application/json
 
 
-## create_document_api_v1_documents_post
+## create_document
 
-> <DocumentResponse> create_document_api_v1_documents_post(document_create_request, opts)
+> <DocumentResponse> create_document(document_create_request, opts)
 
 Create Document
 
@@ -184,28 +184,28 @@ opts = {
 
 begin
   # Create Document
-  result = api_instance.create_document_api_v1_documents_post(document_create_request, opts)
+  result = api_instance.create_document(document_create_request, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->create_document_api_v1_documents_post: #{e}"
+  puts "Error when calling DocumentsApi->create_document: #{e}"
 end
 ```
 
-#### Using the create_document_api_v1_documents_post_with_http_info variant
+#### Using the create_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> create_document_api_v1_documents_post_with_http_info(document_create_request, opts)
+> <Array(<DocumentResponse>, Integer, Hash)> create_document_with_http_info(document_create_request, opts)
 
 ```ruby
 begin
   # Create Document
-  data, status_code, headers = api_instance.create_document_api_v1_documents_post_with_http_info(document_create_request, opts)
+  data, status_code, headers = api_instance.create_document_with_http_info(document_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->create_document_api_v1_documents_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->create_document_with_http_info: #{e}"
 end
 ```
 
@@ -230,9 +230,82 @@ end
 - **Accept**: application/json
 
 
-## delete_document_api_v1_documents_document_id_delete
+## create_document_render
 
-> <SimpleBoolResponse> delete_document_api_v1_documents_document_id_delete(document_id)
+> Object create_document_render(document_id, document_render_options, opts)
+
+Create Document Render
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::DocumentsApi.new
+document_id = 'document_id_example' # String | 
+document_render_options = InvoicePDFs::DocumentRenderOptions.new # DocumentRenderOptions | 
+opts = {
+  idempotency_key: 'idempotency_key_example' # String | 
+}
+
+begin
+  # Create Document Render
+  result = api_instance.create_document_render(document_id, document_render_options, opts)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->create_document_render: #{e}"
+end
+```
+
+#### Using the create_document_render_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(Object, Integer, Hash)> create_document_render_with_http_info(document_id, document_render_options, opts)
+
+```ruby
+begin
+  # Create Document Render
+  data, status_code, headers = api_instance.create_document_render_with_http_info(document_id, document_render_options, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => Object
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->create_document_render_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_id** | **String** |  |  |
+| **document_render_options** | [**DocumentRenderOptions**](DocumentRenderOptions.md) |  |  |
+| **idempotency_key** | **String** |  | [optional] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_document
+
+> <SimpleBoolResponse> delete_document(document_id)
 
 Delete Document
 
@@ -252,28 +325,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Delete Document
-  result = api_instance.delete_document_api_v1_documents_document_id_delete(document_id)
+  result = api_instance.delete_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->delete_document_api_v1_documents_document_id_delete: #{e}"
+  puts "Error when calling DocumentsApi->delete_document: #{e}"
 end
 ```
 
-#### Using the delete_document_api_v1_documents_document_id_delete_with_http_info variant
+#### Using the delete_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_document_api_v1_documents_document_id_delete_with_http_info(document_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Delete Document
-  data, status_code, headers = api_instance.delete_document_api_v1_documents_document_id_delete_with_http_info(document_id)
+  data, status_code, headers = api_instance.delete_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->delete_document_api_v1_documents_document_id_delete_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->delete_document_with_http_info: #{e}"
 end
 ```
 
@@ -297,9 +370,9 @@ end
 - **Accept**: application/json
 
 
-## duplicate_document_api_v1_documents_document_id_duplicate_post
+## duplicate_document
 
-> <DocumentResponse> duplicate_document_api_v1_documents_document_id_duplicate_post(document_id)
+> <DocumentResponse> duplicate_document(document_id)
 
 Duplicate Document
 
@@ -319,28 +392,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Duplicate Document
-  result = api_instance.duplicate_document_api_v1_documents_document_id_duplicate_post(document_id)
+  result = api_instance.duplicate_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->duplicate_document_api_v1_documents_document_id_duplicate_post: #{e}"
+  puts "Error when calling DocumentsApi->duplicate_document: #{e}"
 end
 ```
 
-#### Using the duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info variant
+#### Using the duplicate_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> duplicate_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Duplicate Document
-  data, status_code, headers = api_instance.duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.duplicate_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->duplicate_document_api_v1_documents_document_id_duplicate_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->duplicate_document_with_http_info: #{e}"
 end
 ```
 
@@ -364,9 +437,9 @@ end
 - **Accept**: application/json
 
 
-## finalize_document_api_v1_documents_document_id_finalize_post
+## finalize_document
 
-> <DocumentResponse> finalize_document_api_v1_documents_document_id_finalize_post(document_id)
+> <DocumentResponse> finalize_document(document_id)
 
 Finalize Document
 
@@ -386,28 +459,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Finalize Document
-  result = api_instance.finalize_document_api_v1_documents_document_id_finalize_post(document_id)
+  result = api_instance.finalize_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->finalize_document_api_v1_documents_document_id_finalize_post: #{e}"
+  puts "Error when calling DocumentsApi->finalize_document: #{e}"
 end
 ```
 
-#### Using the finalize_document_api_v1_documents_document_id_finalize_post_with_http_info variant
+#### Using the finalize_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> finalize_document_api_v1_documents_document_id_finalize_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> finalize_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Finalize Document
-  data, status_code, headers = api_instance.finalize_document_api_v1_documents_document_id_finalize_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.finalize_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->finalize_document_api_v1_documents_document_id_finalize_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->finalize_document_with_http_info: #{e}"
 end
 ```
 
@@ -431,9 +504,9 @@ end
 - **Accept**: application/json
 
 
-## get_document_api_v1_documents_document_id_get
+## get_document
 
-> <DocumentResponse> get_document_api_v1_documents_document_id_get(document_id)
+> <DocumentResponse> get_document(document_id)
 
 Get Document
 
@@ -453,28 +526,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Get Document
-  result = api_instance.get_document_api_v1_documents_document_id_get(document_id)
+  result = api_instance.get_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->get_document_api_v1_documents_document_id_get: #{e}"
+  puts "Error when calling DocumentsApi->get_document: #{e}"
 end
 ```
 
-#### Using the get_document_api_v1_documents_document_id_get_with_http_info variant
+#### Using the get_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> get_document_api_v1_documents_document_id_get_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> get_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Get Document
-  data, status_code, headers = api_instance.get_document_api_v1_documents_document_id_get_with_http_info(document_id)
+  data, status_code, headers = api_instance.get_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->get_document_api_v1_documents_document_id_get_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->get_document_with_http_info: #{e}"
 end
 ```
 
@@ -498,9 +571,9 @@ end
 - **Accept**: application/json
 
 
-## list_document_deliveries_api_v1_documents_document_id_deliveries_get
+## list_document_deliveries
 
-> <DeliveriesListResponse> list_document_deliveries_api_v1_documents_document_id_deliveries_get(document_id, opts)
+> <DeliveriesListResponse> list_document_deliveries(document_id, opts)
 
 List Document Deliveries
 
@@ -524,28 +597,28 @@ opts = {
 
 begin
   # List Document Deliveries
-  result = api_instance.list_document_deliveries_api_v1_documents_document_id_deliveries_get(document_id, opts)
+  result = api_instance.list_document_deliveries(document_id, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->list_document_deliveries_api_v1_documents_document_id_deliveries_get: #{e}"
+  puts "Error when calling DocumentsApi->list_document_deliveries: #{e}"
 end
 ```
 
-#### Using the list_document_deliveries_api_v1_documents_document_id_deliveries_get_with_http_info variant
+#### Using the list_document_deliveries_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeliveriesListResponse>, Integer, Hash)> list_document_deliveries_api_v1_documents_document_id_deliveries_get_with_http_info(document_id, opts)
+> <Array(<DeliveriesListResponse>, Integer, Hash)> list_document_deliveries_with_http_info(document_id, opts)
 
 ```ruby
 begin
   # List Document Deliveries
-  data, status_code, headers = api_instance.list_document_deliveries_api_v1_documents_document_id_deliveries_get_with_http_info(document_id, opts)
+  data, status_code, headers = api_instance.list_document_deliveries_with_http_info(document_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeliveriesListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->list_document_deliveries_api_v1_documents_document_id_deliveries_get_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->list_document_deliveries_with_http_info: #{e}"
 end
 ```
 
@@ -571,9 +644,9 @@ end
 - **Accept**: application/json
 
 
-## list_documents_api_v1_documents_get
+## list_documents
 
-> <DocumentsListResponse> list_documents_api_v1_documents_get(opts)
+> <DocumentsListResponse> list_documents(opts)
 
 List Documents
 
@@ -598,28 +671,28 @@ opts = {
 
 begin
   # List Documents
-  result = api_instance.list_documents_api_v1_documents_get(opts)
+  result = api_instance.list_documents(opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->list_documents_api_v1_documents_get: #{e}"
+  puts "Error when calling DocumentsApi->list_documents: #{e}"
 end
 ```
 
-#### Using the list_documents_api_v1_documents_get_with_http_info variant
+#### Using the list_documents_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentsListResponse>, Integer, Hash)> list_documents_api_v1_documents_get_with_http_info(opts)
+> <Array(<DocumentsListResponse>, Integer, Hash)> list_documents_with_http_info(opts)
 
 ```ruby
 begin
   # List Documents
-  data, status_code, headers = api_instance.list_documents_api_v1_documents_get_with_http_info(opts)
+  data, status_code, headers = api_instance.list_documents_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentsListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->list_documents_api_v1_documents_get_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->list_documents_with_http_info: #{e}"
 end
 ```
 
@@ -646,9 +719,9 @@ end
 - **Accept**: application/json
 
 
-## mark_paid_api_v1_documents_document_id_mark_paid_post
+## mark_paid
 
-> <DocumentResponse> mark_paid_api_v1_documents_document_id_mark_paid_post(document_id)
+> <DocumentResponse> mark_paid(document_id)
 
 Mark Paid
 
@@ -668,28 +741,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Mark Paid
-  result = api_instance.mark_paid_api_v1_documents_document_id_mark_paid_post(document_id)
+  result = api_instance.mark_paid(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->mark_paid_api_v1_documents_document_id_mark_paid_post: #{e}"
+  puts "Error when calling DocumentsApi->mark_paid: #{e}"
 end
 ```
 
-#### Using the mark_paid_api_v1_documents_document_id_mark_paid_post_with_http_info variant
+#### Using the mark_paid_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> mark_paid_api_v1_documents_document_id_mark_paid_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> mark_paid_with_http_info(document_id)
 
 ```ruby
 begin
   # Mark Paid
-  data, status_code, headers = api_instance.mark_paid_api_v1_documents_document_id_mark_paid_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.mark_paid_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->mark_paid_api_v1_documents_document_id_mark_paid_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->mark_paid_with_http_info: #{e}"
 end
 ```
 
@@ -713,9 +786,9 @@ end
 - **Accept**: application/json
 
 
-## mark_sent_api_v1_documents_document_id_mark_sent_post
+## mark_sent
 
-> <DocumentResponse> mark_sent_api_v1_documents_document_id_mark_sent_post(document_id)
+> <DocumentResponse> mark_sent(document_id)
 
 Mark Sent
 
@@ -735,28 +808,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Mark Sent
-  result = api_instance.mark_sent_api_v1_documents_document_id_mark_sent_post(document_id)
+  result = api_instance.mark_sent(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->mark_sent_api_v1_documents_document_id_mark_sent_post: #{e}"
+  puts "Error when calling DocumentsApi->mark_sent: #{e}"
 end
 ```
 
-#### Using the mark_sent_api_v1_documents_document_id_mark_sent_post_with_http_info variant
+#### Using the mark_sent_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> mark_sent_api_v1_documents_document_id_mark_sent_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> mark_sent_with_http_info(document_id)
 
 ```ruby
 begin
   # Mark Sent
-  data, status_code, headers = api_instance.mark_sent_api_v1_documents_document_id_mark_sent_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.mark_sent_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->mark_sent_api_v1_documents_document_id_mark_sent_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->mark_sent_with_http_info: #{e}"
 end
 ```
 
@@ -780,9 +853,9 @@ end
 - **Accept**: application/json
 
 
-## mark_unpaid_api_v1_documents_document_id_mark_unpaid_post
+## mark_unpaid
 
-> <DocumentResponse> mark_unpaid_api_v1_documents_document_id_mark_unpaid_post(document_id)
+> <DocumentResponse> mark_unpaid(document_id)
 
 Mark Unpaid
 
@@ -802,28 +875,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Mark Unpaid
-  result = api_instance.mark_unpaid_api_v1_documents_document_id_mark_unpaid_post(document_id)
+  result = api_instance.mark_unpaid(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->mark_unpaid_api_v1_documents_document_id_mark_unpaid_post: #{e}"
+  puts "Error when calling DocumentsApi->mark_unpaid: #{e}"
 end
 ```
 
-#### Using the mark_unpaid_api_v1_documents_document_id_mark_unpaid_post_with_http_info variant
+#### Using the mark_unpaid_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> mark_unpaid_api_v1_documents_document_id_mark_unpaid_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> mark_unpaid_with_http_info(document_id)
 
 ```ruby
 begin
   # Mark Unpaid
-  data, status_code, headers = api_instance.mark_unpaid_api_v1_documents_document_id_mark_unpaid_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.mark_unpaid_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->mark_unpaid_api_v1_documents_document_id_mark_unpaid_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->mark_unpaid_with_http_info: #{e}"
 end
 ```
 
@@ -847,78 +920,9 @@ end
 - **Accept**: application/json
 
 
-## patch_document_api_v1_documents_document_id_patch
+## render_document
 
-> <DocumentResponse> patch_document_api_v1_documents_document_id_patch(document_id, document_patch_request)
-
-Patch Document
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::DocumentsApi.new
-document_id = 'document_id_example' # String | 
-document_patch_request = InvoicePDFs::DocumentPatchRequest.new # DocumentPatchRequest | 
-
-begin
-  # Patch Document
-  result = api_instance.patch_document_api_v1_documents_document_id_patch(document_id, document_patch_request)
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->patch_document_api_v1_documents_document_id_patch: #{e}"
-end
-```
-
-#### Using the patch_document_api_v1_documents_document_id_patch_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<DocumentResponse>, Integer, Hash)> patch_document_api_v1_documents_document_id_patch_with_http_info(document_id, document_patch_request)
-
-```ruby
-begin
-  # Patch Document
-  data, status_code, headers = api_instance.patch_document_api_v1_documents_document_id_patch_with_http_info(document_id, document_patch_request)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <DocumentResponse>
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->patch_document_api_v1_documents_document_id_patch_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **document_id** | **String** |  |  |
-| **document_patch_request** | [**DocumentPatchRequest**](DocumentPatchRequest.md) |  |  |
-
-### Return type
-
-[**DocumentResponse**](DocumentResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## render_document_api_v1_documents_document_id_renders_post
-
-> Object render_document_api_v1_documents_document_id_renders_post(document_id, app_documents_schemas_document_render_request, opts)
+> Object render_document(document_render_request, opts)
 
 Render Document
 
@@ -934,36 +938,35 @@ InvoicePDFs.configure do |config|
 end
 
 api_instance = InvoicePDFs::DocumentsApi.new
-document_id = 'document_id_example' # String | 
-app_documents_schemas_document_render_request = InvoicePDFs::AppDocumentsSchemasDocumentRenderRequest.new # AppDocumentsSchemasDocumentRenderRequest | 
+document_render_request = InvoicePDFs::DocumentRenderRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), template: InvoicePDFs::DocumentTemplateRef.new({id: 'id_example'})}) # DocumentRenderRequest | 
 opts = {
   idempotency_key: 'idempotency_key_example' # String | 
 }
 
 begin
   # Render Document
-  result = api_instance.render_document_api_v1_documents_document_id_renders_post(document_id, app_documents_schemas_document_render_request, opts)
+  result = api_instance.render_document(document_render_request, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->render_document_api_v1_documents_document_id_renders_post: #{e}"
+  puts "Error when calling DocumentsApi->render_document: #{e}"
 end
 ```
 
-#### Using the render_document_api_v1_documents_document_id_renders_post_with_http_info variant
+#### Using the render_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> render_document_api_v1_documents_document_id_renders_post_with_http_info(document_id, app_documents_schemas_document_render_request, opts)
+> <Array(Object, Integer, Hash)> render_document_with_http_info(document_render_request, opts)
 
 ```ruby
 begin
   # Render Document
-  data, status_code, headers = api_instance.render_document_api_v1_documents_document_id_renders_post_with_http_info(document_id, app_documents_schemas_document_render_request, opts)
+  data, status_code, headers = api_instance.render_document_with_http_info(document_render_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->render_document_api_v1_documents_document_id_renders_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->render_document_with_http_info: #{e}"
 end
 ```
 
@@ -971,8 +974,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **document_id** | **String** |  |  |
-| **app_documents_schemas_document_render_request** | [**AppDocumentsSchemasDocumentRenderRequest**](AppDocumentsSchemasDocumentRenderRequest.md) |  |  |
+| **document_render_request** | [**DocumentRenderRequest**](DocumentRenderRequest.md) |  |  |
 | **idempotency_key** | **String** |  | [optional] |
 
 ### Return type
@@ -989,80 +991,9 @@ end
 - **Accept**: application/json
 
 
-## render_document_api_v1_documents_render_post
+## restore_document
 
-> Object render_document_api_v1_documents_render_post(app_schemas_v1_document_render_request, opts)
-
-Render Document
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::DocumentsApi.new
-app_schemas_v1_document_render_request = InvoicePDFs::AppSchemasV1DocumentRenderRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), template: InvoicePDFs::DocumentTemplateRef.new({id: 'id_example'})}) # AppSchemasV1DocumentRenderRequest | 
-opts = {
-  idempotency_key: 'idempotency_key_example' # String | 
-}
-
-begin
-  # Render Document
-  result = api_instance.render_document_api_v1_documents_render_post(app_schemas_v1_document_render_request, opts)
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->render_document_api_v1_documents_render_post: #{e}"
-end
-```
-
-#### Using the render_document_api_v1_documents_render_post_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(Object, Integer, Hash)> render_document_api_v1_documents_render_post_with_http_info(app_schemas_v1_document_render_request, opts)
-
-```ruby
-begin
-  # Render Document
-  data, status_code, headers = api_instance.render_document_api_v1_documents_render_post_with_http_info(app_schemas_v1_document_render_request, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => Object
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->render_document_api_v1_documents_render_post_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **app_schemas_v1_document_render_request** | [**AppSchemasV1DocumentRenderRequest**](AppSchemasV1DocumentRenderRequest.md) |  |  |
-| **idempotency_key** | **String** |  | [optional] |
-
-### Return type
-
-**Object**
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## restore_document_api_v1_documents_document_id_restore_post
-
-> <DocumentResponse> restore_document_api_v1_documents_document_id_restore_post(document_id)
+> <DocumentResponse> restore_document(document_id)
 
 Restore Document
 
@@ -1082,28 +1013,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Restore Document
-  result = api_instance.restore_document_api_v1_documents_document_id_restore_post(document_id)
+  result = api_instance.restore_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->restore_document_api_v1_documents_document_id_restore_post: #{e}"
+  puts "Error when calling DocumentsApi->restore_document: #{e}"
 end
 ```
 
-#### Using the restore_document_api_v1_documents_document_id_restore_post_with_http_info variant
+#### Using the restore_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> restore_document_api_v1_documents_document_id_restore_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> restore_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Restore Document
-  data, status_code, headers = api_instance.restore_document_api_v1_documents_document_id_restore_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.restore_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->restore_document_api_v1_documents_document_id_restore_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->restore_document_with_http_info: #{e}"
 end
 ```
 
@@ -1127,9 +1058,9 @@ end
 - **Accept**: application/json
 
 
-## send_document_api_v1_documents_document_id_send_post
+## send_document
 
-> <DeliveryResponse> send_document_api_v1_documents_document_id_send_post(document_id, delivery_send_request)
+> <DeliveryResponse> send_document(document_id, delivery_send_request)
 
 Send Document
 
@@ -1150,28 +1081,28 @@ delivery_send_request = InvoicePDFs::DeliverySendRequest.new({to: ["client@examp
 
 begin
   # Send Document
-  result = api_instance.send_document_api_v1_documents_document_id_send_post(document_id, delivery_send_request)
+  result = api_instance.send_document(document_id, delivery_send_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->send_document_api_v1_documents_document_id_send_post: #{e}"
+  puts "Error when calling DocumentsApi->send_document: #{e}"
 end
 ```
 
-#### Using the send_document_api_v1_documents_document_id_send_post_with_http_info variant
+#### Using the send_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeliveryResponse>, Integer, Hash)> send_document_api_v1_documents_document_id_send_post_with_http_info(document_id, delivery_send_request)
+> <Array(<DeliveryResponse>, Integer, Hash)> send_document_with_http_info(document_id, delivery_send_request)
 
 ```ruby
 begin
   # Send Document
-  data, status_code, headers = api_instance.send_document_api_v1_documents_document_id_send_post_with_http_info(document_id, delivery_send_request)
+  data, status_code, headers = api_instance.send_document_with_http_info(document_id, delivery_send_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeliveryResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->send_document_api_v1_documents_document_id_send_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->send_document_with_http_info: #{e}"
 end
 ```
 
@@ -1196,9 +1127,78 @@ end
 - **Accept**: application/json
 
 
-## validate_document_api_v1_documents_validate_post
+## update_document
 
-> <DocumentValidateResponse> validate_document_api_v1_documents_validate_post(document_validate_request)
+> <DocumentResponse> update_document(document_id, document_patch_request)
+
+Update Document
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::DocumentsApi.new
+document_id = 'document_id_example' # String | 
+document_patch_request = InvoicePDFs::DocumentPatchRequest.new # DocumentPatchRequest | 
+
+begin
+  # Update Document
+  result = api_instance.update_document(document_id, document_patch_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->update_document: #{e}"
+end
+```
+
+#### Using the update_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DocumentResponse>, Integer, Hash)> update_document_with_http_info(document_id, document_patch_request)
+
+```ruby
+begin
+  # Update Document
+  data, status_code, headers = api_instance.update_document_with_http_info(document_id, document_patch_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DocumentResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->update_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_id** | **String** |  |  |
+| **document_patch_request** | [**DocumentPatchRequest**](DocumentPatchRequest.md) |  |  |
+
+### Return type
+
+[**DocumentResponse**](DocumentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## validate_document
+
+> <DocumentValidateResponse> validate_document(document_validate_request)
 
 Validate Document
 
@@ -1218,28 +1218,28 @@ document_validate_request = InvoicePDFs::DocumentValidateRequest.new({data: Invo
 
 begin
   # Validate Document
-  result = api_instance.validate_document_api_v1_documents_validate_post(document_validate_request)
+  result = api_instance.validate_document(document_validate_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->validate_document_api_v1_documents_validate_post: #{e}"
+  puts "Error when calling DocumentsApi->validate_document: #{e}"
 end
 ```
 
-#### Using the validate_document_api_v1_documents_validate_post_with_http_info variant
+#### Using the validate_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentValidateResponse>, Integer, Hash)> validate_document_api_v1_documents_validate_post_with_http_info(document_validate_request)
+> <Array(<DocumentValidateResponse>, Integer, Hash)> validate_document_with_http_info(document_validate_request)
 
 ```ruby
 begin
   # Validate Document
-  data, status_code, headers = api_instance.validate_document_api_v1_documents_validate_post_with_http_info(document_validate_request)
+  data, status_code, headers = api_instance.validate_document_with_http_info(document_validate_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentValidateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->validate_document_api_v1_documents_validate_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->validate_document_with_http_info: #{e}"
 end
 ```
 
@@ -1263,9 +1263,9 @@ end
 - **Accept**: application/json
 
 
-## void_document_api_v1_documents_document_id_void_post
+## void_document
 
-> <DocumentResponse> void_document_api_v1_documents_document_id_void_post(document_id)
+> <DocumentResponse> void_document(document_id)
 
 Void Document
 
@@ -1285,28 +1285,28 @@ document_id = 'document_id_example' # String |
 
 begin
   # Void Document
-  result = api_instance.void_document_api_v1_documents_document_id_void_post(document_id)
+  result = api_instance.void_document(document_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->void_document_api_v1_documents_document_id_void_post: #{e}"
+  puts "Error when calling DocumentsApi->void_document: #{e}"
 end
 ```
 
-#### Using the void_document_api_v1_documents_document_id_void_post_with_http_info variant
+#### Using the void_document_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DocumentResponse>, Integer, Hash)> void_document_api_v1_documents_document_id_void_post_with_http_info(document_id)
+> <Array(<DocumentResponse>, Integer, Hash)> void_document_with_http_info(document_id)
 
 ```ruby
 begin
   # Void Document
-  data, status_code, headers = api_instance.void_document_api_v1_documents_document_id_void_post_with_http_info(document_id)
+  data, status_code, headers = api_instance.void_document_with_http_info(document_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DocumentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DocumentsApi->void_document_api_v1_documents_document_id_void_post_with_http_info: #{e}"
+  puts "Error when calling DocumentsApi->void_document_with_http_info: #{e}"
 end
 ```
 

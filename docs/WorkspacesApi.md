@@ -4,22 +4,22 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_member_api_v1_workspaces_workspace_id_members_post**](WorkspacesApi.md#create_member_api_v1_workspaces_workspace_id_members_post) | **POST** /api/v1/workspaces/{workspace_id}/members | Create Member |
-| [**create_workspace_api_v1_workspaces_post**](WorkspacesApi.md#create_workspace_api_v1_workspaces_post) | **POST** /api/v1/workspaces | Create Workspace |
-| [**delete_member_api_v1_workspaces_workspace_id_members_member_id_delete**](WorkspacesApi.md#delete_member_api_v1_workspaces_workspace_id_members_member_id_delete) | **DELETE** /api/v1/workspaces/{workspace_id}/members/{member_id} | Delete Member |
-| [**delete_workspace_api_v1_workspaces_workspace_id_delete**](WorkspacesApi.md#delete_workspace_api_v1_workspaces_workspace_id_delete) | **DELETE** /api/v1/workspaces/{workspace_id} | Delete Workspace |
-| [**get_workspace_api_v1_workspaces_workspace_id_get**](WorkspacesApi.md#get_workspace_api_v1_workspaces_workspace_id_get) | **GET** /api/v1/workspaces/{workspace_id} | Get Workspace |
-| [**list_members_api_v1_workspaces_workspace_id_members_get**](WorkspacesApi.md#list_members_api_v1_workspaces_workspace_id_members_get) | **GET** /api/v1/workspaces/{workspace_id}/members | List Members |
-| [**list_workspaces_api_v1_workspaces_get**](WorkspacesApi.md#list_workspaces_api_v1_workspaces_get) | **GET** /api/v1/workspaces | List Workspaces |
-| [**patch_member_api_v1_workspaces_workspace_id_members_member_id_patch**](WorkspacesApi.md#patch_member_api_v1_workspaces_workspace_id_members_member_id_patch) | **PATCH** /api/v1/workspaces/{workspace_id}/members/{member_id} | Patch Member |
-| [**patch_workspace_api_v1_workspaces_workspace_id_patch**](WorkspacesApi.md#patch_workspace_api_v1_workspaces_workspace_id_patch) | **PATCH** /api/v1/workspaces/{workspace_id} | Patch Workspace |
+| [**add_workspace_member**](WorkspacesApi.md#add_workspace_member) | **POST** /api/v1/workspaces/{workspace_id}/members | Add Workspace Member |
+| [**create_workspace**](WorkspacesApi.md#create_workspace) | **POST** /api/v1/workspaces | Create Workspace |
+| [**delete_workspace**](WorkspacesApi.md#delete_workspace) | **DELETE** /api/v1/workspaces/{workspace_id} | Delete Workspace |
+| [**get_workspace**](WorkspacesApi.md#get_workspace) | **GET** /api/v1/workspaces/{workspace_id} | Get Workspace |
+| [**list_workspace_members**](WorkspacesApi.md#list_workspace_members) | **GET** /api/v1/workspaces/{workspace_id}/members | List Workspace Members |
+| [**list_workspaces**](WorkspacesApi.md#list_workspaces) | **GET** /api/v1/workspaces | List Workspaces |
+| [**remove_workspace_member**](WorkspacesApi.md#remove_workspace_member) | **DELETE** /api/v1/workspaces/{workspace_id}/members/{member_id} | Remove Workspace Member |
+| [**update_workspace**](WorkspacesApi.md#update_workspace) | **PATCH** /api/v1/workspaces/{workspace_id} | Update Workspace |
+| [**update_workspace_member**](WorkspacesApi.md#update_workspace_member) | **PATCH** /api/v1/workspaces/{workspace_id}/members/{member_id} | Update Workspace Member |
 
 
-## create_member_api_v1_workspaces_workspace_id_members_post
+## add_workspace_member
 
-> <WorkspaceMembersListResponse> create_member_api_v1_workspaces_workspace_id_members_post(workspace_id, workspace_member_create_request, opts)
+> <WorkspaceMembersListResponse> add_workspace_member(workspace_id, workspace_member_create_request, opts)
 
-Create Member
+Add Workspace Member
 
 ### Examples
 
@@ -40,29 +40,29 @@ opts = {
 }
 
 begin
-  # Create Member
-  result = api_instance.create_member_api_v1_workspaces_workspace_id_members_post(workspace_id, workspace_member_create_request, opts)
+  # Add Workspace Member
+  result = api_instance.add_workspace_member(workspace_id, workspace_member_create_request, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->create_member_api_v1_workspaces_workspace_id_members_post: #{e}"
+  puts "Error when calling WorkspacesApi->add_workspace_member: #{e}"
 end
 ```
 
-#### Using the create_member_api_v1_workspaces_workspace_id_members_post_with_http_info variant
+#### Using the add_workspace_member_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspaceMembersListResponse>, Integer, Hash)> create_member_api_v1_workspaces_workspace_id_members_post_with_http_info(workspace_id, workspace_member_create_request, opts)
+> <Array(<WorkspaceMembersListResponse>, Integer, Hash)> add_workspace_member_with_http_info(workspace_id, workspace_member_create_request, opts)
 
 ```ruby
 begin
-  # Create Member
-  data, status_code, headers = api_instance.create_member_api_v1_workspaces_workspace_id_members_post_with_http_info(workspace_id, workspace_member_create_request, opts)
+  # Add Workspace Member
+  data, status_code, headers = api_instance.add_workspace_member_with_http_info(workspace_id, workspace_member_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WorkspaceMembersListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->create_member_api_v1_workspaces_workspace_id_members_post_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->add_workspace_member_with_http_info: #{e}"
 end
 ```
 
@@ -88,9 +88,9 @@ end
 - **Accept**: application/json
 
 
-## create_workspace_api_v1_workspaces_post
+## create_workspace
 
-> <WorkspaceResponse> create_workspace_api_v1_workspaces_post(workspace_create_request, opts)
+> <WorkspaceResponse> create_workspace(workspace_create_request, opts)
 
 Create Workspace
 
@@ -113,28 +113,28 @@ opts = {
 
 begin
   # Create Workspace
-  result = api_instance.create_workspace_api_v1_workspaces_post(workspace_create_request, opts)
+  result = api_instance.create_workspace(workspace_create_request, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->create_workspace_api_v1_workspaces_post: #{e}"
+  puts "Error when calling WorkspacesApi->create_workspace: #{e}"
 end
 ```
 
-#### Using the create_workspace_api_v1_workspaces_post_with_http_info variant
+#### Using the create_workspace_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspaceResponse>, Integer, Hash)> create_workspace_api_v1_workspaces_post_with_http_info(workspace_create_request, opts)
+> <Array(<WorkspaceResponse>, Integer, Hash)> create_workspace_with_http_info(workspace_create_request, opts)
 
 ```ruby
 begin
   # Create Workspace
-  data, status_code, headers = api_instance.create_workspace_api_v1_workspaces_post_with_http_info(workspace_create_request, opts)
+  data, status_code, headers = api_instance.create_workspace_with_http_info(workspace_create_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WorkspaceResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->create_workspace_api_v1_workspaces_post_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->create_workspace_with_http_info: #{e}"
 end
 ```
 
@@ -159,78 +159,9 @@ end
 - **Accept**: application/json
 
 
-## delete_member_api_v1_workspaces_workspace_id_members_member_id_delete
+## delete_workspace
 
-> <SimpleBoolResponse> delete_member_api_v1_workspaces_workspace_id_members_member_id_delete(workspace_id, member_id)
-
-Delete Member
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::WorkspacesApi.new
-workspace_id = 'workspace_id_example' # String | 
-member_id = 'member_id_example' # String | 
-
-begin
-  # Delete Member
-  result = api_instance.delete_member_api_v1_workspaces_workspace_id_members_member_id_delete(workspace_id, member_id)
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->delete_member_api_v1_workspaces_workspace_id_members_member_id_delete: #{e}"
-end
-```
-
-#### Using the delete_member_api_v1_workspaces_workspace_id_members_member_id_delete_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_member_api_v1_workspaces_workspace_id_members_member_id_delete_with_http_info(workspace_id, member_id)
-
-```ruby
-begin
-  # Delete Member
-  data, status_code, headers = api_instance.delete_member_api_v1_workspaces_workspace_id_members_member_id_delete_with_http_info(workspace_id, member_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <SimpleBoolResponse>
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->delete_member_api_v1_workspaces_workspace_id_members_member_id_delete_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **workspace_id** | **String** |  |  |
-| **member_id** | **String** |  |  |
-
-### Return type
-
-[**SimpleBoolResponse**](SimpleBoolResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## delete_workspace_api_v1_workspaces_workspace_id_delete
-
-> <SimpleBoolResponse> delete_workspace_api_v1_workspaces_workspace_id_delete(workspace_id)
+> <SimpleBoolResponse> delete_workspace(workspace_id)
 
 Delete Workspace
 
@@ -250,28 +181,28 @@ workspace_id = 'workspace_id_example' # String |
 
 begin
   # Delete Workspace
-  result = api_instance.delete_workspace_api_v1_workspaces_workspace_id_delete(workspace_id)
+  result = api_instance.delete_workspace(workspace_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->delete_workspace_api_v1_workspaces_workspace_id_delete: #{e}"
+  puts "Error when calling WorkspacesApi->delete_workspace: #{e}"
 end
 ```
 
-#### Using the delete_workspace_api_v1_workspaces_workspace_id_delete_with_http_info variant
+#### Using the delete_workspace_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_workspace_api_v1_workspaces_workspace_id_delete_with_http_info(workspace_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_workspace_with_http_info(workspace_id)
 
 ```ruby
 begin
   # Delete Workspace
-  data, status_code, headers = api_instance.delete_workspace_api_v1_workspaces_workspace_id_delete_with_http_info(workspace_id)
+  data, status_code, headers = api_instance.delete_workspace_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->delete_workspace_api_v1_workspaces_workspace_id_delete_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->delete_workspace_with_http_info: #{e}"
 end
 ```
 
@@ -295,9 +226,9 @@ end
 - **Accept**: application/json
 
 
-## get_workspace_api_v1_workspaces_workspace_id_get
+## get_workspace
 
-> <WorkspaceResponse> get_workspace_api_v1_workspaces_workspace_id_get(workspace_id)
+> <WorkspaceResponse> get_workspace(workspace_id)
 
 Get Workspace
 
@@ -317,28 +248,28 @@ workspace_id = 'workspace_id_example' # String |
 
 begin
   # Get Workspace
-  result = api_instance.get_workspace_api_v1_workspaces_workspace_id_get(workspace_id)
+  result = api_instance.get_workspace(workspace_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->get_workspace_api_v1_workspaces_workspace_id_get: #{e}"
+  puts "Error when calling WorkspacesApi->get_workspace: #{e}"
 end
 ```
 
-#### Using the get_workspace_api_v1_workspaces_workspace_id_get_with_http_info variant
+#### Using the get_workspace_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspaceResponse>, Integer, Hash)> get_workspace_api_v1_workspaces_workspace_id_get_with_http_info(workspace_id)
+> <Array(<WorkspaceResponse>, Integer, Hash)> get_workspace_with_http_info(workspace_id)
 
 ```ruby
 begin
   # Get Workspace
-  data, status_code, headers = api_instance.get_workspace_api_v1_workspaces_workspace_id_get_with_http_info(workspace_id)
+  data, status_code, headers = api_instance.get_workspace_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WorkspaceResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->get_workspace_api_v1_workspaces_workspace_id_get_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->get_workspace_with_http_info: #{e}"
 end
 ```
 
@@ -362,11 +293,11 @@ end
 - **Accept**: application/json
 
 
-## list_members_api_v1_workspaces_workspace_id_members_get
+## list_workspace_members
 
-> <WorkspaceMembersListResponse> list_members_api_v1_workspaces_workspace_id_members_get(workspace_id)
+> <WorkspaceMembersListResponse> list_workspace_members(workspace_id)
 
-List Members
+List Workspace Members
 
 ### Examples
 
@@ -383,29 +314,29 @@ api_instance = InvoicePDFs::WorkspacesApi.new
 workspace_id = 'workspace_id_example' # String | 
 
 begin
-  # List Members
-  result = api_instance.list_members_api_v1_workspaces_workspace_id_members_get(workspace_id)
+  # List Workspace Members
+  result = api_instance.list_workspace_members(workspace_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->list_members_api_v1_workspaces_workspace_id_members_get: #{e}"
+  puts "Error when calling WorkspacesApi->list_workspace_members: #{e}"
 end
 ```
 
-#### Using the list_members_api_v1_workspaces_workspace_id_members_get_with_http_info variant
+#### Using the list_workspace_members_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspaceMembersListResponse>, Integer, Hash)> list_members_api_v1_workspaces_workspace_id_members_get_with_http_info(workspace_id)
+> <Array(<WorkspaceMembersListResponse>, Integer, Hash)> list_workspace_members_with_http_info(workspace_id)
 
 ```ruby
 begin
-  # List Members
-  data, status_code, headers = api_instance.list_members_api_v1_workspaces_workspace_id_members_get_with_http_info(workspace_id)
+  # List Workspace Members
+  data, status_code, headers = api_instance.list_workspace_members_with_http_info(workspace_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WorkspaceMembersListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->list_members_api_v1_workspaces_workspace_id_members_get_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->list_workspace_members_with_http_info: #{e}"
 end
 ```
 
@@ -429,9 +360,9 @@ end
 - **Accept**: application/json
 
 
-## list_workspaces_api_v1_workspaces_get
+## list_workspaces
 
-> <WorkspacesListResponse> list_workspaces_api_v1_workspaces_get(opts)
+> <WorkspacesListResponse> list_workspaces(opts)
 
 List Workspaces
 
@@ -454,28 +385,28 @@ opts = {
 
 begin
   # List Workspaces
-  result = api_instance.list_workspaces_api_v1_workspaces_get(opts)
+  result = api_instance.list_workspaces(opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->list_workspaces_api_v1_workspaces_get: #{e}"
+  puts "Error when calling WorkspacesApi->list_workspaces: #{e}"
 end
 ```
 
-#### Using the list_workspaces_api_v1_workspaces_get_with_http_info variant
+#### Using the list_workspaces_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspacesListResponse>, Integer, Hash)> list_workspaces_api_v1_workspaces_get_with_http_info(opts)
+> <Array(<WorkspacesListResponse>, Integer, Hash)> list_workspaces_with_http_info(opts)
 
 ```ruby
 begin
   # List Workspaces
-  data, status_code, headers = api_instance.list_workspaces_api_v1_workspaces_get_with_http_info(opts)
+  data, status_code, headers = api_instance.list_workspaces_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WorkspacesListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->list_workspaces_api_v1_workspaces_get_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->list_workspaces_with_http_info: #{e}"
 end
 ```
 
@@ -500,11 +431,11 @@ end
 - **Accept**: application/json
 
 
-## patch_member_api_v1_workspaces_workspace_id_members_member_id_patch
+## remove_workspace_member
 
-> <WorkspaceMemberOut> patch_member_api_v1_workspaces_workspace_id_members_member_id_patch(workspace_id, member_id, workspace_member_patch_request)
+> <SimpleBoolResponse> remove_workspace_member(workspace_id, member_id)
 
-Patch Member
+Remove Workspace Member
 
 ### Examples
 
@@ -520,32 +451,31 @@ end
 api_instance = InvoicePDFs::WorkspacesApi.new
 workspace_id = 'workspace_id_example' # String | 
 member_id = 'member_id_example' # String | 
-workspace_member_patch_request = InvoicePDFs::WorkspaceMemberPatchRequest.new # WorkspaceMemberPatchRequest | 
 
 begin
-  # Patch Member
-  result = api_instance.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch(workspace_id, member_id, workspace_member_patch_request)
+  # Remove Workspace Member
+  result = api_instance.remove_workspace_member(workspace_id, member_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->patch_member_api_v1_workspaces_workspace_id_members_member_id_patch: #{e}"
+  puts "Error when calling WorkspacesApi->remove_workspace_member: #{e}"
 end
 ```
 
-#### Using the patch_member_api_v1_workspaces_workspace_id_members_member_id_patch_with_http_info variant
+#### Using the remove_workspace_member_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspaceMemberOut>, Integer, Hash)> patch_member_api_v1_workspaces_workspace_id_members_member_id_patch_with_http_info(workspace_id, member_id, workspace_member_patch_request)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> remove_workspace_member_with_http_info(workspace_id, member_id)
 
 ```ruby
 begin
-  # Patch Member
-  data, status_code, headers = api_instance.patch_member_api_v1_workspaces_workspace_id_members_member_id_patch_with_http_info(workspace_id, member_id, workspace_member_patch_request)
+  # Remove Workspace Member
+  data, status_code, headers = api_instance.remove_workspace_member_with_http_info(workspace_id, member_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <WorkspaceMemberOut>
+  p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->patch_member_api_v1_workspaces_workspace_id_members_member_id_patch_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->remove_workspace_member_with_http_info: #{e}"
 end
 ```
 
@@ -555,11 +485,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **workspace_id** | **String** |  |  |
 | **member_id** | **String** |  |  |
-| **workspace_member_patch_request** | [**WorkspaceMemberPatchRequest**](WorkspaceMemberPatchRequest.md) |  |  |
 
 ### Return type
 
-[**WorkspaceMemberOut**](WorkspaceMemberOut.md)
+[**SimpleBoolResponse**](SimpleBoolResponse.md)
 
 ### Authorization
 
@@ -567,15 +496,15 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
-## patch_workspace_api_v1_workspaces_workspace_id_patch
+## update_workspace
 
-> <WorkspaceResponse> patch_workspace_api_v1_workspaces_workspace_id_patch(workspace_id, workspace_patch_request, opts)
+> <WorkspaceResponse> update_workspace(workspace_id, workspace_patch_request, opts)
 
-Patch Workspace
+Update Workspace
 
 ### Examples
 
@@ -596,29 +525,29 @@ opts = {
 }
 
 begin
-  # Patch Workspace
-  result = api_instance.patch_workspace_api_v1_workspaces_workspace_id_patch(workspace_id, workspace_patch_request, opts)
+  # Update Workspace
+  result = api_instance.update_workspace(workspace_id, workspace_patch_request, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->patch_workspace_api_v1_workspaces_workspace_id_patch: #{e}"
+  puts "Error when calling WorkspacesApi->update_workspace: #{e}"
 end
 ```
 
-#### Using the patch_workspace_api_v1_workspaces_workspace_id_patch_with_http_info variant
+#### Using the update_workspace_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WorkspaceResponse>, Integer, Hash)> patch_workspace_api_v1_workspaces_workspace_id_patch_with_http_info(workspace_id, workspace_patch_request, opts)
+> <Array(<WorkspaceResponse>, Integer, Hash)> update_workspace_with_http_info(workspace_id, workspace_patch_request, opts)
 
 ```ruby
 begin
-  # Patch Workspace
-  data, status_code, headers = api_instance.patch_workspace_api_v1_workspaces_workspace_id_patch_with_http_info(workspace_id, workspace_patch_request, opts)
+  # Update Workspace
+  data, status_code, headers = api_instance.update_workspace_with_http_info(workspace_id, workspace_patch_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WorkspaceResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling WorkspacesApi->patch_workspace_api_v1_workspaces_workspace_id_patch_with_http_info: #{e}"
+  puts "Error when calling WorkspacesApi->update_workspace_with_http_info: #{e}"
 end
 ```
 
@@ -633,6 +562,77 @@ end
 ### Return type
 
 [**WorkspaceResponse**](WorkspaceResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_workspace_member
+
+> <WorkspaceMemberOut> update_workspace_member(workspace_id, member_id, workspace_member_patch_request)
+
+Update Workspace Member
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::WorkspacesApi.new
+workspace_id = 'workspace_id_example' # String | 
+member_id = 'member_id_example' # String | 
+workspace_member_patch_request = InvoicePDFs::WorkspaceMemberPatchRequest.new # WorkspaceMemberPatchRequest | 
+
+begin
+  # Update Workspace Member
+  result = api_instance.update_workspace_member(workspace_id, member_id, workspace_member_patch_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling WorkspacesApi->update_workspace_member: #{e}"
+end
+```
+
+#### Using the update_workspace_member_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<WorkspaceMemberOut>, Integer, Hash)> update_workspace_member_with_http_info(workspace_id, member_id, workspace_member_patch_request)
+
+```ruby
+begin
+  # Update Workspace Member
+  data, status_code, headers = api_instance.update_workspace_member_with_http_info(workspace_id, member_id, workspace_member_patch_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <WorkspaceMemberOut>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling WorkspacesApi->update_workspace_member_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **workspace_id** | **String** |  |  |
+| **member_id** | **String** |  |  |
+| **workspace_member_patch_request** | [**WorkspaceMemberPatchRequest**](WorkspaceMemberPatchRequest.md) |  |  |
+
+### Return type
+
+[**WorkspaceMemberOut**](WorkspaceMemberOut.md)
 
 ### Authorization
 

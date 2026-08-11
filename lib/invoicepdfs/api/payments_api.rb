@@ -19,35 +19,35 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create Payment
-    # @param invoice_id [String] 
+    # Create Document Payment
+    # @param document_id [String] 
     # @param payment_create_request [PaymentCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [PaymentResponse]
-    def create_payment_api_v1_documents_invoice_id_payments_post(invoice_id, payment_create_request, opts = {})
-      data, _status_code, _headers = create_payment_api_v1_documents_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request, opts)
+    def create_document_payment(document_id, payment_create_request, opts = {})
+      data, _status_code, _headers = create_document_payment_with_http_info(document_id, payment_create_request, opts)
       data
     end
 
-    # Create Payment
-    # @param invoice_id [String] 
+    # Create Document Payment
+    # @param document_id [String] 
     # @param payment_create_request [PaymentCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentResponse, Integer, Hash)>] PaymentResponse data, response status code and response headers
-    def create_payment_api_v1_documents_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request, opts = {})
+    def create_document_payment_with_http_info(document_id, payment_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PaymentsApi.create_payment_api_v1_documents_invoice_id_payments_post ...'
+        @api_client.config.logger.debug 'Calling API: PaymentsApi.create_document_payment ...'
       end
-      # verify the required parameter 'invoice_id' is set
-      if @api_client.config.client_side_validation && invoice_id.nil?
-        fail ArgumentError, "Missing the required parameter 'invoice_id' when calling PaymentsApi.create_payment_api_v1_documents_invoice_id_payments_post"
+      # verify the required parameter 'document_id' is set
+      if @api_client.config.client_side_validation && document_id.nil?
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling PaymentsApi.create_document_payment"
       end
       # verify the required parameter 'payment_create_request' is set
       if @api_client.config.client_side_validation && payment_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_create_request' when calling PaymentsApi.create_payment_api_v1_documents_invoice_id_payments_post"
+        fail ArgumentError, "Missing the required parameter 'payment_create_request' when calling PaymentsApi.create_document_payment"
       end
       # resource path
-      local_var_path = '/api/v1/documents/{invoice_id}/payments'.sub('{' + 'invoice_id' + '}', CGI.escape(invoice_id.to_s))
+      local_var_path = '/api/v1/documents/{document_id}/payments'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -75,7 +75,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"PaymentsApi.create_payment_api_v1_documents_invoice_id_payments_post",
+        :operation => :"PaymentsApi.create_document_payment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -86,7 +86,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PaymentsApi#create_payment_api_v1_documents_invoice_id_payments_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PaymentsApi#create_document_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -95,8 +95,8 @@ module InvoicePDFs
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_payment_api_v1_payments_payment_id_delete(payment_id, opts = {})
-      data, _status_code, _headers = delete_payment_api_v1_payments_payment_id_delete_with_http_info(payment_id, opts)
+    def delete_payment(payment_id, opts = {})
+      data, _status_code, _headers = delete_payment_with_http_info(payment_id, opts)
       data
     end
 
@@ -104,13 +104,13 @@ module InvoicePDFs
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_payment_api_v1_payments_payment_id_delete_with_http_info(payment_id, opts = {})
+    def delete_payment_with_http_info(payment_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PaymentsApi.delete_payment_api_v1_payments_payment_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: PaymentsApi.delete_payment ...'
       end
       # verify the required parameter 'payment_id' is set
       if @api_client.config.client_side_validation && payment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_id' when calling PaymentsApi.delete_payment_api_v1_payments_payment_id_delete"
+        fail ArgumentError, "Missing the required parameter 'payment_id' when calling PaymentsApi.delete_payment"
       end
       # resource path
       local_var_path = '/api/v1/payments/{payment_id}'.sub('{' + 'payment_id' + '}', CGI.escape(payment_id.to_s))
@@ -136,7 +136,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"PaymentsApi.delete_payment_api_v1_payments_payment_id_delete",
+        :operation => :"PaymentsApi.delete_payment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -147,7 +147,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PaymentsApi#delete_payment_api_v1_payments_payment_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PaymentsApi#delete_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -156,8 +156,8 @@ module InvoicePDFs
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [PaymentResponse]
-    def get_payment_api_v1_payments_payment_id_get(payment_id, opts = {})
-      data, _status_code, _headers = get_payment_api_v1_payments_payment_id_get_with_http_info(payment_id, opts)
+    def get_payment(payment_id, opts = {})
+      data, _status_code, _headers = get_payment_with_http_info(payment_id, opts)
       data
     end
 
@@ -165,13 +165,13 @@ module InvoicePDFs
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentResponse, Integer, Hash)>] PaymentResponse data, response status code and response headers
-    def get_payment_api_v1_payments_payment_id_get_with_http_info(payment_id, opts = {})
+    def get_payment_with_http_info(payment_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PaymentsApi.get_payment_api_v1_payments_payment_id_get ...'
+        @api_client.config.logger.debug 'Calling API: PaymentsApi.get_payment ...'
       end
       # verify the required parameter 'payment_id' is set
       if @api_client.config.client_side_validation && payment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_id' when calling PaymentsApi.get_payment_api_v1_payments_payment_id_get"
+        fail ArgumentError, "Missing the required parameter 'payment_id' when calling PaymentsApi.get_payment"
       end
       # resource path
       local_var_path = '/api/v1/payments/{payment_id}'.sub('{' + 'payment_id' + '}', CGI.escape(payment_id.to_s))
@@ -197,7 +197,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"PaymentsApi.get_payment_api_v1_payments_payment_id_get",
+        :operation => :"PaymentsApi.get_payment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -208,46 +208,46 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PaymentsApi#get_payment_api_v1_payments_payment_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PaymentsApi#get_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # List Invoice Payments
-    # @param invoice_id [String] 
+    # List Document Payments
+    # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [PaymentsListResponse]
-    def list_invoice_payments_api_v1_documents_invoice_id_payments_get(invoice_id, opts = {})
-      data, _status_code, _headers = list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info(invoice_id, opts)
+    def list_document_payments(document_id, opts = {})
+      data, _status_code, _headers = list_document_payments_with_http_info(document_id, opts)
       data
     end
 
-    # List Invoice Payments
-    # @param invoice_id [String] 
+    # List Document Payments
+    # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(PaymentsListResponse, Integer, Hash)>] PaymentsListResponse data, response status code and response headers
-    def list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info(invoice_id, opts = {})
+    def list_document_payments_with_http_info(document_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PaymentsApi.list_invoice_payments_api_v1_documents_invoice_id_payments_get ...'
+        @api_client.config.logger.debug 'Calling API: PaymentsApi.list_document_payments ...'
       end
-      # verify the required parameter 'invoice_id' is set
-      if @api_client.config.client_side_validation && invoice_id.nil?
-        fail ArgumentError, "Missing the required parameter 'invoice_id' when calling PaymentsApi.list_invoice_payments_api_v1_documents_invoice_id_payments_get"
+      # verify the required parameter 'document_id' is set
+      if @api_client.config.client_side_validation && document_id.nil?
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling PaymentsApi.list_document_payments"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PaymentsApi.list_invoice_payments_api_v1_documents_invoice_id_payments_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PaymentsApi.list_document_payments, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PaymentsApi.list_invoice_payments_api_v1_documents_invoice_id_payments_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PaymentsApi.list_document_payments, must be greater than or equal to 1.'
       end
 
       # resource path
-      local_var_path = '/api/v1/documents/{invoice_id}/payments'.sub('{' + 'invoice_id' + '}', CGI.escape(invoice_id.to_s))
+      local_var_path = '/api/v1/documents/{document_id}/payments'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -272,7 +272,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"PaymentsApi.list_invoice_payments_api_v1_documents_invoice_id_payments_get",
+        :operation => :"PaymentsApi.list_document_payments",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -283,7 +283,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PaymentsApi#list_invoice_payments_api_v1_documents_invoice_id_payments_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PaymentsApi#list_document_payments\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -293,8 +293,8 @@ module InvoicePDFs
     # @param payment_patch_request [PaymentPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [PaymentResponse]
-    def update_payment_api_v1_payments_payment_id_patch(payment_id, payment_patch_request, opts = {})
-      data, _status_code, _headers = update_payment_api_v1_payments_payment_id_patch_with_http_info(payment_id, payment_patch_request, opts)
+    def update_payment(payment_id, payment_patch_request, opts = {})
+      data, _status_code, _headers = update_payment_with_http_info(payment_id, payment_patch_request, opts)
       data
     end
 
@@ -303,17 +303,17 @@ module InvoicePDFs
     # @param payment_patch_request [PaymentPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentResponse, Integer, Hash)>] PaymentResponse data, response status code and response headers
-    def update_payment_api_v1_payments_payment_id_patch_with_http_info(payment_id, payment_patch_request, opts = {})
+    def update_payment_with_http_info(payment_id, payment_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: PaymentsApi.update_payment_api_v1_payments_payment_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: PaymentsApi.update_payment ...'
       end
       # verify the required parameter 'payment_id' is set
       if @api_client.config.client_side_validation && payment_id.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_id' when calling PaymentsApi.update_payment_api_v1_payments_payment_id_patch"
+        fail ArgumentError, "Missing the required parameter 'payment_id' when calling PaymentsApi.update_payment"
       end
       # verify the required parameter 'payment_patch_request' is set
       if @api_client.config.client_side_validation && payment_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_patch_request' when calling PaymentsApi.update_payment_api_v1_payments_payment_id_patch"
+        fail ArgumentError, "Missing the required parameter 'payment_patch_request' when calling PaymentsApi.update_payment"
       end
       # resource path
       local_var_path = '/api/v1/payments/{payment_id}'.sub('{' + 'payment_id' + '}', CGI.escape(payment_id.to_s))
@@ -344,7 +344,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"PaymentsApi.update_payment_api_v1_payments_payment_id_patch",
+        :operation => :"PaymentsApi.update_payment",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -355,7 +355,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PaymentsApi#update_payment_api_v1_payments_payment_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PaymentsApi#update_payment\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

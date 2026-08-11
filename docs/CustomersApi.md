@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_customer_api_v1_customers_post**](CustomersApi.md#create_customer_api_v1_customers_post) | **POST** /api/v1/customers | Create Customer |
-| [**delete_customer_api_v1_customers_customer_id_delete**](CustomersApi.md#delete_customer_api_v1_customers_customer_id_delete) | **DELETE** /api/v1/customers/{customer_id} | Delete Customer |
-| [**get_customer_api_v1_customers_customer_id_get**](CustomersApi.md#get_customer_api_v1_customers_customer_id_get) | **GET** /api/v1/customers/{customer_id} | Get Customer |
-| [**list_customers_api_v1_customers_get**](CustomersApi.md#list_customers_api_v1_customers_get) | **GET** /api/v1/customers | List Customers |
-| [**patch_customer_api_v1_customers_customer_id_patch**](CustomersApi.md#patch_customer_api_v1_customers_customer_id_patch) | **PATCH** /api/v1/customers/{customer_id} | Patch Customer |
+| [**create_customer**](CustomersApi.md#create_customer) | **POST** /api/v1/customers | Create Customer |
+| [**delete_customer**](CustomersApi.md#delete_customer) | **DELETE** /api/v1/customers/{customer_id} | Delete Customer |
+| [**get_customer**](CustomersApi.md#get_customer) | **GET** /api/v1/customers/{customer_id} | Get Customer |
+| [**list_customers**](CustomersApi.md#list_customers) | **GET** /api/v1/customers | List Customers |
+| [**update_customer**](CustomersApi.md#update_customer) | **PATCH** /api/v1/customers/{customer_id} | Update Customer |
 
 
-## create_customer_api_v1_customers_post
+## create_customer
 
-> <CustomerResponse> create_customer_api_v1_customers_post(customer_create, opts)
+> <CustomerResponse> create_customer(customer_create, opts)
 
 Create Customer
 
@@ -36,28 +36,28 @@ opts = {
 
 begin
   # Create Customer
-  result = api_instance.create_customer_api_v1_customers_post(customer_create, opts)
+  result = api_instance.create_customer(customer_create, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->create_customer_api_v1_customers_post: #{e}"
+  puts "Error when calling CustomersApi->create_customer: #{e}"
 end
 ```
 
-#### Using the create_customer_api_v1_customers_post_with_http_info variant
+#### Using the create_customer_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CustomerResponse>, Integer, Hash)> create_customer_api_v1_customers_post_with_http_info(customer_create, opts)
+> <Array(<CustomerResponse>, Integer, Hash)> create_customer_with_http_info(customer_create, opts)
 
 ```ruby
 begin
   # Create Customer
-  data, status_code, headers = api_instance.create_customer_api_v1_customers_post_with_http_info(customer_create, opts)
+  data, status_code, headers = api_instance.create_customer_with_http_info(customer_create, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CustomerResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->create_customer_api_v1_customers_post_with_http_info: #{e}"
+  puts "Error when calling CustomersApi->create_customer_with_http_info: #{e}"
 end
 ```
 
@@ -82,9 +82,9 @@ end
 - **Accept**: application/json
 
 
-## delete_customer_api_v1_customers_customer_id_delete
+## delete_customer
 
-> <SimpleBoolResponse> delete_customer_api_v1_customers_customer_id_delete(customer_id)
+> <SimpleBoolResponse> delete_customer(customer_id)
 
 Delete Customer
 
@@ -104,28 +104,28 @@ customer_id = 'customer_id_example' # String |
 
 begin
   # Delete Customer
-  result = api_instance.delete_customer_api_v1_customers_customer_id_delete(customer_id)
+  result = api_instance.delete_customer(customer_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->delete_customer_api_v1_customers_customer_id_delete: #{e}"
+  puts "Error when calling CustomersApi->delete_customer: #{e}"
 end
 ```
 
-#### Using the delete_customer_api_v1_customers_customer_id_delete_with_http_info variant
+#### Using the delete_customer_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_customer_api_v1_customers_customer_id_delete_with_http_info(customer_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_customer_with_http_info(customer_id)
 
 ```ruby
 begin
   # Delete Customer
-  data, status_code, headers = api_instance.delete_customer_api_v1_customers_customer_id_delete_with_http_info(customer_id)
+  data, status_code, headers = api_instance.delete_customer_with_http_info(customer_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->delete_customer_api_v1_customers_customer_id_delete_with_http_info: #{e}"
+  puts "Error when calling CustomersApi->delete_customer_with_http_info: #{e}"
 end
 ```
 
@@ -149,9 +149,9 @@ end
 - **Accept**: application/json
 
 
-## get_customer_api_v1_customers_customer_id_get
+## get_customer
 
-> <CustomerResponse> get_customer_api_v1_customers_customer_id_get(customer_id)
+> <CustomerResponse> get_customer(customer_id)
 
 Get Customer
 
@@ -171,28 +171,28 @@ customer_id = 'customer_id_example' # String |
 
 begin
   # Get Customer
-  result = api_instance.get_customer_api_v1_customers_customer_id_get(customer_id)
+  result = api_instance.get_customer(customer_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->get_customer_api_v1_customers_customer_id_get: #{e}"
+  puts "Error when calling CustomersApi->get_customer: #{e}"
 end
 ```
 
-#### Using the get_customer_api_v1_customers_customer_id_get_with_http_info variant
+#### Using the get_customer_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CustomerResponse>, Integer, Hash)> get_customer_api_v1_customers_customer_id_get_with_http_info(customer_id)
+> <Array(<CustomerResponse>, Integer, Hash)> get_customer_with_http_info(customer_id)
 
 ```ruby
 begin
   # Get Customer
-  data, status_code, headers = api_instance.get_customer_api_v1_customers_customer_id_get_with_http_info(customer_id)
+  data, status_code, headers = api_instance.get_customer_with_http_info(customer_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CustomerResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->get_customer_api_v1_customers_customer_id_get_with_http_info: #{e}"
+  puts "Error when calling CustomersApi->get_customer_with_http_info: #{e}"
 end
 ```
 
@@ -216,9 +216,9 @@ end
 - **Accept**: application/json
 
 
-## list_customers_api_v1_customers_get
+## list_customers
 
-> <CustomersListResponse> list_customers_api_v1_customers_get(opts)
+> <CustomersListResponse> list_customers(opts)
 
 List Customers
 
@@ -241,28 +241,28 @@ opts = {
 
 begin
   # List Customers
-  result = api_instance.list_customers_api_v1_customers_get(opts)
+  result = api_instance.list_customers(opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->list_customers_api_v1_customers_get: #{e}"
+  puts "Error when calling CustomersApi->list_customers: #{e}"
 end
 ```
 
-#### Using the list_customers_api_v1_customers_get_with_http_info variant
+#### Using the list_customers_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CustomersListResponse>, Integer, Hash)> list_customers_api_v1_customers_get_with_http_info(opts)
+> <Array(<CustomersListResponse>, Integer, Hash)> list_customers_with_http_info(opts)
 
 ```ruby
 begin
   # List Customers
-  data, status_code, headers = api_instance.list_customers_api_v1_customers_get_with_http_info(opts)
+  data, status_code, headers = api_instance.list_customers_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CustomersListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->list_customers_api_v1_customers_get_with_http_info: #{e}"
+  puts "Error when calling CustomersApi->list_customers_with_http_info: #{e}"
 end
 ```
 
@@ -287,11 +287,11 @@ end
 - **Accept**: application/json
 
 
-## patch_customer_api_v1_customers_customer_id_patch
+## update_customer
 
-> <CustomerResponse> patch_customer_api_v1_customers_customer_id_patch(customer_id, customer_patch, opts)
+> <CustomerResponse> update_customer(customer_id, customer_patch, opts)
 
-Patch Customer
+Update Customer
 
 ### Examples
 
@@ -312,29 +312,29 @@ opts = {
 }
 
 begin
-  # Patch Customer
-  result = api_instance.patch_customer_api_v1_customers_customer_id_patch(customer_id, customer_patch, opts)
+  # Update Customer
+  result = api_instance.update_customer(customer_id, customer_patch, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->patch_customer_api_v1_customers_customer_id_patch: #{e}"
+  puts "Error when calling CustomersApi->update_customer: #{e}"
 end
 ```
 
-#### Using the patch_customer_api_v1_customers_customer_id_patch_with_http_info variant
+#### Using the update_customer_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CustomerResponse>, Integer, Hash)> patch_customer_api_v1_customers_customer_id_patch_with_http_info(customer_id, customer_patch, opts)
+> <Array(<CustomerResponse>, Integer, Hash)> update_customer_with_http_info(customer_id, customer_patch, opts)
 
 ```ruby
 begin
-  # Patch Customer
-  data, status_code, headers = api_instance.patch_customer_api_v1_customers_customer_id_patch_with_http_info(customer_id, customer_patch, opts)
+  # Update Customer
+  data, status_code, headers = api_instance.update_customer_with_http_info(customer_id, customer_patch, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CustomerResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling CustomersApi->patch_customer_api_v1_customers_customer_id_patch_with_http_info: #{e}"
+  puts "Error when calling CustomersApi->update_customer_with_http_info: #{e}"
 end
 ```
 

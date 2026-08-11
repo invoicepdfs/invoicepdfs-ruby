@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param webhook_endpoint_create_request [WebhookEndpointCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookEndpointResponse]
-    def create_webhook_endpoint_api_v1_webhook_endpoints_post(webhook_endpoint_create_request, opts = {})
-      data, _status_code, _headers = create_webhook_endpoint_api_v1_webhook_endpoints_post_with_http_info(webhook_endpoint_create_request, opts)
+    def create_webhook_endpoint(webhook_endpoint_create_request, opts = {})
+      data, _status_code, _headers = create_webhook_endpoint_with_http_info(webhook_endpoint_create_request, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param webhook_endpoint_create_request [WebhookEndpointCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookEndpointResponse, Integer, Hash)>] WebhookEndpointResponse data, response status code and response headers
-    def create_webhook_endpoint_api_v1_webhook_endpoints_post_with_http_info(webhook_endpoint_create_request, opts = {})
+    def create_webhook_endpoint_with_http_info(webhook_endpoint_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.create_webhook_endpoint_api_v1_webhook_endpoints_post ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.create_webhook_endpoint ...'
       end
       # verify the required parameter 'webhook_endpoint_create_request' is set
       if @api_client.config.client_side_validation && webhook_endpoint_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'webhook_endpoint_create_request' when calling WebhooksApi.create_webhook_endpoint_api_v1_webhook_endpoints_post"
+        fail ArgumentError, "Missing the required parameter 'webhook_endpoint_create_request' when calling WebhooksApi.create_webhook_endpoint"
       end
       # resource path
       local_var_path = '/api/v1/webhook-endpoints'
@@ -69,7 +69,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.create_webhook_endpoint_api_v1_webhook_endpoints_post",
+        :operation => :"WebhooksApi.create_webhook_endpoint",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,7 +80,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#create_webhook_endpoint_api_v1_webhook_endpoints_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#create_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -89,8 +89,8 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete(endpoint_id, opts = {})
-      data, _status_code, _headers = delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete_with_http_info(endpoint_id, opts)
+    def delete_webhook_endpoint(endpoint_id, opts = {})
+      data, _status_code, _headers = delete_webhook_endpoint_with_http_info(endpoint_id, opts)
       data
     end
 
@@ -98,13 +98,13 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete_with_http_info(endpoint_id, opts = {})
+    def delete_webhook_endpoint_with_http_info(endpoint_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.delete_webhook_endpoint ...'
       end
       # verify the required parameter 'endpoint_id' is set
       if @api_client.config.client_side_validation && endpoint_id.nil?
-        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete"
+        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.delete_webhook_endpoint"
       end
       # resource path
       local_var_path = '/api/v1/webhook-endpoints/{endpoint_id}'.sub('{' + 'endpoint_id' + '}', CGI.escape(endpoint_id.to_s))
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete",
+        :operation => :"WebhooksApi.delete_webhook_endpoint",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#delete_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#delete_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -150,8 +150,8 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
-    def get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get(delivery_id, opts = {})
-      data, _status_code, _headers = get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get_with_http_info(delivery_id, opts)
+    def get_webhook_delivery(delivery_id, opts = {})
+      data, _status_code, _headers = get_webhook_delivery_with_http_info(delivery_id, opts)
       data
     end
 
@@ -159,13 +159,13 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
-    def get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get_with_http_info(delivery_id, opts = {})
+    def get_webhook_delivery_with_http_info(delivery_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.get_webhook_delivery ...'
       end
       # verify the required parameter 'delivery_id' is set
       if @api_client.config.client_side_validation && delivery_id.nil?
-        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling WebhooksApi.get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get"
+        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling WebhooksApi.get_webhook_delivery"
       end
       # resource path
       local_var_path = '/api/v1/webhook-deliveries/{delivery_id}'.sub('{' + 'delivery_id' + '}', CGI.escape(delivery_id.to_s))
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get",
+        :operation => :"WebhooksApi.get_webhook_delivery",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,7 +202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#get_webhook_delivery_api_v1_webhook_deliveries_delivery_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#get_webhook_delivery\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -211,8 +211,8 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookEndpointResponse]
-    def get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get(endpoint_id, opts = {})
-      data, _status_code, _headers = get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get_with_http_info(endpoint_id, opts)
+    def get_webhook_endpoint(endpoint_id, opts = {})
+      data, _status_code, _headers = get_webhook_endpoint_with_http_info(endpoint_id, opts)
       data
     end
 
@@ -220,13 +220,13 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookEndpointResponse, Integer, Hash)>] WebhookEndpointResponse data, response status code and response headers
-    def get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get_with_http_info(endpoint_id, opts = {})
+    def get_webhook_endpoint_with_http_info(endpoint_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.get_webhook_endpoint ...'
       end
       # verify the required parameter 'endpoint_id' is set
       if @api_client.config.client_side_validation && endpoint_id.nil?
-        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get"
+        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.get_webhook_endpoint"
       end
       # resource path
       local_var_path = '/api/v1/webhook-endpoints/{endpoint_id}'.sub('{' + 'endpoint_id' + '}', CGI.escape(endpoint_id.to_s))
@@ -252,7 +252,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get",
+        :operation => :"WebhooksApi.get_webhook_endpoint",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#get_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#get_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -273,8 +273,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [WebhookDeliveriesListResponse]
-    def list_webhook_deliveries_api_v1_webhook_deliveries_get(opts = {})
-      data, _status_code, _headers = list_webhook_deliveries_api_v1_webhook_deliveries_get_with_http_info(opts)
+    def list_webhook_deliveries(opts = {})
+      data, _status_code, _headers = list_webhook_deliveries_with_http_info(opts)
       data
     end
 
@@ -283,16 +283,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(WebhookDeliveriesListResponse, Integer, Hash)>] WebhookDeliveriesListResponse data, response status code and response headers
-    def list_webhook_deliveries_api_v1_webhook_deliveries_get_with_http_info(opts = {})
+    def list_webhook_deliveries_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.list_webhook_deliveries_api_v1_webhook_deliveries_get ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.list_webhook_deliveries ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_deliveries_api_v1_webhook_deliveries_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_deliveries, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_deliveries_api_v1_webhook_deliveries_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_deliveries, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -321,7 +321,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.list_webhook_deliveries_api_v1_webhook_deliveries_get",
+        :operation => :"WebhooksApi.list_webhook_deliveries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -332,7 +332,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#list_webhook_deliveries_api_v1_webhook_deliveries_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#list_webhook_deliveries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -342,8 +342,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [WebhookEndpointsListResponse]
-    def list_webhook_endpoints_api_v1_webhook_endpoints_get(opts = {})
-      data, _status_code, _headers = list_webhook_endpoints_api_v1_webhook_endpoints_get_with_http_info(opts)
+    def list_webhook_endpoints(opts = {})
+      data, _status_code, _headers = list_webhook_endpoints_with_http_info(opts)
       data
     end
 
@@ -352,16 +352,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(WebhookEndpointsListResponse, Integer, Hash)>] WebhookEndpointsListResponse data, response status code and response headers
-    def list_webhook_endpoints_api_v1_webhook_endpoints_get_with_http_info(opts = {})
+    def list_webhook_endpoints_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.list_webhook_endpoints_api_v1_webhook_endpoints_get ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.list_webhook_endpoints ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_endpoints_api_v1_webhook_endpoints_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_endpoints, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_endpoints_api_v1_webhook_endpoints_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling WebhooksApi.list_webhook_endpoints, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -390,7 +390,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.list_webhook_endpoints_api_v1_webhook_endpoints_get",
+        :operation => :"WebhooksApi.list_webhook_endpoints",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -401,7 +401,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#list_webhook_endpoints_api_v1_webhook_endpoints_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#list_webhook_endpoints\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -410,8 +410,8 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
-    def retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post(delivery_id, opts = {})
-      data, _status_code, _headers = retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post_with_http_info(delivery_id, opts)
+    def retry_webhook_delivery(delivery_id, opts = {})
+      data, _status_code, _headers = retry_webhook_delivery_with_http_info(delivery_id, opts)
       data
     end
 
@@ -419,13 +419,13 @@ module InvoicePDFs
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
-    def retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post_with_http_info(delivery_id, opts = {})
+    def retry_webhook_delivery_with_http_info(delivery_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.retry_webhook_delivery ...'
       end
       # verify the required parameter 'delivery_id' is set
       if @api_client.config.client_side_validation && delivery_id.nil?
-        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling WebhooksApi.retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post"
+        fail ArgumentError, "Missing the required parameter 'delivery_id' when calling WebhooksApi.retry_webhook_delivery"
       end
       # resource path
       local_var_path = '/api/v1/webhook-deliveries/{delivery_id}/retry'.sub('{' + 'delivery_id' + '}', CGI.escape(delivery_id.to_s))
@@ -451,7 +451,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post",
+        :operation => :"WebhooksApi.retry_webhook_delivery",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -462,7 +462,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#retry_webhook_delivery_api_v1_webhook_deliveries_delivery_id_retry_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#retry_webhook_delivery\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -471,8 +471,8 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookSecretResponse]
-    def rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post(endpoint_id, opts = {})
-      data, _status_code, _headers = rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post_with_http_info(endpoint_id, opts)
+    def rotate_webhook_secret(endpoint_id, opts = {})
+      data, _status_code, _headers = rotate_webhook_secret_with_http_info(endpoint_id, opts)
       data
     end
 
@@ -480,13 +480,13 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookSecretResponse, Integer, Hash)>] WebhookSecretResponse data, response status code and response headers
-    def rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post_with_http_info(endpoint_id, opts = {})
+    def rotate_webhook_secret_with_http_info(endpoint_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.rotate_webhook_secret ...'
       end
       # verify the required parameter 'endpoint_id' is set
       if @api_client.config.client_side_validation && endpoint_id.nil?
-        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post"
+        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.rotate_webhook_secret"
       end
       # resource path
       local_var_path = '/api/v1/webhook-endpoints/{endpoint_id}/rotate-secret'.sub('{' + 'endpoint_id' + '}', CGI.escape(endpoint_id.to_s))
@@ -512,7 +512,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post",
+        :operation => :"WebhooksApi.rotate_webhook_secret",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -523,7 +523,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#rotate_webhook_secret_api_v1_webhook_endpoints_endpoint_id_rotate_secret_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#rotate_webhook_secret\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -532,8 +532,8 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
-    def test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post(endpoint_id, opts = {})
-      data, _status_code, _headers = test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post_with_http_info(endpoint_id, opts)
+    def test_webhook_endpoint(endpoint_id, opts = {})
+      data, _status_code, _headers = test_webhook_endpoint_with_http_info(endpoint_id, opts)
       data
     end
 
@@ -541,13 +541,13 @@ module InvoicePDFs
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
-    def test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post_with_http_info(endpoint_id, opts = {})
+    def test_webhook_endpoint_with_http_info(endpoint_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.test_webhook_endpoint ...'
       end
       # verify the required parameter 'endpoint_id' is set
       if @api_client.config.client_side_validation && endpoint_id.nil?
-        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post"
+        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.test_webhook_endpoint"
       end
       # resource path
       local_var_path = '/api/v1/webhook-endpoints/{endpoint_id}/test'.sub('{' + 'endpoint_id' + '}', CGI.escape(endpoint_id.to_s))
@@ -573,7 +573,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post",
+        :operation => :"WebhooksApi.test_webhook_endpoint",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -584,7 +584,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#test_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_test_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#test_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -594,8 +594,8 @@ module InvoicePDFs
     # @param webhook_endpoint_patch_request [WebhookEndpointPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookEndpointResponse]
-    def update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch(endpoint_id, webhook_endpoint_patch_request, opts = {})
-      data, _status_code, _headers = update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch_with_http_info(endpoint_id, webhook_endpoint_patch_request, opts)
+    def update_webhook_endpoint(endpoint_id, webhook_endpoint_patch_request, opts = {})
+      data, _status_code, _headers = update_webhook_endpoint_with_http_info(endpoint_id, webhook_endpoint_patch_request, opts)
       data
     end
 
@@ -604,17 +604,17 @@ module InvoicePDFs
     # @param webhook_endpoint_patch_request [WebhookEndpointPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookEndpointResponse, Integer, Hash)>] WebhookEndpointResponse data, response status code and response headers
-    def update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch_with_http_info(endpoint_id, webhook_endpoint_patch_request, opts = {})
+    def update_webhook_endpoint_with_http_info(endpoint_id, webhook_endpoint_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: WebhooksApi.update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: WebhooksApi.update_webhook_endpoint ...'
       end
       # verify the required parameter 'endpoint_id' is set
       if @api_client.config.client_side_validation && endpoint_id.nil?
-        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch"
+        fail ArgumentError, "Missing the required parameter 'endpoint_id' when calling WebhooksApi.update_webhook_endpoint"
       end
       # verify the required parameter 'webhook_endpoint_patch_request' is set
       if @api_client.config.client_side_validation && webhook_endpoint_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'webhook_endpoint_patch_request' when calling WebhooksApi.update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch"
+        fail ArgumentError, "Missing the required parameter 'webhook_endpoint_patch_request' when calling WebhooksApi.update_webhook_endpoint"
       end
       # resource path
       local_var_path = '/api/v1/webhook-endpoints/{endpoint_id}'.sub('{' + 'endpoint_id' + '}', CGI.escape(endpoint_id.to_s))
@@ -645,7 +645,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"WebhooksApi.update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch",
+        :operation => :"WebhooksApi.update_webhook_endpoint",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -656,7 +656,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: WebhooksApi#update_webhook_endpoint_api_v1_webhook_endpoints_endpoint_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: WebhooksApi#update_webhook_endpoint\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

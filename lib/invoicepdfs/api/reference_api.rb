@@ -22,17 +22,17 @@ module InvoicePDFs
     # List Countries
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def list_countries_api_v1_reference_countries_get(opts = {})
-      data, _status_code, _headers = list_countries_api_v1_reference_countries_get_with_http_info(opts)
+    def list_countries(opts = {})
+      data, _status_code, _headers = list_countries_with_http_info(opts)
       data
     end
 
     # List Countries
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_countries_api_v1_reference_countries_get_with_http_info(opts = {})
+    def list_countries_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_countries_api_v1_reference_countries_get ...'
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_countries ...'
       end
       # resource path
       local_var_path = '/api/v1/reference/countries'
@@ -58,7 +58,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"ReferenceApi.list_countries_api_v1_reference_countries_get",
+        :operation => :"ReferenceApi.list_countries",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -69,7 +69,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReferenceApi#list_countries_api_v1_reference_countries_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReferenceApi#list_countries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -77,17 +77,17 @@ module InvoicePDFs
     # List Currencies
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def list_currencies_api_v1_reference_currencies_get(opts = {})
-      data, _status_code, _headers = list_currencies_api_v1_reference_currencies_get_with_http_info(opts)
+    def list_currencies(opts = {})
+      data, _status_code, _headers = list_currencies_with_http_info(opts)
       data
     end
 
     # List Currencies
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_currencies_api_v1_reference_currencies_get_with_http_info(opts = {})
+    def list_currencies_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_currencies_api_v1_reference_currencies_get ...'
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_currencies ...'
       end
       # resource path
       local_var_path = '/api/v1/reference/currencies'
@@ -113,7 +113,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"ReferenceApi.list_currencies_api_v1_reference_currencies_get",
+        :operation => :"ReferenceApi.list_currencies",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -124,7 +124,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReferenceApi#list_currencies_api_v1_reference_currencies_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReferenceApi#list_currencies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -133,8 +133,8 @@ module InvoicePDFs
     # List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (``standard`` = priced, ``shipped`` = quantities only), and the lifecycle actions available to it.
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def list_document_types_api_v1_reference_document_types_get(opts = {})
-      data, _status_code, _headers = list_document_types_api_v1_reference_document_types_get_with_http_info(opts)
+    def list_document_types(opts = {})
+      data, _status_code, _headers = list_document_types_with_http_info(opts)
       data
     end
 
@@ -142,9 +142,9 @@ module InvoicePDFs
     # List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (&#x60;&#x60;standard&#x60;&#x60; &#x3D; priced, &#x60;&#x60;shipped&#x60;&#x60; &#x3D; quantities only), and the lifecycle actions available to it.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_document_types_api_v1_reference_document_types_get_with_http_info(opts = {})
+    def list_document_types_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_document_types_api_v1_reference_document_types_get ...'
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_document_types ...'
       end
       # resource path
       local_var_path = '/api/v1/reference/document-types'
@@ -170,7 +170,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"ReferenceApi.list_document_types_api_v1_reference_document_types_get",
+        :operation => :"ReferenceApi.list_document_types",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -181,7 +181,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReferenceApi#list_document_types_api_v1_reference_document_types_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReferenceApi#list_document_types\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -189,17 +189,17 @@ module InvoicePDFs
     # List Locales
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def list_locales_api_v1_reference_locales_get(opts = {})
-      data, _status_code, _headers = list_locales_api_v1_reference_locales_get_with_http_info(opts)
+    def list_locales(opts = {})
+      data, _status_code, _headers = list_locales_with_http_info(opts)
       data
     end
 
     # List Locales
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_locales_api_v1_reference_locales_get_with_http_info(opts = {})
+    def list_locales_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_locales_api_v1_reference_locales_get ...'
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_locales ...'
       end
       # resource path
       local_var_path = '/api/v1/reference/locales'
@@ -225,7 +225,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"ReferenceApi.list_locales_api_v1_reference_locales_get",
+        :operation => :"ReferenceApi.list_locales",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -236,7 +236,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReferenceApi#list_locales_api_v1_reference_locales_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReferenceApi#list_locales\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -244,17 +244,17 @@ module InvoicePDFs
     # List Page Sizes
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def list_page_sizes_api_v1_reference_page_sizes_get(opts = {})
-      data, _status_code, _headers = list_page_sizes_api_v1_reference_page_sizes_get_with_http_info(opts)
+    def list_page_sizes(opts = {})
+      data, _status_code, _headers = list_page_sizes_with_http_info(opts)
       data
     end
 
     # List Page Sizes
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_page_sizes_api_v1_reference_page_sizes_get_with_http_info(opts = {})
+    def list_page_sizes_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_page_sizes_api_v1_reference_page_sizes_get ...'
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_page_sizes ...'
       end
       # resource path
       local_var_path = '/api/v1/reference/page-sizes'
@@ -280,7 +280,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"ReferenceApi.list_page_sizes_api_v1_reference_page_sizes_get",
+        :operation => :"ReferenceApi.list_page_sizes",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -291,7 +291,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReferenceApi#list_page_sizes_api_v1_reference_page_sizes_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReferenceApi#list_page_sizes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -299,17 +299,17 @@ module InvoicePDFs
     # List Timezones
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, Object>]
-    def list_timezones_api_v1_reference_timezones_get(opts = {})
-      data, _status_code, _headers = list_timezones_api_v1_reference_timezones_get_with_http_info(opts)
+    def list_timezones(opts = {})
+      data, _status_code, _headers = list_timezones_with_http_info(opts)
       data
     end
 
     # List Timezones
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_timezones_api_v1_reference_timezones_get_with_http_info(opts = {})
+    def list_timezones_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_timezones_api_v1_reference_timezones_get ...'
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_timezones ...'
       end
       # resource path
       local_var_path = '/api/v1/reference/timezones'
@@ -335,7 +335,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"ReferenceApi.list_timezones_api_v1_reference_timezones_get",
+        :operation => :"ReferenceApi.list_timezones",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -346,7 +346,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ReferenceApi#list_timezones_api_v1_reference_timezones_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ReferenceApi#list_timezones\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

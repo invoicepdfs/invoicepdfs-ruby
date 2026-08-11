@@ -22,17 +22,17 @@ module InvoicePDFs
     # Get Stats
     # @param [Hash] opts the optional parameters
     # @return [StatsResponse]
-    def get_stats_api_v1_stats_get(opts = {})
-      data, _status_code, _headers = get_stats_api_v1_stats_get_with_http_info(opts)
+    def get_stats(opts = {})
+      data, _status_code, _headers = get_stats_with_http_info(opts)
       data
     end
 
     # Get Stats
     # @param [Hash] opts the optional parameters
     # @return [Array<(StatsResponse, Integer, Hash)>] StatsResponse data, response status code and response headers
-    def get_stats_api_v1_stats_get_with_http_info(opts = {})
+    def get_stats_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: StatsApi.get_stats_api_v1_stats_get ...'
+        @api_client.config.logger.debug 'Calling API: StatsApi.get_stats ...'
       end
       # resource path
       local_var_path = '/api/v1/stats'
@@ -58,7 +58,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"StatsApi.get_stats_api_v1_stats_get",
+        :operation => :"StatsApi.get_stats",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -69,7 +69,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: StatsApi#get_stats_api_v1_stats_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: StatsApi#get_stats\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

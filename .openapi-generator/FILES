@@ -19,8 +19,6 @@ docs/ApiKeyRotateResponse.md
 docs/ApiKeysApi.md
 docs/ApiRequestLogOut.md
 docs/ApiRequestLogsListResponse.md
-docs/AppDocumentsSchemasDocumentRenderRequest.md
-docs/AppSchemasV1DocumentRenderRequest.md
 docs/AuditEventOut.md
 docs/AuditEventResponse.md
 docs/AuditEventsListResponse.md
@@ -88,6 +86,7 @@ docs/DeliveriesListResponse.md
 docs/DeliveryOut.md
 docs/DeliveryResponse.md
 docs/DeliverySendRequest.md
+docs/DocumentAttachmentsApi.md
 docs/DocumentBrandingInput.md
 docs/DocumentCalculateRequest.md
 docs/DocumentCalculateResponse.md
@@ -102,6 +101,8 @@ docs/DocumentOutputOptions.md
 docs/DocumentPartyInput.md
 docs/DocumentPatchRequest.md
 docs/DocumentPaymentInput.md
+docs/DocumentRenderOptions.md
+docs/DocumentRenderRequest.md
 docs/DocumentResponse.md
 docs/DocumentShippingInput.md
 docs/DocumentTemplateRef.md
@@ -121,7 +122,6 @@ docs/ImportsApi.md
 docs/InvoiceAttachmentCreateRequest.md
 docs/InvoiceAttachmentOut.md
 docs/InvoiceAttachmentResponse.md
-docs/InvoiceAttachmentsApi.md
 docs/InvoiceAttachmentsListResponse.md
 docs/InvoiceBankAccountInput.md
 docs/InvoiceBrandingInput.md
@@ -232,11 +232,11 @@ lib/invoicepdfs/api/branding_profiles_api.rb
 lib/invoicepdfs/api/business_profiles_api.rb
 lib/invoicepdfs/api/customers_api.rb
 lib/invoicepdfs/api/deliveries_api.rb
+lib/invoicepdfs/api/document_attachments_api.rb
 lib/invoicepdfs/api/documents_api.rb
 lib/invoicepdfs/api/files_api.rb
 lib/invoicepdfs/api/health_api.rb
 lib/invoicepdfs/api/imports_api.rb
-lib/invoicepdfs/api/invoice_attachments_api.rb
 lib/invoicepdfs/api/jobs_api.rb
 lib/invoicepdfs/api/logs_api.rb
 lib/invoicepdfs/api/numbering_sequences_api.rb
@@ -267,8 +267,6 @@ lib/invoicepdfs/models/api_key_revoke_response.rb
 lib/invoicepdfs/models/api_key_rotate_response.rb
 lib/invoicepdfs/models/api_request_log_out.rb
 lib/invoicepdfs/models/api_request_logs_list_response.rb
-lib/invoicepdfs/models/app_documents_schemas_document_render_request.rb
-lib/invoicepdfs/models/app_schemas_v1_document_render_request.rb
 lib/invoicepdfs/models/audit_event_out.rb
 lib/invoicepdfs/models/audit_event_response.rb
 lib/invoicepdfs/models/audit_events_list_response.rb
@@ -342,6 +340,8 @@ lib/invoicepdfs/models/document_output_options.rb
 lib/invoicepdfs/models/document_party_input.rb
 lib/invoicepdfs/models/document_patch_request.rb
 lib/invoicepdfs/models/document_payment_input.rb
+lib/invoicepdfs/models/document_render_options.rb
+lib/invoicepdfs/models/document_render_request.rb
 lib/invoicepdfs/models/document_response.rb
 lib/invoicepdfs/models/document_shipping_input.rb
 lib/invoicepdfs/models/document_template_ref.rb
@@ -442,4 +442,6 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
+spec/api/document_attachments_api_spec.rb
+spec/models/document_render_options_spec.rb
 spec/spec_helper.rb

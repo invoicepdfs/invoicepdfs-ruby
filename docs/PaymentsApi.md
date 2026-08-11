@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_payment_api_v1_documents_invoice_id_payments_post**](PaymentsApi.md#create_payment_api_v1_documents_invoice_id_payments_post) | **POST** /api/v1/documents/{invoice_id}/payments | Create Payment |
-| [**delete_payment_api_v1_payments_payment_id_delete**](PaymentsApi.md#delete_payment_api_v1_payments_payment_id_delete) | **DELETE** /api/v1/payments/{payment_id} | Delete Payment |
-| [**get_payment_api_v1_payments_payment_id_get**](PaymentsApi.md#get_payment_api_v1_payments_payment_id_get) | **GET** /api/v1/payments/{payment_id} | Get Payment |
-| [**list_invoice_payments_api_v1_documents_invoice_id_payments_get**](PaymentsApi.md#list_invoice_payments_api_v1_documents_invoice_id_payments_get) | **GET** /api/v1/documents/{invoice_id}/payments | List Invoice Payments |
-| [**update_payment_api_v1_payments_payment_id_patch**](PaymentsApi.md#update_payment_api_v1_payments_payment_id_patch) | **PATCH** /api/v1/payments/{payment_id} | Update Payment |
+| [**create_document_payment**](PaymentsApi.md#create_document_payment) | **POST** /api/v1/documents/{document_id}/payments | Create Document Payment |
+| [**delete_payment**](PaymentsApi.md#delete_payment) | **DELETE** /api/v1/payments/{payment_id} | Delete Payment |
+| [**get_payment**](PaymentsApi.md#get_payment) | **GET** /api/v1/payments/{payment_id} | Get Payment |
+| [**list_document_payments**](PaymentsApi.md#list_document_payments) | **GET** /api/v1/documents/{document_id}/payments | List Document Payments |
+| [**update_payment**](PaymentsApi.md#update_payment) | **PATCH** /api/v1/payments/{payment_id} | Update Payment |
 
 
-## create_payment_api_v1_documents_invoice_id_payments_post
+## create_document_payment
 
-> <PaymentResponse> create_payment_api_v1_documents_invoice_id_payments_post(invoice_id, payment_create_request)
+> <PaymentResponse> create_document_payment(document_id, payment_create_request)
 
-Create Payment
+Create Document Payment
 
 ### Examples
 
@@ -29,33 +29,33 @@ InvoicePDFs.configure do |config|
 end
 
 api_instance = InvoicePDFs::PaymentsApi.new
-invoice_id = 'invoice_id_example' # String | 
+document_id = 'document_id_example' # String | 
 payment_create_request = InvoicePDFs::PaymentCreateRequest.new({amount: '53.10', paid_at: Time.parse('2026-07-17T18:30Z')}) # PaymentCreateRequest | 
 
 begin
-  # Create Payment
-  result = api_instance.create_payment_api_v1_documents_invoice_id_payments_post(invoice_id, payment_create_request)
+  # Create Document Payment
+  result = api_instance.create_document_payment(document_id, payment_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->create_payment_api_v1_documents_invoice_id_payments_post: #{e}"
+  puts "Error when calling PaymentsApi->create_document_payment: #{e}"
 end
 ```
 
-#### Using the create_payment_api_v1_documents_invoice_id_payments_post_with_http_info variant
+#### Using the create_document_payment_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentResponse>, Integer, Hash)> create_payment_api_v1_documents_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request)
+> <Array(<PaymentResponse>, Integer, Hash)> create_document_payment_with_http_info(document_id, payment_create_request)
 
 ```ruby
 begin
-  # Create Payment
-  data, status_code, headers = api_instance.create_payment_api_v1_documents_invoice_id_payments_post_with_http_info(invoice_id, payment_create_request)
+  # Create Document Payment
+  data, status_code, headers = api_instance.create_document_payment_with_http_info(document_id, payment_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PaymentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->create_payment_api_v1_documents_invoice_id_payments_post_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->create_document_payment_with_http_info: #{e}"
 end
 ```
 
@@ -63,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **invoice_id** | **String** |  |  |
+| **document_id** | **String** |  |  |
 | **payment_create_request** | [**PaymentCreateRequest**](PaymentCreateRequest.md) |  |  |
 
 ### Return type
@@ -80,9 +80,9 @@ end
 - **Accept**: application/json
 
 
-## delete_payment_api_v1_payments_payment_id_delete
+## delete_payment
 
-> <SimpleBoolResponse> delete_payment_api_v1_payments_payment_id_delete(payment_id)
+> <SimpleBoolResponse> delete_payment(payment_id)
 
 Delete Payment
 
@@ -102,28 +102,28 @@ payment_id = 'payment_id_example' # String |
 
 begin
   # Delete Payment
-  result = api_instance.delete_payment_api_v1_payments_payment_id_delete(payment_id)
+  result = api_instance.delete_payment(payment_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->delete_payment_api_v1_payments_payment_id_delete: #{e}"
+  puts "Error when calling PaymentsApi->delete_payment: #{e}"
 end
 ```
 
-#### Using the delete_payment_api_v1_payments_payment_id_delete_with_http_info variant
+#### Using the delete_payment_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_payment_api_v1_payments_payment_id_delete_with_http_info(payment_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_payment_with_http_info(payment_id)
 
 ```ruby
 begin
   # Delete Payment
-  data, status_code, headers = api_instance.delete_payment_api_v1_payments_payment_id_delete_with_http_info(payment_id)
+  data, status_code, headers = api_instance.delete_payment_with_http_info(payment_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->delete_payment_api_v1_payments_payment_id_delete_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->delete_payment_with_http_info: #{e}"
 end
 ```
 
@@ -147,9 +147,9 @@ end
 - **Accept**: application/json
 
 
-## get_payment_api_v1_payments_payment_id_get
+## get_payment
 
-> <PaymentResponse> get_payment_api_v1_payments_payment_id_get(payment_id)
+> <PaymentResponse> get_payment(payment_id)
 
 Get Payment
 
@@ -169,28 +169,28 @@ payment_id = 'payment_id_example' # String |
 
 begin
   # Get Payment
-  result = api_instance.get_payment_api_v1_payments_payment_id_get(payment_id)
+  result = api_instance.get_payment(payment_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->get_payment_api_v1_payments_payment_id_get: #{e}"
+  puts "Error when calling PaymentsApi->get_payment: #{e}"
 end
 ```
 
-#### Using the get_payment_api_v1_payments_payment_id_get_with_http_info variant
+#### Using the get_payment_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentResponse>, Integer, Hash)> get_payment_api_v1_payments_payment_id_get_with_http_info(payment_id)
+> <Array(<PaymentResponse>, Integer, Hash)> get_payment_with_http_info(payment_id)
 
 ```ruby
 begin
   # Get Payment
-  data, status_code, headers = api_instance.get_payment_api_v1_payments_payment_id_get_with_http_info(payment_id)
+  data, status_code, headers = api_instance.get_payment_with_http_info(payment_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PaymentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->get_payment_api_v1_payments_payment_id_get_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->get_payment_with_http_info: #{e}"
 end
 ```
 
@@ -214,11 +214,11 @@ end
 - **Accept**: application/json
 
 
-## list_invoice_payments_api_v1_documents_invoice_id_payments_get
+## list_document_payments
 
-> <PaymentsListResponse> list_invoice_payments_api_v1_documents_invoice_id_payments_get(invoice_id, opts)
+> <PaymentsListResponse> list_document_payments(document_id, opts)
 
-List Invoice Payments
+List Document Payments
 
 ### Examples
 
@@ -232,36 +232,36 @@ InvoicePDFs.configure do |config|
 end
 
 api_instance = InvoicePDFs::PaymentsApi.new
-invoice_id = 'invoice_id_example' # String | 
+document_id = 'document_id_example' # String | 
 opts = {
   limit: 56, # Integer | 
   cursor: 'cursor_example' # String | 
 }
 
 begin
-  # List Invoice Payments
-  result = api_instance.list_invoice_payments_api_v1_documents_invoice_id_payments_get(invoice_id, opts)
+  # List Document Payments
+  result = api_instance.list_document_payments(document_id, opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->list_invoice_payments_api_v1_documents_invoice_id_payments_get: #{e}"
+  puts "Error when calling PaymentsApi->list_document_payments: #{e}"
 end
 ```
 
-#### Using the list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info variant
+#### Using the list_document_payments_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentsListResponse>, Integer, Hash)> list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info(invoice_id, opts)
+> <Array(<PaymentsListResponse>, Integer, Hash)> list_document_payments_with_http_info(document_id, opts)
 
 ```ruby
 begin
-  # List Invoice Payments
-  data, status_code, headers = api_instance.list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info(invoice_id, opts)
+  # List Document Payments
+  data, status_code, headers = api_instance.list_document_payments_with_http_info(document_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PaymentsListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->list_invoice_payments_api_v1_documents_invoice_id_payments_get_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->list_document_payments_with_http_info: #{e}"
 end
 ```
 
@@ -269,7 +269,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **invoice_id** | **String** |  |  |
+| **document_id** | **String** |  |  |
 | **limit** | **Integer** |  | [optional][default to 50] |
 | **cursor** | **String** |  | [optional] |
 
@@ -287,9 +287,9 @@ end
 - **Accept**: application/json
 
 
-## update_payment_api_v1_payments_payment_id_patch
+## update_payment
 
-> <PaymentResponse> update_payment_api_v1_payments_payment_id_patch(payment_id, payment_patch_request)
+> <PaymentResponse> update_payment(payment_id, payment_patch_request)
 
 Update Payment
 
@@ -310,28 +310,28 @@ payment_patch_request = InvoicePDFs::PaymentPatchRequest.new # PaymentPatchReque
 
 begin
   # Update Payment
-  result = api_instance.update_payment_api_v1_payments_payment_id_patch(payment_id, payment_patch_request)
+  result = api_instance.update_payment(payment_id, payment_patch_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->update_payment_api_v1_payments_payment_id_patch: #{e}"
+  puts "Error when calling PaymentsApi->update_payment: #{e}"
 end
 ```
 
-#### Using the update_payment_api_v1_payments_payment_id_patch_with_http_info variant
+#### Using the update_payment_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentResponse>, Integer, Hash)> update_payment_api_v1_payments_payment_id_patch_with_http_info(payment_id, payment_patch_request)
+> <Array(<PaymentResponse>, Integer, Hash)> update_payment_with_http_info(payment_id, payment_patch_request)
 
 ```ruby
 begin
   # Update Payment
-  data, status_code, headers = api_instance.update_payment_api_v1_payments_payment_id_patch_with_http_info(payment_id, payment_patch_request)
+  data, status_code, headers = api_instance.update_payment_with_http_info(payment_id, payment_patch_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PaymentResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling PaymentsApi->update_payment_api_v1_payments_payment_id_patch_with_http_info: #{e}"
+  puts "Error when calling PaymentsApi->update_payment_with_http_info: #{e}"
 end
 ```
 

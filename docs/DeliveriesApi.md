@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_delivery_api_v1_deliveries_delivery_id_get**](DeliveriesApi.md#get_delivery_api_v1_deliveries_delivery_id_get) | **GET** /api/v1/deliveries/{delivery_id} | Get Delivery |
-| [**retry_delivery_api_v1_deliveries_delivery_id_retry_post**](DeliveriesApi.md#retry_delivery_api_v1_deliveries_delivery_id_retry_post) | **POST** /api/v1/deliveries/{delivery_id}/retry | Retry Delivery |
+| [**get_delivery**](DeliveriesApi.md#get_delivery) | **GET** /api/v1/deliveries/{delivery_id} | Get Delivery |
+| [**retry_delivery**](DeliveriesApi.md#retry_delivery) | **POST** /api/v1/deliveries/{delivery_id}/retry | Retry Delivery |
 
 
-## get_delivery_api_v1_deliveries_delivery_id_get
+## get_delivery
 
-> <DeliveryResponse> get_delivery_api_v1_deliveries_delivery_id_get(delivery_id)
+> <DeliveryResponse> get_delivery(delivery_id)
 
 Get Delivery
 
@@ -30,28 +30,28 @@ delivery_id = 'delivery_id_example' # String |
 
 begin
   # Get Delivery
-  result = api_instance.get_delivery_api_v1_deliveries_delivery_id_get(delivery_id)
+  result = api_instance.get_delivery(delivery_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DeliveriesApi->get_delivery_api_v1_deliveries_delivery_id_get: #{e}"
+  puts "Error when calling DeliveriesApi->get_delivery: #{e}"
 end
 ```
 
-#### Using the get_delivery_api_v1_deliveries_delivery_id_get_with_http_info variant
+#### Using the get_delivery_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeliveryResponse>, Integer, Hash)> get_delivery_api_v1_deliveries_delivery_id_get_with_http_info(delivery_id)
+> <Array(<DeliveryResponse>, Integer, Hash)> get_delivery_with_http_info(delivery_id)
 
 ```ruby
 begin
   # Get Delivery
-  data, status_code, headers = api_instance.get_delivery_api_v1_deliveries_delivery_id_get_with_http_info(delivery_id)
+  data, status_code, headers = api_instance.get_delivery_with_http_info(delivery_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeliveryResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DeliveriesApi->get_delivery_api_v1_deliveries_delivery_id_get_with_http_info: #{e}"
+  puts "Error when calling DeliveriesApi->get_delivery_with_http_info: #{e}"
 end
 ```
 
@@ -75,9 +75,9 @@ end
 - **Accept**: application/json
 
 
-## retry_delivery_api_v1_deliveries_delivery_id_retry_post
+## retry_delivery
 
-> <DeliveryResponse> retry_delivery_api_v1_deliveries_delivery_id_retry_post(delivery_id)
+> <DeliveryResponse> retry_delivery(delivery_id)
 
 Retry Delivery
 
@@ -97,28 +97,28 @@ delivery_id = 'delivery_id_example' # String |
 
 begin
   # Retry Delivery
-  result = api_instance.retry_delivery_api_v1_deliveries_delivery_id_retry_post(delivery_id)
+  result = api_instance.retry_delivery(delivery_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DeliveriesApi->retry_delivery_api_v1_deliveries_delivery_id_retry_post: #{e}"
+  puts "Error when calling DeliveriesApi->retry_delivery: #{e}"
 end
 ```
 
-#### Using the retry_delivery_api_v1_deliveries_delivery_id_retry_post_with_http_info variant
+#### Using the retry_delivery_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeliveryResponse>, Integer, Hash)> retry_delivery_api_v1_deliveries_delivery_id_retry_post_with_http_info(delivery_id)
+> <Array(<DeliveryResponse>, Integer, Hash)> retry_delivery_with_http_info(delivery_id)
 
 ```ruby
 begin
   # Retry Delivery
-  data, status_code, headers = api_instance.retry_delivery_api_v1_deliveries_delivery_id_retry_post_with_http_info(delivery_id)
+  data, status_code, headers = api_instance.retry_delivery_with_http_info(delivery_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeliveryResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling DeliveriesApi->retry_delivery_api_v1_deliveries_delivery_id_retry_post_with_http_info: #{e}"
+  puts "Error when calling DeliveriesApi->retry_delivery_with_http_info: #{e}"
 end
 ```
 

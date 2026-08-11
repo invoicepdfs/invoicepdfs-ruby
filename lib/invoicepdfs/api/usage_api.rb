@@ -19,20 +19,75 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Get Limits
+    # Get Usage
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
-    def get_limits_api_v1_usage_limits_get(opts = {})
-      data, _status_code, _headers = get_limits_api_v1_usage_limits_get_with_http_info(opts)
+    # @return [UsageResponse]
+    def get_usage(opts = {})
+      data, _status_code, _headers = get_usage_with_http_info(opts)
       data
     end
 
-    # Get Limits
+    # Get Usage
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UsageResponse, Integer, Hash)>] UsageResponse data, response status code and response headers
+    def get_usage_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: UsageApi.get_usage ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/usage'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UsageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"UsageApi.get_usage",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: UsageApi#get_usage\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Usage Limits
+    # @param [Hash] opts the optional parameters
+    # @return [Hash<String, Object>]
+    def get_usage_limits(opts = {})
+      data, _status_code, _headers = get_usage_limits_with_http_info(opts)
+      data
+    end
+
+    # Get Usage Limits
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def get_limits_api_v1_usage_limits_get_with_http_info(opts = {})
+    def get_usage_limits_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageApi.get_limits_api_v1_usage_limits_get ...'
+        @api_client.config.logger.debug 'Calling API: UsageApi.get_usage_limits ...'
       end
       # resource path
       local_var_path = '/api/v1/usage/limits'
@@ -58,7 +113,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"UsageApi.get_limits_api_v1_usage_limits_get",
+        :operation => :"UsageApi.get_usage_limits",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -69,7 +124,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsageApi#get_limits_api_v1_usage_limits_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsageApi#get_usage_limits\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -79,8 +134,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Hash<String, Object>]
-    def list_usage_events_api_v1_usage_events_get(opts = {})
-      data, _status_code, _headers = list_usage_events_api_v1_usage_events_get_with_http_info(opts)
+    def list_usage_events(opts = {})
+      data, _status_code, _headers = list_usage_events_with_http_info(opts)
       data
     end
 
@@ -89,16 +144,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
-    def list_usage_events_api_v1_usage_events_get_with_http_info(opts = {})
+    def list_usage_events_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageApi.list_usage_events_api_v1_usage_events_get ...'
+        @api_client.config.logger.debug 'Calling API: UsageApi.list_usage_events ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageApi.list_usage_events_api_v1_usage_events_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageApi.list_usage_events, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageApi.list_usage_events_api_v1_usage_events_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsageApi.list_usage_events, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -127,7 +182,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"UsageApi.list_usage_events_api_v1_usage_events_get",
+        :operation => :"UsageApi.list_usage_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -138,62 +193,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsageApi#list_usage_events_api_v1_usage_events_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Usage
-    # @param [Hash] opts the optional parameters
-    # @return [UsageResponse]
-    def usage_api_v1_usage_get(opts = {})
-      data, _status_code, _headers = usage_api_v1_usage_get_with_http_info(opts)
-      data
-    end
-
-    # Usage
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(UsageResponse, Integer, Hash)>] UsageResponse data, response status code and response headers
-    def usage_api_v1_usage_get_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsageApi.usage_api_v1_usage_get ...'
-      end
-      # resource path
-      local_var_path = '/api/v1/usage'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'UsageResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"UsageApi.usage_api_v1_usage_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsageApi#usage_api_v1_usage_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsageApi#list_usage_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

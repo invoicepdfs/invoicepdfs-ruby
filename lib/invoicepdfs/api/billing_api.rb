@@ -19,28 +19,28 @@ module InvoicePDFs
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Create Checkout
+    # Create Checkout Session
     # Create a Stripe Checkout session for a subscription.
     # @param billing_checkout_request [BillingCheckoutRequest] 
     # @param [Hash] opts the optional parameters
     # @return [BillingCheckoutResponse]
-    def create_checkout_api_v1_billing_checkout_session_post(billing_checkout_request, opts = {})
-      data, _status_code, _headers = create_checkout_api_v1_billing_checkout_session_post_with_http_info(billing_checkout_request, opts)
+    def create_checkout_session(billing_checkout_request, opts = {})
+      data, _status_code, _headers = create_checkout_session_with_http_info(billing_checkout_request, opts)
       data
     end
 
-    # Create Checkout
+    # Create Checkout Session
     # Create a Stripe Checkout session for a subscription.
     # @param billing_checkout_request [BillingCheckoutRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BillingCheckoutResponse, Integer, Hash)>] BillingCheckoutResponse data, response status code and response headers
-    def create_checkout_api_v1_billing_checkout_session_post_with_http_info(billing_checkout_request, opts = {})
+    def create_checkout_session_with_http_info(billing_checkout_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BillingApi.create_checkout_api_v1_billing_checkout_session_post ...'
+        @api_client.config.logger.debug 'Calling API: BillingApi.create_checkout_session ...'
       end
       # verify the required parameter 'billing_checkout_request' is set
       if @api_client.config.client_side_validation && billing_checkout_request.nil?
-        fail ArgumentError, "Missing the required parameter 'billing_checkout_request' when calling BillingApi.create_checkout_api_v1_billing_checkout_session_post"
+        fail ArgumentError, "Missing the required parameter 'billing_checkout_request' when calling BillingApi.create_checkout_session"
       end
       # resource path
       local_var_path = '/api/v1/billing/checkout-session'
@@ -71,7 +71,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BillingApi.create_checkout_api_v1_billing_checkout_session_post",
+        :operation => :"BillingApi.create_checkout_session",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -82,27 +82,27 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BillingApi#create_checkout_api_v1_billing_checkout_session_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BillingApi#create_checkout_session\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Create Portal
+    # Create Portal Session
     # Create a Stripe Customer Portal session for self-service management.
     # @param [Hash] opts the optional parameters
     # @return [BillingPortalResponse]
-    def create_portal_api_v1_billing_portal_session_post(opts = {})
-      data, _status_code, _headers = create_portal_api_v1_billing_portal_session_post_with_http_info(opts)
+    def create_portal_session(opts = {})
+      data, _status_code, _headers = create_portal_session_with_http_info(opts)
       data
     end
 
-    # Create Portal
+    # Create Portal Session
     # Create a Stripe Customer Portal session for self-service management.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BillingPortalResponse, Integer, Hash)>] BillingPortalResponse data, response status code and response headers
-    def create_portal_api_v1_billing_portal_session_post_with_http_info(opts = {})
+    def create_portal_session_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BillingApi.create_portal_api_v1_billing_portal_session_post ...'
+        @api_client.config.logger.debug 'Calling API: BillingApi.create_portal_session ...'
       end
       # resource path
       local_var_path = '/api/v1/billing/portal-session'
@@ -128,7 +128,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BillingApi.create_portal_api_v1_billing_portal_session_post",
+        :operation => :"BillingApi.create_portal_session",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -139,7 +139,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BillingApi#create_portal_api_v1_billing_portal_session_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BillingApi#create_portal_session\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -148,8 +148,8 @@ module InvoicePDFs
     # Get current subscription status (from DB, no Stripe API call).
     # @param [Hash] opts the optional parameters
     # @return [BillingSubscriptionResponse]
-    def get_subscription_api_v1_billing_subscription_get(opts = {})
-      data, _status_code, _headers = get_subscription_api_v1_billing_subscription_get_with_http_info(opts)
+    def get_subscription(opts = {})
+      data, _status_code, _headers = get_subscription_with_http_info(opts)
       data
     end
 
@@ -157,9 +157,9 @@ module InvoicePDFs
     # Get current subscription status (from DB, no Stripe API call).
     # @param [Hash] opts the optional parameters
     # @return [Array<(BillingSubscriptionResponse, Integer, Hash)>] BillingSubscriptionResponse data, response status code and response headers
-    def get_subscription_api_v1_billing_subscription_get_with_http_info(opts = {})
+    def get_subscription_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BillingApi.get_subscription_api_v1_billing_subscription_get ...'
+        @api_client.config.logger.debug 'Calling API: BillingApi.get_subscription ...'
       end
       # resource path
       local_var_path = '/api/v1/billing/subscription'
@@ -185,7 +185,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BillingApi.get_subscription_api_v1_billing_subscription_get",
+        :operation => :"BillingApi.get_subscription",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -196,7 +196,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BillingApi#get_subscription_api_v1_billing_subscription_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BillingApi#get_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -205,8 +205,8 @@ module InvoicePDFs
     # Purchasable plans — the ones wired to a Stripe price.
     # @param [Hash] opts the optional parameters
     # @return [BillingPlansListResponse]
-    def list_plans_api_v1_billing_plans_get(opts = {})
-      data, _status_code, _headers = list_plans_api_v1_billing_plans_get_with_http_info(opts)
+    def list_plans(opts = {})
+      data, _status_code, _headers = list_plans_with_http_info(opts)
       data
     end
 
@@ -214,9 +214,9 @@ module InvoicePDFs
     # Purchasable plans — the ones wired to a Stripe price.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BillingPlansListResponse, Integer, Hash)>] BillingPlansListResponse data, response status code and response headers
-    def list_plans_api_v1_billing_plans_get_with_http_info(opts = {})
+    def list_plans_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: BillingApi.list_plans_api_v1_billing_plans_get ...'
+        @api_client.config.logger.debug 'Calling API: BillingApi.list_plans ...'
       end
       # resource path
       local_var_path = '/api/v1/billing/plans'
@@ -242,7 +242,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"BillingApi.list_plans_api_v1_billing_plans_get",
+        :operation => :"BillingApi.list_plans",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -253,7 +253,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BillingApi#list_plans_api_v1_billing_plans_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BillingApi#list_plans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

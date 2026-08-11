@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CustomTemplateResponse]
-    def create_template_api_v1_templates_custom_post(template_create_request, opts = {})
-      data, _status_code, _headers = create_template_api_v1_templates_custom_post_with_http_info(template_create_request, opts)
+    def create_template(template_create_request, opts = {})
+      data, _status_code, _headers = create_template_with_http_info(template_create_request, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param template_create_request [TemplateCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CustomTemplateResponse, Integer, Hash)>] CustomTemplateResponse data, response status code and response headers
-    def create_template_api_v1_templates_custom_post_with_http_info(template_create_request, opts = {})
+    def create_template_with_http_info(template_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.create_template_api_v1_templates_custom_post ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.create_template ...'
       end
       # verify the required parameter 'template_create_request' is set
       if @api_client.config.client_side_validation && template_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'template_create_request' when calling TemplatesApi.create_template_api_v1_templates_custom_post"
+        fail ArgumentError, "Missing the required parameter 'template_create_request' when calling TemplatesApi.create_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/custom'
@@ -69,7 +69,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.create_template_api_v1_templates_custom_post",
+        :operation => :"TemplatesApi.create_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,7 +80,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#create_template_api_v1_templates_custom_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#create_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -89,8 +89,8 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_template_api_v1_templates_custom_template_id_delete(template_id, opts = {})
-      delete_template_api_v1_templates_custom_template_id_delete_with_http_info(template_id, opts)
+    def delete_template(template_id, opts = {})
+      delete_template_with_http_info(template_id, opts)
       nil
     end
 
@@ -98,13 +98,13 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_template_api_v1_templates_custom_template_id_delete_with_http_info(template_id, opts = {})
+    def delete_template_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.delete_template_api_v1_templates_custom_template_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.delete_template ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.delete_template_api_v1_templates_custom_template_id_delete"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.delete_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/custom/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.delete_template_api_v1_templates_custom_template_id_delete",
+        :operation => :"TemplatesApi.delete_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#delete_template_api_v1_templates_custom_template_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#delete_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -150,8 +150,8 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [CustomTemplateResponse]
-    def duplicate_template_api_v1_templates_custom_template_id_duplicate_post(template_id, opts = {})
-      data, _status_code, _headers = duplicate_template_api_v1_templates_custom_template_id_duplicate_post_with_http_info(template_id, opts)
+    def duplicate_template(template_id, opts = {})
+      data, _status_code, _headers = duplicate_template_with_http_info(template_id, opts)
       data
     end
 
@@ -159,13 +159,13 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CustomTemplateResponse, Integer, Hash)>] CustomTemplateResponse data, response status code and response headers
-    def duplicate_template_api_v1_templates_custom_template_id_duplicate_post_with_http_info(template_id, opts = {})
+    def duplicate_template_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.duplicate_template_api_v1_templates_custom_template_id_duplicate_post ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.duplicate_template ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.duplicate_template_api_v1_templates_custom_template_id_duplicate_post"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.duplicate_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/custom/{template_id}/duplicate'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.duplicate_template_api_v1_templates_custom_template_id_duplicate_post",
+        :operation => :"TemplatesApi.duplicate_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,7 +202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#duplicate_template_api_v1_templates_custom_template_id_duplicate_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#duplicate_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -211,8 +211,8 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateDetailResponse]
-    def get_builtin_template_api_v1_templates_builtin_template_id_get(template_id, opts = {})
-      data, _status_code, _headers = get_builtin_template_api_v1_templates_builtin_template_id_get_with_http_info(template_id, opts)
+    def get_builtin_template(template_id, opts = {})
+      data, _status_code, _headers = get_builtin_template_with_http_info(template_id, opts)
       data
     end
 
@@ -220,13 +220,13 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateDetailResponse, Integer, Hash)>] TemplateDetailResponse data, response status code and response headers
-    def get_builtin_template_api_v1_templates_builtin_template_id_get_with_http_info(template_id, opts = {})
+    def get_builtin_template_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.get_builtin_template_api_v1_templates_builtin_template_id_get ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.get_builtin_template ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_builtin_template_api_v1_templates_builtin_template_id_get"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_builtin_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/builtin/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -252,7 +252,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.get_builtin_template_api_v1_templates_builtin_template_id_get",
+        :operation => :"TemplatesApi.get_builtin_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -263,7 +263,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#get_builtin_template_api_v1_templates_builtin_template_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#get_builtin_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -272,8 +272,8 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [CustomTemplateResponse]
-    def get_custom_template_api_v1_templates_custom_template_id_get(template_id, opts = {})
-      data, _status_code, _headers = get_custom_template_api_v1_templates_custom_template_id_get_with_http_info(template_id, opts)
+    def get_custom_template(template_id, opts = {})
+      data, _status_code, _headers = get_custom_template_with_http_info(template_id, opts)
       data
     end
 
@@ -281,13 +281,13 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CustomTemplateResponse, Integer, Hash)>] CustomTemplateResponse data, response status code and response headers
-    def get_custom_template_api_v1_templates_custom_template_id_get_with_http_info(template_id, opts = {})
+    def get_custom_template_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.get_custom_template_api_v1_templates_custom_template_id_get ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.get_custom_template ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_custom_template_api_v1_templates_custom_template_id_get"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_custom_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/custom/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -313,7 +313,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.get_custom_template_api_v1_templates_custom_template_id_get",
+        :operation => :"TemplatesApi.get_custom_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -324,7 +324,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#get_custom_template_api_v1_templates_custom_template_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#get_custom_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -333,8 +333,8 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateDetailResponse]
-    def get_template_api_v1_templates_template_id_get(template_id, opts = {})
-      data, _status_code, _headers = get_template_api_v1_templates_template_id_get_with_http_info(template_id, opts)
+    def get_template(template_id, opts = {})
+      data, _status_code, _headers = get_template_with_http_info(template_id, opts)
       data
     end
 
@@ -342,13 +342,13 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateDetailResponse, Integer, Hash)>] TemplateDetailResponse data, response status code and response headers
-    def get_template_api_v1_templates_template_id_get_with_http_info(template_id, opts = {})
+    def get_template_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.get_template_api_v1_templates_template_id_get ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.get_template ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_template_api_v1_templates_template_id_get"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.get_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -374,7 +374,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.get_template_api_v1_templates_template_id_get",
+        :operation => :"TemplatesApi.get_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -385,7 +385,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#get_template_api_v1_templates_template_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#get_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -395,8 +395,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [CustomTemplatesListResponse]
-    def list_custom_templates_api_v1_templates_custom_get(opts = {})
-      data, _status_code, _headers = list_custom_templates_api_v1_templates_custom_get_with_http_info(opts)
+    def list_custom_templates(opts = {})
+      data, _status_code, _headers = list_custom_templates_with_http_info(opts)
       data
     end
 
@@ -405,16 +405,16 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(CustomTemplatesListResponse, Integer, Hash)>] CustomTemplatesListResponse data, response status code and response headers
-    def list_custom_templates_api_v1_templates_custom_get_with_http_info(opts = {})
+    def list_custom_templates_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.list_custom_templates_api_v1_templates_custom_get ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.list_custom_templates ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TemplatesApi.list_custom_templates_api_v1_templates_custom_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TemplatesApi.list_custom_templates, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TemplatesApi.list_custom_templates_api_v1_templates_custom_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling TemplatesApi.list_custom_templates, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -443,7 +443,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.list_custom_templates_api_v1_templates_custom_get",
+        :operation => :"TemplatesApi.list_custom_templates",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -454,37 +454,228 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#list_custom_templates_api_v1_templates_custom_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#list_custom_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Template
+    # List Templates
+    # @param [Hash] opts the optional parameters
+    # @return [TemplatesListResponse]
+    def list_templates(opts = {})
+      data, _status_code, _headers = list_templates_with_http_info(opts)
+      data
+    end
+
+    # List Templates
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TemplatesListResponse, Integer, Hash)>] TemplatesListResponse data, response status code and response headers
+    def list_templates_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.list_templates ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/templates'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TemplatesListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"TemplatesApi.list_templates",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TemplatesApi#list_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Preview Template
+    # @param template_id [String] 
+    # @param document_render_request [DocumentRenderRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key 
+    # @return [Object]
+    def preview_template(template_id, document_render_request, opts = {})
+      data, _status_code, _headers = preview_template_with_http_info(template_id, document_render_request, opts)
+      data
+    end
+
+    # Preview Template
+    # @param template_id [String] 
+    # @param document_render_request [DocumentRenderRequest] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :idempotency_key 
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def preview_template_with_http_info(template_id, document_render_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.preview_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.preview_template"
+      end
+      # verify the required parameter 'document_render_request' is set
+      if @api_client.config.client_side_validation && document_render_request.nil?
+        fail ArgumentError, "Missing the required parameter 'document_render_request' when calling TemplatesApi.preview_template"
+      end
+      # resource path
+      local_var_path = '/api/v1/templates/{template_id}/preview'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_render_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"TemplatesApi.preview_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TemplatesApi#preview_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Publish Template
+    # @param template_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [CustomTemplateResponse]
+    def publish_template(template_id, opts = {})
+      data, _status_code, _headers = publish_template_with_http_info(template_id, opts)
+      data
+    end
+
+    # Publish Template
+    # @param template_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CustomTemplateResponse, Integer, Hash)>] CustomTemplateResponse data, response status code and response headers
+    def publish_template_with_http_info(template_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.publish_template ...'
+      end
+      # verify the required parameter 'template_id' is set
+      if @api_client.config.client_side_validation && template_id.nil?
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.publish_template"
+      end
+      # resource path
+      local_var_path = '/api/v1/templates/custom/{template_id}/publish'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomTemplateResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"TemplatesApi.publish_template",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: TemplatesApi#publish_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Template
     # @param template_id [String] 
     # @param template_patch_request [TemplatePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CustomTemplateResponse]
-    def patch_template_api_v1_templates_custom_template_id_patch(template_id, template_patch_request, opts = {})
-      data, _status_code, _headers = patch_template_api_v1_templates_custom_template_id_patch_with_http_info(template_id, template_patch_request, opts)
+    def update_template(template_id, template_patch_request, opts = {})
+      data, _status_code, _headers = update_template_with_http_info(template_id, template_patch_request, opts)
       data
     end
 
-    # Patch Template
+    # Update Template
     # @param template_id [String] 
     # @param template_patch_request [TemplatePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CustomTemplateResponse, Integer, Hash)>] CustomTemplateResponse data, response status code and response headers
-    def patch_template_api_v1_templates_custom_template_id_patch_with_http_info(template_id, template_patch_request, opts = {})
+    def update_template_with_http_info(template_id, template_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.patch_template_api_v1_templates_custom_template_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: TemplatesApi.update_template ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.patch_template_api_v1_templates_custom_template_id_patch"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.update_template"
       end
       # verify the required parameter 'template_patch_request' is set
       if @api_client.config.client_side_validation && template_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'template_patch_request' when calling TemplatesApi.patch_template_api_v1_templates_custom_template_id_patch"
+        fail ArgumentError, "Missing the required parameter 'template_patch_request' when calling TemplatesApi.update_template"
       end
       # resource path
       local_var_path = '/api/v1/templates/custom/{template_id}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -515,7 +706,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplatesApi.patch_template_api_v1_templates_custom_template_id_patch",
+        :operation => :"TemplatesApi.update_template",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -526,198 +717,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#patch_template_api_v1_templates_custom_template_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Preview Template
-    # @param template_id [String] 
-    # @param app_schemas_v1_document_render_request [AppSchemasV1DocumentRenderRequest] 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key 
-    # @return [Object]
-    def preview_template_api_v1_templates_template_id_preview_post(template_id, app_schemas_v1_document_render_request, opts = {})
-      data, _status_code, _headers = preview_template_api_v1_templates_template_id_preview_post_with_http_info(template_id, app_schemas_v1_document_render_request, opts)
-      data
-    end
-
-    # Preview Template
-    # @param template_id [String] 
-    # @param app_schemas_v1_document_render_request [AppSchemasV1DocumentRenderRequest] 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :idempotency_key 
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def preview_template_api_v1_templates_template_id_preview_post_with_http_info(template_id, app_schemas_v1_document_render_request, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.preview_template_api_v1_templates_template_id_preview_post ...'
-      end
-      # verify the required parameter 'template_id' is set
-      if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.preview_template_api_v1_templates_template_id_preview_post"
-      end
-      # verify the required parameter 'app_schemas_v1_document_render_request' is set
-      if @api_client.config.client_side_validation && app_schemas_v1_document_render_request.nil?
-        fail ArgumentError, "Missing the required parameter 'app_schemas_v1_document_render_request' when calling TemplatesApi.preview_template_api_v1_templates_template_id_preview_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/templates/{template_id}/preview'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/json'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
-      header_params[:'Idempotency-Key'] = opts[:'idempotency_key'] if !opts[:'idempotency_key'].nil?
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(app_schemas_v1_document_render_request)
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'Object'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"TemplatesApi.preview_template_api_v1_templates_template_id_preview_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#preview_template_api_v1_templates_template_id_preview_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Publish Template
-    # @param template_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [CustomTemplateResponse]
-    def publish_template_api_v1_templates_custom_template_id_publish_post(template_id, opts = {})
-      data, _status_code, _headers = publish_template_api_v1_templates_custom_template_id_publish_post_with_http_info(template_id, opts)
-      data
-    end
-
-    # Publish Template
-    # @param template_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(CustomTemplateResponse, Integer, Hash)>] CustomTemplateResponse data, response status code and response headers
-    def publish_template_api_v1_templates_custom_template_id_publish_post_with_http_info(template_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.publish_template_api_v1_templates_custom_template_id_publish_post ...'
-      end
-      # verify the required parameter 'template_id' is set
-      if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplatesApi.publish_template_api_v1_templates_custom_template_id_publish_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/templates/custom/{template_id}/publish'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'CustomTemplateResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"TemplatesApi.publish_template_api_v1_templates_custom_template_id_publish_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#publish_template_api_v1_templates_custom_template_id_publish_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Templates
-    # @param [Hash] opts the optional parameters
-    # @return [TemplatesListResponse]
-    def templates_api_v1_templates_get(opts = {})
-      data, _status_code, _headers = templates_api_v1_templates_get_with_http_info(opts)
-      data
-    end
-
-    # Templates
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(TemplatesListResponse, Integer, Hash)>] TemplatesListResponse data, response status code and response headers
-    def templates_api_v1_templates_get_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplatesApi.templates_api_v1_templates_get ...'
-      end
-      # resource path
-      local_var_path = '/api/v1/templates'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'TemplatesListResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"TemplatesApi.templates_api_v1_templates_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplatesApi#templates_api_v1_templates_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplatesApi#update_template\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

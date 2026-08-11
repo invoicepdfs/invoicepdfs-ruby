@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
-    def cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete(recurring_id, opts = {})
-      data, _status_code, _headers = cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete_with_http_info(recurring_id, opts)
+    def cancel_recurring_invoice(recurring_id, opts = {})
+      data, _status_code, _headers = cancel_recurring_invoice_with_http_info(recurring_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
-    def cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete_with_http_info(recurring_id, opts = {})
+    def cancel_recurring_invoice_with_http_info(recurring_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.cancel_recurring_invoice ...'
       end
       # verify the required parameter 'recurring_id' is set
       if @api_client.config.client_side_validation && recurring_id.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete"
+        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.cancel_recurring_invoice"
       end
       # resource path
       local_var_path = '/api/v1/recurring-invoices/{recurring_id}'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete",
+        :operation => :"RecurringInvoicesApi.cancel_recurring_invoice",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#cancel_recurring_invoice_api_v1_recurring_invoices_recurring_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#cancel_recurring_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param recurring_invoice_create_request [RecurringInvoiceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
-    def create_recurring_invoice_api_v1_recurring_invoices_post(recurring_invoice_create_request, opts = {})
-      data, _status_code, _headers = create_recurring_invoice_api_v1_recurring_invoices_post_with_http_info(recurring_invoice_create_request, opts)
+    def create_recurring_invoice(recurring_invoice_create_request, opts = {})
+      data, _status_code, _headers = create_recurring_invoice_with_http_info(recurring_invoice_create_request, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param recurring_invoice_create_request [RecurringInvoiceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
-    def create_recurring_invoice_api_v1_recurring_invoices_post_with_http_info(recurring_invoice_create_request, opts = {})
+    def create_recurring_invoice_with_http_info(recurring_invoice_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.create_recurring_invoice_api_v1_recurring_invoices_post ...'
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.create_recurring_invoice ...'
       end
       # verify the required parameter 'recurring_invoice_create_request' is set
       if @api_client.config.client_side_validation && recurring_invoice_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_invoice_create_request' when calling RecurringInvoicesApi.create_recurring_invoice_api_v1_recurring_invoices_post"
+        fail ArgumentError, "Missing the required parameter 'recurring_invoice_create_request' when calling RecurringInvoicesApi.create_recurring_invoice"
       end
       # resource path
       local_var_path = '/api/v1/recurring-invoices'
@@ -130,7 +130,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.create_recurring_invoice_api_v1_recurring_invoices_post",
+        :operation => :"RecurringInvoicesApi.create_recurring_invoice",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -141,7 +141,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#create_recurring_invoice_api_v1_recurring_invoices_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#create_recurring_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -150,8 +150,8 @@ module InvoicePDFs
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
-    def get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get(recurring_id, opts = {})
-      data, _status_code, _headers = get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get_with_http_info(recurring_id, opts)
+    def get_recurring_invoice(recurring_id, opts = {})
+      data, _status_code, _headers = get_recurring_invoice_with_http_info(recurring_id, opts)
       data
     end
 
@@ -159,13 +159,13 @@ module InvoicePDFs
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
-    def get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get_with_http_info(recurring_id, opts = {})
+    def get_recurring_invoice_with_http_info(recurring_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get ...'
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.get_recurring_invoice ...'
       end
       # verify the required parameter 'recurring_id' is set
       if @api_client.config.client_side_validation && recurring_id.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get"
+        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.get_recurring_invoice"
       end
       # resource path
       local_var_path = '/api/v1/recurring-invoices/{recurring_id}'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
@@ -191,7 +191,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get",
+        :operation => :"RecurringInvoicesApi.get_recurring_invoice",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -202,7 +202,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#get_recurring_invoice_api_v1_recurring_invoices_recurring_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#get_recurring_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -213,8 +213,8 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [InvoicesListResponse]
-    def list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get(recurring_id, opts = {})
-      data, _status_code, _headers = list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get_with_http_info(recurring_id, opts)
+    def list_generated_invoices(recurring_id, opts = {})
+      data, _status_code, _headers = list_generated_invoices_with_http_info(recurring_id, opts)
       data
     end
 
@@ -224,20 +224,20 @@ module InvoicePDFs
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
     # @return [Array<(InvoicesListResponse, Integer, Hash)>] InvoicesListResponse data, response status code and response headers
-    def list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get_with_http_info(recurring_id, opts = {})
+    def list_generated_invoices_with_http_info(recurring_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get ...'
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.list_generated_invoices ...'
       end
       # verify the required parameter 'recurring_id' is set
       if @api_client.config.client_side_validation && recurring_id.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get"
+        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.list_generated_invoices"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_generated_invoices, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_generated_invoices, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -266,7 +266,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get",
+        :operation => :"RecurringInvoicesApi.list_generated_invoices",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -277,7 +277,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#list_generated_invoices_api_v1_recurring_invoices_recurring_id_invoices_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#list_generated_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -288,8 +288,8 @@ module InvoicePDFs
     # @option opts [String] :cursor 
     # @option opts [String] :status 
     # @return [RecurringInvoicesListResponse]
-    def list_recurring_invoices_api_v1_recurring_invoices_get(opts = {})
-      data, _status_code, _headers = list_recurring_invoices_api_v1_recurring_invoices_get_with_http_info(opts)
+    def list_recurring_invoices(opts = {})
+      data, _status_code, _headers = list_recurring_invoices_with_http_info(opts)
       data
     end
 
@@ -299,16 +299,16 @@ module InvoicePDFs
     # @option opts [String] :cursor 
     # @option opts [String] :status 
     # @return [Array<(RecurringInvoicesListResponse, Integer, Hash)>] RecurringInvoicesListResponse data, response status code and response headers
-    def list_recurring_invoices_api_v1_recurring_invoices_get_with_http_info(opts = {})
+    def list_recurring_invoices_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.list_recurring_invoices_api_v1_recurring_invoices_get ...'
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.list_recurring_invoices ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_recurring_invoices_api_v1_recurring_invoices_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_recurring_invoices, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_recurring_invoices_api_v1_recurring_invoices_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling RecurringInvoicesApi.list_recurring_invoices, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -338,7 +338,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.list_recurring_invoices_api_v1_recurring_invoices_get",
+        :operation => :"RecurringInvoicesApi.list_recurring_invoices",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -349,37 +349,159 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#list_recurring_invoices_api_v1_recurring_invoices_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#list_recurring_invoices\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Patch Recurring Invoice
+    # Pause Recurring Invoice
+    # @param recurring_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [RecurringInvoiceResponse]
+    def pause_recurring_invoice(recurring_id, opts = {})
+      data, _status_code, _headers = pause_recurring_invoice_with_http_info(recurring_id, opts)
+      data
+    end
+
+    # Pause Recurring Invoice
+    # @param recurring_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
+    def pause_recurring_invoice_with_http_info(recurring_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.pause_recurring_invoice ...'
+      end
+      # verify the required parameter 'recurring_id' is set
+      if @api_client.config.client_side_validation && recurring_id.nil?
+        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.pause_recurring_invoice"
+      end
+      # resource path
+      local_var_path = '/api/v1/recurring-invoices/{recurring_id}/pause'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RecurringInvoiceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"RecurringInvoicesApi.pause_recurring_invoice",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#pause_recurring_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Resume Recurring Invoice
+    # @param recurring_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [RecurringInvoiceResponse]
+    def resume_recurring_invoice(recurring_id, opts = {})
+      data, _status_code, _headers = resume_recurring_invoice_with_http_info(recurring_id, opts)
+      data
+    end
+
+    # Resume Recurring Invoice
+    # @param recurring_id [String] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
+    def resume_recurring_invoice_with_http_info(recurring_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.resume_recurring_invoice ...'
+      end
+      # verify the required parameter 'recurring_id' is set
+      if @api_client.config.client_side_validation && recurring_id.nil?
+        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.resume_recurring_invoice"
+      end
+      # resource path
+      local_var_path = '/api/v1/recurring-invoices/{recurring_id}/resume'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RecurringInvoiceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"RecurringInvoicesApi.resume_recurring_invoice",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#resume_recurring_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update Recurring Invoice
     # @param recurring_id [String] 
     # @param recurring_invoice_patch_request [RecurringInvoicePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
-    def patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch(recurring_id, recurring_invoice_patch_request, opts = {})
-      data, _status_code, _headers = patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch_with_http_info(recurring_id, recurring_invoice_patch_request, opts)
+    def update_recurring_invoice(recurring_id, recurring_invoice_patch_request, opts = {})
+      data, _status_code, _headers = update_recurring_invoice_with_http_info(recurring_id, recurring_invoice_patch_request, opts)
       data
     end
 
-    # Patch Recurring Invoice
+    # Update Recurring Invoice
     # @param recurring_id [String] 
     # @param recurring_invoice_patch_request [RecurringInvoicePatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
-    def patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch_with_http_info(recurring_id, recurring_invoice_patch_request, opts = {})
+    def update_recurring_invoice_with_http_info(recurring_id, recurring_invoice_patch_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch ...'
+        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.update_recurring_invoice ...'
       end
       # verify the required parameter 'recurring_id' is set
       if @api_client.config.client_side_validation && recurring_id.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch"
+        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.update_recurring_invoice"
       end
       # verify the required parameter 'recurring_invoice_patch_request' is set
       if @api_client.config.client_side_validation && recurring_invoice_patch_request.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_invoice_patch_request' when calling RecurringInvoicesApi.patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch"
+        fail ArgumentError, "Missing the required parameter 'recurring_invoice_patch_request' when calling RecurringInvoicesApi.update_recurring_invoice"
       end
       # resource path
       local_var_path = '/api/v1/recurring-invoices/{recurring_id}'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
@@ -410,7 +532,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch",
+        :operation => :"RecurringInvoicesApi.update_recurring_invoice",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -421,129 +543,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#patch_recurring_invoice_api_v1_recurring_invoices_recurring_id_patch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Pause Recurring Invoice
-    # @param recurring_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [RecurringInvoiceResponse]
-    def pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post(recurring_id, opts = {})
-      data, _status_code, _headers = pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post_with_http_info(recurring_id, opts)
-      data
-    end
-
-    # Pause Recurring Invoice
-    # @param recurring_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
-    def pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post_with_http_info(recurring_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post ...'
-      end
-      # verify the required parameter 'recurring_id' is set
-      if @api_client.config.client_side_validation && recurring_id.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/recurring-invoices/{recurring_id}/pause'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RecurringInvoiceResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#pause_recurring_invoice_api_v1_recurring_invoices_recurring_id_pause_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Resume Recurring Invoice
-    # @param recurring_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [RecurringInvoiceResponse]
-    def resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post(recurring_id, opts = {})
-      data, _status_code, _headers = resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post_with_http_info(recurring_id, opts)
-      data
-    end
-
-    # Resume Recurring Invoice
-    # @param recurring_id [String] 
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
-    def resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post_with_http_info(recurring_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecurringInvoicesApi.resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post ...'
-      end
-      # verify the required parameter 'recurring_id' is set
-      if @api_client.config.client_side_validation && recurring_id.nil?
-        fail ArgumentError, "Missing the required parameter 'recurring_id' when calling RecurringInvoicesApi.resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post"
-      end
-      # resource path
-      local_var_path = '/api/v1/recurring-invoices/{recurring_id}/resume'.sub('{' + 'recurring_id' + '}', CGI.escape(recurring_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'RecurringInvoiceResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
-
-      new_options = opts.merge(
-        :operation => :"RecurringInvoicesApi.resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecurringInvoicesApi#resume_recurring_invoice_api_v1_recurring_invoices_recurring_id_resume_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: RecurringInvoicesApi#update_recurring_invoice\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

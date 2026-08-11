@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_checkout_api_v1_billing_checkout_session_post**](BillingApi.md#create_checkout_api_v1_billing_checkout_session_post) | **POST** /api/v1/billing/checkout-session | Create Checkout |
-| [**create_portal_api_v1_billing_portal_session_post**](BillingApi.md#create_portal_api_v1_billing_portal_session_post) | **POST** /api/v1/billing/portal-session | Create Portal |
-| [**get_subscription_api_v1_billing_subscription_get**](BillingApi.md#get_subscription_api_v1_billing_subscription_get) | **GET** /api/v1/billing/subscription | Get Subscription |
-| [**list_plans_api_v1_billing_plans_get**](BillingApi.md#list_plans_api_v1_billing_plans_get) | **GET** /api/v1/billing/plans | List Plans |
+| [**create_checkout_session**](BillingApi.md#create_checkout_session) | **POST** /api/v1/billing/checkout-session | Create Checkout Session |
+| [**create_portal_session**](BillingApi.md#create_portal_session) | **POST** /api/v1/billing/portal-session | Create Portal Session |
+| [**get_subscription**](BillingApi.md#get_subscription) | **GET** /api/v1/billing/subscription | Get Subscription |
+| [**list_plans**](BillingApi.md#list_plans) | **GET** /api/v1/billing/plans | List Plans |
 
 
-## create_checkout_api_v1_billing_checkout_session_post
+## create_checkout_session
 
-> <BillingCheckoutResponse> create_checkout_api_v1_billing_checkout_session_post(billing_checkout_request)
+> <BillingCheckoutResponse> create_checkout_session(billing_checkout_request)
 
-Create Checkout
+Create Checkout Session
 
 Create a Stripe Checkout session for a subscription.
 
@@ -33,29 +33,29 @@ api_instance = InvoicePDFs::BillingApi.new
 billing_checkout_request = InvoicePDFs::BillingCheckoutRequest.new({price_id: 'price_id_example'}) # BillingCheckoutRequest | 
 
 begin
-  # Create Checkout
-  result = api_instance.create_checkout_api_v1_billing_checkout_session_post(billing_checkout_request)
+  # Create Checkout Session
+  result = api_instance.create_checkout_session(billing_checkout_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->create_checkout_api_v1_billing_checkout_session_post: #{e}"
+  puts "Error when calling BillingApi->create_checkout_session: #{e}"
 end
 ```
 
-#### Using the create_checkout_api_v1_billing_checkout_session_post_with_http_info variant
+#### Using the create_checkout_session_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BillingCheckoutResponse>, Integer, Hash)> create_checkout_api_v1_billing_checkout_session_post_with_http_info(billing_checkout_request)
+> <Array(<BillingCheckoutResponse>, Integer, Hash)> create_checkout_session_with_http_info(billing_checkout_request)
 
 ```ruby
 begin
-  # Create Checkout
-  data, status_code, headers = api_instance.create_checkout_api_v1_billing_checkout_session_post_with_http_info(billing_checkout_request)
+  # Create Checkout Session
+  data, status_code, headers = api_instance.create_checkout_session_with_http_info(billing_checkout_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingCheckoutResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->create_checkout_api_v1_billing_checkout_session_post_with_http_info: #{e}"
+  puts "Error when calling BillingApi->create_checkout_session_with_http_info: #{e}"
 end
 ```
 
@@ -79,11 +79,11 @@ end
 - **Accept**: application/json
 
 
-## create_portal_api_v1_billing_portal_session_post
+## create_portal_session
 
-> <BillingPortalResponse> create_portal_api_v1_billing_portal_session_post
+> <BillingPortalResponse> create_portal_session
 
-Create Portal
+Create Portal Session
 
 Create a Stripe Customer Portal session for self-service management.
 
@@ -101,29 +101,29 @@ end
 api_instance = InvoicePDFs::BillingApi.new
 
 begin
-  # Create Portal
-  result = api_instance.create_portal_api_v1_billing_portal_session_post
+  # Create Portal Session
+  result = api_instance.create_portal_session
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->create_portal_api_v1_billing_portal_session_post: #{e}"
+  puts "Error when calling BillingApi->create_portal_session: #{e}"
 end
 ```
 
-#### Using the create_portal_api_v1_billing_portal_session_post_with_http_info variant
+#### Using the create_portal_session_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BillingPortalResponse>, Integer, Hash)> create_portal_api_v1_billing_portal_session_post_with_http_info
+> <Array(<BillingPortalResponse>, Integer, Hash)> create_portal_session_with_http_info
 
 ```ruby
 begin
-  # Create Portal
-  data, status_code, headers = api_instance.create_portal_api_v1_billing_portal_session_post_with_http_info
+  # Create Portal Session
+  data, status_code, headers = api_instance.create_portal_session_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingPortalResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->create_portal_api_v1_billing_portal_session_post_with_http_info: #{e}"
+  puts "Error when calling BillingApi->create_portal_session_with_http_info: #{e}"
 end
 ```
 
@@ -145,9 +145,9 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## get_subscription_api_v1_billing_subscription_get
+## get_subscription
 
-> <BillingSubscriptionResponse> get_subscription_api_v1_billing_subscription_get
+> <BillingSubscriptionResponse> get_subscription
 
 Get Subscription
 
@@ -168,28 +168,28 @@ api_instance = InvoicePDFs::BillingApi.new
 
 begin
   # Get Subscription
-  result = api_instance.get_subscription_api_v1_billing_subscription_get
+  result = api_instance.get_subscription
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->get_subscription_api_v1_billing_subscription_get: #{e}"
+  puts "Error when calling BillingApi->get_subscription: #{e}"
 end
 ```
 
-#### Using the get_subscription_api_v1_billing_subscription_get_with_http_info variant
+#### Using the get_subscription_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BillingSubscriptionResponse>, Integer, Hash)> get_subscription_api_v1_billing_subscription_get_with_http_info
+> <Array(<BillingSubscriptionResponse>, Integer, Hash)> get_subscription_with_http_info
 
 ```ruby
 begin
   # Get Subscription
-  data, status_code, headers = api_instance.get_subscription_api_v1_billing_subscription_get_with_http_info
+  data, status_code, headers = api_instance.get_subscription_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingSubscriptionResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->get_subscription_api_v1_billing_subscription_get_with_http_info: #{e}"
+  puts "Error when calling BillingApi->get_subscription_with_http_info: #{e}"
 end
 ```
 
@@ -211,9 +211,9 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## list_plans_api_v1_billing_plans_get
+## list_plans
 
-> <BillingPlansListResponse> list_plans_api_v1_billing_plans_get
+> <BillingPlansListResponse> list_plans
 
 List Plans
 
@@ -234,28 +234,28 @@ api_instance = InvoicePDFs::BillingApi.new
 
 begin
   # List Plans
-  result = api_instance.list_plans_api_v1_billing_plans_get
+  result = api_instance.list_plans
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->list_plans_api_v1_billing_plans_get: #{e}"
+  puts "Error when calling BillingApi->list_plans: #{e}"
 end
 ```
 
-#### Using the list_plans_api_v1_billing_plans_get_with_http_info variant
+#### Using the list_plans_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BillingPlansListResponse>, Integer, Hash)> list_plans_api_v1_billing_plans_get_with_http_info
+> <Array(<BillingPlansListResponse>, Integer, Hash)> list_plans_with_http_info
 
 ```ruby
 begin
   # List Plans
-  data, status_code, headers = api_instance.list_plans_api_v1_billing_plans_get_with_http_info
+  data, status_code, headers = api_instance.list_plans_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BillingPlansListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling BillingApi->list_plans_api_v1_billing_plans_get_with_http_info: #{e}"
+  puts "Error when calling BillingApi->list_plans_with_http_info: #{e}"
 end
 ```
 

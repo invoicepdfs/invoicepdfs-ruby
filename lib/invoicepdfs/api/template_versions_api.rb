@@ -24,8 +24,8 @@ module InvoicePDFs
     # @param template_version_create_request [TemplateVersionCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateVersionResponse]
-    def create_template_version_api_v1_templates_template_id_versions_post(template_id, template_version_create_request, opts = {})
-      data, _status_code, _headers = create_template_version_api_v1_templates_template_id_versions_post_with_http_info(template_id, template_version_create_request, opts)
+    def create_template_version(template_id, template_version_create_request, opts = {})
+      data, _status_code, _headers = create_template_version_with_http_info(template_id, template_version_create_request, opts)
       data
     end
 
@@ -34,17 +34,17 @@ module InvoicePDFs
     # @param template_version_create_request [TemplateVersionCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateVersionResponse, Integer, Hash)>] TemplateVersionResponse data, response status code and response headers
-    def create_template_version_api_v1_templates_template_id_versions_post_with_http_info(template_id, template_version_create_request, opts = {})
+    def create_template_version_with_http_info(template_id, template_version_create_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplateVersionsApi.create_template_version_api_v1_templates_template_id_versions_post ...'
+        @api_client.config.logger.debug 'Calling API: TemplateVersionsApi.create_template_version ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateVersionsApi.create_template_version_api_v1_templates_template_id_versions_post"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateVersionsApi.create_template_version"
       end
       # verify the required parameter 'template_version_create_request' is set
       if @api_client.config.client_side_validation && template_version_create_request.nil?
-        fail ArgumentError, "Missing the required parameter 'template_version_create_request' when calling TemplateVersionsApi.create_template_version_api_v1_templates_template_id_versions_post"
+        fail ArgumentError, "Missing the required parameter 'template_version_create_request' when calling TemplateVersionsApi.create_template_version"
       end
       # resource path
       local_var_path = '/api/v1/templates/{template_id}/versions'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -75,7 +75,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplateVersionsApi.create_template_version_api_v1_templates_template_id_versions_post",
+        :operation => :"TemplateVersionsApi.create_template_version",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -86,7 +86,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplateVersionsApi#create_template_version_api_v1_templates_template_id_versions_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplateVersionsApi#create_template_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -96,8 +96,8 @@ module InvoicePDFs
     # @param version [Integer] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateVersionResponse]
-    def get_template_version_api_v1_templates_template_id_versions_version_get(template_id, version, opts = {})
-      data, _status_code, _headers = get_template_version_api_v1_templates_template_id_versions_version_get_with_http_info(template_id, version, opts)
+    def get_template_version(template_id, version, opts = {})
+      data, _status_code, _headers = get_template_version_with_http_info(template_id, version, opts)
       data
     end
 
@@ -106,17 +106,17 @@ module InvoicePDFs
     # @param version [Integer] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateVersionResponse, Integer, Hash)>] TemplateVersionResponse data, response status code and response headers
-    def get_template_version_api_v1_templates_template_id_versions_version_get_with_http_info(template_id, version, opts = {})
+    def get_template_version_with_http_info(template_id, version, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplateVersionsApi.get_template_version_api_v1_templates_template_id_versions_version_get ...'
+        @api_client.config.logger.debug 'Calling API: TemplateVersionsApi.get_template_version ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateVersionsApi.get_template_version_api_v1_templates_template_id_versions_version_get"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateVersionsApi.get_template_version"
       end
       # verify the required parameter 'version' is set
       if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TemplateVersionsApi.get_template_version_api_v1_templates_template_id_versions_version_get"
+        fail ArgumentError, "Missing the required parameter 'version' when calling TemplateVersionsApi.get_template_version"
       end
       # resource path
       local_var_path = '/api/v1/templates/{template_id}/versions/{version}'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s)).sub('{' + 'version' + '}', CGI.escape(version.to_s))
@@ -142,7 +142,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplateVersionsApi.get_template_version_api_v1_templates_template_id_versions_version_get",
+        :operation => :"TemplateVersionsApi.get_template_version",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -153,7 +153,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplateVersionsApi#get_template_version_api_v1_templates_template_id_versions_version_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplateVersionsApi#get_template_version\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -162,8 +162,8 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateVersionsListResponse]
-    def list_template_versions_api_v1_templates_template_id_versions_get(template_id, opts = {})
-      data, _status_code, _headers = list_template_versions_api_v1_templates_template_id_versions_get_with_http_info(template_id, opts)
+    def list_template_versions(template_id, opts = {})
+      data, _status_code, _headers = list_template_versions_with_http_info(template_id, opts)
       data
     end
 
@@ -171,13 +171,13 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateVersionsListResponse, Integer, Hash)>] TemplateVersionsListResponse data, response status code and response headers
-    def list_template_versions_api_v1_templates_template_id_versions_get_with_http_info(template_id, opts = {})
+    def list_template_versions_with_http_info(template_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: TemplateVersionsApi.list_template_versions_api_v1_templates_template_id_versions_get ...'
+        @api_client.config.logger.debug 'Calling API: TemplateVersionsApi.list_template_versions ...'
       end
       # verify the required parameter 'template_id' is set
       if @api_client.config.client_side_validation && template_id.nil?
-        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateVersionsApi.list_template_versions_api_v1_templates_template_id_versions_get"
+        fail ArgumentError, "Missing the required parameter 'template_id' when calling TemplateVersionsApi.list_template_versions"
       end
       # resource path
       local_var_path = '/api/v1/templates/{template_id}/versions'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
@@ -203,7 +203,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"TemplateVersionsApi.list_template_versions_api_v1_templates_template_id_versions_get",
+        :operation => :"TemplateVersionsApi.list_template_versions",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -214,7 +214,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: TemplateVersionsApi#list_template_versions_api_v1_templates_template_id_versions_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: TemplateVersionsApi#list_template_versions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

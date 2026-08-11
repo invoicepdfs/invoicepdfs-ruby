@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
-    def delete_file_api_v1_files_file_id_delete(file_id, opts = {})
-      data, _status_code, _headers = delete_file_api_v1_files_file_id_delete_with_http_info(file_id, opts)
+    def delete_file(file_id, opts = {})
+      data, _status_code, _headers = delete_file_with_http_info(file_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
-    def delete_file_api_v1_files_file_id_delete_with_http_info(file_id, opts = {})
+    def delete_file_with_http_info(file_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilesApi.delete_file_api_v1_files_file_id_delete ...'
+        @api_client.config.logger.debug 'Calling API: FilesApi.delete_file ...'
       end
       # verify the required parameter 'file_id' is set
       if @api_client.config.client_side_validation && file_id.nil?
-        fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.delete_file_api_v1_files_file_id_delete"
+        fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.delete_file"
       end
       # resource path
       local_var_path = '/api/v1/files/{file_id}'.sub('{' + 'file_id' + '}', CGI.escape(file_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"FilesApi.delete_file_api_v1_files_file_id_delete",
+        :operation => :"FilesApi.delete_file",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilesApi#delete_file_api_v1_files_file_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FilesApi#delete_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -84,8 +84,8 @@ module InvoicePDFs
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [FileResponse]
-    def get_file_api_v1_files_file_id_get(file_id, opts = {})
-      data, _status_code, _headers = get_file_api_v1_files_file_id_get_with_http_info(file_id, opts)
+    def get_file(file_id, opts = {})
+      data, _status_code, _headers = get_file_with_http_info(file_id, opts)
       data
     end
 
@@ -93,13 +93,13 @@ module InvoicePDFs
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FileResponse, Integer, Hash)>] FileResponse data, response status code and response headers
-    def get_file_api_v1_files_file_id_get_with_http_info(file_id, opts = {})
+    def get_file_with_http_info(file_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilesApi.get_file_api_v1_files_file_id_get ...'
+        @api_client.config.logger.debug 'Calling API: FilesApi.get_file ...'
       end
       # verify the required parameter 'file_id' is set
       if @api_client.config.client_side_validation && file_id.nil?
-        fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.get_file_api_v1_files_file_id_get"
+        fail ArgumentError, "Missing the required parameter 'file_id' when calling FilesApi.get_file"
       end
       # resource path
       local_var_path = '/api/v1/files/{file_id}'.sub('{' + 'file_id' + '}', CGI.escape(file_id.to_s))
@@ -125,7 +125,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"FilesApi.get_file_api_v1_files_file_id_get",
+        :operation => :"FilesApi.get_file",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -136,7 +136,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilesApi#get_file_api_v1_files_file_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FilesApi#get_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -146,8 +146,8 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [FileResponse]
-    def upload_file_api_v1_files_post(file, opts = {})
-      data, _status_code, _headers = upload_file_api_v1_files_post_with_http_info(file, opts)
+    def upload_file(file, opts = {})
+      data, _status_code, _headers = upload_file_with_http_info(file, opts)
       data
     end
 
@@ -156,13 +156,13 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
     # @return [Array<(FileResponse, Integer, Hash)>] FileResponse data, response status code and response headers
-    def upload_file_api_v1_files_post_with_http_info(file, opts = {})
+    def upload_file_with_http_info(file, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FilesApi.upload_file_api_v1_files_post ...'
+        @api_client.config.logger.debug 'Calling API: FilesApi.upload_file ...'
       end
       # verify the required parameter 'file' is set
       if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling FilesApi.upload_file_api_v1_files_post"
+        fail ArgumentError, "Missing the required parameter 'file' when calling FilesApi.upload_file"
       end
       # resource path
       local_var_path = '/api/v1/files'
@@ -195,7 +195,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"FilesApi.upload_file_api_v1_files_post",
+        :operation => :"FilesApi.upload_file",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -206,7 +206,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FilesApi#upload_file_api_v1_files_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FilesApi#upload_file\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

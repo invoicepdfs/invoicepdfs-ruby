@@ -23,8 +23,8 @@ module InvoicePDFs
     # @param audit_event_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [AuditEventResponse]
-    def get_audit_event_api_v1_audit_events_audit_event_id_get(audit_event_id, opts = {})
-      data, _status_code, _headers = get_audit_event_api_v1_audit_events_audit_event_id_get_with_http_info(audit_event_id, opts)
+    def get_audit_event(audit_event_id, opts = {})
+      data, _status_code, _headers = get_audit_event_with_http_info(audit_event_id, opts)
       data
     end
 
@@ -32,13 +32,13 @@ module InvoicePDFs
     # @param audit_event_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AuditEventResponse, Integer, Hash)>] AuditEventResponse data, response status code and response headers
-    def get_audit_event_api_v1_audit_events_audit_event_id_get_with_http_info(audit_event_id, opts = {})
+    def get_audit_event_with_http_info(audit_event_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuditLogApi.get_audit_event_api_v1_audit_events_audit_event_id_get ...'
+        @api_client.config.logger.debug 'Calling API: AuditLogApi.get_audit_event ...'
       end
       # verify the required parameter 'audit_event_id' is set
       if @api_client.config.client_side_validation && audit_event_id.nil?
-        fail ArgumentError, "Missing the required parameter 'audit_event_id' when calling AuditLogApi.get_audit_event_api_v1_audit_events_audit_event_id_get"
+        fail ArgumentError, "Missing the required parameter 'audit_event_id' when calling AuditLogApi.get_audit_event"
       end
       # resource path
       local_var_path = '/api/v1/audit-events/{audit_event_id}'.sub('{' + 'audit_event_id' + '}', CGI.escape(audit_event_id.to_s))
@@ -64,7 +64,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"AuditLogApi.get_audit_event_api_v1_audit_events_audit_event_id_get",
+        :operation => :"AuditLogApi.get_audit_event",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -75,7 +75,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuditLogApi#get_audit_event_api_v1_audit_events_audit_event_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuditLogApi#get_audit_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -88,8 +88,8 @@ module InvoicePDFs
     # @option opts [String] :resource_type 
     # @option opts [String] :resource_id 
     # @return [AuditEventsListResponse]
-    def list_audit_events_api_v1_audit_events_get(opts = {})
-      data, _status_code, _headers = list_audit_events_api_v1_audit_events_get_with_http_info(opts)
+    def list_audit_events(opts = {})
+      data, _status_code, _headers = list_audit_events_with_http_info(opts)
       data
     end
 
@@ -101,16 +101,16 @@ module InvoicePDFs
     # @option opts [String] :resource_type 
     # @option opts [String] :resource_id 
     # @return [Array<(AuditEventsListResponse, Integer, Hash)>] AuditEventsListResponse data, response status code and response headers
-    def list_audit_events_api_v1_audit_events_get_with_http_info(opts = {})
+    def list_audit_events_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AuditLogApi.list_audit_events_api_v1_audit_events_get ...'
+        @api_client.config.logger.debug 'Calling API: AuditLogApi.list_audit_events ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AuditLogApi.list_audit_events_api_v1_audit_events_get, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AuditLogApi.list_audit_events, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AuditLogApi.list_audit_events_api_v1_audit_events_get, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling AuditLogApi.list_audit_events, must be greater than or equal to 1.'
       end
 
       # resource path
@@ -142,7 +142,7 @@ module InvoicePDFs
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
 
       new_options = opts.merge(
-        :operation => :"AuditLogApi.list_audit_events_api_v1_audit_events_get",
+        :operation => :"AuditLogApi.list_audit_events",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -153,7 +153,7 @@ module InvoicePDFs
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AuditLogApi#list_audit_events_api_v1_audit_events_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AuditLogApi#list_audit_events\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

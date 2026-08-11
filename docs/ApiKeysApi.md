@@ -4,17 +4,17 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_api_key_api_v1_api_keys_post**](ApiKeysApi.md#create_api_key_api_v1_api_keys_post) | **POST** /api/v1/api-keys | Create Api Key |
-| [**get_api_key_api_v1_api_keys_api_key_id_get**](ApiKeysApi.md#get_api_key_api_v1_api_keys_api_key_id_get) | **GET** /api/v1/api-keys/{api_key_id} | Get Api Key |
-| [**list_api_keys_api_v1_api_keys_get**](ApiKeysApi.md#list_api_keys_api_v1_api_keys_get) | **GET** /api/v1/api-keys | List Api Keys |
-| [**patch_api_key_api_v1_api_keys_api_key_id_patch**](ApiKeysApi.md#patch_api_key_api_v1_api_keys_api_key_id_patch) | **PATCH** /api/v1/api-keys/{api_key_id} | Patch Api Key |
-| [**revoke_api_key_api_v1_api_keys_api_key_id_delete**](ApiKeysApi.md#revoke_api_key_api_v1_api_keys_api_key_id_delete) | **DELETE** /api/v1/api-keys/{api_key_id} | Revoke Api Key |
-| [**rotate_api_key_api_v1_api_keys_api_key_id_rotate_post**](ApiKeysApi.md#rotate_api_key_api_v1_api_keys_api_key_id_rotate_post) | **POST** /api/v1/api-keys/{api_key_id}/rotate | Rotate Api Key |
+| [**create_api_key**](ApiKeysApi.md#create_api_key) | **POST** /api/v1/api-keys | Create Api Key |
+| [**get_api_key**](ApiKeysApi.md#get_api_key) | **GET** /api/v1/api-keys/{api_key_id} | Get Api Key |
+| [**list_api_keys**](ApiKeysApi.md#list_api_keys) | **GET** /api/v1/api-keys | List Api Keys |
+| [**revoke_api_key**](ApiKeysApi.md#revoke_api_key) | **DELETE** /api/v1/api-keys/{api_key_id} | Revoke Api Key |
+| [**rotate_api_key**](ApiKeysApi.md#rotate_api_key) | **POST** /api/v1/api-keys/{api_key_id}/rotate | Rotate Api Key |
+| [**update_api_key**](ApiKeysApi.md#update_api_key) | **PATCH** /api/v1/api-keys/{api_key_id} | Update Api Key |
 
 
-## create_api_key_api_v1_api_keys_post
+## create_api_key
 
-> <ApiKeyCreateResponse> create_api_key_api_v1_api_keys_post(api_key_create_request)
+> <ApiKeyCreateResponse> create_api_key(api_key_create_request)
 
 Create Api Key
 
@@ -34,28 +34,28 @@ api_key_create_request = InvoicePDFs::ApiKeyCreateRequest.new # ApiKeyCreateRequ
 
 begin
   # Create Api Key
-  result = api_instance.create_api_key_api_v1_api_keys_post(api_key_create_request)
+  result = api_instance.create_api_key(api_key_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->create_api_key_api_v1_api_keys_post: #{e}"
+  puts "Error when calling ApiKeysApi->create_api_key: #{e}"
 end
 ```
 
-#### Using the create_api_key_api_v1_api_keys_post_with_http_info variant
+#### Using the create_api_key_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiKeyCreateResponse>, Integer, Hash)> create_api_key_api_v1_api_keys_post_with_http_info(api_key_create_request)
+> <Array(<ApiKeyCreateResponse>, Integer, Hash)> create_api_key_with_http_info(api_key_create_request)
 
 ```ruby
 begin
   # Create Api Key
-  data, status_code, headers = api_instance.create_api_key_api_v1_api_keys_post_with_http_info(api_key_create_request)
+  data, status_code, headers = api_instance.create_api_key_with_http_info(api_key_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiKeyCreateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->create_api_key_api_v1_api_keys_post_with_http_info: #{e}"
+  puts "Error when calling ApiKeysApi->create_api_key_with_http_info: #{e}"
 end
 ```
 
@@ -79,9 +79,9 @@ end
 - **Accept**: application/json
 
 
-## get_api_key_api_v1_api_keys_api_key_id_get
+## get_api_key
 
-> <ApiKeyDetailResponse> get_api_key_api_v1_api_keys_api_key_id_get(api_key_id)
+> <ApiKeyDetailResponse> get_api_key(api_key_id)
 
 Get Api Key
 
@@ -101,28 +101,28 @@ api_key_id = 'api_key_id_example' # String |
 
 begin
   # Get Api Key
-  result = api_instance.get_api_key_api_v1_api_keys_api_key_id_get(api_key_id)
+  result = api_instance.get_api_key(api_key_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->get_api_key_api_v1_api_keys_api_key_id_get: #{e}"
+  puts "Error when calling ApiKeysApi->get_api_key: #{e}"
 end
 ```
 
-#### Using the get_api_key_api_v1_api_keys_api_key_id_get_with_http_info variant
+#### Using the get_api_key_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiKeyDetailResponse>, Integer, Hash)> get_api_key_api_v1_api_keys_api_key_id_get_with_http_info(api_key_id)
+> <Array(<ApiKeyDetailResponse>, Integer, Hash)> get_api_key_with_http_info(api_key_id)
 
 ```ruby
 begin
   # Get Api Key
-  data, status_code, headers = api_instance.get_api_key_api_v1_api_keys_api_key_id_get_with_http_info(api_key_id)
+  data, status_code, headers = api_instance.get_api_key_with_http_info(api_key_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiKeyDetailResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->get_api_key_api_v1_api_keys_api_key_id_get_with_http_info: #{e}"
+  puts "Error when calling ApiKeysApi->get_api_key_with_http_info: #{e}"
 end
 ```
 
@@ -146,9 +146,9 @@ end
 - **Accept**: application/json
 
 
-## list_api_keys_api_v1_api_keys_get
+## list_api_keys
 
-> <ApiKeyListResponse> list_api_keys_api_v1_api_keys_get
+> <ApiKeyListResponse> list_api_keys
 
 List Api Keys
 
@@ -167,28 +167,28 @@ api_instance = InvoicePDFs::ApiKeysApi.new
 
 begin
   # List Api Keys
-  result = api_instance.list_api_keys_api_v1_api_keys_get
+  result = api_instance.list_api_keys
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->list_api_keys_api_v1_api_keys_get: #{e}"
+  puts "Error when calling ApiKeysApi->list_api_keys: #{e}"
 end
 ```
 
-#### Using the list_api_keys_api_v1_api_keys_get_with_http_info variant
+#### Using the list_api_keys_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiKeyListResponse>, Integer, Hash)> list_api_keys_api_v1_api_keys_get_with_http_info
+> <Array(<ApiKeyListResponse>, Integer, Hash)> list_api_keys_with_http_info
 
 ```ruby
 begin
   # List Api Keys
-  data, status_code, headers = api_instance.list_api_keys_api_v1_api_keys_get_with_http_info
+  data, status_code, headers = api_instance.list_api_keys_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiKeyListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->list_api_keys_api_v1_api_keys_get_with_http_info: #{e}"
+  puts "Error when calling ApiKeysApi->list_api_keys_with_http_info: #{e}"
 end
 ```
 
@@ -210,78 +210,9 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## patch_api_key_api_v1_api_keys_api_key_id_patch
+## revoke_api_key
 
-> <ApiKeyDetailResponse> patch_api_key_api_v1_api_keys_api_key_id_patch(api_key_id, api_key_patch_request)
-
-Patch Api Key
-
-### Examples
-
-```ruby
-require 'time'
-require 'invoicepdfs'
-# setup authorization
-InvoicePDFs.configure do |config|
-  # Configure Bearer authorization: HTTPBearer
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = InvoicePDFs::ApiKeysApi.new
-api_key_id = 'api_key_id_example' # String | 
-api_key_patch_request = InvoicePDFs::ApiKeyPatchRequest.new({name: 'name_example'}) # ApiKeyPatchRequest | 
-
-begin
-  # Patch Api Key
-  result = api_instance.patch_api_key_api_v1_api_keys_api_key_id_patch(api_key_id, api_key_patch_request)
-  p result
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->patch_api_key_api_v1_api_keys_api_key_id_patch: #{e}"
-end
-```
-
-#### Using the patch_api_key_api_v1_api_keys_api_key_id_patch_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ApiKeyDetailResponse>, Integer, Hash)> patch_api_key_api_v1_api_keys_api_key_id_patch_with_http_info(api_key_id, api_key_patch_request)
-
-```ruby
-begin
-  # Patch Api Key
-  data, status_code, headers = api_instance.patch_api_key_api_v1_api_keys_api_key_id_patch_with_http_info(api_key_id, api_key_patch_request)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ApiKeyDetailResponse>
-rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->patch_api_key_api_v1_api_keys_api_key_id_patch_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **api_key_id** | **String** |  |  |
-| **api_key_patch_request** | [**ApiKeyPatchRequest**](ApiKeyPatchRequest.md) |  |  |
-
-### Return type
-
-[**ApiKeyDetailResponse**](ApiKeyDetailResponse.md)
-
-### Authorization
-
-[HTTPBearer](../README.md#HTTPBearer)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## revoke_api_key_api_v1_api_keys_api_key_id_delete
-
-> <ApiKeyRevokeResponse> revoke_api_key_api_v1_api_keys_api_key_id_delete(api_key_id)
+> <ApiKeyRevokeResponse> revoke_api_key(api_key_id)
 
 Revoke Api Key
 
@@ -301,28 +232,28 @@ api_key_id = 'api_key_id_example' # String |
 
 begin
   # Revoke Api Key
-  result = api_instance.revoke_api_key_api_v1_api_keys_api_key_id_delete(api_key_id)
+  result = api_instance.revoke_api_key(api_key_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->revoke_api_key_api_v1_api_keys_api_key_id_delete: #{e}"
+  puts "Error when calling ApiKeysApi->revoke_api_key: #{e}"
 end
 ```
 
-#### Using the revoke_api_key_api_v1_api_keys_api_key_id_delete_with_http_info variant
+#### Using the revoke_api_key_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiKeyRevokeResponse>, Integer, Hash)> revoke_api_key_api_v1_api_keys_api_key_id_delete_with_http_info(api_key_id)
+> <Array(<ApiKeyRevokeResponse>, Integer, Hash)> revoke_api_key_with_http_info(api_key_id)
 
 ```ruby
 begin
   # Revoke Api Key
-  data, status_code, headers = api_instance.revoke_api_key_api_v1_api_keys_api_key_id_delete_with_http_info(api_key_id)
+  data, status_code, headers = api_instance.revoke_api_key_with_http_info(api_key_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiKeyRevokeResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->revoke_api_key_api_v1_api_keys_api_key_id_delete_with_http_info: #{e}"
+  puts "Error when calling ApiKeysApi->revoke_api_key_with_http_info: #{e}"
 end
 ```
 
@@ -346,9 +277,9 @@ end
 - **Accept**: application/json
 
 
-## rotate_api_key_api_v1_api_keys_api_key_id_rotate_post
+## rotate_api_key
 
-> <ApiKeyRotateResponse> rotate_api_key_api_v1_api_keys_api_key_id_rotate_post(api_key_id)
+> <ApiKeyRotateResponse> rotate_api_key(api_key_id)
 
 Rotate Api Key
 
@@ -370,28 +301,28 @@ api_key_id = 'api_key_id_example' # String |
 
 begin
   # Rotate Api Key
-  result = api_instance.rotate_api_key_api_v1_api_keys_api_key_id_rotate_post(api_key_id)
+  result = api_instance.rotate_api_key(api_key_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->rotate_api_key_api_v1_api_keys_api_key_id_rotate_post: #{e}"
+  puts "Error when calling ApiKeysApi->rotate_api_key: #{e}"
 end
 ```
 
-#### Using the rotate_api_key_api_v1_api_keys_api_key_id_rotate_post_with_http_info variant
+#### Using the rotate_api_key_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApiKeyRotateResponse>, Integer, Hash)> rotate_api_key_api_v1_api_keys_api_key_id_rotate_post_with_http_info(api_key_id)
+> <Array(<ApiKeyRotateResponse>, Integer, Hash)> rotate_api_key_with_http_info(api_key_id)
 
 ```ruby
 begin
   # Rotate Api Key
-  data, status_code, headers = api_instance.rotate_api_key_api_v1_api_keys_api_key_id_rotate_post_with_http_info(api_key_id)
+  data, status_code, headers = api_instance.rotate_api_key_with_http_info(api_key_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApiKeyRotateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling ApiKeysApi->rotate_api_key_api_v1_api_keys_api_key_id_rotate_post_with_http_info: #{e}"
+  puts "Error when calling ApiKeysApi->rotate_api_key_with_http_info: #{e}"
 end
 ```
 
@@ -412,5 +343,74 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_api_key
+
+> <ApiKeyDetailResponse> update_api_key(api_key_id, api_key_patch_request)
+
+Update Api Key
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::ApiKeysApi.new
+api_key_id = 'api_key_id_example' # String | 
+api_key_patch_request = InvoicePDFs::ApiKeyPatchRequest.new({name: 'name_example'}) # ApiKeyPatchRequest | 
+
+begin
+  # Update Api Key
+  result = api_instance.update_api_key(api_key_id, api_key_patch_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ApiKeysApi->update_api_key: #{e}"
+end
+```
+
+#### Using the update_api_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApiKeyDetailResponse>, Integer, Hash)> update_api_key_with_http_info(api_key_id, api_key_patch_request)
+
+```ruby
+begin
+  # Update Api Key
+  data, status_code, headers = api_instance.update_api_key_with_http_info(api_key_id, api_key_patch_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApiKeyDetailResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ApiKeysApi->update_api_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **api_key_id** | **String** |  |  |
+| **api_key_patch_request** | [**ApiKeyPatchRequest**](ApiKeyPatchRequest.md) |  |  |
+
+### Return type
+
+[**ApiKeyDetailResponse**](ApiKeyDetailResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

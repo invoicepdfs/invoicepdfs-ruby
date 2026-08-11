@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_tax_rate_api_v1_tax_rates_post**](TaxRatesApi.md#create_tax_rate_api_v1_tax_rates_post) | **POST** /api/v1/tax-rates | Create Tax Rate |
-| [**delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete**](TaxRatesApi.md#delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete) | **DELETE** /api/v1/tax-rates/{tax_rate_id} | Delete Tax Rate |
-| [**get_tax_rate_api_v1_tax_rates_tax_rate_id_get**](TaxRatesApi.md#get_tax_rate_api_v1_tax_rates_tax_rate_id_get) | **GET** /api/v1/tax-rates/{tax_rate_id} | Get Tax Rate |
-| [**list_tax_rates_api_v1_tax_rates_get**](TaxRatesApi.md#list_tax_rates_api_v1_tax_rates_get) | **GET** /api/v1/tax-rates | List Tax Rates |
-| [**update_tax_rate_api_v1_tax_rates_tax_rate_id_patch**](TaxRatesApi.md#update_tax_rate_api_v1_tax_rates_tax_rate_id_patch) | **PATCH** /api/v1/tax-rates/{tax_rate_id} | Update Tax Rate |
+| [**create_tax_rate**](TaxRatesApi.md#create_tax_rate) | **POST** /api/v1/tax-rates | Create Tax Rate |
+| [**delete_tax_rate**](TaxRatesApi.md#delete_tax_rate) | **DELETE** /api/v1/tax-rates/{tax_rate_id} | Delete Tax Rate |
+| [**get_tax_rate**](TaxRatesApi.md#get_tax_rate) | **GET** /api/v1/tax-rates/{tax_rate_id} | Get Tax Rate |
+| [**list_tax_rates**](TaxRatesApi.md#list_tax_rates) | **GET** /api/v1/tax-rates | List Tax Rates |
+| [**update_tax_rate**](TaxRatesApi.md#update_tax_rate) | **PATCH** /api/v1/tax-rates/{tax_rate_id} | Update Tax Rate |
 
 
-## create_tax_rate_api_v1_tax_rates_post
+## create_tax_rate
 
-> <TaxRateResponse> create_tax_rate_api_v1_tax_rates_post(tax_rate_create_request)
+> <TaxRateResponse> create_tax_rate(tax_rate_create_request)
 
 Create Tax Rate
 
@@ -33,28 +33,28 @@ tax_rate_create_request = InvoicePDFs::TaxRateCreateRequest.new({name: 'Californ
 
 begin
   # Create Tax Rate
-  result = api_instance.create_tax_rate_api_v1_tax_rates_post(tax_rate_create_request)
+  result = api_instance.create_tax_rate(tax_rate_create_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->create_tax_rate_api_v1_tax_rates_post: #{e}"
+  puts "Error when calling TaxRatesApi->create_tax_rate: #{e}"
 end
 ```
 
-#### Using the create_tax_rate_api_v1_tax_rates_post_with_http_info variant
+#### Using the create_tax_rate_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TaxRateResponse>, Integer, Hash)> create_tax_rate_api_v1_tax_rates_post_with_http_info(tax_rate_create_request)
+> <Array(<TaxRateResponse>, Integer, Hash)> create_tax_rate_with_http_info(tax_rate_create_request)
 
 ```ruby
 begin
   # Create Tax Rate
-  data, status_code, headers = api_instance.create_tax_rate_api_v1_tax_rates_post_with_http_info(tax_rate_create_request)
+  data, status_code, headers = api_instance.create_tax_rate_with_http_info(tax_rate_create_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TaxRateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->create_tax_rate_api_v1_tax_rates_post_with_http_info: #{e}"
+  puts "Error when calling TaxRatesApi->create_tax_rate_with_http_info: #{e}"
 end
 ```
 
@@ -78,9 +78,9 @@ end
 - **Accept**: application/json
 
 
-## delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete
+## delete_tax_rate
 
-> <SimpleBoolResponse> delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete(tax_rate_id)
+> <SimpleBoolResponse> delete_tax_rate(tax_rate_id)
 
 Delete Tax Rate
 
@@ -100,28 +100,28 @@ tax_rate_id = 'tax_rate_id_example' # String |
 
 begin
   # Delete Tax Rate
-  result = api_instance.delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete(tax_rate_id)
+  result = api_instance.delete_tax_rate(tax_rate_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete: #{e}"
+  puts "Error when calling TaxRatesApi->delete_tax_rate: #{e}"
 end
 ```
 
-#### Using the delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete_with_http_info variant
+#### Using the delete_tax_rate_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete_with_http_info(tax_rate_id)
+> <Array(<SimpleBoolResponse>, Integer, Hash)> delete_tax_rate_with_http_info(tax_rate_id)
 
 ```ruby
 begin
   # Delete Tax Rate
-  data, status_code, headers = api_instance.delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete_with_http_info(tax_rate_id)
+  data, status_code, headers = api_instance.delete_tax_rate_with_http_info(tax_rate_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SimpleBoolResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->delete_tax_rate_api_v1_tax_rates_tax_rate_id_delete_with_http_info: #{e}"
+  puts "Error when calling TaxRatesApi->delete_tax_rate_with_http_info: #{e}"
 end
 ```
 
@@ -145,9 +145,9 @@ end
 - **Accept**: application/json
 
 
-## get_tax_rate_api_v1_tax_rates_tax_rate_id_get
+## get_tax_rate
 
-> <TaxRateResponse> get_tax_rate_api_v1_tax_rates_tax_rate_id_get(tax_rate_id)
+> <TaxRateResponse> get_tax_rate(tax_rate_id)
 
 Get Tax Rate
 
@@ -167,28 +167,28 @@ tax_rate_id = 'tax_rate_id_example' # String |
 
 begin
   # Get Tax Rate
-  result = api_instance.get_tax_rate_api_v1_tax_rates_tax_rate_id_get(tax_rate_id)
+  result = api_instance.get_tax_rate(tax_rate_id)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->get_tax_rate_api_v1_tax_rates_tax_rate_id_get: #{e}"
+  puts "Error when calling TaxRatesApi->get_tax_rate: #{e}"
 end
 ```
 
-#### Using the get_tax_rate_api_v1_tax_rates_tax_rate_id_get_with_http_info variant
+#### Using the get_tax_rate_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TaxRateResponse>, Integer, Hash)> get_tax_rate_api_v1_tax_rates_tax_rate_id_get_with_http_info(tax_rate_id)
+> <Array(<TaxRateResponse>, Integer, Hash)> get_tax_rate_with_http_info(tax_rate_id)
 
 ```ruby
 begin
   # Get Tax Rate
-  data, status_code, headers = api_instance.get_tax_rate_api_v1_tax_rates_tax_rate_id_get_with_http_info(tax_rate_id)
+  data, status_code, headers = api_instance.get_tax_rate_with_http_info(tax_rate_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TaxRateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->get_tax_rate_api_v1_tax_rates_tax_rate_id_get_with_http_info: #{e}"
+  puts "Error when calling TaxRatesApi->get_tax_rate_with_http_info: #{e}"
 end
 ```
 
@@ -212,9 +212,9 @@ end
 - **Accept**: application/json
 
 
-## list_tax_rates_api_v1_tax_rates_get
+## list_tax_rates
 
-> <TaxRatesListResponse> list_tax_rates_api_v1_tax_rates_get(opts)
+> <TaxRatesListResponse> list_tax_rates(opts)
 
 List Tax Rates
 
@@ -237,28 +237,28 @@ opts = {
 
 begin
   # List Tax Rates
-  result = api_instance.list_tax_rates_api_v1_tax_rates_get(opts)
+  result = api_instance.list_tax_rates(opts)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->list_tax_rates_api_v1_tax_rates_get: #{e}"
+  puts "Error when calling TaxRatesApi->list_tax_rates: #{e}"
 end
 ```
 
-#### Using the list_tax_rates_api_v1_tax_rates_get_with_http_info variant
+#### Using the list_tax_rates_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TaxRatesListResponse>, Integer, Hash)> list_tax_rates_api_v1_tax_rates_get_with_http_info(opts)
+> <Array(<TaxRatesListResponse>, Integer, Hash)> list_tax_rates_with_http_info(opts)
 
 ```ruby
 begin
   # List Tax Rates
-  data, status_code, headers = api_instance.list_tax_rates_api_v1_tax_rates_get_with_http_info(opts)
+  data, status_code, headers = api_instance.list_tax_rates_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TaxRatesListResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->list_tax_rates_api_v1_tax_rates_get_with_http_info: #{e}"
+  puts "Error when calling TaxRatesApi->list_tax_rates_with_http_info: #{e}"
 end
 ```
 
@@ -283,9 +283,9 @@ end
 - **Accept**: application/json
 
 
-## update_tax_rate_api_v1_tax_rates_tax_rate_id_patch
+## update_tax_rate
 
-> <TaxRateResponse> update_tax_rate_api_v1_tax_rates_tax_rate_id_patch(tax_rate_id, tax_rate_patch_request)
+> <TaxRateResponse> update_tax_rate(tax_rate_id, tax_rate_patch_request)
 
 Update Tax Rate
 
@@ -306,28 +306,28 @@ tax_rate_patch_request = InvoicePDFs::TaxRatePatchRequest.new # TaxRatePatchRequ
 
 begin
   # Update Tax Rate
-  result = api_instance.update_tax_rate_api_v1_tax_rates_tax_rate_id_patch(tax_rate_id, tax_rate_patch_request)
+  result = api_instance.update_tax_rate(tax_rate_id, tax_rate_patch_request)
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->update_tax_rate_api_v1_tax_rates_tax_rate_id_patch: #{e}"
+  puts "Error when calling TaxRatesApi->update_tax_rate: #{e}"
 end
 ```
 
-#### Using the update_tax_rate_api_v1_tax_rates_tax_rate_id_patch_with_http_info variant
+#### Using the update_tax_rate_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TaxRateResponse>, Integer, Hash)> update_tax_rate_api_v1_tax_rates_tax_rate_id_patch_with_http_info(tax_rate_id, tax_rate_patch_request)
+> <Array(<TaxRateResponse>, Integer, Hash)> update_tax_rate_with_http_info(tax_rate_id, tax_rate_patch_request)
 
 ```ruby
 begin
   # Update Tax Rate
-  data, status_code, headers = api_instance.update_tax_rate_api_v1_tax_rates_tax_rate_id_patch_with_http_info(tax_rate_id, tax_rate_patch_request)
+  data, status_code, headers = api_instance.update_tax_rate_with_http_info(tax_rate_id, tax_rate_patch_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TaxRateResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling TaxRatesApi->update_tax_rate_api_v1_tax_rates_tax_rate_id_patch_with_http_info: #{e}"
+  puts "Error when calling TaxRatesApi->update_tax_rate_with_http_info: #{e}"
 end
 ```
 

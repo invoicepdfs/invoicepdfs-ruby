@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get_stats_api_v1_stats_get**](StatsApi.md#get_stats_api_v1_stats_get) | **GET** /api/v1/stats | Get Stats |
+| [**get_stats**](StatsApi.md#get_stats) | **GET** /api/v1/stats | Get Stats |
 
 
-## get_stats_api_v1_stats_get
+## get_stats
 
-> <StatsResponse> get_stats_api_v1_stats_get
+> <StatsResponse> get_stats
 
 Get Stats
 
@@ -28,28 +28,28 @@ api_instance = InvoicePDFs::StatsApi.new
 
 begin
   # Get Stats
-  result = api_instance.get_stats_api_v1_stats_get
+  result = api_instance.get_stats
   p result
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling StatsApi->get_stats_api_v1_stats_get: #{e}"
+  puts "Error when calling StatsApi->get_stats: #{e}"
 end
 ```
 
-#### Using the get_stats_api_v1_stats_get_with_http_info variant
+#### Using the get_stats_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<StatsResponse>, Integer, Hash)> get_stats_api_v1_stats_get_with_http_info
+> <Array(<StatsResponse>, Integer, Hash)> get_stats_with_http_info
 
 ```ruby
 begin
   # Get Stats
-  data, status_code, headers = api_instance.get_stats_api_v1_stats_get_with_http_info
+  data, status_code, headers = api_instance.get_stats_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <StatsResponse>
 rescue InvoicePDFs::ApiError => e
-  puts "Error when calling StatsApi->get_stats_api_v1_stats_get_with_http_info: #{e}"
+  puts "Error when calling StatsApi->get_stats_with_http_info: #{e}"
 end
 ```
 
