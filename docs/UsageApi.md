@@ -75,7 +75,7 @@ This endpoint does not need any parameter.
 
 ## get_usage_limits
 
-> Hash&lt;String, Object&gt; get_usage_limits
+> <UsageLimitsResponse> get_usage_limits
 
 Get Usage Limits
 
@@ -105,7 +105,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_usage_limits_with_http_info
+> <Array(<UsageLimitsResponse>, Integer, Hash)> get_usage_limits_with_http_info
 
 ```ruby
 begin
@@ -113,7 +113,7 @@ begin
   data, status_code, headers = api_instance.get_usage_limits_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <UsageLimitsResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling UsageApi->get_usage_limits_with_http_info: #{e}"
 end
@@ -125,7 +125,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**UsageLimitsResponse**](UsageLimitsResponse.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ This endpoint does not need any parameter.
 
 ## list_usage_events
 
-> Hash&lt;String, Object&gt; list_usage_events(opts)
+> <UsageEventsListResponse> list_usage_events(opts)
 
 List Usage Events
 
@@ -173,7 +173,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_usage_events_with_http_info(opts)
+> <Array(<UsageEventsListResponse>, Integer, Hash)> list_usage_events_with_http_info(opts)
 
 ```ruby
 begin
@@ -181,7 +181,7 @@ begin
   data, status_code, headers = api_instance.list_usage_events_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <UsageEventsListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling UsageApi->list_usage_events_with_http_info: #{e}"
 end
@@ -196,7 +196,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**UsageEventsListResponse**](UsageEventsListResponse.md)
 
 ### Authorization
 

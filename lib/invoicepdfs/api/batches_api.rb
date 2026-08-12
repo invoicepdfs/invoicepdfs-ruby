@@ -149,7 +149,7 @@ module InvoicePDFs
     # Download Batch
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Object]
+    # @return [File]
     def download_batch(batch_id, opts = {})
       data, _status_code, _headers = download_batch_with_http_info(batch_id, opts)
       data
@@ -158,7 +158,7 @@ module InvoicePDFs
     # Download Batch
     # @param batch_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_batch_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BatchesApi.download_batch ...'
@@ -176,7 +176,7 @@ module InvoicePDFs
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/zip', 'application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -185,7 +185,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'File'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']

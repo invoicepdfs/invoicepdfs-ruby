@@ -14,7 +14,7 @@ All URIs are relative to *http://localhost*
 
 ## list_countries
 
-> Hash&lt;String, Object&gt; list_countries
+> <CountriesListResponse> list_countries
 
 List Countries
 
@@ -39,7 +39,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_countries_with_http_info
+> <Array(<CountriesListResponse>, Integer, Hash)> list_countries_with_http_info
 
 ```ruby
 begin
@@ -47,7 +47,7 @@ begin
   data, status_code, headers = api_instance.list_countries_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <CountriesListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling ReferenceApi->list_countries_with_http_info: #{e}"
 end
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**CountriesListResponse**](CountriesListResponse.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ No authorization required
 
 ## list_currencies
 
-> Hash&lt;String, Object&gt; list_currencies
+> <CurrenciesListResponse> list_currencies
 
 List Currencies
 
@@ -98,7 +98,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_currencies_with_http_info
+> <Array(<CurrenciesListResponse>, Integer, Hash)> list_currencies_with_http_info
 
 ```ruby
 begin
@@ -106,7 +106,7 @@ begin
   data, status_code, headers = api_instance.list_currencies_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <CurrenciesListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling ReferenceApi->list_currencies_with_http_info: #{e}"
 end
@@ -118,7 +118,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**CurrenciesListResponse**](CurrenciesListResponse.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 
 ## list_document_types
 
-> Hash&lt;String, Object&gt; list_document_types
+> <DocumentTypesListResponse> list_document_types
 
 List Document Types
 
@@ -159,7 +159,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_document_types_with_http_info
+> <Array(<DocumentTypesListResponse>, Integer, Hash)> list_document_types_with_http_info
 
 ```ruby
 begin
@@ -167,7 +167,7 @@ begin
   data, status_code, headers = api_instance.list_document_types_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <DocumentTypesListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling ReferenceApi->list_document_types_with_http_info: #{e}"
 end
@@ -179,7 +179,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**DocumentTypesListResponse**](DocumentTypesListResponse.md)
 
 ### Authorization
 
@@ -193,7 +193,7 @@ No authorization required
 
 ## list_locales
 
-> Hash&lt;String, Object&gt; list_locales
+> <LocalesListResponse> list_locales
 
 List Locales
 
@@ -218,7 +218,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_locales_with_http_info
+> <Array(<LocalesListResponse>, Integer, Hash)> list_locales_with_http_info
 
 ```ruby
 begin
@@ -226,7 +226,7 @@ begin
   data, status_code, headers = api_instance.list_locales_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <LocalesListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling ReferenceApi->list_locales_with_http_info: #{e}"
 end
@@ -238,7 +238,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**LocalesListResponse**](LocalesListResponse.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ No authorization required
 
 ## list_page_sizes
 
-> Hash&lt;String, Object&gt; list_page_sizes
+> <PageSizesListResponse> list_page_sizes
 
 List Page Sizes
 
@@ -277,7 +277,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_page_sizes_with_http_info
+> <Array(<PageSizesListResponse>, Integer, Hash)> list_page_sizes_with_http_info
 
 ```ruby
 begin
@@ -285,7 +285,7 @@ begin
   data, status_code, headers = api_instance.list_page_sizes_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <PageSizesListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling ReferenceApi->list_page_sizes_with_http_info: #{e}"
 end
@@ -297,7 +297,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**PageSizesListResponse**](PageSizesListResponse.md)
 
 ### Authorization
 
@@ -311,7 +311,7 @@ No authorization required
 
 ## list_timezones
 
-> Hash&lt;String, Object&gt; list_timezones
+> <TimezonesListResponse> list_timezones
 
 List Timezones
 
@@ -336,7 +336,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> list_timezones_with_http_info
+> <Array(<TimezonesListResponse>, Integer, Hash)> list_timezones_with_http_info
 
 ```ruby
 begin
@@ -344,7 +344,7 @@ begin
   data, status_code, headers = api_instance.list_timezones_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <TimezonesListResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling ReferenceApi->list_timezones_with_http_info: #{e}"
 end
@@ -356,7 +356,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**TimezonesListResponse**](TimezonesListResponse.md)
 
 ### Authorization
 

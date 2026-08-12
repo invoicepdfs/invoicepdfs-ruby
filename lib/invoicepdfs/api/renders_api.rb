@@ -83,7 +83,7 @@ module InvoicePDFs
     # Get Render
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [RenderResponse]
     def get_render(render_id, opts = {})
       data, _status_code, _headers = get_render_with_http_info(render_id, opts)
       data
@@ -92,7 +92,7 @@ module InvoicePDFs
     # Get Render
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(RenderResponse, Integer, Hash)>] RenderResponse data, response status code and response headers
     def get_render_with_http_info(render_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RendersApi.get_render ...'
@@ -119,7 +119,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'RenderResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']

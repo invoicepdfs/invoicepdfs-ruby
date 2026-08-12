@@ -519,7 +519,7 @@ module InvoicePDFs
     # @param document_render_request [DocumentRenderRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
-    # @return [Object]
+    # @return [RenderResponse]
     def preview_template(template_id, document_render_request, opts = {})
       data, _status_code, _headers = preview_template_with_http_info(template_id, document_render_request, opts)
       data
@@ -530,7 +530,7 @@ module InvoicePDFs
     # @param document_render_request [DocumentRenderRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
-    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    # @return [Array<(RenderResponse, Integer, Hash)>] RenderResponse data, response status code and response headers
     def preview_template_with_http_info(template_id, document_render_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TemplatesApi.preview_template ...'
@@ -552,7 +552,7 @@ module InvoicePDFs
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/pdf'])
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
@@ -567,7 +567,7 @@ module InvoicePDFs
       post_body = opts[:debug_body] || @api_client.object_to_http_body(document_render_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Object'
+      return_type = opts[:debug_return_type] || 'RenderResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']

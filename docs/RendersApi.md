@@ -77,7 +77,7 @@ end
 
 ## get_render
 
-> Hash&lt;String, Object&gt; get_render(render_id)
+> <RenderResponse> get_render(render_id)
 
 Get Render
 
@@ -108,7 +108,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Hash&lt;String, Object&gt;, Integer, Hash)> get_render_with_http_info(render_id)
+> <Array(<RenderResponse>, Integer, Hash)> get_render_with_http_info(render_id)
 
 ```ruby
 begin
@@ -116,7 +116,7 @@ begin
   data, status_code, headers = api_instance.get_render_with_http_info(render_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Hash&lt;String, Object&gt;
+  p data # => <RenderResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling RendersApi->get_render_with_http_info: #{e}"
 end
@@ -130,7 +130,7 @@ end
 
 ### Return type
 
-**Hash&lt;String, Object&gt;**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 

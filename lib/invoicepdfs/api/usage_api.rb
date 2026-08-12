@@ -76,7 +76,7 @@ module InvoicePDFs
 
     # Get Usage Limits
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [UsageLimitsResponse]
     def get_usage_limits(opts = {})
       data, _status_code, _headers = get_usage_limits_with_http_info(opts)
       data
@@ -84,7 +84,7 @@ module InvoicePDFs
 
     # Get Usage Limits
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(UsageLimitsResponse, Integer, Hash)>] UsageLimitsResponse data, response status code and response headers
     def get_usage_limits_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageApi.get_usage_limits ...'
@@ -107,7 +107,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'UsageLimitsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
@@ -133,7 +133,7 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
-    # @return [Hash<String, Object>]
+    # @return [UsageEventsListResponse]
     def list_usage_events(opts = {})
       data, _status_code, _headers = list_usage_events_with_http_info(opts)
       data
@@ -143,7 +143,7 @@ module InvoicePDFs
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(UsageEventsListResponse, Integer, Hash)>] UsageEventsListResponse data, response status code and response headers
     def list_usage_events_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsageApi.list_usage_events ...'
@@ -176,7 +176,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'UsageEventsListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']

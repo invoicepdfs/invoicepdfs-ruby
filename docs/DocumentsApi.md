@@ -232,7 +232,7 @@ end
 
 ## create_document_render
 
-> Object create_document_render(document_id, document_render_options, opts)
+> <RenderResponse> create_document_render(document_id, document_render_options, opts)
 
 Create Document Render
 
@@ -267,7 +267,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> create_document_render_with_http_info(document_id, document_render_options, opts)
+> <Array(<RenderResponse>, Integer, Hash)> create_document_render_with_http_info(document_id, document_render_options, opts)
 
 ```ruby
 begin
@@ -275,7 +275,7 @@ begin
   data, status_code, headers = api_instance.create_document_render_with_http_info(document_id, document_render_options, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <RenderResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling DocumentsApi->create_document_render_with_http_info: #{e}"
 end
@@ -291,7 +291,7 @@ end
 
 ### Return type
 
-**Object**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 
@@ -922,7 +922,7 @@ end
 
 ## render_document
 
-> Object render_document(document_render_request, opts)
+> <RenderResponse> render_document(document_render_request, opts)
 
 Render Document
 
@@ -956,7 +956,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> render_document_with_http_info(document_render_request, opts)
+> <Array(<RenderResponse>, Integer, Hash)> render_document_with_http_info(document_render_request, opts)
 
 ```ruby
 begin
@@ -964,7 +964,7 @@ begin
   data, status_code, headers = api_instance.render_document_with_http_info(document_render_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <RenderResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling DocumentsApi->render_document_with_http_info: #{e}"
 end
@@ -979,7 +979,7 @@ end
 
 ### Return type
 
-**Object**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 
@@ -988,7 +988,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, application/pdf
 
 
 ## restore_document

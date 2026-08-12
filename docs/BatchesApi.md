@@ -148,7 +148,7 @@ end
 
 ## download_batch
 
-> Object download_batch(batch_id)
+> File download_batch(batch_id)
 
 Download Batch
 
@@ -179,7 +179,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> download_batch_with_http_info(batch_id)
+> <Array(File, Integer, Hash)> download_batch_with_http_info(batch_id)
 
 ```ruby
 begin
@@ -187,7 +187,7 @@ begin
   data, status_code, headers = api_instance.download_batch_with_http_info(batch_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => File
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling BatchesApi->download_batch_with_http_info: #{e}"
 end
@@ -201,7 +201,7 @@ end
 
 ### Return type
 
-**Object**
+**File**
 
 ### Authorization
 
@@ -210,7 +210,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/zip, application/json
 
 
 ## get_batch

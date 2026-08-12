@@ -21,7 +21,7 @@ module InvoicePDFs
     end
     # List Countries
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [CountriesListResponse]
     def list_countries(opts = {})
       data, _status_code, _headers = list_countries_with_http_info(opts)
       data
@@ -29,7 +29,7 @@ module InvoicePDFs
 
     # List Countries
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(CountriesListResponse, Integer, Hash)>] CountriesListResponse data, response status code and response headers
     def list_countries_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceApi.list_countries ...'
@@ -52,7 +52,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'CountriesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -76,7 +76,7 @@ module InvoicePDFs
 
     # List Currencies
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [CurrenciesListResponse]
     def list_currencies(opts = {})
       data, _status_code, _headers = list_currencies_with_http_info(opts)
       data
@@ -84,7 +84,7 @@ module InvoicePDFs
 
     # List Currencies
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(CurrenciesListResponse, Integer, Hash)>] CurrenciesListResponse data, response status code and response headers
     def list_currencies_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceApi.list_currencies ...'
@@ -107,7 +107,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'CurrenciesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -132,7 +132,7 @@ module InvoicePDFs
     # List Document Types
     # List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (``standard`` = priced, ``shipped`` = quantities only), and the lifecycle actions available to it.
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [DocumentTypesListResponse]
     def list_document_types(opts = {})
       data, _status_code, _headers = list_document_types_with_http_info(opts)
       data
@@ -141,7 +141,7 @@ module InvoicePDFs
     # List Document Types
     # List every supported document type with the metadata a client needs to build a type-aware create form: the number prefix, whether it is payable / takes a source document / supports a reason, which line-item shape it uses (&#x60;&#x60;standard&#x60;&#x60; &#x3D; priced, &#x60;&#x60;shipped&#x60;&#x60; &#x3D; quantities only), and the lifecycle actions available to it.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(DocumentTypesListResponse, Integer, Hash)>] DocumentTypesListResponse data, response status code and response headers
     def list_document_types_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceApi.list_document_types ...'
@@ -164,7 +164,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'DocumentTypesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -188,7 +188,7 @@ module InvoicePDFs
 
     # List Locales
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [LocalesListResponse]
     def list_locales(opts = {})
       data, _status_code, _headers = list_locales_with_http_info(opts)
       data
@@ -196,7 +196,7 @@ module InvoicePDFs
 
     # List Locales
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(LocalesListResponse, Integer, Hash)>] LocalesListResponse data, response status code and response headers
     def list_locales_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceApi.list_locales ...'
@@ -219,7 +219,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'LocalesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -243,7 +243,7 @@ module InvoicePDFs
 
     # List Page Sizes
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [PageSizesListResponse]
     def list_page_sizes(opts = {})
       data, _status_code, _headers = list_page_sizes_with_http_info(opts)
       data
@@ -251,7 +251,7 @@ module InvoicePDFs
 
     # List Page Sizes
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(PageSizesListResponse, Integer, Hash)>] PageSizesListResponse data, response status code and response headers
     def list_page_sizes_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceApi.list_page_sizes ...'
@@ -274,7 +274,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'PageSizesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []
@@ -298,7 +298,7 @@ module InvoicePDFs
 
     # List Timezones
     # @param [Hash] opts the optional parameters
-    # @return [Hash<String, Object>]
+    # @return [TimezonesListResponse]
     def list_timezones(opts = {})
       data, _status_code, _headers = list_timezones_with_http_info(opts)
       data
@@ -306,7 +306,7 @@ module InvoicePDFs
 
     # List Timezones
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Hash<String, Object>, Integer, Hash)>] Hash<String, Object> data, response status code and response headers
+    # @return [Array<(TimezonesListResponse, Integer, Hash)>] TimezonesListResponse data, response status code and response headers
     def list_timezones_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReferenceApi.list_timezones ...'
@@ -329,7 +329,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Hash<String, Object>'
+      return_type = opts[:debug_return_type] || 'TimezonesListResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || []

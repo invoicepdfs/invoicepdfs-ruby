@@ -555,7 +555,7 @@ This endpoint does not need any parameter.
 
 ## preview_template
 
-> Object preview_template(template_id, document_render_request, opts)
+> <RenderResponse> preview_template(template_id, document_render_request, opts)
 
 Preview Template
 
@@ -590,7 +590,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> preview_template_with_http_info(template_id, document_render_request, opts)
+> <Array(<RenderResponse>, Integer, Hash)> preview_template_with_http_info(template_id, document_render_request, opts)
 
 ```ruby
 begin
@@ -598,7 +598,7 @@ begin
   data, status_code, headers = api_instance.preview_template_with_http_info(template_id, document_render_request, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => Object
+  p data # => <RenderResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling TemplatesApi->preview_template_with_http_info: #{e}"
 end
@@ -614,7 +614,7 @@ end
 
 ### Return type
 
-**Object**
+[**RenderResponse**](RenderResponse.md)
 
 ### Authorization
 
@@ -623,7 +623,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, application/pdf
 
 
 ## publish_template
