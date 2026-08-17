@@ -134,7 +134,7 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      document_type_validator = EnumAttributeValidator.new('String', ["invoice"])
+      document_type_validator = EnumAttributeValidator.new('String', ["invoice", "credit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
       return false unless document_type_validator.valid?(@document_type)
       return false if @data.nil?
       return false if @template.nil?
@@ -144,7 +144,7 @@ module InvoicePDFs
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] document_type Object to be assigned
     def document_type=(document_type)
-      validator = EnumAttributeValidator.new('String', ["invoice"])
+      validator = EnumAttributeValidator.new('String', ["invoice", "credit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
       unless validator.valid?(document_type)
         fail ArgumentError, "invalid value for \"document_type\", must be one of #{validator.allowable_values}."
       end
