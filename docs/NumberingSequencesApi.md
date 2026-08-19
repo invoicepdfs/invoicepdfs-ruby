@@ -15,7 +15,7 @@ All URIs are relative to *http://localhost*
 
 ## consume_sequence_number
 
-> <NumberingSequenceResponse> consume_sequence_number(sequence_id)
+> <NumberingNextResponse> consume_sequence_number(sequence_id)
 
 Consume Sequence Number
 
@@ -48,7 +48,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<NumberingSequenceResponse>, Integer, Hash)> consume_sequence_number_with_http_info(sequence_id)
+> <Array(<NumberingNextResponse>, Integer, Hash)> consume_sequence_number_with_http_info(sequence_id)
 
 ```ruby
 begin
@@ -56,7 +56,7 @@ begin
   data, status_code, headers = api_instance.consume_sequence_number_with_http_info(sequence_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <NumberingSequenceResponse>
+  p data # => <NumberingNextResponse>
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling NumberingSequencesApi->consume_sequence_number_with_http_info: #{e}"
 end
@@ -70,7 +70,7 @@ end
 
 ### Return type
 
-[**NumberingSequenceResponse**](NumberingSequenceResponse.md)
+[**NumberingNextResponse**](NumberingNextResponse.md)
 
 ### Authorization
 

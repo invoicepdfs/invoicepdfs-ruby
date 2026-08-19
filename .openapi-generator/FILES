@@ -154,6 +154,8 @@ docs/LocalesListResponse.md
 docs/LogsApi.md
 docs/Money.md
 docs/MoneyOut.md
+docs/NumberingNextOut.md
+docs/NumberingNextResponse.md
 docs/NumberingSequenceCreateRequest.md
 docs/NumberingSequenceOut.md
 docs/NumberingSequencePatchRequest.md
@@ -407,6 +409,8 @@ lib/invoicepdfs/models/locale_out.rb
 lib/invoicepdfs/models/locales_list_response.rb
 lib/invoicepdfs/models/money.rb
 lib/invoicepdfs/models/money_out.rb
+lib/invoicepdfs/models/numbering_next_out.rb
+lib/invoicepdfs/models/numbering_next_response.rb
 lib/invoicepdfs/models/numbering_sequence_create_request.rb
 lib/invoicepdfs/models/numbering_sequence_out.rb
 lib/invoicepdfs/models/numbering_sequence_patch_request.rb
@@ -482,4 +486,6 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
+spec/models/numbering_next_out_spec.rb
+spec/models/numbering_next_response_spec.rb
 spec/spec_helper.rb

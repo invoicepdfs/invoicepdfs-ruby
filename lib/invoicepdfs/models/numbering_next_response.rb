@@ -14,28 +14,13 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class CalculationBreakdown
-    attr_accessor :subtotal
-
-    attr_accessor :discount_total
-
-    attr_accessor :document_discount_total
-
-    attr_accessor :tax_total
-
-    attr_accessor :shipping_total
-
-    attr_accessor :total
+  class NumberingNextResponse
+    attr_accessor :data
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'subtotal' => :'subtotal',
-        :'discount_total' => :'discount_total',
-        :'document_discount_total' => :'document_discount_total',
-        :'tax_total' => :'tax_total',
-        :'shipping_total' => :'shipping_total',
-        :'total' => :'total'
+        :'data' => :'data'
       }
     end
 
@@ -47,12 +32,7 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'subtotal' => :'Money',
-        :'discount_total' => :'Money',
-        :'document_discount_total' => :'Money',
-        :'tax_total' => :'Money',
-        :'shipping_total' => :'Money',
-        :'total' => :'Money'
+        :'data' => :'NumberingNextOut'
       }
     end
 
@@ -66,49 +46,21 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::CalculationBreakdown` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::NumberingNextResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::CalculationBreakdown`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::NumberingNextResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'subtotal')
-        self.subtotal = attributes[:'subtotal']
+      if attributes.key?(:'data')
+        self.data = attributes[:'data']
       else
-        self.subtotal = nil
-      end
-
-      if attributes.key?(:'discount_total')
-        self.discount_total = attributes[:'discount_total']
-      else
-        self.discount_total = nil
-      end
-
-      if attributes.key?(:'document_discount_total')
-        self.document_discount_total = attributes[:'document_discount_total']
-      end
-
-      if attributes.key?(:'tax_total')
-        self.tax_total = attributes[:'tax_total']
-      else
-        self.tax_total = nil
-      end
-
-      if attributes.key?(:'shipping_total')
-        self.shipping_total = attributes[:'shipping_total']
-      else
-        self.shipping_total = nil
-      end
-
-      if attributes.key?(:'total')
-        self.total = attributes[:'total']
-      else
-        self.total = nil
+        self.data = nil
       end
     end
 
@@ -117,24 +69,8 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @subtotal.nil?
-        invalid_properties.push('invalid value for "subtotal", subtotal cannot be nil.')
-      end
-
-      if @discount_total.nil?
-        invalid_properties.push('invalid value for "discount_total", discount_total cannot be nil.')
-      end
-
-      if @tax_total.nil?
-        invalid_properties.push('invalid value for "tax_total", tax_total cannot be nil.')
-      end
-
-      if @shipping_total.nil?
-        invalid_properties.push('invalid value for "shipping_total", shipping_total cannot be nil.')
-      end
-
-      if @total.nil?
-        invalid_properties.push('invalid value for "total", total cannot be nil.')
+      if @data.nil?
+        invalid_properties.push('invalid value for "data", data cannot be nil.')
       end
 
       invalid_properties
@@ -144,11 +80,7 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @subtotal.nil?
-      return false if @discount_total.nil?
-      return false if @tax_total.nil?
-      return false if @shipping_total.nil?
-      return false if @total.nil?
+      return false if @data.nil?
       true
     end
 
@@ -157,12 +89,7 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          subtotal == o.subtotal &&
-          discount_total == o.discount_total &&
-          document_discount_total == o.document_discount_total &&
-          tax_total == o.tax_total &&
-          shipping_total == o.shipping_total &&
-          total == o.total
+          data == o.data
     end
 
     # @see the `==` method
@@ -174,7 +101,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subtotal, discount_total, document_discount_total, tax_total, shipping_total, total].hash
+      [data].hash
     end
 
     # Builds the object from hash

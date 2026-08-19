@@ -23,7 +23,7 @@ module InvoicePDFs
     # Consume and return the next number, incrementing the counter.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [NumberingSequenceResponse]
+    # @return [NumberingNextResponse]
     def consume_sequence_number(sequence_id, opts = {})
       data, _status_code, _headers = consume_sequence_number_with_http_info(sequence_id, opts)
       data
@@ -33,7 +33,7 @@ module InvoicePDFs
     # Consume and return the next number, incrementing the counter.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
+    # @return [Array<(NumberingNextResponse, Integer, Hash)>] NumberingNextResponse data, response status code and response headers
     def consume_sequence_number_with_http_info(sequence_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NumberingSequencesApi.consume_sequence_number ...'
@@ -60,7 +60,7 @@ module InvoicePDFs
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'NumberingSequenceResponse'
+      return_type = opts[:debug_return_type] || 'NumberingNextResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
