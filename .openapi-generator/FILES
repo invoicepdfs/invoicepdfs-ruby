@@ -486,6 +486,4 @@ lib/invoicepdfs/models/workspace_patch_request.rb
 lib/invoicepdfs/models/workspace_response.rb
 lib/invoicepdfs/models/workspaces_list_response.rb
 lib/invoicepdfs/version.rb
-spec/models/numbering_next_out_spec.rb
-spec/models/numbering_next_response_spec.rb
 spec/spec_helper.rb
