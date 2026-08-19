@@ -15,9 +15,13 @@ require 'time'
 
 module InvoicePDFs
   class InvoiceTotalsOut
+    attr_accessor :gross_subtotal
+
     attr_accessor :subtotal
 
     attr_accessor :discount_total
+
+    attr_accessor :document_discount_total
 
     attr_accessor :tax_total
 
@@ -28,8 +32,10 @@ module InvoicePDFs
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'gross_subtotal' => :'gross_subtotal',
         :'subtotal' => :'subtotal',
         :'discount_total' => :'discount_total',
+        :'document_discount_total' => :'document_discount_total',
         :'tax_total' => :'tax_total',
         :'shipping_total' => :'shipping_total',
         :'total' => :'total'
@@ -44,8 +50,10 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'gross_subtotal' => :'MoneyOut',
         :'subtotal' => :'MoneyOut',
         :'discount_total' => :'MoneyOut',
+        :'document_discount_total' => :'MoneyOut',
         :'tax_total' => :'MoneyOut',
         :'shipping_total' => :'MoneyOut',
         :'total' => :'MoneyOut'
@@ -73,6 +81,10 @@ module InvoicePDFs
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'gross_subtotal')
+        self.gross_subtotal = attributes[:'gross_subtotal']
+      end
+
       if attributes.key?(:'subtotal')
         self.subtotal = attributes[:'subtotal']
       else
@@ -83,6 +95,10 @@ module InvoicePDFs
         self.discount_total = attributes[:'discount_total']
       else
         self.discount_total = nil
+      end
+
+      if attributes.key?(:'document_discount_total')
+        self.document_discount_total = attributes[:'document_discount_total']
       end
 
       if attributes.key?(:'tax_total')
@@ -149,8 +165,10 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          gross_subtotal == o.gross_subtotal &&
           subtotal == o.subtotal &&
           discount_total == o.discount_total &&
+          document_discount_total == o.document_discount_total &&
           tax_total == o.tax_total &&
           shipping_total == o.shipping_total &&
           total == o.total
@@ -165,7 +183,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subtotal, discount_total, tax_total, shipping_total, total].hash
+      [gross_subtotal, subtotal, discount_total, document_discount_total, tax_total, shipping_total, total].hash
     end
 
     # Builds the object from hash
