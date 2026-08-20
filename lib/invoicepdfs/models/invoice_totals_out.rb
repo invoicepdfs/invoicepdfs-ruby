@@ -29,6 +29,10 @@ module InvoicePDFs
 
     attr_accessor :total
 
+    attr_accessor :recomputed_total
+
+    attr_accessor :totals_drift
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -38,7 +42,9 @@ module InvoicePDFs
         :'document_discount_total' => :'document_discount_total',
         :'tax_total' => :'tax_total',
         :'shipping_total' => :'shipping_total',
-        :'total' => :'total'
+        :'total' => :'total',
+        :'recomputed_total' => :'recomputed_total',
+        :'totals_drift' => :'totals_drift'
       }
     end
 
@@ -56,13 +62,17 @@ module InvoicePDFs
         :'document_discount_total' => :'MoneyOut',
         :'tax_total' => :'MoneyOut',
         :'shipping_total' => :'MoneyOut',
-        :'total' => :'MoneyOut'
+        :'total' => :'MoneyOut',
+        :'recomputed_total' => :'MoneyOut',
+        :'totals_drift' => :'MoneyOut'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'recomputed_total',
+        :'totals_drift'
       ])
     end
 
@@ -118,6 +128,14 @@ module InvoicePDFs
       else
         self.total = nil
       end
+
+      if attributes.key?(:'recomputed_total')
+        self.recomputed_total = attributes[:'recomputed_total']
+      end
+
+      if attributes.key?(:'totals_drift')
+        self.totals_drift = attributes[:'totals_drift']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -171,7 +189,9 @@ module InvoicePDFs
           document_discount_total == o.document_discount_total &&
           tax_total == o.tax_total &&
           shipping_total == o.shipping_total &&
-          total == o.total
+          total == o.total &&
+          recomputed_total == o.recomputed_total &&
+          totals_drift == o.totals_drift
     end
 
     # @see the `==` method
@@ -183,7 +203,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [gross_subtotal, subtotal, discount_total, document_discount_total, tax_total, shipping_total, total].hash
+      [gross_subtotal, subtotal, discount_total, document_discount_total, tax_total, shipping_total, total, recomputed_total, totals_drift].hash
     end
 
     # Builds the object from hash
