@@ -11,5 +11,5 @@ Generator version: 7.7.0
 =end
 
 module InvoicePDFs
-  VERSION = '1.0.0'
+  VERSION = '0.3.0'
 end
