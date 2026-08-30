@@ -19,11 +19,14 @@ module InvoicePDFs
 
     attr_accessor :amount
 
+    attr_accessor :taxable
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'description' => :'description',
-        :'amount' => :'amount'
+        :'amount' => :'amount',
+        :'taxable' => :'taxable'
       }
     end
 
@@ -36,7 +39,8 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'description' => :'String',
-        :'amount' => :'String'
+        :'amount' => :'String',
+        :'taxable' => :'Boolean'
       }
     end
 
@@ -72,6 +76,12 @@ module InvoicePDFs
       else
         self.amount = nil
       end
+
+      if attributes.key?(:'taxable')
+        self.taxable = attributes[:'taxable']
+      else
+        self.taxable = false
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -100,7 +110,8 @@ module InvoicePDFs
       return true if self.equal?(o)
       self.class == o.class &&
           description == o.description &&
-          amount == o.amount
+          amount == o.amount &&
+          taxable == o.taxable
     end
 
     # @see the `==` method
@@ -112,7 +123,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [description, amount].hash
+      [description, amount, taxable].hash
     end
 
     # Builds the object from hash
