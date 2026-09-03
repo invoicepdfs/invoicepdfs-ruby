@@ -125,6 +125,10 @@ module InvoicePDFs
         invalid_properties.push('invalid value for "items", items cannot be nil.')
       end
 
+      if @items.length > 500
+        invalid_properties.push('invalid value for "items", number of items must be less than or equal to 500.')
+      end
+
       if @items.length < 1
         invalid_properties.push('invalid value for "items", number of items must be greater than or equal to 1.')
       end
@@ -139,6 +143,7 @@ module InvoicePDFs
       operation_validator = EnumAttributeValidator.new('String', ["render"])
       return false unless operation_validator.valid?(@operation)
       return false if @items.nil?
+      return false if @items.length > 500
       return false if @items.length < 1
       true
     end
@@ -158,6 +163,10 @@ module InvoicePDFs
     def items=(items)
       if items.nil?
         fail ArgumentError, 'items cannot be nil'
+      end
+
+      if items.length > 500
+        fail ArgumentError, 'invalid value for "items", number of items must be less than or equal to 500.'
       end
 
       if items.length < 1
