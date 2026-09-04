@@ -63,13 +63,9 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'frequency',
-        :'interval',
         :'end_date',
         :'max_occurrences',
         :'numbering_sequence_id',
-        :'auto_finalize',
-        :'invoice_template'
       ])
     end
 
@@ -145,7 +141,11 @@ module InvoicePDFs
     # Custom attribute writer method with validation
     # @param [Object] interval Value to be assigned
     def interval=(interval)
-      if !interval.nil? && interval < 1
+      if interval.nil?
+        fail ArgumentError, 'interval cannot be nil'
+      end
+
+      if interval < 1
         fail ArgumentError, 'invalid value for "interval", must be greater than or equal to 1.'
       end
 

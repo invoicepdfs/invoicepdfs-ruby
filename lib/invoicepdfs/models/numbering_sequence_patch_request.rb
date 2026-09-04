@@ -81,12 +81,6 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'name',
-        :'prefix',
-        :'date_pattern',
-        :'padding',
-        :'next_number',
-        :'reset'
       ])
     end
 
@@ -165,11 +159,15 @@ module InvoicePDFs
     # Custom attribute writer method with validation
     # @param [Object] padding Value to be assigned
     def padding=(padding)
-      if !padding.nil? && padding > 10
+      if padding.nil?
+        fail ArgumentError, 'padding cannot be nil'
+      end
+
+      if padding > 10
         fail ArgumentError, 'invalid value for "padding", must be smaller than or equal to 10.'
       end
 
-      if !padding.nil? && padding < 1
+      if padding < 1
         fail ArgumentError, 'invalid value for "padding", must be greater than or equal to 1.'
       end
 
@@ -179,7 +177,11 @@ module InvoicePDFs
     # Custom attribute writer method with validation
     # @param [Object] next_number Value to be assigned
     def next_number=(next_number)
-      if !next_number.nil? && next_number < 1
+      if next_number.nil?
+        fail ArgumentError, 'next_number cannot be nil'
+      end
+
+      if next_number < 1
         fail ArgumentError, 'invalid value for "next_number", must be greater than or equal to 1.'
       end
 

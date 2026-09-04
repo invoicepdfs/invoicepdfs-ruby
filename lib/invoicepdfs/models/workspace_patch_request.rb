@@ -39,7 +39,6 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'name'
       ])
     end
 
@@ -86,7 +85,11 @@ module InvoicePDFs
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      if !name.nil? && name.to_s.length > 256
+      if name.nil?
+        fail ArgumentError, 'name cannot be nil'
+      end
+
+      if name.to_s.length > 256
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 256.'
       end
 

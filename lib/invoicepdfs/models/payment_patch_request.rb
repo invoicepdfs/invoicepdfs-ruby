@@ -55,8 +55,6 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'amount',
-        :'paid_at',
         :'method',
         :'reference',
         :'notes'

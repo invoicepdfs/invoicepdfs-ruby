@@ -67,14 +67,8 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'name',
-        :'primary_color',
-        :'accent_color',
         :'font_family',
         :'header_text',
-        :'footer_text',
-        :'hide_invoicepdfs_branding',
-        :'is_default'
       ])
     end
 
