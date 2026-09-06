@@ -19,6 +19,8 @@ module InvoicePDFs
 
     attr_accessor :rate_limit
 
+    attr_accessor :api_log_retention
+
     attr_accessor :overage
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -26,6 +28,7 @@ module InvoicePDFs
       {
         :'renders' => :'renders',
         :'rate_limit' => :'rate_limit',
+        :'api_log_retention' => :'api_log_retention',
         :'overage' => :'overage'
       }
     end
@@ -40,6 +43,7 @@ module InvoicePDFs
       {
         :'renders' => :'UsageRenderLimits',
         :'rate_limit' => :'UsageRateLimit',
+        :'api_log_retention' => :'Integer',
         :'overage' => :'UsageOverage'
       }
     end
@@ -75,6 +79,12 @@ module InvoicePDFs
         self.rate_limit = attributes[:'rate_limit']
       else
         self.rate_limit = nil
+      end
+
+      if attributes.key?(:'api_log_retention')
+        self.api_log_retention = attributes[:'api_log_retention']
+      else
+        self.api_log_retention = 0
       end
 
       if attributes.key?(:'overage')
@@ -114,6 +124,7 @@ module InvoicePDFs
       self.class == o.class &&
           renders == o.renders &&
           rate_limit == o.rate_limit &&
+          api_log_retention == o.api_log_retention &&
           overage == o.overage
     end
 
@@ -126,7 +137,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [renders, rate_limit, overage].hash
+      [renders, rate_limit, api_log_retention, overage].hash
     end
 
     # Builds the object from hash

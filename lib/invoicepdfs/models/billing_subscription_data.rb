@@ -33,6 +33,8 @@ module InvoicePDFs
 
     attr_accessor :overage_price_millicents
 
+    attr_accessor :allow_branding_removal
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -44,7 +46,8 @@ module InvoicePDFs
         :'has_billing_account' => :'has_billing_account',
         :'overage_enabled' => :'overage_enabled',
         :'overage_available' => :'overage_available',
-        :'overage_price_millicents' => :'overage_price_millicents'
+        :'overage_price_millicents' => :'overage_price_millicents',
+        :'allow_branding_removal' => :'allow_branding_removal'
       }
     end
 
@@ -64,7 +67,8 @@ module InvoicePDFs
         :'has_billing_account' => :'Boolean',
         :'overage_enabled' => :'Boolean',
         :'overage_available' => :'Boolean',
-        :'overage_price_millicents' => :'Integer'
+        :'overage_price_millicents' => :'Integer',
+        :'allow_branding_removal' => :'Boolean'
       }
     end
 
@@ -73,7 +77,7 @@ module InvoicePDFs
       Set.new([
         :'subscription_id',
         :'status',
-        :'overage_price_millicents'
+        :'overage_price_millicents',
       ])
     end
 
@@ -139,6 +143,12 @@ module InvoicePDFs
       if attributes.key?(:'overage_price_millicents')
         self.overage_price_millicents = attributes[:'overage_price_millicents']
       end
+
+      if attributes.key?(:'allow_branding_removal')
+        self.allow_branding_removal = attributes[:'allow_branding_removal']
+      else
+        self.allow_branding_removal = false
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -179,7 +189,8 @@ module InvoicePDFs
           has_billing_account == o.has_billing_account &&
           overage_enabled == o.overage_enabled &&
           overage_available == o.overage_available &&
-          overage_price_millicents == o.overage_price_millicents
+          overage_price_millicents == o.overage_price_millicents &&
+          allow_branding_removal == o.allow_branding_removal
     end
 
     # @see the `==` method
@@ -191,7 +202,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subscription_id, status, plan_id, plan_name, stripe_configured, has_billing_account, overage_enabled, overage_available, overage_price_millicents].hash
+      [subscription_id, status, plan_id, plan_name, stripe_configured, has_billing_account, overage_enabled, overage_available, overage_price_millicents, allow_branding_removal].hash
     end
 
     # Builds the object from hash

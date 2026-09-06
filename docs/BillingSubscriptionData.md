@@ -13,6 +13,7 @@
 | **overage_enabled** | **Boolean** |  | [optional][default to false] |
 | **overage_available** | **Boolean** |  | [optional][default to false] |
 | **overage_price_millicents** | **Integer** |  | [optional] |
+| **allow_branding_removal** | **Boolean** |  | [optional][default to false] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = InvoicePDFs::BillingSubscriptionData.new(
   has_billing_account: null,
   overage_enabled: null,
   overage_available: null,
-  overage_price_millicents: null
+  overage_price_millicents: null,
+  allow_branding_removal: null
 )
 ```
 
