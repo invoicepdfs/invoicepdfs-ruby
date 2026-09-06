@@ -7,7 +7,10 @@
 | **id** | **String** |  |  |
 | **name** | **String** |  |  |
 | **price_id** | **String** |  |  |
+| **price_id_annual** | **String** |  | [optional] |
 | **monthly_render_quota** | **Integer** |  |  |
+| **allow_branding_removal** | **Boolean** |  | [optional][default to false] |
+| **overage_price_millicents** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -18,7 +21,10 @@ instance = InvoicePDFs::BillingPlan.new(
   id: null,
   name: null,
   price_id: null,
-  monthly_render_quota: null
+  price_id_annual: null,
+  monthly_render_quota: null,
+  allow_branding_removal: null,
+  overage_price_millicents: null
 )
 ```
 

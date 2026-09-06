@@ -52,6 +52,9 @@ docs/BillingApi.md
 docs/BillingCheckoutData.md
 docs/BillingCheckoutRequest.md
 docs/BillingCheckoutResponse.md
+docs/BillingOverageData.md
+docs/BillingOverageRequest.md
+docs/BillingOverageResponse.md
 docs/BillingPlan.md
 docs/BillingPlansListResponse.md
 docs/BillingPortalData.md
@@ -216,6 +219,7 @@ docs/UsageEventOut.md
 docs/UsageEventsListResponse.md
 docs/UsageLimitsData.md
 docs/UsageLimitsResponse.md
+docs/UsageOverage.md
 docs/UsagePeriod.md
 docs/UsageRateLimit.md
 docs/UsageRenderLimits.md
@@ -318,6 +322,9 @@ lib/invoicepdfs/models/batches_list_response.rb
 lib/invoicepdfs/models/billing_checkout_data.rb
 lib/invoicepdfs/models/billing_checkout_request.rb
 lib/invoicepdfs/models/billing_checkout_response.rb
+lib/invoicepdfs/models/billing_overage_data.rb
+lib/invoicepdfs/models/billing_overage_request.rb
+lib/invoicepdfs/models/billing_overage_response.rb
 lib/invoicepdfs/models/billing_plan.rb
 lib/invoicepdfs/models/billing_plans_list_response.rb
 lib/invoicepdfs/models/billing_portal_data.rb
@@ -461,6 +468,7 @@ lib/invoicepdfs/models/usage_event_out.rb
 lib/invoicepdfs/models/usage_events_list_response.rb
 lib/invoicepdfs/models/usage_limits_data.rb
 lib/invoicepdfs/models/usage_limits_response.rb
+lib/invoicepdfs/models/usage_overage.rb
 lib/invoicepdfs/models/usage_period.rb
 lib/invoicepdfs/models/usage_rate_limit.rb
 lib/invoicepdfs/models/usage_render_limits.rb
@@ -556,6 +564,9 @@ spec/models/batches_list_response_spec.rb
 spec/models/billing_checkout_data_spec.rb
 spec/models/billing_checkout_request_spec.rb
 spec/models/billing_checkout_response_spec.rb
+spec/models/billing_overage_data_spec.rb
+spec/models/billing_overage_request_spec.rb
+spec/models/billing_overage_response_spec.rb
 spec/models/billing_plan_spec.rb
 spec/models/billing_plans_list_response_spec.rb
 spec/models/billing_portal_data_spec.rb
@@ -699,6 +710,7 @@ spec/models/usage_event_out_spec.rb
 spec/models/usage_events_list_response_spec.rb
 spec/models/usage_limits_data_spec.rb
 spec/models/usage_limits_response_spec.rb
+spec/models/usage_overage_spec.rb
 spec/models/usage_period_spec.rb
 spec/models/usage_rate_limit_spec.rb
 spec/models/usage_render_limits_spec.rb

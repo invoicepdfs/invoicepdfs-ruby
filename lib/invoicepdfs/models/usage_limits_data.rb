@@ -19,11 +19,14 @@ module InvoicePDFs
 
     attr_accessor :rate_limit
 
+    attr_accessor :overage
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'renders' => :'renders',
-        :'rate_limit' => :'rate_limit'
+        :'rate_limit' => :'rate_limit',
+        :'overage' => :'overage'
       }
     end
 
@@ -36,7 +39,8 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'renders' => :'UsageRenderLimits',
-        :'rate_limit' => :'UsageRateLimit'
+        :'rate_limit' => :'UsageRateLimit',
+        :'overage' => :'UsageOverage'
       }
     end
 
@@ -72,6 +76,10 @@ module InvoicePDFs
       else
         self.rate_limit = nil
       end
+
+      if attributes.key?(:'overage')
+        self.overage = attributes[:'overage']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -105,7 +113,8 @@ module InvoicePDFs
       return true if self.equal?(o)
       self.class == o.class &&
           renders == o.renders &&
-          rate_limit == o.rate_limit
+          rate_limit == o.rate_limit &&
+          overage == o.overage
     end
 
     # @see the `==` method
@@ -117,7 +126,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [renders, rate_limit].hash
+      [renders, rate_limit, overage].hash
     end
 
     # Builds the object from hash

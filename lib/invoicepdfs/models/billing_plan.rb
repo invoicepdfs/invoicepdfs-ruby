@@ -21,7 +21,13 @@ module InvoicePDFs
 
     attr_accessor :price_id
 
+    attr_accessor :price_id_annual
+
     attr_accessor :monthly_render_quota
+
+    attr_accessor :allow_branding_removal
+
+    attr_accessor :overage_price_millicents
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -29,7 +35,10 @@ module InvoicePDFs
         :'id' => :'id',
         :'name' => :'name',
         :'price_id' => :'price_id',
-        :'monthly_render_quota' => :'monthly_render_quota'
+        :'price_id_annual' => :'price_id_annual',
+        :'monthly_render_quota' => :'monthly_render_quota',
+        :'allow_branding_removal' => :'allow_branding_removal',
+        :'overage_price_millicents' => :'overage_price_millicents'
       }
     end
 
@@ -44,13 +53,18 @@ module InvoicePDFs
         :'id' => :'String',
         :'name' => :'String',
         :'price_id' => :'String',
-        :'monthly_render_quota' => :'Integer'
+        :'price_id_annual' => :'String',
+        :'monthly_render_quota' => :'Integer',
+        :'allow_branding_removal' => :'Boolean',
+        :'overage_price_millicents' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'price_id_annual',
+        :'overage_price_millicents'
       ])
     end
 
@@ -87,10 +101,24 @@ module InvoicePDFs
         self.price_id = nil
       end
 
+      if attributes.key?(:'price_id_annual')
+        self.price_id_annual = attributes[:'price_id_annual']
+      end
+
       if attributes.key?(:'monthly_render_quota')
         self.monthly_render_quota = attributes[:'monthly_render_quota']
       else
         self.monthly_render_quota = nil
+      end
+
+      if attributes.key?(:'allow_branding_removal')
+        self.allow_branding_removal = attributes[:'allow_branding_removal']
+      else
+        self.allow_branding_removal = false
+      end
+
+      if attributes.key?(:'overage_price_millicents')
+        self.overage_price_millicents = attributes[:'overage_price_millicents']
       end
     end
 
@@ -137,7 +165,10 @@ module InvoicePDFs
           id == o.id &&
           name == o.name &&
           price_id == o.price_id &&
-          monthly_render_quota == o.monthly_render_quota
+          price_id_annual == o.price_id_annual &&
+          monthly_render_quota == o.monthly_render_quota &&
+          allow_branding_removal == o.allow_branding_removal &&
+          overage_price_millicents == o.overage_price_millicents
     end
 
     # @see the `==` method
@@ -149,7 +180,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, price_id, monthly_render_quota].hash
+      [id, name, price_id, price_id_annual, monthly_render_quota, allow_branding_removal, overage_price_millicents].hash
     end
 
     # Builds the object from hash

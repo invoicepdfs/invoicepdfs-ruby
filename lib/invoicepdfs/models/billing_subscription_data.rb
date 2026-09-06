@@ -27,6 +27,12 @@ module InvoicePDFs
 
     attr_accessor :has_billing_account
 
+    attr_accessor :overage_enabled
+
+    attr_accessor :overage_available
+
+    attr_accessor :overage_price_millicents
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -35,7 +41,10 @@ module InvoicePDFs
         :'plan_id' => :'plan_id',
         :'plan_name' => :'plan_name',
         :'stripe_configured' => :'stripe_configured',
-        :'has_billing_account' => :'has_billing_account'
+        :'has_billing_account' => :'has_billing_account',
+        :'overage_enabled' => :'overage_enabled',
+        :'overage_available' => :'overage_available',
+        :'overage_price_millicents' => :'overage_price_millicents'
       }
     end
 
@@ -52,7 +61,10 @@ module InvoicePDFs
         :'plan_id' => :'String',
         :'plan_name' => :'String',
         :'stripe_configured' => :'Boolean',
-        :'has_billing_account' => :'Boolean'
+        :'has_billing_account' => :'Boolean',
+        :'overage_enabled' => :'Boolean',
+        :'overage_available' => :'Boolean',
+        :'overage_price_millicents' => :'Integer'
       }
     end
 
@@ -61,6 +73,7 @@ module InvoicePDFs
       Set.new([
         :'subscription_id',
         :'status',
+        :'overage_price_millicents'
       ])
     end
 
@@ -110,6 +123,22 @@ module InvoicePDFs
       else
         self.has_billing_account = false
       end
+
+      if attributes.key?(:'overage_enabled')
+        self.overage_enabled = attributes[:'overage_enabled']
+      else
+        self.overage_enabled = false
+      end
+
+      if attributes.key?(:'overage_available')
+        self.overage_available = attributes[:'overage_available']
+      else
+        self.overage_available = false
+      end
+
+      if attributes.key?(:'overage_price_millicents')
+        self.overage_price_millicents = attributes[:'overage_price_millicents']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -147,7 +176,10 @@ module InvoicePDFs
           plan_id == o.plan_id &&
           plan_name == o.plan_name &&
           stripe_configured == o.stripe_configured &&
-          has_billing_account == o.has_billing_account
+          has_billing_account == o.has_billing_account &&
+          overage_enabled == o.overage_enabled &&
+          overage_available == o.overage_available &&
+          overage_price_millicents == o.overage_price_millicents
     end
 
     # @see the `==` method
@@ -159,7 +191,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [subscription_id, status, plan_id, plan_name, stripe_configured, has_billing_account].hash
+      [subscription_id, status, plan_id, plan_name, stripe_configured, has_billing_account, overage_enabled, overage_available, overage_price_millicents].hash
     end
 
     # Builds the object from hash

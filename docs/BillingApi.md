@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**create_portal_session**](BillingApi.md#create_portal_session) | **POST** /api/v1/billing/portal-session | Create Portal Session |
 | [**get_subscription**](BillingApi.md#get_subscription) | **GET** /api/v1/billing/subscription | Get Subscription |
 | [**list_plans**](BillingApi.md#list_plans) | **GET** /api/v1/billing/plans | List Plans |
+| [**update_overage_settings**](BillingApi.md#update_overage_settings) | **PATCH** /api/v1/billing/overage | Update Overage Settings |
 
 
 ## create_checkout_session
@@ -274,5 +275,74 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_overage_settings
+
+> <BillingOverageResponse> update_overage_settings(billing_overage_request)
+
+Update Overage Settings
+
+Turn overage billing on or off for this account.  Off by default and stays off until asked: past the quota the API returns 429, which is a limit the customer can see coming. Overage replaces that limit with a charge, and nobody should meet that decision on an invoice.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::BillingApi.new
+billing_overage_request = InvoicePDFs::BillingOverageRequest.new({enabled: false}) # BillingOverageRequest | 
+
+begin
+  # Update Overage Settings
+  result = api_instance.update_overage_settings(billing_overage_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling BillingApi->update_overage_settings: #{e}"
+end
+```
+
+#### Using the update_overage_settings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BillingOverageResponse>, Integer, Hash)> update_overage_settings_with_http_info(billing_overage_request)
+
+```ruby
+begin
+  # Update Overage Settings
+  data, status_code, headers = api_instance.update_overage_settings_with_http_info(billing_overage_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BillingOverageResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling BillingApi->update_overage_settings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **billing_overage_request** | [**BillingOverageRequest**](BillingOverageRequest.md) |  |  |
+
+### Return type
+
+[**BillingOverageResponse**](BillingOverageResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

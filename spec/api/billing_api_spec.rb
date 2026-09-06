@@ -77,4 +77,16 @@ describe 'BillingApi' do
     end
   end
 
+  # unit tests for update_overage_settings
+  # Update Overage Settings
+  # Turn overage billing on or off for this account.  Off by default and stays off until asked: past the quota the API returns 429, which is a limit the customer can see coming. Overage replaces that limit with a charge, and nobody should meet that decision on an invoice.
+  # @param billing_overage_request 
+  # @param [Hash] opts the optional parameters
+  # @return [BillingOverageResponse]
+  describe 'update_overage_settings test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
 end
