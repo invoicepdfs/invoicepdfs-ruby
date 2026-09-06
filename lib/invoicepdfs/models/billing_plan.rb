@@ -23,6 +23,10 @@ module InvoicePDFs
 
     attr_accessor :price_id_annual
 
+    attr_accessor :price_cents
+
+    attr_accessor :price_cents_annual
+
     attr_accessor :monthly_render_quota
 
     attr_accessor :allow_branding_removal
@@ -36,6 +40,8 @@ module InvoicePDFs
         :'name' => :'name',
         :'price_id' => :'price_id',
         :'price_id_annual' => :'price_id_annual',
+        :'price_cents' => :'price_cents',
+        :'price_cents_annual' => :'price_cents_annual',
         :'monthly_render_quota' => :'monthly_render_quota',
         :'allow_branding_removal' => :'allow_branding_removal',
         :'overage_price_millicents' => :'overage_price_millicents'
@@ -54,6 +60,8 @@ module InvoicePDFs
         :'name' => :'String',
         :'price_id' => :'String',
         :'price_id_annual' => :'String',
+        :'price_cents' => :'Integer',
+        :'price_cents_annual' => :'Integer',
         :'monthly_render_quota' => :'Integer',
         :'allow_branding_removal' => :'Boolean',
         :'overage_price_millicents' => :'Integer'
@@ -64,6 +72,8 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'price_id_annual',
+        :'price_cents',
+        :'price_cents_annual',
         :'overage_price_millicents'
       ])
     end
@@ -103,6 +113,14 @@ module InvoicePDFs
 
       if attributes.key?(:'price_id_annual')
         self.price_id_annual = attributes[:'price_id_annual']
+      end
+
+      if attributes.key?(:'price_cents')
+        self.price_cents = attributes[:'price_cents']
+      end
+
+      if attributes.key?(:'price_cents_annual')
+        self.price_cents_annual = attributes[:'price_cents_annual']
       end
 
       if attributes.key?(:'monthly_render_quota')
@@ -166,6 +184,8 @@ module InvoicePDFs
           name == o.name &&
           price_id == o.price_id &&
           price_id_annual == o.price_id_annual &&
+          price_cents == o.price_cents &&
+          price_cents_annual == o.price_cents_annual &&
           monthly_render_quota == o.monthly_render_quota &&
           allow_branding_removal == o.allow_branding_removal &&
           overage_price_millicents == o.overage_price_millicents
@@ -180,7 +200,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, price_id, price_id_annual, monthly_render_quota, allow_branding_removal, overage_price_millicents].hash
+      [id, name, price_id, price_id_annual, price_cents, price_cents_annual, monthly_render_quota, allow_branding_removal, overage_price_millicents].hash
     end
 
     # Builds the object from hash
