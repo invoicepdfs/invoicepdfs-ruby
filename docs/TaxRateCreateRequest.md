@@ -8,6 +8,7 @@
 | **rate** | **String** |  |  |
 | **inclusive** | **Boolean** |  | [optional][default to false] |
 | **jurisdiction** | **String** |  | [optional] |
+| **category** | [**TaxCategory**](TaxCategory.md) |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = InvoicePDFs::TaxRateCreateRequest.new(
   name: California sales tax,
   rate: 8.375,
   inclusive: null,
-  jurisdiction: null
+  jurisdiction: null,
+  category: null
 )
 ```
 

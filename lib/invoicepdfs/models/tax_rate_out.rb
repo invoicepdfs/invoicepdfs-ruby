@@ -25,6 +25,8 @@ module InvoicePDFs
 
     attr_accessor :jurisdiction
 
+    attr_accessor :category
+
     attr_accessor :is_active
 
     attr_accessor :created_at
@@ -39,6 +41,7 @@ module InvoicePDFs
         :'rate' => :'rate',
         :'inclusive' => :'inclusive',
         :'jurisdiction' => :'jurisdiction',
+        :'category' => :'category',
         :'is_active' => :'is_active',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
@@ -58,6 +61,7 @@ module InvoicePDFs
         :'rate' => :'String',
         :'inclusive' => :'Boolean',
         :'jurisdiction' => :'String',
+        :'category' => :'TaxCategory',
         :'is_active' => :'Boolean',
         :'created_at' => :'String',
         :'updated_at' => :'String'
@@ -68,6 +72,7 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'jurisdiction',
+        :'category',
       ])
     end
 
@@ -112,6 +117,10 @@ module InvoicePDFs
 
       if attributes.key?(:'jurisdiction')
         self.jurisdiction = attributes[:'jurisdiction']
+      end
+
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
       end
 
       if attributes.key?(:'is_active')
@@ -193,6 +202,7 @@ module InvoicePDFs
           rate == o.rate &&
           inclusive == o.inclusive &&
           jurisdiction == o.jurisdiction &&
+          category == o.category &&
           is_active == o.is_active &&
           created_at == o.created_at &&
           updated_at == o.updated_at
@@ -207,7 +217,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, name, rate, inclusive, jurisdiction, is_active, created_at, updated_at].hash
+      [id, name, rate, inclusive, jurisdiction, category, is_active, created_at, updated_at].hash
     end
 
     # Builds the object from hash

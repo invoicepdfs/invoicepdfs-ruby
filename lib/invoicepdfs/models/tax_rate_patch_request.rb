@@ -25,6 +25,8 @@ module InvoicePDFs
 
     attr_accessor :is_active
 
+    attr_accessor :category
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -32,7 +34,8 @@ module InvoicePDFs
         :'rate' => :'rate',
         :'inclusive' => :'inclusive',
         :'jurisdiction' => :'jurisdiction',
-        :'is_active' => :'is_active'
+        :'is_active' => :'is_active',
+        :'category' => :'category'
       }
     end
 
@@ -48,7 +51,8 @@ module InvoicePDFs
         :'rate' => :'String',
         :'inclusive' => :'Boolean',
         :'jurisdiction' => :'String',
-        :'is_active' => :'Boolean'
+        :'is_active' => :'Boolean',
+        :'category' => :'TaxCategory'
       }
     end
 
@@ -56,6 +60,7 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'jurisdiction',
+        :'category'
       ])
     end
 
@@ -93,6 +98,10 @@ module InvoicePDFs
       if attributes.key?(:'is_active')
         self.is_active = attributes[:'is_active']
       end
+
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -119,7 +128,8 @@ module InvoicePDFs
           rate == o.rate &&
           inclusive == o.inclusive &&
           jurisdiction == o.jurisdiction &&
-          is_active == o.is_active
+          is_active == o.is_active &&
+          category == o.category
     end
 
     # @see the `==` method
@@ -131,7 +141,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, rate, inclusive, jurisdiction, is_active].hash
+      [name, rate, inclusive, jurisdiction, is_active, category].hash
     end
 
     # Builds the object from hash

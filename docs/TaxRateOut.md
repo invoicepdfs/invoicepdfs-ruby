@@ -9,6 +9,7 @@
 | **rate** | **String** |  |  |
 | **inclusive** | **Boolean** |  |  |
 | **jurisdiction** | **String** |  | [optional] |
+| **category** | [**TaxCategory**](TaxCategory.md) |  | [optional] |
 | **is_active** | **Boolean** |  |  |
 | **created_at** | **String** |  |  |
 | **updated_at** | **String** |  |  |
@@ -24,6 +25,7 @@ instance = InvoicePDFs::TaxRateOut.new(
   rate: null,
   inclusive: null,
   jurisdiction: null,
+  category: null,
   is_active: null,
   created_at: null,
   updated_at: null

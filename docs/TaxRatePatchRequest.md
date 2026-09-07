@@ -9,6 +9,7 @@
 | **inclusive** | **Boolean** |  | [optional] |
 | **jurisdiction** | **String** |  | [optional] |
 | **is_active** | **Boolean** |  | [optional] |
+| **category** | [**TaxCategory**](TaxCategory.md) |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = InvoicePDFs::TaxRatePatchRequest.new(
   rate: null,
   inclusive: null,
   jurisdiction: null,
-  is_active: null
+  is_active: null,
+  category: null
 )
 ```
 
