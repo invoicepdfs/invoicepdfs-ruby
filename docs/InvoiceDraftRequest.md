@@ -13,6 +13,8 @@
 | **business_profile_id** | **String** |  |  |
 | **customer_id** | **String** |  |  |
 | **ship_to** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
+| **buyer_reference** | **String** |  | [optional] |
+| **preceding_invoice_number** | **String** |  | [optional] |
 | **line_items** | [**Array&lt;InvoiceLineItemInput&gt;**](InvoiceLineItemInput.md) |  |  |
 | **discounts** | [**Array&lt;InvoiceDiscountInput&gt;**](InvoiceDiscountInput.md) |  | [optional] |
 | **shipping** | [**InvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional] |
@@ -37,6 +39,8 @@ instance = InvoicePDFs::InvoiceDraftRequest.new(
   business_profile_id: bp_01ABC,
   customer_id: cus_01XYZ,
   ship_to: null,
+  buyer_reference: null,
+  preceding_invoice_number: null,
   line_items: null,
   discounts: null,
   shipping: null,

@@ -33,6 +33,10 @@ module InvoicePDFs
 
     attr_accessor :ship_to
 
+    attr_accessor :buyer_reference
+
+    attr_accessor :preceding_invoice_number
+
     attr_accessor :line_items
 
     attr_accessor :discounts
@@ -83,6 +87,8 @@ module InvoicePDFs
         :'business_profile_id' => :'business_profile_id',
         :'customer_id' => :'customer_id',
         :'ship_to' => :'ship_to',
+        :'buyer_reference' => :'buyer_reference',
+        :'preceding_invoice_number' => :'preceding_invoice_number',
         :'line_items' => :'line_items',
         :'discounts' => :'discounts',
         :'shipping' => :'shipping',
@@ -111,6 +117,8 @@ module InvoicePDFs
         :'business_profile_id' => :'String',
         :'customer_id' => :'String',
         :'ship_to' => :'PostalAddress',
+        :'buyer_reference' => :'String',
+        :'preceding_invoice_number' => :'String',
         :'line_items' => :'Array<InvoiceLineItemInput>',
         :'discounts' => :'Array<InvoiceDiscountInput>',
         :'shipping' => :'InvoiceShippingInput',
@@ -128,6 +136,8 @@ module InvoicePDFs
         :'due_date',
         :'locale',
         :'ship_to',
+        :'buyer_reference',
+        :'preceding_invoice_number',
         :'shipping',
         :'payment',
         :'branding'
@@ -195,6 +205,14 @@ module InvoicePDFs
 
       if attributes.key?(:'ship_to')
         self.ship_to = attributes[:'ship_to']
+      end
+
+      if attributes.key?(:'buyer_reference')
+        self.buyer_reference = attributes[:'buyer_reference']
+      end
+
+      if attributes.key?(:'preceding_invoice_number')
+        self.preceding_invoice_number = attributes[:'preceding_invoice_number']
       end
 
       if attributes.key?(:'line_items')
@@ -313,6 +331,8 @@ module InvoicePDFs
           business_profile_id == o.business_profile_id &&
           customer_id == o.customer_id &&
           ship_to == o.ship_to &&
+          buyer_reference == o.buyer_reference &&
+          preceding_invoice_number == o.preceding_invoice_number &&
           line_items == o.line_items &&
           discounts == o.discounts &&
           shipping == o.shipping &&
@@ -332,7 +352,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [invoice_number, document_type, issue_date, due_date, currency, locale, business_profile_id, customer_id, ship_to, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding].hash
+      [invoice_number, document_type, issue_date, due_date, currency, locale, business_profile_id, customer_id, ship_to, buyer_reference, preceding_invoice_number, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding].hash
     end
 
     # Builds the object from hash
