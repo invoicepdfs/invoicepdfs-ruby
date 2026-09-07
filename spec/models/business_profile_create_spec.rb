@@ -69,6 +69,12 @@ describe InvoicePDFs::BusinessProfileCreate do
     end
   end
 
+  describe 'test attribute "electronic_address"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "default_currency"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

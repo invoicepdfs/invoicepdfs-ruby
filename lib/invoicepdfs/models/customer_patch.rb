@@ -27,6 +27,8 @@ module InvoicePDFs
 
     attr_accessor :shipping_address
 
+    attr_accessor :electronic_address
+
     attr_accessor :metadata
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,6 +40,7 @@ module InvoicePDFs
         :'tax_id' => :'tax_id',
         :'billing_address' => :'billing_address',
         :'shipping_address' => :'shipping_address',
+        :'electronic_address' => :'electronic_address',
         :'metadata' => :'metadata'
       }
     end
@@ -56,6 +59,7 @@ module InvoicePDFs
         :'tax_id' => :'String',
         :'billing_address' => :'PostalAddress',
         :'shipping_address' => :'PostalAddress',
+        :'electronic_address' => :'ElectronicAddress',
         :'metadata' => :'Hash<String, Object>'
       }
     end
@@ -68,6 +72,7 @@ module InvoicePDFs
         :'tax_id',
         :'billing_address',
         :'shipping_address',
+        :'electronic_address',
         :'metadata'
       ])
     end
@@ -111,6 +116,10 @@ module InvoicePDFs
         self.shipping_address = attributes[:'shipping_address']
       end
 
+      if attributes.key?(:'electronic_address')
+        self.electronic_address = attributes[:'electronic_address']
+      end
+
       if attributes.key?(:'metadata')
         if (value = attributes[:'metadata']).is_a?(Hash)
           self.metadata = value
@@ -144,6 +153,7 @@ module InvoicePDFs
           tax_id == o.tax_id &&
           billing_address == o.billing_address &&
           shipping_address == o.shipping_address &&
+          electronic_address == o.electronic_address &&
           metadata == o.metadata
     end
 
@@ -156,7 +166,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, email, phone, tax_id, billing_address, shipping_address, metadata].hash
+      [name, email, phone, tax_id, billing_address, shipping_address, electronic_address, metadata].hash
     end
 
     # Builds the object from hash

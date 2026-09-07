@@ -11,6 +11,7 @@
 | **website** | **String** |  | [optional] |
 | **tax_id** | **String** |  | [optional] |
 | **address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
+| **electronic_address** | [**ElectronicAddress**](ElectronicAddress.md) |  | [optional] |
 | **default_currency** | **String** |  | [optional] |
 | **default_locale** | **String** |  | [optional] |
 | **default_timezone** | **String** |  | [optional] |
@@ -29,6 +30,7 @@ instance = InvoicePDFs::BusinessProfilePatch.new(
   website: null,
   tax_id: null,
   address: null,
+  electronic_address: null,
   default_currency: null,
   default_locale: null,
   default_timezone: null,

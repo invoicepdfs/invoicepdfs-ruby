@@ -10,6 +10,7 @@
 | **tax_id** | **String** |  | [optional] |
 | **billing_address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
 | **shipping_address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
+| **electronic_address** | [**ElectronicAddress**](ElectronicAddress.md) |  | [optional] |
 | **metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 
 ## Example
@@ -24,6 +25,7 @@ instance = InvoicePDFs::CustomerCreate.new(
   tax_id: null,
   billing_address: null,
   shipping_address: null,
+  electronic_address: null,
   metadata: null
 )
 ```

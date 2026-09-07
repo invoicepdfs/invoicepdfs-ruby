@@ -27,6 +27,8 @@ module InvoicePDFs
 
     attr_accessor :shipping_address
 
+    attr_accessor :electronic_address
+
     attr_accessor :metadata
 
     attr_accessor :id
@@ -44,6 +46,7 @@ module InvoicePDFs
         :'tax_id' => :'tax_id',
         :'billing_address' => :'billing_address',
         :'shipping_address' => :'shipping_address',
+        :'electronic_address' => :'electronic_address',
         :'metadata' => :'metadata',
         :'id' => :'id',
         :'created_at' => :'created_at',
@@ -65,6 +68,7 @@ module InvoicePDFs
         :'tax_id' => :'String',
         :'billing_address' => :'PostalAddress',
         :'shipping_address' => :'PostalAddress',
+        :'electronic_address' => :'ElectronicAddress',
         :'metadata' => :'Hash<String, Object>',
         :'id' => :'String',
         :'created_at' => :'String',
@@ -80,6 +84,7 @@ module InvoicePDFs
         :'tax_id',
         :'billing_address',
         :'shipping_address',
+        :'electronic_address',
         :'metadata',
       ])
     end
@@ -123,6 +128,10 @@ module InvoicePDFs
 
       if attributes.key?(:'shipping_address')
         self.shipping_address = attributes[:'shipping_address']
+      end
+
+      if attributes.key?(:'electronic_address')
+        self.electronic_address = attributes[:'electronic_address']
       end
 
       if attributes.key?(:'metadata')
@@ -196,6 +205,7 @@ module InvoicePDFs
           tax_id == o.tax_id &&
           billing_address == o.billing_address &&
           shipping_address == o.shipping_address &&
+          electronic_address == o.electronic_address &&
           metadata == o.metadata &&
           id == o.id &&
           created_at == o.created_at &&
@@ -211,7 +221,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, email, phone, tax_id, billing_address, shipping_address, metadata, id, created_at, updated_at].hash
+      [name, email, phone, tax_id, billing_address, shipping_address, electronic_address, metadata, id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

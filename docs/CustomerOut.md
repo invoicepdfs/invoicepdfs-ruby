@@ -10,6 +10,7 @@
 | **tax_id** | **String** |  | [optional] |
 | **billing_address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
 | **shipping_address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
+| **electronic_address** | [**ElectronicAddress**](ElectronicAddress.md) |  | [optional] |
 | **metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **id** | **String** |  |  |
 | **created_at** | **String** |  |  |
@@ -27,6 +28,7 @@ instance = InvoicePDFs::CustomerOut.new(
   tax_id: null,
   billing_address: null,
   shipping_address: null,
+  electronic_address: null,
   metadata: null,
   id: null,
   created_at: null,

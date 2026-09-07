@@ -29,6 +29,8 @@ module InvoicePDFs
 
     attr_accessor :address
 
+    attr_accessor :electronic_address
+
     attr_accessor :default_currency
 
     attr_accessor :default_locale
@@ -47,6 +49,7 @@ module InvoicePDFs
         :'website' => :'website',
         :'tax_id' => :'tax_id',
         :'address' => :'address',
+        :'electronic_address' => :'electronic_address',
         :'default_currency' => :'default_currency',
         :'default_locale' => :'default_locale',
         :'default_timezone' => :'default_timezone',
@@ -69,6 +72,7 @@ module InvoicePDFs
         :'website' => :'String',
         :'tax_id' => :'String',
         :'address' => :'PostalAddress',
+        :'electronic_address' => :'ElectronicAddress',
         :'default_currency' => :'String',
         :'default_locale' => :'String',
         :'default_timezone' => :'String',
@@ -85,6 +89,7 @@ module InvoicePDFs
         :'website',
         :'tax_id',
         :'address',
+        :'electronic_address',
         :'default_currency',
         :'default_locale',
         :'default_timezone',
@@ -137,6 +142,10 @@ module InvoicePDFs
         self.address = attributes[:'address']
       end
 
+      if attributes.key?(:'electronic_address')
+        self.electronic_address = attributes[:'electronic_address']
+      end
+
       if attributes.key?(:'default_currency')
         self.default_currency = attributes[:'default_currency']
       end
@@ -186,6 +195,7 @@ module InvoicePDFs
           website == o.website &&
           tax_id == o.tax_id &&
           address == o.address &&
+          electronic_address == o.electronic_address &&
           default_currency == o.default_currency &&
           default_locale == o.default_locale &&
           default_timezone == o.default_timezone &&
@@ -201,7 +211,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [legal_name, display_name, email, phone, website, tax_id, address, default_currency, default_locale, default_timezone, logo_file_id].hash
+      [legal_name, display_name, email, phone, website, tax_id, address, electronic_address, default_currency, default_locale, default_timezone, logo_file_id].hash
     end
 
     # Builds the object from hash
