@@ -7,6 +7,7 @@
 | **name** | **String** |  |  |
 | **rate** | **String** |  |  |
 | **inclusive** | **Boolean** |  | [optional][default to false] |
+| **category** | [**TaxCategory**](TaxCategory.md) |  | [optional] |
 
 ## Example
 
@@ -16,7 +17,8 @@ require 'invoicepdfs'
 instance = InvoicePDFs::DocumentLineItemTaxInput.new(
   name: Sales Tax,
   rate: 8.875,
-  inclusive: null
+  inclusive: null,
+  category: null
 )
 ```
 

@@ -23,13 +23,16 @@ module InvoicePDFs
 
     attr_accessor :inclusive
 
+    attr_accessor :category
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'tax_rate_id' => :'tax_rate_id',
         :'name' => :'name',
         :'rate' => :'rate',
-        :'inclusive' => :'inclusive'
+        :'inclusive' => :'inclusive',
+        :'category' => :'category'
       }
     end
 
@@ -44,7 +47,8 @@ module InvoicePDFs
         :'tax_rate_id' => :'String',
         :'name' => :'String',
         :'rate' => :'String',
-        :'inclusive' => :'Boolean'
+        :'inclusive' => :'Boolean',
+        :'category' => :'TaxCategory'
       }
     end
 
@@ -54,6 +58,7 @@ module InvoicePDFs
         :'tax_rate_id',
         :'name',
         :'rate',
+        :'category'
       ])
     end
 
@@ -89,6 +94,10 @@ module InvoicePDFs
       else
         self.inclusive = false
       end
+
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -114,7 +123,8 @@ module InvoicePDFs
           tax_rate_id == o.tax_rate_id &&
           name == o.name &&
           rate == o.rate &&
-          inclusive == o.inclusive
+          inclusive == o.inclusive &&
+          category == o.category
     end
 
     # @see the `==` method
@@ -126,7 +136,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [tax_rate_id, name, rate, inclusive].hash
+      [tax_rate_id, name, rate, inclusive, category].hash
     end
 
     # Builds the object from hash

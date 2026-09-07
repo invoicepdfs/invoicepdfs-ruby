@@ -193,6 +193,7 @@ docs/StatsCounts.md
 docs/StatsOverview.md
 docs/StatsRecentInvoice.md
 docs/StatsResponse.md
+docs/TaxCategory.md
 docs/TaxRateCreateRequest.md
 docs/TaxRateOut.md
 docs/TaxRatePatchRequest.md
@@ -446,6 +447,7 @@ lib/invoicepdfs/models/stats_counts.rb
 lib/invoicepdfs/models/stats_overview.rb
 lib/invoicepdfs/models/stats_recent_invoice.rb
 lib/invoicepdfs/models/stats_response.rb
+lib/invoicepdfs/models/tax_category.rb
 lib/invoicepdfs/models/tax_rate_create_request.rb
 lib/invoicepdfs/models/tax_rate_out.rb
 lib/invoicepdfs/models/tax_rate_patch_request.rb
@@ -688,6 +690,7 @@ spec/models/stats_counts_spec.rb
 spec/models/stats_overview_spec.rb
 spec/models/stats_recent_invoice_spec.rb
 spec/models/stats_response_spec.rb
+spec/models/tax_category_spec.rb
 spec/models/tax_rate_create_request_spec.rb
 spec/models/tax_rate_out_spec.rb
 spec/models/tax_rate_patch_request_spec.rb

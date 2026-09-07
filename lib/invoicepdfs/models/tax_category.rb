@@ -14,25 +14,21 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class LineItemTaxInput
-    attr_accessor :tax_rate_id
+  # How a tax is treated, as opposed to what it is called.  `name` and `rate` do not say this: two taxes at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 keeps them in separate VAT breakdown groups with different mandatory fields. Optional, so an invoice that never mentions a category calculates exactly as before.
+  class TaxCategory
+    # UNCL5305 tax category code — S standard, Z zero-rated, E exempt, AE reverse charge, K intra-community, G export, O outside scope
+    attr_accessor :code
 
-    attr_accessor :name
+    attr_accessor :exemption_reason
 
-    attr_accessor :rate
-
-    attr_accessor :inclusive
-
-    attr_accessor :category
+    attr_accessor :exemption_reason_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'tax_rate_id' => :'tax_rate_id',
-        :'name' => :'name',
-        :'rate' => :'rate',
-        :'inclusive' => :'inclusive',
-        :'category' => :'category'
+        :'code' => :'code',
+        :'exemption_reason' => :'exemption_reason',
+        :'exemption_reason_code' => :'exemption_reason_code'
       }
     end
 
@@ -44,21 +40,17 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'tax_rate_id' => :'String',
-        :'name' => :'String',
-        :'rate' => :'String',
-        :'inclusive' => :'Boolean',
-        :'category' => :'TaxCategory'
+        :'code' => :'String',
+        :'exemption_reason' => :'String',
+        :'exemption_reason_code' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'tax_rate_id',
-        :'name',
-        :'rate',
-        :'category'
+        :'exemption_reason',
+        :'exemption_reason_code'
       ])
     end
 
@@ -66,37 +58,29 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::LineItemTaxInput` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::TaxCategory` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::LineItemTaxInput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::TaxCategory`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'tax_rate_id')
-        self.tax_rate_id = attributes[:'tax_rate_id']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'rate')
-        self.rate = attributes[:'rate']
-      end
-
-      if attributes.key?(:'inclusive')
-        self.inclusive = attributes[:'inclusive']
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       else
-        self.inclusive = false
+        self.code = nil
       end
 
-      if attributes.key?(:'category')
-        self.category = attributes[:'category']
+      if attributes.key?(:'exemption_reason')
+        self.exemption_reason = attributes[:'exemption_reason']
+      end
+
+      if attributes.key?(:'exemption_reason_code')
+        self.exemption_reason_code = attributes[:'exemption_reason_code']
       end
     end
 
@@ -105,6 +89,14 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @code.nil?
+        invalid_properties.push('invalid value for "code", code cannot be nil.')
+      end
+
+      if @code.to_s.length < 1
+        invalid_properties.push('invalid value for "code", the character length must be great than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -112,7 +104,23 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @code.nil?
+      return false if @code.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] code Value to be assigned
+    def code=(code)
+      if code.nil?
+        fail ArgumentError, 'code cannot be nil'
+      end
+
+      if code.to_s.length < 1
+        fail ArgumentError, 'invalid value for "code", the character length must be great than or equal to 1.'
+      end
+
+      @code = code
     end
 
     # Checks equality by comparing each attribute.
@@ -120,11 +128,9 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          tax_rate_id == o.tax_rate_id &&
-          name == o.name &&
-          rate == o.rate &&
-          inclusive == o.inclusive &&
-          category == o.category
+          code == o.code &&
+          exemption_reason == o.exemption_reason &&
+          exemption_reason_code == o.exemption_reason_code
     end
 
     # @see the `==` method
@@ -136,7 +142,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [tax_rate_id, name, rate, inclusive, category].hash
+      [code, exemption_reason, exemption_reason_code].hash
     end
 
     # Builds the object from hash

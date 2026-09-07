@@ -21,12 +21,15 @@ module InvoicePDFs
 
     attr_accessor :inclusive
 
+    attr_accessor :category
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
         :'rate' => :'rate',
-        :'inclusive' => :'inclusive'
+        :'inclusive' => :'inclusive',
+        :'category' => :'category'
       }
     end
 
@@ -40,13 +43,15 @@ module InvoicePDFs
       {
         :'name' => :'String',
         :'rate' => :'String',
-        :'inclusive' => :'Boolean'
+        :'inclusive' => :'Boolean',
+        :'category' => :'TaxCategory'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'category'
       ])
     end
 
@@ -82,6 +87,10 @@ module InvoicePDFs
       else
         self.inclusive = false
       end
+
+      if attributes.key?(:'category')
+        self.category = attributes[:'category']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -116,7 +125,8 @@ module InvoicePDFs
       self.class == o.class &&
           name == o.name &&
           rate == o.rate &&
-          inclusive == o.inclusive
+          inclusive == o.inclusive &&
+          category == o.category
     end
 
     # @see the `==` method
@@ -128,7 +138,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, rate, inclusive].hash
+      [name, rate, inclusive, category].hash
     end
 
     # Builds the object from hash

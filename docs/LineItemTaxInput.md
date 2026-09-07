@@ -8,6 +8,7 @@
 | **name** | **String** |  | [optional] |
 | **rate** | **String** |  | [optional] |
 | **inclusive** | **Boolean** |  | [optional][default to false] |
+| **category** | [**TaxCategory**](TaxCategory.md) |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = InvoicePDFs::LineItemTaxInput.new(
   tax_rate_id: null,
   name: null,
   rate: null,
-  inclusive: null
+  inclusive: null,
+  category: null
 )
 ```
 
