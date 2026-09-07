@@ -1141,6 +1141,74 @@ module InvoicePDFs
       return data, status_code, headers
     end
 
+    # Validate Compliance
+    # Check a document against an e-invoicing ruleset without rendering it.  Costs no renders: nothing is stored and no PDF is produced, so a caller can check every invoice they are about to send rather than discovering the problem from a rejection weeks later.  This is the semantic half — mandatory fields and conditional requirements. Schematron is the authoritative check and is not wired up yet, so a document that passes here is not thereby proven conformant. It says what it can prove is wrong, which is the useful half early.
+    # @param document_compliance_request [DocumentComplianceRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [DocumentComplianceResponse]
+    def validate_compliance(document_compliance_request, opts = {})
+      data, _status_code, _headers = validate_compliance_with_http_info(document_compliance_request, opts)
+      data
+    end
+
+    # Validate Compliance
+    # Check a document against an e-invoicing ruleset without rendering it.  Costs no renders: nothing is stored and no PDF is produced, so a caller can check every invoice they are about to send rather than discovering the problem from a rejection weeks later.  This is the semantic half — mandatory fields and conditional requirements. Schematron is the authoritative check and is not wired up yet, so a document that passes here is not thereby proven conformant. It says what it can prove is wrong, which is the useful half early.
+    # @param document_compliance_request [DocumentComplianceRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DocumentComplianceResponse, Integer, Hash)>] DocumentComplianceResponse data, response status code and response headers
+    def validate_compliance_with_http_info(document_compliance_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.validate_compliance ...'
+      end
+      # verify the required parameter 'document_compliance_request' is set
+      if @api_client.config.client_side_validation && document_compliance_request.nil?
+        fail ArgumentError, "Missing the required parameter 'document_compliance_request' when calling DocumentsApi.validate_compliance"
+      end
+      # resource path
+      local_var_path = '/api/v1/documents/validate-compliance'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_compliance_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DocumentComplianceResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.validate_compliance",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#validate_compliance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Validate Document
     # @param document_validate_request [DocumentValidateRequest] 
     # @param [Hash] opts the optional parameters

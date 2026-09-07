@@ -21,6 +21,7 @@ All URIs are relative to *http://localhost*
 | [**restore_document**](DocumentsApi.md#restore_document) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
 | [**send_document**](DocumentsApi.md#send_document) | **POST** /api/v1/documents/{document_id}/send | Send Document |
 | [**update_document**](DocumentsApi.md#update_document) | **PATCH** /api/v1/documents/{document_id} | Update Document |
+| [**validate_compliance**](DocumentsApi.md#validate_compliance) | **POST** /api/v1/documents/validate-compliance | Validate Compliance |
 | [**validate_document**](DocumentsApi.md#validate_document) | **POST** /api/v1/documents/validate | Validate Document |
 | [**void_document**](DocumentsApi.md#void_document) | **POST** /api/v1/documents/{document_id}/void | Void Document |
 
@@ -1185,6 +1186,75 @@ end
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## validate_compliance
+
+> <DocumentComplianceResponse> validate_compliance(document_compliance_request)
+
+Validate Compliance
+
+Check a document against an e-invoicing ruleset without rendering it.  Costs no renders: nothing is stored and no PDF is produced, so a caller can check every invoice they are about to send rather than discovering the problem from a rejection weeks later.  This is the semantic half — mandatory fields and conditional requirements. Schematron is the authoritative check and is not wired up yet, so a document that passes here is not thereby proven conformant. It says what it can prove is wrong, which is the useful half early.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::DocumentsApi.new
+document_compliance_request = InvoicePDFs::DocumentComplianceRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), profile: 'peppol_bis_billing_3'}) # DocumentComplianceRequest | 
+
+begin
+  # Validate Compliance
+  result = api_instance.validate_compliance(document_compliance_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->validate_compliance: #{e}"
+end
+```
+
+#### Using the validate_compliance_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DocumentComplianceResponse>, Integer, Hash)> validate_compliance_with_http_info(document_compliance_request)
+
+```ruby
+begin
+  # Validate Compliance
+  data, status_code, headers = api_instance.validate_compliance_with_http_info(document_compliance_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DocumentComplianceResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->validate_compliance_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_compliance_request** | [**DocumentComplianceRequest**](DocumentComplianceRequest.md) |  |  |
+
+### Return type
+
+[**DocumentComplianceResponse**](DocumentComplianceResponse.md)
 
 ### Authorization
 

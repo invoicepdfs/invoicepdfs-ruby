@@ -230,6 +230,18 @@ describe 'DocumentsApi' do
     end
   end
 
+  # unit tests for validate_compliance
+  # Validate Compliance
+  # Check a document against an e-invoicing ruleset without rendering it.  Costs no renders: nothing is stored and no PDF is produced, so a caller can check every invoice they are about to send rather than discovering the problem from a rejection weeks later.  This is the semantic half — mandatory fields and conditional requirements. Schematron is the authoritative check and is not wired up yet, so a document that passes here is not thereby proven conformant. It says what it can prove is wrong, which is the useful half early.
+  # @param document_compliance_request 
+  # @param [Hash] opts the optional parameters
+  # @return [DocumentComplianceResponse]
+  describe 'validate_compliance test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for validate_document
   # Validate Document
   # @param document_validate_request 
