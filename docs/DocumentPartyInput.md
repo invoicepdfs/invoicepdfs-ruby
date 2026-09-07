@@ -13,6 +13,7 @@
 | **registration_number** | **String** |  | [optional] |
 | **address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
 | **bank_account** | [**InvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional] |
+| **electronic_address** | [**ElectronicAddress**](ElectronicAddress.md) |  | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = InvoicePDFs::DocumentPartyInput.new(
   tax_id: null,
   registration_number: null,
   address: null,
-  bank_account: null
+  bank_account: null,
+  electronic_address: null
 )
 ```
 

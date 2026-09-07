@@ -14,40 +14,18 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class DocumentPartyInput
-    attr_accessor :name
+  # BT-34 / BT-49 — where a document is routed on Peppol or DBNA.  Both halves are required: an identifier without its scheme cannot be resolved, because the same string means different things in different code lists. This is not the tax id, which identifies a company to a tax authority rather than a mailbox on a network.
+  class ElectronicAddress
+    attr_accessor :value
 
-    attr_accessor :legal_name
-
-    attr_accessor :email
-
-    attr_accessor :phone
-
-    attr_accessor :website
-
-    attr_accessor :tax_id
-
-    attr_accessor :registration_number
-
-    attr_accessor :address
-
-    attr_accessor :bank_account
-
-    attr_accessor :electronic_address
+    # EAS code list identifier — 0088 is GLN, 9930 a German VAT number.
+    attr_accessor :scheme_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'legal_name' => :'legal_name',
-        :'email' => :'email',
-        :'phone' => :'phone',
-        :'website' => :'website',
-        :'tax_id' => :'tax_id',
-        :'registration_number' => :'registration_number',
-        :'address' => :'address',
-        :'bank_account' => :'bank_account',
-        :'electronic_address' => :'electronic_address'
+        :'value' => :'value',
+        :'scheme_id' => :'scheme_id'
       }
     end
 
@@ -59,31 +37,14 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String',
-        :'legal_name' => :'String',
-        :'email' => :'String',
-        :'phone' => :'String',
-        :'website' => :'String',
-        :'tax_id' => :'String',
-        :'registration_number' => :'String',
-        :'address' => :'PostalAddress',
-        :'bank_account' => :'InvoiceBankAccountInput',
-        :'electronic_address' => :'ElectronicAddress'
+        :'value' => :'String',
+        :'scheme_id' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'legal_name',
-        :'email',
-        :'phone',
-        :'website',
-        :'tax_id',
-        :'registration_number',
-        :'address',
-        :'bank_account',
-        :'electronic_address'
       ])
     end
 
@@ -91,57 +52,27 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::DocumentPartyInput` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::ElectronicAddress` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::DocumentPartyInput`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::ElectronicAddress`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       else
-        self.name = nil
+        self.value = nil
       end
 
-      if attributes.key?(:'legal_name')
-        self.legal_name = attributes[:'legal_name']
-      end
-
-      if attributes.key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.key?(:'phone')
-        self.phone = attributes[:'phone']
-      end
-
-      if attributes.key?(:'website')
-        self.website = attributes[:'website']
-      end
-
-      if attributes.key?(:'tax_id')
-        self.tax_id = attributes[:'tax_id']
-      end
-
-      if attributes.key?(:'registration_number')
-        self.registration_number = attributes[:'registration_number']
-      end
-
-      if attributes.key?(:'address')
-        self.address = attributes[:'address']
-      end
-
-      if attributes.key?(:'bank_account')
-        self.bank_account = attributes[:'bank_account']
-      end
-
-      if attributes.key?(:'electronic_address')
-        self.electronic_address = attributes[:'electronic_address']
+      if attributes.key?(:'scheme_id')
+        self.scheme_id = attributes[:'scheme_id']
+      else
+        self.scheme_id = nil
       end
     end
 
@@ -150,8 +81,20 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      if @value.nil?
+        invalid_properties.push('invalid value for "value", value cannot be nil.')
+      end
+
+      if @value.to_s.length < 1
+        invalid_properties.push('invalid value for "value", the character length must be great than or equal to 1.')
+      end
+
+      if @scheme_id.nil?
+        invalid_properties.push('invalid value for "scheme_id", scheme_id cannot be nil.')
+      end
+
+      if @scheme_id.to_s.length < 1
+        invalid_properties.push('invalid value for "scheme_id", the character length must be great than or equal to 1.')
       end
 
       invalid_properties
@@ -161,8 +104,39 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @name.nil?
+      return false if @value.nil?
+      return false if @value.to_s.length < 1
+      return false if @scheme_id.nil?
+      return false if @scheme_id.to_s.length < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] value Value to be assigned
+    def value=(value)
+      if value.nil?
+        fail ArgumentError, 'value cannot be nil'
+      end
+
+      if value.to_s.length < 1
+        fail ArgumentError, 'invalid value for "value", the character length must be great than or equal to 1.'
+      end
+
+      @value = value
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] scheme_id Value to be assigned
+    def scheme_id=(scheme_id)
+      if scheme_id.nil?
+        fail ArgumentError, 'scheme_id cannot be nil'
+      end
+
+      if scheme_id.to_s.length < 1
+        fail ArgumentError, 'invalid value for "scheme_id", the character length must be great than or equal to 1.'
+      end
+
+      @scheme_id = scheme_id
     end
 
     # Checks equality by comparing each attribute.
@@ -170,16 +144,8 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          legal_name == o.legal_name &&
-          email == o.email &&
-          phone == o.phone &&
-          website == o.website &&
-          tax_id == o.tax_id &&
-          registration_number == o.registration_number &&
-          address == o.address &&
-          bank_account == o.bank_account &&
-          electronic_address == o.electronic_address
+          value == o.value &&
+          scheme_id == o.scheme_id
     end
 
     # @see the `==` method
@@ -191,7 +157,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, legal_name, email, phone, website, tax_id, registration_number, address, bank_account, electronic_address].hash
+      [value, scheme_id].hash
     end
 
     # Builds the object from hash

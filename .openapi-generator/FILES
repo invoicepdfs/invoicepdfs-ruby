@@ -119,6 +119,7 @@ docs/DocumentValidateRequest.md
 docs/DocumentValidateResponse.md
 docs/DocumentsApi.md
 docs/DocumentsListResponse.md
+docs/ElectronicAddress.md
 docs/FileOut.md
 docs/FileResponse.md
 docs/FilesApi.md
@@ -384,6 +385,7 @@ lib/invoicepdfs/models/document_types_list_response.rb
 lib/invoicepdfs/models/document_validate_request.rb
 lib/invoicepdfs/models/document_validate_response.rb
 lib/invoicepdfs/models/documents_list_response.rb
+lib/invoicepdfs/models/electronic_address.rb
 lib/invoicepdfs/models/file_out.rb
 lib/invoicepdfs/models/file_response.rb
 lib/invoicepdfs/models/health_response.rb
@@ -627,6 +629,7 @@ spec/models/document_types_list_response_spec.rb
 spec/models/document_validate_request_spec.rb
 spec/models/document_validate_response_spec.rb
 spec/models/documents_list_response_spec.rb
+spec/models/electronic_address_spec.rb
 spec/models/file_out_spec.rb
 spec/models/file_response_spec.rb
 spec/models/health_response_spec.rb
