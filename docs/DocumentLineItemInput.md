@@ -9,6 +9,7 @@
 | **quantity** | **String** |  |  |
 | **unit_price** | **String** | Decimal string in major units |  |
 | **unit** | **String** |  | [optional] |
+| **unit_code** | **String** |  | [optional] |
 | **sku** | **String** |  | [optional] |
 | **discount** | [**DocumentDiscountInput**](DocumentDiscountInput.md) |  | [optional] |
 | **taxes** | [**Array&lt;DocumentLineItemTaxInput&gt;**](DocumentLineItemTaxInput.md) |  | [optional] |
@@ -24,6 +25,7 @@ instance = InvoicePDFs::DocumentLineItemInput.new(
   quantity: 2,
   unit_price: 150.00,
   unit: null,
+  unit_code: null,
   sku: null,
   discount: null,
   taxes: null

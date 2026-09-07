@@ -15,6 +15,7 @@
 | **source_document_id** | **String** |  | [optional] |
 | **reason** | **String** |  | [optional] |
 | **ship_to** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
+| **buyer_reference** | **String** |  | [optional] |
 | **line_items** | [**Array&lt;StandardLineItemInput&gt;**](StandardLineItemInput.md) |  |  |
 | **discounts** | [**Array&lt;LineItemDiscountInput&gt;**](LineItemDiscountInput.md) |  | [optional] |
 | **shipping** | [**InvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional] |
@@ -42,6 +43,7 @@ instance = InvoicePDFs::DocumentCreateRequest.new(
   source_document_id: null,
   reason: null,
   ship_to: null,
+  buyer_reference: null,
   line_items: null,
   discounts: null,
   shipping: null,

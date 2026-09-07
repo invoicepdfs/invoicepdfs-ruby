@@ -26,6 +26,8 @@ module InvoicePDFs
 
     attr_accessor :unit
 
+    attr_accessor :unit_code
+
     attr_accessor :sku
 
     attr_accessor :discount
@@ -40,6 +42,7 @@ module InvoicePDFs
         :'quantity' => :'quantity',
         :'unit_price' => :'unit_price',
         :'unit' => :'unit',
+        :'unit_code' => :'unit_code',
         :'sku' => :'sku',
         :'discount' => :'discount',
         :'taxes' => :'taxes'
@@ -59,6 +62,7 @@ module InvoicePDFs
         :'quantity' => :'String',
         :'unit_price' => :'String',
         :'unit' => :'String',
+        :'unit_code' => :'String',
         :'sku' => :'String',
         :'discount' => :'DocumentDiscountInput',
         :'taxes' => :'Array<DocumentLineItemTaxInput>'
@@ -70,6 +74,7 @@ module InvoicePDFs
       Set.new([
         :'description',
         :'unit',
+        :'unit_code',
         :'sku',
         :'discount',
       ])
@@ -114,6 +119,10 @@ module InvoicePDFs
 
       if attributes.key?(:'unit')
         self.unit = attributes[:'unit']
+      end
+
+      if attributes.key?(:'unit_code')
+        self.unit_code = attributes[:'unit_code']
       end
 
       if attributes.key?(:'sku')
@@ -171,6 +180,7 @@ module InvoicePDFs
           quantity == o.quantity &&
           unit_price == o.unit_price &&
           unit == o.unit &&
+          unit_code == o.unit_code &&
           sku == o.sku &&
           discount == o.discount &&
           taxes == o.taxes
@@ -185,7 +195,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, description, quantity, unit_price, unit, sku, discount, taxes].hash
+      [name, description, quantity, unit_price, unit, unit_code, sku, discount, taxes].hash
     end
 
     # Builds the object from hash
