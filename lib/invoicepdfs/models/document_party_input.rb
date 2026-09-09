@@ -19,6 +19,8 @@ module InvoicePDFs
 
     attr_accessor :legal_name
 
+    attr_accessor :contact_name
+
     attr_accessor :email
 
     attr_accessor :phone
@@ -40,6 +42,7 @@ module InvoicePDFs
       {
         :'name' => :'name',
         :'legal_name' => :'legal_name',
+        :'contact_name' => :'contact_name',
         :'email' => :'email',
         :'phone' => :'phone',
         :'website' => :'website',
@@ -61,6 +64,7 @@ module InvoicePDFs
       {
         :'name' => :'String',
         :'legal_name' => :'String',
+        :'contact_name' => :'String',
         :'email' => :'String',
         :'phone' => :'String',
         :'website' => :'String',
@@ -76,6 +80,7 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'legal_name',
+        :'contact_name',
         :'email',
         :'phone',
         :'website',
@@ -110,6 +115,10 @@ module InvoicePDFs
 
       if attributes.key?(:'legal_name')
         self.legal_name = attributes[:'legal_name']
+      end
+
+      if attributes.key?(:'contact_name')
+        self.contact_name = attributes[:'contact_name']
       end
 
       if attributes.key?(:'email')
@@ -172,6 +181,7 @@ module InvoicePDFs
       self.class == o.class &&
           name == o.name &&
           legal_name == o.legal_name &&
+          contact_name == o.contact_name &&
           email == o.email &&
           phone == o.phone &&
           website == o.website &&
@@ -191,7 +201,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, legal_name, email, phone, website, tax_id, registration_number, address, bank_account, electronic_address].hash
+      [name, legal_name, contact_name, email, phone, website, tax_id, registration_number, address, bank_account, electronic_address].hash
     end
 
     # Builds the object from hash

@@ -16,6 +16,7 @@
 | **reason** | **String** |  | [optional] |
 | **ship_to** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
 | **buyer_reference** | **String** |  | [optional] |
+| **delivery_date** | **Date** |  | [optional] |
 | **line_items** | [**Array&lt;StandardLineItemInput&gt;**](StandardLineItemInput.md) |  | [optional] |
 | **discounts** | [**Array&lt;LineItemDiscountInput&gt;**](LineItemDiscountInput.md) |  | [optional] |
 | **shipping** | [**InvoiceShippingInput**](InvoiceShippingInput.md) |  | [optional] |
@@ -43,6 +44,7 @@ instance = InvoicePDFs::DocumentPatchRequest.new(
   reason: null,
   ship_to: null,
   buyer_reference: null,
+  delivery_date: null,
   line_items: null,
   discounts: null,
   shipping: null,

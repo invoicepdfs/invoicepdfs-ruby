@@ -17,6 +17,8 @@ module InvoicePDFs
   class CustomerOut
     attr_accessor :name
 
+    attr_accessor :contact_name
+
     attr_accessor :email
 
     attr_accessor :phone
@@ -41,6 +43,7 @@ module InvoicePDFs
     def self.attribute_map
       {
         :'name' => :'name',
+        :'contact_name' => :'contact_name',
         :'email' => :'email',
         :'phone' => :'phone',
         :'tax_id' => :'tax_id',
@@ -63,6 +66,7 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'name' => :'String',
+        :'contact_name' => :'String',
         :'email' => :'String',
         :'phone' => :'String',
         :'tax_id' => :'String',
@@ -79,6 +83,7 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'contact_name',
         :'email',
         :'phone',
         :'tax_id',
@@ -108,6 +113,10 @@ module InvoicePDFs
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'contact_name')
+        self.contact_name = attributes[:'contact_name']
       end
 
       if attributes.key?(:'email')
@@ -200,6 +209,7 @@ module InvoicePDFs
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          contact_name == o.contact_name &&
           email == o.email &&
           phone == o.phone &&
           tax_id == o.tax_id &&
@@ -221,7 +231,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, email, phone, tax_id, billing_address, shipping_address, electronic_address, metadata, id, created_at, updated_at].hash
+      [name, contact_name, email, phone, tax_id, billing_address, shipping_address, electronic_address, metadata, id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

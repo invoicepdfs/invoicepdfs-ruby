@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
+| **contact_name** | **String** |  | [optional] |
 | **email** | **String** |  | [optional] |
 | **phone** | **String** |  | [optional] |
 | **tax_id** | **String** |  | [optional] |
@@ -20,6 +21,7 @@ require 'invoicepdfs'
 
 instance = InvoicePDFs::CustomerCreate.new(
   name: Jane Smith,
+  contact_name: null,
   email: null,
   phone: null,
   tax_id: null,

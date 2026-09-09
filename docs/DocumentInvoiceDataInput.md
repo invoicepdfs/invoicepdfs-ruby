@@ -11,6 +11,7 @@
 | **seller** | [**DocumentPartyInput**](DocumentPartyInput.md) |  |  |
 | **buyer** | [**DocumentPartyInput**](DocumentPartyInput.md) |  |  |
 | **ship_to** | [**DocumentPartyInput**](DocumentPartyInput.md) |  | [optional] |
+| **delivery_date** | **Date** |  | [optional] |
 | **buyer_reference** | **String** |  | [optional] |
 | **preceding_invoice_number** | **String** |  | [optional] |
 | **line_items** | [**Array&lt;DocumentLineItemInput&gt;**](DocumentLineItemInput.md) |  |  |
@@ -33,6 +34,7 @@ instance = InvoicePDFs::DocumentInvoiceDataInput.new(
   seller: null,
   buyer: null,
   ship_to: null,
+  delivery_date: null,
   buyer_reference: null,
   preceding_invoice_number: null,
   line_items: null,

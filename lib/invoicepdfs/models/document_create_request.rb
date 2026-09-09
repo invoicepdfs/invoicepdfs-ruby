@@ -39,6 +39,8 @@ module InvoicePDFs
 
     attr_accessor :buyer_reference
 
+    attr_accessor :delivery_date
+
     attr_accessor :line_items
 
     attr_accessor :discounts
@@ -94,6 +96,7 @@ module InvoicePDFs
         :'reason' => :'reason',
         :'ship_to' => :'ship_to',
         :'buyer_reference' => :'buyer_reference',
+        :'delivery_date' => :'delivery_date',
         :'line_items' => :'line_items',
         :'discounts' => :'discounts',
         :'shipping' => :'shipping',
@@ -126,6 +129,7 @@ module InvoicePDFs
         :'reason' => :'String',
         :'ship_to' => :'PostalAddress',
         :'buyer_reference' => :'String',
+        :'delivery_date' => :'Date',
         :'line_items' => :'Array<StandardLineItemInput>',
         :'discounts' => :'Array<LineItemDiscountInput>',
         :'shipping' => :'InvoiceShippingInput',
@@ -147,6 +151,7 @@ module InvoicePDFs
         :'reason',
         :'ship_to',
         :'buyer_reference',
+        :'delivery_date',
         :'shipping',
         :'payment',
         :'branding',
@@ -227,6 +232,10 @@ module InvoicePDFs
 
       if attributes.key?(:'buyer_reference')
         self.buyer_reference = attributes[:'buyer_reference']
+      end
+
+      if attributes.key?(:'delivery_date')
+        self.delivery_date = attributes[:'delivery_date']
       end
 
       if attributes.key?(:'line_items')
@@ -380,6 +389,7 @@ module InvoicePDFs
           reason == o.reason &&
           ship_to == o.ship_to &&
           buyer_reference == o.buyer_reference &&
+          delivery_date == o.delivery_date &&
           line_items == o.line_items &&
           discounts == o.discounts &&
           shipping == o.shipping &&
@@ -400,7 +410,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [document_type, number, issue_date, due_date, currency, locale, business_profile_id, customer_id, source_document_id, reason, ship_to, buyer_reference, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding, branding_profile_id].hash
+      [document_type, number, issue_date, due_date, currency, locale, business_profile_id, customer_id, source_document_id, reason, ship_to, buyer_reference, delivery_date, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding, branding_profile_id].hash
     end
 
     # Builds the object from hash

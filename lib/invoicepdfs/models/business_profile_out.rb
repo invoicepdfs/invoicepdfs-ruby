@@ -19,6 +19,8 @@ module InvoicePDFs
 
     attr_accessor :display_name
 
+    attr_accessor :contact_name
+
     attr_accessor :email
 
     attr_accessor :phone
@@ -28,6 +30,8 @@ module InvoicePDFs
     attr_accessor :tax_id
 
     attr_accessor :address
+
+    attr_accessor :bank_account
 
     attr_accessor :electronic_address
 
@@ -50,11 +54,13 @@ module InvoicePDFs
       {
         :'legal_name' => :'legal_name',
         :'display_name' => :'display_name',
+        :'contact_name' => :'contact_name',
         :'email' => :'email',
         :'phone' => :'phone',
         :'website' => :'website',
         :'tax_id' => :'tax_id',
         :'address' => :'address',
+        :'bank_account' => :'bank_account',
         :'electronic_address' => :'electronic_address',
         :'default_currency' => :'default_currency',
         :'default_locale' => :'default_locale',
@@ -76,11 +82,13 @@ module InvoicePDFs
       {
         :'legal_name' => :'String',
         :'display_name' => :'String',
+        :'contact_name' => :'String',
         :'email' => :'String',
         :'phone' => :'String',
         :'website' => :'String',
         :'tax_id' => :'String',
         :'address' => :'PostalAddress',
+        :'bank_account' => :'InvoiceBankAccountInput',
         :'electronic_address' => :'ElectronicAddress',
         :'default_currency' => :'String',
         :'default_locale' => :'String',
@@ -96,11 +104,13 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'display_name',
+        :'contact_name',
         :'email',
         :'phone',
         :'website',
         :'tax_id',
         :'address',
+        :'bank_account',
         :'electronic_address',
         :'default_currency',
         :'default_locale',
@@ -134,6 +144,10 @@ module InvoicePDFs
         self.display_name = attributes[:'display_name']
       end
 
+      if attributes.key?(:'contact_name')
+        self.contact_name = attributes[:'contact_name']
+      end
+
       if attributes.key?(:'email')
         self.email = attributes[:'email']
       end
@@ -152,6 +166,10 @@ module InvoicePDFs
 
       if attributes.key?(:'address')
         self.address = attributes[:'address']
+      end
+
+      if attributes.key?(:'bank_account')
+        self.bank_account = attributes[:'bank_account']
       end
 
       if attributes.key?(:'electronic_address')
@@ -235,11 +253,13 @@ module InvoicePDFs
       self.class == o.class &&
           legal_name == o.legal_name &&
           display_name == o.display_name &&
+          contact_name == o.contact_name &&
           email == o.email &&
           phone == o.phone &&
           website == o.website &&
           tax_id == o.tax_id &&
           address == o.address &&
+          bank_account == o.bank_account &&
           electronic_address == o.electronic_address &&
           default_currency == o.default_currency &&
           default_locale == o.default_locale &&
@@ -259,7 +279,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [legal_name, display_name, email, phone, website, tax_id, address, electronic_address, default_currency, default_locale, default_timezone, logo_file_id, id, created_at, updated_at].hash
+      [legal_name, display_name, contact_name, email, phone, website, tax_id, address, bank_account, electronic_address, default_currency, default_locale, default_timezone, logo_file_id, id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

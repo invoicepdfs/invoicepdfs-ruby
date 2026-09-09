@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  |  |
 | **legal_name** | **String** |  | [optional] |
+| **contact_name** | **String** |  | [optional] |
 | **email** | **String** |  | [optional] |
 | **phone** | **String** |  | [optional] |
 | **website** | **String** |  | [optional] |
@@ -23,6 +24,7 @@ require 'invoicepdfs'
 instance = InvoicePDFs::DocumentPartyInput.new(
   name: Acme Corp,
   legal_name: null,
+  contact_name: null,
   email: null,
   phone: null,
   website: null,

@@ -35,6 +35,8 @@ module InvoicePDFs
 
     attr_accessor :buyer_reference
 
+    attr_accessor :delivery_date
+
     attr_accessor :preceding_invoice_number
 
     attr_accessor :line_items
@@ -88,6 +90,7 @@ module InvoicePDFs
         :'customer_id' => :'customer_id',
         :'ship_to' => :'ship_to',
         :'buyer_reference' => :'buyer_reference',
+        :'delivery_date' => :'delivery_date',
         :'preceding_invoice_number' => :'preceding_invoice_number',
         :'line_items' => :'line_items',
         :'discounts' => :'discounts',
@@ -118,6 +121,7 @@ module InvoicePDFs
         :'customer_id' => :'String',
         :'ship_to' => :'PostalAddress',
         :'buyer_reference' => :'String',
+        :'delivery_date' => :'Date',
         :'preceding_invoice_number' => :'String',
         :'line_items' => :'Array<InvoiceLineItemInput>',
         :'discounts' => :'Array<InvoiceDiscountInput>',
@@ -137,6 +141,7 @@ module InvoicePDFs
         :'locale',
         :'ship_to',
         :'buyer_reference',
+        :'delivery_date',
         :'preceding_invoice_number',
         :'shipping',
         :'payment',
@@ -209,6 +214,10 @@ module InvoicePDFs
 
       if attributes.key?(:'buyer_reference')
         self.buyer_reference = attributes[:'buyer_reference']
+      end
+
+      if attributes.key?(:'delivery_date')
+        self.delivery_date = attributes[:'delivery_date']
       end
 
       if attributes.key?(:'preceding_invoice_number')
@@ -332,6 +341,7 @@ module InvoicePDFs
           customer_id == o.customer_id &&
           ship_to == o.ship_to &&
           buyer_reference == o.buyer_reference &&
+          delivery_date == o.delivery_date &&
           preceding_invoice_number == o.preceding_invoice_number &&
           line_items == o.line_items &&
           discounts == o.discounts &&
@@ -352,7 +362,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [invoice_number, document_type, issue_date, due_date, currency, locale, business_profile_id, customer_id, ship_to, buyer_reference, preceding_invoice_number, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding].hash
+      [invoice_number, document_type, issue_date, due_date, currency, locale, business_profile_id, customer_id, ship_to, buyer_reference, delivery_date, preceding_invoice_number, line_items, discounts, shipping, notes, terms, custom_fields, payment, branding].hash
     end
 
     # Builds the object from hash

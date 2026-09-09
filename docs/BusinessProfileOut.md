@@ -6,11 +6,13 @@
 | ---- | ---- | ----------- | ----- |
 | **legal_name** | **String** |  |  |
 | **display_name** | **String** |  | [optional] |
+| **contact_name** | **String** |  | [optional] |
 | **email** | **String** |  | [optional] |
 | **phone** | **String** |  | [optional] |
 | **website** | **String** |  | [optional] |
 | **tax_id** | **String** |  | [optional] |
 | **address** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
+| **bank_account** | [**InvoiceBankAccountInput**](InvoiceBankAccountInput.md) |  | [optional] |
 | **electronic_address** | [**ElectronicAddress**](ElectronicAddress.md) |  | [optional] |
 | **default_currency** | **String** |  | [optional] |
 | **default_locale** | **String** |  | [optional] |
@@ -28,11 +30,13 @@ require 'invoicepdfs'
 instance = InvoicePDFs::BusinessProfileOut.new(
   legal_name: Acme Corp Inc.,
   display_name: null,
+  contact_name: null,
   email: null,
   phone: null,
   website: null,
   tax_id: null,
   address: null,
+  bank_account: null,
   electronic_address: null,
   default_currency: null,
   default_locale: null,
