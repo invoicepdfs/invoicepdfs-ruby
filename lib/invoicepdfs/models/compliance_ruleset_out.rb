@@ -14,33 +14,28 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class ComplianceCheckOut
-    attr_accessor :profile
+  # One ruleset the document was held to, and whether it actually ran.
+  class ComplianceRulesetOut
+    attr_accessor :id
 
-    # The version these rules came from. Worth recording alongside any document you file — rulesets revise, and 'which rules did this pass?' is what an audit asks years later. `rulesets` breaks the same answer down per ruleset.
-    attr_accessor :ruleset_version
+    attr_accessor :label
 
-    # Nothing fatal was found. Read it with `fully_checked` — on its own it says what was checked came back clean, not that everything was checked.
-    attr_accessor :valid
+    # The upstream release of the rules. Empty for checks with no version of their own.
+    attr_accessor :version
 
-    # Every ruleset that applies to this profile ran. False means at least one could not, and `rulesets` says which and why.
-    attr_accessor :fully_checked
+    # False when this ruleset could not be run at all. A ruleset that did not run is not a pass — `valid` only reports what was checked.
+    attr_accessor :ran
 
-    # Every ruleset the document was held to, including the mandatory-field check, at the version that ran.
-    attr_accessor :rulesets
-
-    # Every violation found, not the first — fixing one field per round trip is the experience this avoids. Ordered mandatory-field findings first, since those name a field you can go and change.
-    attr_accessor :violations
+    attr_accessor :reason
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'profile' => :'profile',
-        :'ruleset_version' => :'ruleset_version',
-        :'valid' => :'valid',
-        :'fully_checked' => :'fully_checked',
-        :'rulesets' => :'rulesets',
-        :'violations' => :'violations'
+        :'id' => :'id',
+        :'label' => :'label',
+        :'version' => :'version',
+        :'ran' => :'ran',
+        :'reason' => :'reason'
       }
     end
 
@@ -52,18 +47,18 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'profile' => :'String',
-        :'ruleset_version' => :'String',
-        :'valid' => :'Boolean',
-        :'fully_checked' => :'Boolean',
-        :'rulesets' => :'Array<ComplianceRulesetOut>',
-        :'violations' => :'Array<ComplianceViolationOut>'
+        :'id' => :'String',
+        :'label' => :'String',
+        :'version' => :'String',
+        :'ran' => :'Boolean',
+        :'reason' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'reason'
       ])
     end
 
@@ -71,51 +66,43 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::ComplianceCheckOut` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::ComplianceRulesetOut` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::ComplianceCheckOut`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::ComplianceRulesetOut`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'profile')
-        self.profile = attributes[:'profile']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       else
-        self.profile = nil
+        self.id = nil
       end
 
-      if attributes.key?(:'ruleset_version')
-        self.ruleset_version = attributes[:'ruleset_version']
+      if attributes.key?(:'label')
+        self.label = attributes[:'label']
       else
-        self.ruleset_version = nil
+        self.label = nil
       end
 
-      if attributes.key?(:'valid')
-        self.valid = attributes[:'valid']
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
       else
-        self.valid = nil
+        self.version = ''
       end
 
-      if attributes.key?(:'fully_checked')
-        self.fully_checked = attributes[:'fully_checked']
+      if attributes.key?(:'ran')
+        self.ran = attributes[:'ran']
       else
-        self.fully_checked = true
+        self.ran = nil
       end
 
-      if attributes.key?(:'rulesets')
-        if (value = attributes[:'rulesets']).is_a?(Array)
-          self.rulesets = value
-        end
-      end
-
-      if attributes.key?(:'violations')
-        if (value = attributes[:'violations']).is_a?(Array)
-          self.violations = value
-        end
+      if attributes.key?(:'reason')
+        self.reason = attributes[:'reason']
       end
     end
 
@@ -124,16 +111,16 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @profile.nil?
-        invalid_properties.push('invalid value for "profile", profile cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @ruleset_version.nil?
-        invalid_properties.push('invalid value for "ruleset_version", ruleset_version cannot be nil.')
+      if @label.nil?
+        invalid_properties.push('invalid value for "label", label cannot be nil.')
       end
 
-      if @valid.nil?
-        invalid_properties.push('invalid value for "valid", valid cannot be nil.')
+      if @ran.nil?
+        invalid_properties.push('invalid value for "ran", ran cannot be nil.')
       end
 
       invalid_properties
@@ -143,9 +130,9 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @profile.nil?
-      return false if @ruleset_version.nil?
-      return false if @valid.nil?
+      return false if @id.nil?
+      return false if @label.nil?
+      return false if @ran.nil?
       true
     end
 
@@ -154,12 +141,11 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          profile == o.profile &&
-          ruleset_version == o.ruleset_version &&
-          valid == o.valid &&
-          fully_checked == o.fully_checked &&
-          rulesets == o.rulesets &&
-          violations == o.violations
+          id == o.id &&
+          label == o.label &&
+          version == o.version &&
+          ran == o.ran &&
+          reason == o.reason
     end
 
     # @see the `==` method
@@ -171,7 +157,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [profile, ruleset_version, valid, fully_checked, rulesets, violations].hash
+      [id, label, version, ran, reason].hash
     end
 
     # Builds the object from hash

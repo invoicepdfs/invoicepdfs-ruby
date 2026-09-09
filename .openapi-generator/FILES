@@ -75,6 +75,7 @@ docs/BusinessProfilesApi.md
 docs/BusinessProfilesListResponse.md
 docs/CalculationBreakdown.md
 docs/ComplianceCheckOut.md
+docs/ComplianceRulesetOut.md
 docs/ComplianceViolationOut.md
 docs/CountriesListResponse.md
 docs/CountryOut.md
@@ -349,6 +350,7 @@ lib/invoicepdfs/models/business_profile_response.rb
 lib/invoicepdfs/models/business_profiles_list_response.rb
 lib/invoicepdfs/models/calculation_breakdown.rb
 lib/invoicepdfs/models/compliance_check_out.rb
+lib/invoicepdfs/models/compliance_ruleset_out.rb
 lib/invoicepdfs/models/compliance_violation_out.rb
 lib/invoicepdfs/models/countries_list_response.rb
 lib/invoicepdfs/models/country_out.rb
@@ -597,6 +599,7 @@ spec/models/business_profile_response_spec.rb
 spec/models/business_profiles_list_response_spec.rb
 spec/models/calculation_breakdown_spec.rb
 spec/models/compliance_check_out_spec.rb
+spec/models/compliance_ruleset_out_spec.rb
 spec/models/compliance_violation_out_spec.rb
 spec/models/countries_list_response_spec.rb
 spec/models/country_out_spec.rb

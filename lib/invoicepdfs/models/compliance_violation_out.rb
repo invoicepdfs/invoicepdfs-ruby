@@ -15,20 +15,28 @@ require 'time'
 
 module InvoicePDFs
   class ComplianceViolationOut
-    # The EN 16931 term or group.
+    # The identifier the standard uses — a business term from the mandatory-field check, a rule id from Schematron. A rule id is what a rejection notice from an access point quotes.
     attr_accessor :rule
 
-    # Where in the document.
+    # Where the problem is. The mandatory-field check names a field of the request; Schematron names the node in the generated XML.
     attr_accessor :path
 
     attr_accessor :message
+
+    # `fatal` would get the document rejected. `warning` is a recommendation — both EN 16931 and Peppol grade a large share of their rules as advisory, and `valid` ignores those.
+    attr_accessor :severity
+
+    # Which ruleset found it — matches an `id` in `rulesets`.
+    attr_accessor :ruleset
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'rule' => :'rule',
         :'path' => :'path',
-        :'message' => :'message'
+        :'message' => :'message',
+        :'severity' => :'severity',
+        :'ruleset' => :'ruleset'
       }
     end
 
@@ -42,7 +50,9 @@ module InvoicePDFs
       {
         :'rule' => :'String',
         :'path' => :'String',
-        :'message' => :'String'
+        :'message' => :'String',
+        :'severity' => :'String',
+        :'ruleset' => :'String'
       }
     end
 
@@ -84,6 +94,18 @@ module InvoicePDFs
       else
         self.message = nil
       end
+
+      if attributes.key?(:'severity')
+        self.severity = attributes[:'severity']
+      else
+        self.severity = 'fatal'
+      end
+
+      if attributes.key?(:'ruleset')
+        self.ruleset = attributes[:'ruleset']
+      else
+        self.ruleset = 'semantic'
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,7 +145,9 @@ module InvoicePDFs
       self.class == o.class &&
           rule == o.rule &&
           path == o.path &&
-          message == o.message
+          message == o.message &&
+          severity == o.severity &&
+          ruleset == o.ruleset
     end
 
     # @see the `==` method
@@ -135,7 +159,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rule, path, message].hash
+      [rule, path, message, severity, ruleset].hash
     end
 
     # Builds the object from hash
