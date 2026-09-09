@@ -9,6 +9,7 @@ All URIs are relative to *http://localhost*
 | [**create_document**](DocumentsApi.md#create_document) | **POST** /api/v1/documents | Create Document |
 | [**create_document_render**](DocumentsApi.md#create_document_render) | **POST** /api/v1/documents/{document_id}/renders | Create Document Render |
 | [**delete_document**](DocumentsApi.md#delete_document) | **DELETE** /api/v1/documents/{document_id} | Delete Document |
+| [**download_document_xml**](DocumentsApi.md#download_document_xml) | **GET** /api/v1/documents/{document_id}/xml | Download Document Xml |
 | [**duplicate_document**](DocumentsApi.md#duplicate_document) | **POST** /api/v1/documents/{document_id}/duplicate | Duplicate Document |
 | [**finalize_document**](DocumentsApi.md#finalize_document) | **POST** /api/v1/documents/{document_id}/finalize | Finalize Document |
 | [**get_document**](DocumentsApi.md#get_document) | **GET** /api/v1/documents/{document_id} | Get Document |
@@ -18,6 +19,7 @@ All URIs are relative to *http://localhost*
 | [**mark_sent**](DocumentsApi.md#mark_sent) | **POST** /api/v1/documents/{document_id}/mark-sent | Mark Sent |
 | [**mark_unpaid**](DocumentsApi.md#mark_unpaid) | **POST** /api/v1/documents/{document_id}/mark-unpaid | Mark Unpaid |
 | [**render_document**](DocumentsApi.md#render_document) | **POST** /api/v1/documents/render | Render Document |
+| [**render_document_xml**](DocumentsApi.md#render_document_xml) | **POST** /api/v1/documents/xml | Render Document Xml |
 | [**restore_document**](DocumentsApi.md#restore_document) | **POST** /api/v1/documents/{document_id}/restore | Restore Document |
 | [**send_document**](DocumentsApi.md#send_document) | **POST** /api/v1/documents/{document_id}/send | Send Document |
 | [**update_document**](DocumentsApi.md#update_document) | **PATCH** /api/v1/documents/{document_id} | Update Document |
@@ -369,6 +371,77 @@ end
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+
+## download_document_xml
+
+> String download_document_xml(document_id, profile)
+
+Download Document Xml
+
+The e-invoicing XML for a document already stored here.  Reads `data_json` directly rather than going through the render path's reconstruction: the status, the logo and the source document's number are all attached there for the *PDF*, and none of them belong in the XML. The credit note's BG-3 reference is already in the stored payload, resolved when the document was written.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::DocumentsApi.new
+document_id = 'document_id_example' # String | 
+profile = 'peppol_bis_billing_3' # String | Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+
+begin
+  # Download Document Xml
+  result = api_instance.download_document_xml(document_id, profile)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->download_document_xml: #{e}"
+end
+```
+
+#### Using the download_document_xml_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(String, Integer, Hash)> download_document_xml_with_http_info(document_id, profile)
+
+```ruby
+begin
+  # Download Document Xml
+  data, status_code, headers = api_instance.download_document_xml_with_http_info(document_id, profile)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => String
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->download_document_xml_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_id** | **String** |  |  |
+| **profile** | **String** | Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request. |  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/xml, application/json
 
 
 ## duplicate_document
@@ -990,6 +1063,75 @@ end
 
 - **Content-Type**: application/json
 - **Accept**: application/json, application/pdf
+
+
+## render_document_xml
+
+> String render_document_xml(document_compliance_request)
+
+Render Document Xml
+
+The e-invoicing XML for a document, without storing anything.  Takes the same body as `/validate-compliance`, and the pairing is the point: check first, then take the XML once it passes. Nothing here validates against the ruleset — a document missing mandatory fields serialises to XML missing those elements, which is a more useful artefact to look at than a refusal, and `/validate-compliance` is where the refusal belongs.  The syntax is not a parameter. It follows from the profile, because a profile already is a syntax plus a ruleset, and asking a caller for both is asking them to know that Peppol means UBL.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::DocumentsApi.new
+document_compliance_request = InvoicePDFs::DocumentComplianceRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), profile: 'peppol_bis_billing_3'}) # DocumentComplianceRequest | 
+
+begin
+  # Render Document Xml
+  result = api_instance.render_document_xml(document_compliance_request)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->render_document_xml: #{e}"
+end
+```
+
+#### Using the render_document_xml_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(String, Integer, Hash)> render_document_xml_with_http_info(document_compliance_request)
+
+```ruby
+begin
+  # Render Document Xml
+  data, status_code, headers = api_instance.render_document_xml_with_http_info(document_compliance_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => String
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling DocumentsApi->render_document_xml_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **document_compliance_request** | [**DocumentComplianceRequest**](DocumentComplianceRequest.md) |  |  |
+
+### Return type
+
+**String**
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/xml, application/json
 
 
 ## restore_document

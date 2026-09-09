@@ -22,12 +22,38 @@ module InvoicePDFs
 
     attr_accessor :expires_in
 
+    # `facturx_pdf` embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD.
+    attr_accessor :format
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'template_id' => :'template_id',
         :'page_size' => :'page_size',
-        :'expires_in' => :'expires_in'
+        :'expires_in' => :'expires_in',
+        :'format' => :'format'
       }
     end
 
@@ -41,7 +67,8 @@ module InvoicePDFs
       {
         :'template_id' => :'String',
         :'page_size' => :'String',
-        :'expires_in' => :'Integer'
+        :'expires_in' => :'Integer',
+        :'format' => :'String'
       }
     end
 
@@ -83,6 +110,12 @@ module InvoicePDFs
       else
         self.expires_in = 3600
       end
+
+      if attributes.key?(:'format')
+        self.format = attributes[:'format']
+      else
+        self.format = 'pdf'
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -97,7 +130,19 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      format_validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
+      return false unless format_validator.valid?(@format)
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] format Object to be assigned
+    def format=(format)
+      validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
+      unless validator.valid?(format)
+        fail ArgumentError, "invalid value for \"format\", must be one of #{validator.allowable_values}."
+      end
+      @format = format
     end
 
     # Checks equality by comparing each attribute.
@@ -107,7 +152,8 @@ module InvoicePDFs
       self.class == o.class &&
           template_id == o.template_id &&
           page_size == o.page_size &&
-          expires_in == o.expires_in
+          expires_in == o.expires_in &&
+          format == o.format
     end
 
     # @see the `==` method
@@ -119,7 +165,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, page_size, expires_in].hash
+      [template_id, page_size, expires_in, format].hash
     end
 
     # Builds the object from hash

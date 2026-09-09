@@ -351,6 +351,76 @@ module InvoicePDFs
       return data, status_code, headers
     end
 
+    # Download Document Xml
+    # The e-invoicing XML for a document already stored here.  Reads `data_json` directly rather than going through the render path's reconstruction: the status, the logo and the source document's number are all attached there for the *PDF*, and none of them belong in the XML. The credit note's BG-3 reference is already in the stored payload, resolved when the document was written.
+    # @param document_id [String] 
+    # @param profile [String] Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def download_document_xml(document_id, profile, opts = {})
+      data, _status_code, _headers = download_document_xml_with_http_info(document_id, profile, opts)
+      data
+    end
+
+    # Download Document Xml
+    # The e-invoicing XML for a document already stored here.  Reads &#x60;data_json&#x60; directly rather than going through the render path&#39;s reconstruction: the status, the logo and the source document&#39;s number are all attached there for the *PDF*, and none of them belong in the XML. The credit note&#39;s BG-3 reference is already in the stored payload, resolved when the document was written.
+    # @param document_id [String] 
+    # @param profile [String] Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def download_document_xml_with_http_info(document_id, profile, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.download_document_xml ...'
+      end
+      # verify the required parameter 'document_id' is set
+      if @api_client.config.client_side_validation && document_id.nil?
+        fail ArgumentError, "Missing the required parameter 'document_id' when calling DocumentsApi.download_document_xml"
+      end
+      # verify the required parameter 'profile' is set
+      if @api_client.config.client_side_validation && profile.nil?
+        fail ArgumentError, "Missing the required parameter 'profile' when calling DocumentsApi.download_document_xml"
+      end
+      # resource path
+      local_var_path = '/api/v1/documents/{document_id}/xml'.sub('{' + 'document_id' + '}', CGI.escape(document_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'profile'] = profile
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.download_document_xml",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#download_document_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Duplicate Document
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
@@ -932,6 +1002,74 @@ module InvoicePDFs
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DocumentsApi#render_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Render Document Xml
+    # The e-invoicing XML for a document, without storing anything.  Takes the same body as `/validate-compliance`, and the pairing is the point: check first, then take the XML once it passes. Nothing here validates against the ruleset — a document missing mandatory fields serialises to XML missing those elements, which is a more useful artefact to look at than a refusal, and `/validate-compliance` is where the refusal belongs.  The syntax is not a parameter. It follows from the profile, because a profile already is a syntax plus a ruleset, and asking a caller for both is asking them to know that Peppol means UBL.
+    # @param document_compliance_request [DocumentComplianceRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def render_document_xml(document_compliance_request, opts = {})
+      data, _status_code, _headers = render_document_xml_with_http_info(document_compliance_request, opts)
+      data
+    end
+
+    # Render Document Xml
+    # The e-invoicing XML for a document, without storing anything.  Takes the same body as &#x60;/validate-compliance&#x60;, and the pairing is the point: check first, then take the XML once it passes. Nothing here validates against the ruleset — a document missing mandatory fields serialises to XML missing those elements, which is a more useful artefact to look at than a refusal, and &#x60;/validate-compliance&#x60; is where the refusal belongs.  The syntax is not a parameter. It follows from the profile, because a profile already is a syntax plus a ruleset, and asking a caller for both is asking them to know that Peppol means UBL.
+    # @param document_compliance_request [DocumentComplianceRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Integer, Hash)>] String data, response status code and response headers
+    def render_document_xml_with_http_info(document_compliance_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DocumentsApi.render_document_xml ...'
+      end
+      # verify the required parameter 'document_compliance_request' is set
+      if @api_client.config.client_side_validation && document_compliance_request.nil?
+        fail ArgumentError, "Missing the required parameter 'document_compliance_request' when calling DocumentsApi.render_document_xml"
+      end
+      # resource path
+      local_var_path = '/api/v1/documents/xml'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/xml', 'application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(document_compliance_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'String'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"DocumentsApi.render_document_xml",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DocumentsApi#render_document_xml\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

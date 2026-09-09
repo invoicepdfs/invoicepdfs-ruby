@@ -90,6 +90,19 @@ describe 'DocumentsApi' do
     end
   end
 
+  # unit tests for download_document_xml
+  # Download Document Xml
+  # The e-invoicing XML for a document already stored here.  Reads &#x60;data_json&#x60; directly rather than going through the render path&#39;s reconstruction: the status, the logo and the source document&#39;s number are all attached there for the *PDF*, and none of them belong in the XML. The credit note&#39;s BG-3 reference is already in the stored payload, resolved when the document was written.
+  # @param document_id 
+  # @param profile Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'download_document_xml test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for duplicate_document
   # Duplicate Document
   # @param document_id 
@@ -190,6 +203,18 @@ describe 'DocumentsApi' do
   # @option opts [String] :idempotency_key 
   # @return [RenderResponse]
   describe 'render_document test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for render_document_xml
+  # Render Document Xml
+  # The e-invoicing XML for a document, without storing anything.  Takes the same body as &#x60;/validate-compliance&#x60;, and the pairing is the point: check first, then take the XML once it passes. Nothing here validates against the ruleset — a document missing mandatory fields serialises to XML missing those elements, which is a more useful artefact to look at than a refusal, and &#x60;/validate-compliance&#x60; is where the refusal belongs.  The syntax is not a parameter. It follows from the profile, because a profile already is a syntax plus a ruleset, and asking a caller for both is asking them to know that Peppol means UBL.
+  # @param document_compliance_request 
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'render_document_xml test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

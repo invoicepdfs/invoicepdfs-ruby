@@ -118,7 +118,7 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      format_validator = EnumAttributeValidator.new('String', ["pdf"])
+      format_validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
       return false unless format_validator.valid?(@format)
       delivery_validator = EnumAttributeValidator.new('String', ["url", "binary"])
       return false unless delivery_validator.valid?(@delivery)
@@ -128,7 +128,7 @@ module InvoicePDFs
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] format Object to be assigned
     def format=(format)
-      validator = EnumAttributeValidator.new('String', ["pdf"])
+      validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
       unless validator.valid?(format)
         fail ArgumentError, "invalid value for \"format\", must be one of #{validator.allowable_values}."
       end
