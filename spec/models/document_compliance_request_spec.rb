@@ -30,7 +30,7 @@ describe InvoicePDFs::DocumentComplianceRequest do
   describe 'test attribute "document_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["invoice", "credit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["invoice", "credit_note", "debit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
       # validator.allowable_values.each do |value|
       #   expect { instance.document_type = value }.not_to raise_error
       # end
