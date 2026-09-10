@@ -45,6 +45,12 @@ describe InvoicePDFs::ComplianceCheckOut do
     end
   end
 
+  describe 'test attribute "in_scope"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "fully_checked"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

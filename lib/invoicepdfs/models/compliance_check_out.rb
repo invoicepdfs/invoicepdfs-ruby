@@ -23,6 +23,9 @@ module InvoicePDFs
     # Nothing fatal was found. Read it with `fully_checked` — on its own it says what was checked came back clean, not that everything was checked.
     attr_accessor :valid
 
+    # Whether any of these rulesets is likely to apply to this document at all. False when neither party is in a country that uses one — these are European e-invoicing rulesets, and for a wholly domestic US invoice, say, `valid` is answering a question nobody asked. Advisory: it never changes the verdict or withholds the check, because an open network means a US seller invoicing a Dutch buyer genuinely needs it.
+    attr_accessor :in_scope
+
     # Every ruleset that applies to this profile ran. False means at least one could not, and `rulesets` says which and why.
     attr_accessor :fully_checked
 
@@ -38,6 +41,7 @@ module InvoicePDFs
         :'profile' => :'profile',
         :'ruleset_version' => :'ruleset_version',
         :'valid' => :'valid',
+        :'in_scope' => :'in_scope',
         :'fully_checked' => :'fully_checked',
         :'rulesets' => :'rulesets',
         :'violations' => :'violations'
@@ -55,6 +59,7 @@ module InvoicePDFs
         :'profile' => :'String',
         :'ruleset_version' => :'String',
         :'valid' => :'Boolean',
+        :'in_scope' => :'Boolean',
         :'fully_checked' => :'Boolean',
         :'rulesets' => :'Array<ComplianceRulesetOut>',
         :'violations' => :'Array<ComplianceViolationOut>'
@@ -98,6 +103,12 @@ module InvoicePDFs
         self.valid = attributes[:'valid']
       else
         self.valid = nil
+      end
+
+      if attributes.key?(:'in_scope')
+        self.in_scope = attributes[:'in_scope']
+      else
+        self.in_scope = true
       end
 
       if attributes.key?(:'fully_checked')
@@ -157,6 +168,7 @@ module InvoicePDFs
           profile == o.profile &&
           ruleset_version == o.ruleset_version &&
           valid == o.valid &&
+          in_scope == o.in_scope &&
           fully_checked == o.fully_checked &&
           rulesets == o.rulesets &&
           violations == o.violations
@@ -171,7 +183,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [profile, ruleset_version, valid, fully_checked, rulesets, violations].hash
+      [profile, ruleset_version, valid, in_scope, fully_checked, rulesets, violations].hash
     end
 
     # Builds the object from hash

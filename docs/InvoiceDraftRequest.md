@@ -14,6 +14,7 @@
 | **customer_id** | **String** |  |  |
 | **ship_to** | [**PostalAddress**](PostalAddress.md) |  | [optional] |
 | **buyer_reference** | **String** |  | [optional] |
+| **tax_scheme** | **String** |  | [optional] |
 | **delivery_date** | **Date** |  | [optional] |
 | **preceding_invoice_number** | **String** |  | [optional] |
 | **line_items** | [**Array&lt;InvoiceLineItemInput&gt;**](InvoiceLineItemInput.md) |  |  |
@@ -41,6 +42,7 @@ instance = InvoicePDFs::InvoiceDraftRequest.new(
   customer_id: cus_01XYZ,
   ship_to: null,
   buyer_reference: null,
+  tax_scheme: null,
   delivery_date: null,
   preceding_invoice_number: null,
   line_items: null,
