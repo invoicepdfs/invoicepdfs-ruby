@@ -19,14 +19,11 @@ module InvoicePDFs
 
     attr_accessor :changelog
 
-    attr_accessor :config
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'label' => :'label',
-        :'changelog' => :'changelog',
-        :'config' => :'config'
+        :'changelog' => :'changelog'
       }
     end
 
@@ -39,8 +36,7 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'label' => :'String',
-        :'changelog' => :'String',
-        :'config' => :'Hash<String, Object>'
+        :'changelog' => :'String'
       }
     end
 
@@ -48,7 +44,7 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'label',
-        :'changelog',
+        :'changelog'
       ])
     end
 
@@ -74,12 +70,6 @@ module InvoicePDFs
       if attributes.key?(:'changelog')
         self.changelog = attributes[:'changelog']
       end
-
-      if attributes.key?(:'config')
-        if (value = attributes[:'config']).is_a?(Hash)
-          self.config = value
-        end
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -103,8 +93,7 @@ module InvoicePDFs
       return true if self.equal?(o)
       self.class == o.class &&
           label == o.label &&
-          changelog == o.changelog &&
-          config == o.config
+          changelog == o.changelog
     end
 
     # @see the `==` method
@@ -116,7 +105,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [label, changelog, config].hash
+      [label, changelog].hash
     end
 
     # Builds the object from hash

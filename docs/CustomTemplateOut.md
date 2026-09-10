@@ -8,7 +8,7 @@
 | **name** | **String** |  |  |
 | **description** | **String** |  | [optional] |
 | **base_template_id** | **String** |  |  |
-| **config** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **config** | [**TemplateConfig**](TemplateConfig.md) |  | [optional] |
 | **status** | **String** |  |  |
 | **is_default** | **Boolean** |  | [optional][default to false] |
 | **created_at** | **String** |  |  |

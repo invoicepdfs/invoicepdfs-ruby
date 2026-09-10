@@ -23,6 +23,8 @@ module InvoicePDFs
 
     attr_accessor :template_id
 
+    attr_accessor :template_version
+
     attr_accessor :total_items
 
     attr_accessor :completed_items
@@ -64,6 +66,7 @@ module InvoicePDFs
         :'status' => :'status',
         :'operation' => :'operation',
         :'template_id' => :'template_id',
+        :'template_version' => :'template_version',
         :'total_items' => :'total_items',
         :'completed_items' => :'completed_items',
         :'failed_items' => :'failed_items',
@@ -85,6 +88,7 @@ module InvoicePDFs
         :'status' => :'String',
         :'operation' => :'String',
         :'template_id' => :'String',
+        :'template_version' => :'Integer',
         :'total_items' => :'Integer',
         :'completed_items' => :'Integer',
         :'failed_items' => :'Integer',
@@ -97,6 +101,7 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'template_version',
         :'completed_at'
       ])
     end
@@ -138,6 +143,10 @@ module InvoicePDFs
         self.template_id = attributes[:'template_id']
       else
         self.template_id = nil
+      end
+
+      if attributes.key?(:'template_version')
+        self.template_version = attributes[:'template_version']
       end
 
       if attributes.key?(:'total_items')
@@ -256,6 +265,7 @@ module InvoicePDFs
           status == o.status &&
           operation == o.operation &&
           template_id == o.template_id &&
+          template_version == o.template_version &&
           total_items == o.total_items &&
           completed_items == o.completed_items &&
           failed_items == o.failed_items &&
@@ -273,7 +283,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, status, operation, template_id, total_items, completed_items, failed_items, created_at, updated_at, completed_at].hash
+      [id, status, operation, template_id, template_version, total_items, completed_items, failed_items, created_at, updated_at, completed_at].hash
     end
 
     # Builds the object from hash

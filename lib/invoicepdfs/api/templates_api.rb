@@ -518,6 +518,7 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param document_render_request [DocumentRenderRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions.
     # @option opts [String] :idempotency_key 
     # @return [RenderResponse]
     def preview_template(template_id, document_render_request, opts = {})
@@ -529,6 +530,7 @@ module InvoicePDFs
     # @param template_id [String] 
     # @param document_render_request [DocumentRenderRequest] 
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions.
     # @option opts [String] :idempotency_key 
     # @return [Array<(RenderResponse, Integer, Hash)>] RenderResponse data, response status code and response headers
     def preview_template_with_http_info(template_id, document_render_request, opts = {})
@@ -543,11 +545,16 @@ module InvoicePDFs
       if @api_client.config.client_side_validation && document_render_request.nil?
         fail ArgumentError, "Missing the required parameter 'document_render_request' when calling TemplatesApi.preview_template"
       end
+      if @api_client.config.client_side_validation && !opts[:'version'].nil? && opts[:'version'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"version"]" when calling TemplatesApi.preview_template, must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/api/v1/templates/{template_id}/preview'.sub('{' + 'template_id' + '}', CGI.escape(template_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'version'] = opts[:'version'] if !opts[:'version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

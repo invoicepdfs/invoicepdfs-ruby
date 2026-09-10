@@ -6,7 +6,6 @@
 | ---- | ---- | ----------- | ----- |
 | **label** | **String** |  | [optional] |
 | **changelog** | **String** |  | [optional] |
-| **config** | **Hash&lt;String, Object&gt;** |  | [optional] |
 
 ## Example
 
@@ -15,8 +14,7 @@ require 'invoicepdfs'
 
 instance = InvoicePDFs::TemplateVersionCreateRequest.new(
   label: null,
-  changelog: null,
-  config: null
+  changelog: null
 )
 ```
 

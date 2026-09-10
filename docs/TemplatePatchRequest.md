@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **config** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **config** | [**TemplateConfig**](TemplateConfig.md) |  | [optional] |
 
 ## Example
 

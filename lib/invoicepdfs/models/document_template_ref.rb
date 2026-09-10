@@ -17,10 +17,13 @@ module InvoicePDFs
   class DocumentTemplateRef
     attr_accessor :id
 
+    attr_accessor :version
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'id' => :'id',
+        :'version' => :'version'
       }
     end
 
@@ -32,13 +35,15 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String'
+        :'id' => :'String',
+        :'version' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'version'
       ])
     end
 
@@ -62,6 +67,10 @@ module InvoicePDFs
       else
         self.id = nil
       end
+
+      if attributes.key?(:'version')
+        self.version = attributes[:'version']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -73,6 +82,10 @@ module InvoicePDFs
         invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
+      if !@version.nil? && @version < 1
+        invalid_properties.push('invalid value for "version", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -81,7 +94,18 @@ module InvoicePDFs
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
+      return false if !@version.nil? && @version < 1
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] version Value to be assigned
+    def version=(version)
+      if !version.nil? && version < 1
+        fail ArgumentError, 'invalid value for "version", must be greater than or equal to 1.'
+      end
+
+      @version = version
     end
 
     # Checks equality by comparing each attribute.
@@ -89,7 +113,8 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id
+          id == o.id &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -101,7 +126,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id].hash
+      [id, version].hash
     end
 
     # Builds the object from hash

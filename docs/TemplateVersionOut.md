@@ -9,7 +9,7 @@
 | **version** | **Integer** |  |  |
 | **label** | **String** |  | [optional] |
 | **changelog** | **String** |  | [optional] |
-| **config** | **Hash&lt;String, Object&gt;** |  |  |
+| **config** | [**TemplateConfig**](TemplateConfig.md) |  |  |
 | **created_at** | **String** |  |  |
 
 ## Example

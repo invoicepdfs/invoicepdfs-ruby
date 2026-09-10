@@ -574,6 +574,7 @@ api_instance = InvoicePDFs::TemplatesApi.new
 template_id = 'template_id_example' # String | 
 document_render_request = InvoicePDFs::DocumentRenderRequest.new({data: InvoicePDFs::DocumentInvoiceDataInput.new({invoice_number: 'INV-2026-001', issue_date: Date.parse('Mon Jul 20 00:00:00 UTC 2026'), currency: 'USD', seller: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), buyer: InvoicePDFs::DocumentPartyInput.new({name: 'Acme Corp'}), line_items: [InvoicePDFs::DocumentLineItemInput.new({name: 'Web Development', quantity: '2', unit_price: '150.00'})]}), template: InvoicePDFs::DocumentTemplateRef.new({id: 'id_example'})}) # DocumentRenderRequest | 
 opts = {
+  version: 56, # Integer | Preview the config this version recorded rather than the template's current config. Only a custom (`ctpl_`) template has versions.
   idempotency_key: 'idempotency_key_example' # String | 
 }
 
@@ -610,6 +611,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **String** |  |  |
 | **document_render_request** | [**DocumentRenderRequest**](DocumentRenderRequest.md) |  |  |
+| **version** | **Integer** | Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions. | [optional] |
 | **idempotency_key** | **String** |  | [optional] |
 
 ### Return type

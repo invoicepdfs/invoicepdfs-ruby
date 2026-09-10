@@ -63,7 +63,7 @@ module InvoicePDFs
         :'name' => :'String',
         :'description' => :'String',
         :'base_template_id' => :'String',
-        :'config' => :'Hash<String, Object>',
+        :'config' => :'TemplateConfig',
         :'status' => :'String',
         :'is_default' => :'Boolean',
         :'created_at' => :'String',
@@ -118,9 +118,7 @@ module InvoicePDFs
       end
 
       if attributes.key?(:'config')
-        if (value = attributes[:'config']).is_a?(Hash)
-          self.config = value
-        end
+        self.config = attributes[:'config']
       end
 
       if attributes.key?(:'status')

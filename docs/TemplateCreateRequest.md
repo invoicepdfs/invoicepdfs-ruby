@@ -7,7 +7,7 @@
 | **name** | **String** |  |  |
 | **description** | **String** |  | [optional] |
 | **base_template_id** | **String** |  | [optional][default to &#39;tpl_modern&#39;] |
-| **config** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **config** | [**TemplateConfig**](TemplateConfig.md) |  | [optional] |
 
 ## Example
 

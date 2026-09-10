@@ -14,47 +14,26 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class BatchCreateRequest
-    attr_accessor :operation
+  # What a custom template is: a built-in design plus the brand to render it in.  A custom template is not a design of its own — it names one of the built-ins in ``base_template_id`` and carries the values below, which are the same ones ``data.branding`` carries. They are applied *underneath* a request's own branding, so a document that states a colour still wins and one template can serve several brands.  Typed rather than the free-form object it used to be: nothing read that object, so every key in it was equally correct and a caller could keep sending ``primary_colour`` forever without a word back. Unset here means \"the template has no opinion\" — unlike ``Branding``, whose every field has a non-empty default and so cannot say that.
+  class TemplateConfig
+    attr_accessor :primary_color
 
-    attr_accessor :items
+    attr_accessor :accent_color
 
-    attr_accessor :template_id
+    attr_accessor :font_family
 
-    attr_accessor :template_version
+    attr_accessor :header_text
 
-    attr_accessor :output
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :footer_text
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'operation' => :'operation',
-        :'items' => :'items',
-        :'template_id' => :'template_id',
-        :'template_version' => :'template_version',
-        :'output' => :'output'
+        :'primary_color' => :'primary_color',
+        :'accent_color' => :'accent_color',
+        :'font_family' => :'font_family',
+        :'header_text' => :'header_text',
+        :'footer_text' => :'footer_text'
       }
     end
 
@@ -66,18 +45,22 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'operation' => :'String',
-        :'items' => :'Array<BatchItemInput>',
-        :'template_id' => :'String',
-        :'template_version' => :'Integer',
-        :'output' => :'BatchOutputOptions'
+        :'primary_color' => :'String',
+        :'accent_color' => :'String',
+        :'font_family' => :'String',
+        :'header_text' => :'String',
+        :'footer_text' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'template_version',
+        :'primary_color',
+        :'accent_color',
+        :'font_family',
+        :'header_text',
+        :'footer_text'
       ])
     end
 
@@ -85,43 +68,35 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::BatchCreateRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::TemplateConfig` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::BatchCreateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::TemplateConfig`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'operation')
-        self.operation = attributes[:'operation']
-      else
-        self.operation = 'render'
+      if attributes.key?(:'primary_color')
+        self.primary_color = attributes[:'primary_color']
       end
 
-      if attributes.key?(:'items')
-        if (value = attributes[:'items']).is_a?(Array)
-          self.items = value
-        end
-      else
-        self.items = nil
+      if attributes.key?(:'accent_color')
+        self.accent_color = attributes[:'accent_color']
       end
 
-      if attributes.key?(:'template_id')
-        self.template_id = attributes[:'template_id']
-      else
-        self.template_id = 'tpl_modern'
+      if attributes.key?(:'font_family')
+        self.font_family = attributes[:'font_family']
       end
 
-      if attributes.key?(:'template_version')
-        self.template_version = attributes[:'template_version']
+      if attributes.key?(:'header_text')
+        self.header_text = attributes[:'header_text']
       end
 
-      if attributes.key?(:'output')
-        self.output = attributes[:'output']
+      if attributes.key?(:'footer_text')
+        self.footer_text = attributes[:'footer_text']
       end
     end
 
@@ -130,20 +105,14 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @items.nil?
-        invalid_properties.push('invalid value for "items", items cannot be nil.')
+      pattern = Regexp.new(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)
+      if !@primary_color.nil? && @primary_color !~ pattern
+        invalid_properties.push("invalid value for \"primary_color\", must conform to the pattern #{pattern}.")
       end
 
-      if @items.length > 500
-        invalid_properties.push('invalid value for "items", number of items must be less than or equal to 500.')
-      end
-
-      if @items.length < 1
-        invalid_properties.push('invalid value for "items", number of items must be greater than or equal to 1.')
-      end
-
-      if !@template_version.nil? && @template_version < 1
-        invalid_properties.push('invalid value for "template_version", must be greater than or equal to 1.')
+      pattern = Regexp.new(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)
+      if !@accent_color.nil? && @accent_color !~ pattern
+        invalid_properties.push("invalid value for \"accent_color\", must conform to the pattern #{pattern}.")
       end
 
       invalid_properties
@@ -153,51 +122,31 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      operation_validator = EnumAttributeValidator.new('String', ["render"])
-      return false unless operation_validator.valid?(@operation)
-      return false if @items.nil?
-      return false if @items.length > 500
-      return false if @items.length < 1
-      return false if !@template_version.nil? && @template_version < 1
+      return false if !@primary_color.nil? && @primary_color !~ Regexp.new(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)
+      return false if !@accent_color.nil? && @accent_color !~ Regexp.new(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] operation Object to be assigned
-    def operation=(operation)
-      validator = EnumAttributeValidator.new('String', ["render"])
-      unless validator.valid?(operation)
-        fail ArgumentError, "invalid value for \"operation\", must be one of #{validator.allowable_values}."
+    # Custom attribute writer method with validation
+    # @param [Object] primary_color Value to be assigned
+    def primary_color=(primary_color)
+      pattern = Regexp.new(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)
+      if !primary_color.nil? && primary_color !~ pattern
+        fail ArgumentError, "invalid value for \"primary_color\", must conform to the pattern #{pattern}."
       end
-      @operation = operation
+
+      @primary_color = primary_color
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] items Value to be assigned
-    def items=(items)
-      if items.nil?
-        fail ArgumentError, 'items cannot be nil'
+    # @param [Object] accent_color Value to be assigned
+    def accent_color=(accent_color)
+      pattern = Regexp.new(/^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/)
+      if !accent_color.nil? && accent_color !~ pattern
+        fail ArgumentError, "invalid value for \"accent_color\", must conform to the pattern #{pattern}."
       end
 
-      if items.length > 500
-        fail ArgumentError, 'invalid value for "items", number of items must be less than or equal to 500.'
-      end
-
-      if items.length < 1
-        fail ArgumentError, 'invalid value for "items", number of items must be greater than or equal to 1.'
-      end
-
-      @items = items
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] template_version Value to be assigned
-    def template_version=(template_version)
-      if !template_version.nil? && template_version < 1
-        fail ArgumentError, 'invalid value for "template_version", must be greater than or equal to 1.'
-      end
-
-      @template_version = template_version
+      @accent_color = accent_color
     end
 
     # Checks equality by comparing each attribute.
@@ -205,11 +154,11 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          operation == o.operation &&
-          items == o.items &&
-          template_id == o.template_id &&
-          template_version == o.template_version &&
-          output == o.output
+          primary_color == o.primary_color &&
+          accent_color == o.accent_color &&
+          font_family == o.font_family &&
+          header_text == o.header_text &&
+          footer_text == o.footer_text
     end
 
     # @see the `==` method
@@ -221,7 +170,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [operation, items, template_id, template_version, output].hash
+      [primary_color, accent_color, font_family, header_text, footer_text].hash
     end
 
     # Builds the object from hash

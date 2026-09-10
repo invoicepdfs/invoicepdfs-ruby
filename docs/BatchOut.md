@@ -8,6 +8,7 @@
 | **status** | **String** |  |  |
 | **operation** | **String** |  |  |
 | **template_id** | **String** |  |  |
+| **template_version** | **Integer** |  | [optional] |
 | **total_items** | **Integer** |  |  |
 | **completed_items** | **Integer** |  |  |
 | **failed_items** | **Integer** |  |  |
@@ -25,6 +26,7 @@ instance = InvoicePDFs::BatchOut.new(
   status: null,
   operation: null,
   template_id: null,
+  template_version: null,
   total_items: null,
   completed_items: null,
   failed_items: null,

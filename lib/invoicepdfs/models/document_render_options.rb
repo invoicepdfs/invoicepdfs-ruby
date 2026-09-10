@@ -18,6 +18,8 @@ module InvoicePDFs
   class DocumentRenderOptions
     attr_accessor :template_id
 
+    attr_accessor :template_version
+
     attr_accessor :page_size
 
     attr_accessor :expires_in
@@ -51,6 +53,7 @@ module InvoicePDFs
     def self.attribute_map
       {
         :'template_id' => :'template_id',
+        :'template_version' => :'template_version',
         :'page_size' => :'page_size',
         :'expires_in' => :'expires_in',
         :'format' => :'format'
@@ -66,6 +69,7 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'template_id' => :'String',
+        :'template_version' => :'Integer',
         :'page_size' => :'String',
         :'expires_in' => :'Integer',
         :'format' => :'String'
@@ -75,6 +79,7 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'template_version',
       ])
     end
 
@@ -97,6 +102,10 @@ module InvoicePDFs
         self.template_id = attributes[:'template_id']
       else
         self.template_id = 'tpl_modern'
+      end
+
+      if attributes.key?(:'template_version')
+        self.template_version = attributes[:'template_version']
       end
 
       if attributes.key?(:'page_size')
@@ -123,6 +132,10 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if !@template_version.nil? && @template_version < 1
+        invalid_properties.push('invalid value for "template_version", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -130,9 +143,20 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if !@template_version.nil? && @template_version < 1
       format_validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
       return false unless format_validator.valid?(@format)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] template_version Value to be assigned
+    def template_version=(template_version)
+      if !template_version.nil? && template_version < 1
+        fail ArgumentError, 'invalid value for "template_version", must be greater than or equal to 1.'
+      end
+
+      @template_version = template_version
     end
 
     # Custom attribute writer method checking allowed values (enum).
@@ -151,6 +175,7 @@ module InvoicePDFs
       return true if self.equal?(o)
       self.class == o.class &&
           template_id == o.template_id &&
+          template_version == o.template_version &&
           page_size == o.page_size &&
           expires_in == o.expires_in &&
           format == o.format
@@ -165,7 +190,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [template_id, page_size, expires_in, format].hash
+      [template_id, template_version, page_size, expires_in, format].hash
     end
 
     # Builds the object from hash

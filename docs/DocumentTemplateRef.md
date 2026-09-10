@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
+| **version** | **Integer** |  | [optional] |
 
 ## Example
 
@@ -12,7 +13,8 @@
 require 'invoicepdfs'
 
 instance = InvoicePDFs::DocumentTemplateRef.new(
-  id: null
+  id: null,
+  version: null
 )
 ```
 

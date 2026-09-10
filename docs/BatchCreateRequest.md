@@ -7,6 +7,7 @@
 | **operation** | **String** |  | [optional][default to &#39;render&#39;] |
 | **items** | [**Array&lt;BatchItemInput&gt;**](BatchItemInput.md) |  |  |
 | **template_id** | **String** |  | [optional][default to &#39;tpl_modern&#39;] |
+| **template_version** | **Integer** |  | [optional] |
 | **output** | [**BatchOutputOptions**](BatchOutputOptions.md) |  | [optional] |
 
 ## Example
@@ -18,6 +19,7 @@ instance = InvoicePDFs::BatchCreateRequest.new(
   operation: null,
   items: null,
   template_id: null,
+  template_version: null,
   output: null
 )
 ```

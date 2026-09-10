@@ -21,6 +21,10 @@ module InvoicePDFs
 
     attr_accessor :document_type
 
+    attr_accessor :template_id
+
+    attr_accessor :template_version
+
     attr_accessor :format
 
     attr_accessor :download_url
@@ -59,6 +63,8 @@ module InvoicePDFs
         :'id' => :'id',
         :'status' => :'status',
         :'document_type' => :'document_type',
+        :'template_id' => :'template_id',
+        :'template_version' => :'template_version',
         :'format' => :'format',
         :'download_url' => :'download_url',
         :'expires_at' => :'expires_at',
@@ -78,6 +84,8 @@ module InvoicePDFs
         :'id' => :'String',
         :'status' => :'String',
         :'document_type' => :'String',
+        :'template_id' => :'String',
+        :'template_version' => :'Integer',
         :'format' => :'String',
         :'download_url' => :'String',
         :'expires_at' => :'String',
@@ -89,6 +97,7 @@ module InvoicePDFs
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'template_version',
       ])
     end
 
@@ -123,6 +132,16 @@ module InvoicePDFs
         self.document_type = attributes[:'document_type']
       else
         self.document_type = nil
+      end
+
+      if attributes.key?(:'template_id')
+        self.template_id = attributes[:'template_id']
+      else
+        self.template_id = nil
+      end
+
+      if attributes.key?(:'template_version')
+        self.template_version = attributes[:'template_version']
       end
 
       if attributes.key?(:'format')
@@ -173,6 +192,10 @@ module InvoicePDFs
         invalid_properties.push('invalid value for "document_type", document_type cannot be nil.')
       end
 
+      if @template_id.nil?
+        invalid_properties.push('invalid value for "template_id", template_id cannot be nil.')
+      end
+
       if @format.nil?
         invalid_properties.push('invalid value for "format", format cannot be nil.')
       end
@@ -207,6 +230,7 @@ module InvoicePDFs
       return false if @document_type.nil?
       document_type_validator = EnumAttributeValidator.new('String', ["invoice", "credit_note", "debit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
       return false unless document_type_validator.valid?(@document_type)
+      return false if @template_id.nil?
       return false if @format.nil?
       format_validator = EnumAttributeValidator.new('String', ["pdf"])
       return false unless format_validator.valid?(@format)
@@ -255,6 +279,8 @@ module InvoicePDFs
           id == o.id &&
           status == o.status &&
           document_type == o.document_type &&
+          template_id == o.template_id &&
+          template_version == o.template_version &&
           format == o.format &&
           download_url == o.download_url &&
           expires_at == o.expires_at &&
@@ -271,7 +297,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, status, document_type, format, download_url, expires_at, calculation, created_at].hash
+      [id, status, document_type, template_id, template_version, format, download_url, expires_at, calculation, created_at].hash
     end
 
     # Builds the object from hash

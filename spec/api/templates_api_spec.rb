@@ -125,6 +125,7 @@ describe 'TemplatesApi' do
   # @param template_id 
   # @param document_render_request 
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :version Preview the config this version recorded rather than the template&#39;s current config. Only a custom (&#x60;ctpl_&#x60;) template has versions.
   # @option opts [String] :idempotency_key 
   # @return [RenderResponse]
   describe 'preview_template test' do

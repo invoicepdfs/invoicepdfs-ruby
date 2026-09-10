@@ -55,7 +55,7 @@ module InvoicePDFs
         :'version' => :'Integer',
         :'label' => :'String',
         :'changelog' => :'String',
-        :'config' => :'Hash<String, Object>',
+        :'config' => :'TemplateConfig',
         :'created_at' => :'String'
       }
     end
@@ -110,9 +110,7 @@ module InvoicePDFs
       end
 
       if attributes.key?(:'config')
-        if (value = attributes[:'config']).is_a?(Hash)
-          self.config = value
-        end
+        self.config = attributes[:'config']
       else
         self.config = nil
       end

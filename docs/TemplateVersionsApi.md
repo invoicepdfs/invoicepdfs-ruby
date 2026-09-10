@@ -7,6 +7,7 @@ All URIs are relative to *http://localhost*
 | [**create_template_version**](TemplateVersionsApi.md#create_template_version) | **POST** /api/v1/templates/{template_id}/versions | Create Template Version |
 | [**get_template_version**](TemplateVersionsApi.md#get_template_version) | **GET** /api/v1/templates/{template_id}/versions/{version} | Get Template Version |
 | [**list_template_versions**](TemplateVersionsApi.md#list_template_versions) | **GET** /api/v1/templates/{template_id}/versions | List Template Versions |
+| [**restore_template_version**](TemplateVersionsApi.md#restore_template_version) | **POST** /api/v1/templates/{template_id}/versions/{version}/restore | Restore Template Version |
 
 
 ## create_template_version
@@ -203,6 +204,77 @@ end
 ### Return type
 
 [**TemplateVersionsListResponse**](TemplateVersionsListResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## restore_template_version
+
+> <TemplateVersionResponse> restore_template_version(template_id, version)
+
+Restore Template Version
+
+Put a template back to the config a version recorded.  The template moves; the version does not. Restoring v1 over v3's config does not delete v3 or renumber anything — the next snapshot is v4, and the history stays a record of what happened rather than a record of the last decision. Take a version first if the config being replaced is worth keeping.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::TemplateVersionsApi.new
+template_id = 'template_id_example' # String | 
+version = 56 # Integer | 
+
+begin
+  # Restore Template Version
+  result = api_instance.restore_template_version(template_id, version)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling TemplateVersionsApi->restore_template_version: #{e}"
+end
+```
+
+#### Using the restore_template_version_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TemplateVersionResponse>, Integer, Hash)> restore_template_version_with_http_info(template_id, version)
+
+```ruby
+begin
+  # Restore Template Version
+  data, status_code, headers = api_instance.restore_template_version_with_http_info(template_id, version)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TemplateVersionResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling TemplateVersionsApi->restore_template_version_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **template_id** | **String** |  |  |
+| **version** | **Integer** |  |  |
+
+### Return type
+
+[**TemplateVersionResponse**](TemplateVersionResponse.md)
 
 ### Authorization
 
