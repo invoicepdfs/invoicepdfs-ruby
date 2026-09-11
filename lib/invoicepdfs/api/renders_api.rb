@@ -20,8 +20,10 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Download Render
+    # Fetch the PDF, by signature or by API key.  Two ways in, and the signature is checked *first* — before the row is looked up — so a forged token cannot be used to tell a real render id from an invented one. It also means the token path costs no auth work at all, which matters because this is the one endpoint a browser hits directly.
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally.
     # @return [File]
     def download_render(render_id, opts = {})
       data, _status_code, _headers = download_render_with_http_info(render_id, opts)
@@ -29,8 +31,10 @@ module InvoicePDFs
     end
 
     # Download Render
+    # Fetch the PDF, by signature or by API key.  Two ways in, and the signature is checked *first* — before the row is looked up — so a forged token cannot be used to tell a real render id from an invented one. It also means the token path costs no auth work at all, which matters because this is the one endpoint a browser hits directly.
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally.
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
     def download_render_with_http_info(render_id, opts = {})
       if @api_client.config.debugging
@@ -45,6 +49,7 @@ module InvoicePDFs
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'token'] = opts[:'token'] if !opts[:'token'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

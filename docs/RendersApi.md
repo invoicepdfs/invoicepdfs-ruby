@@ -10,9 +10,11 @@ All URIs are relative to *http://localhost*
 
 ## download_render
 
-> File download_render(render_id)
+> File download_render(render_id, opts)
 
 Download Render
+
+Fetch the PDF, by signature or by API key.  Two ways in, and the signature is checked *first* — before the row is looked up — so a forged token cannot be used to tell a real render id from an invented one. It also means the token path costs no auth work at all, which matters because this is the one endpoint a browser hits directly.
 
 ### Examples
 
@@ -27,10 +29,13 @@ end
 
 api_instance = InvoicePDFs::RendersApi.new
 render_id = 'render_id_example' # String | 
+opts = {
+  token: 'token_example' # String | The signature from this render's `download_url`. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally.
+}
 
 begin
   # Download Render
-  result = api_instance.download_render(render_id)
+  result = api_instance.download_render(render_id, opts)
   p result
 rescue InvoicePDFs::ApiError => e
   puts "Error when calling RendersApi->download_render: #{e}"
@@ -41,12 +46,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(File, Integer, Hash)> download_render_with_http_info(render_id)
+> <Array(File, Integer, Hash)> download_render_with_http_info(render_id, opts)
 
 ```ruby
 begin
   # Download Render
-  data, status_code, headers = api_instance.download_render_with_http_info(render_id)
+  data, status_code, headers = api_instance.download_render_with_http_info(render_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => File
@@ -60,6 +65,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **render_id** | **String** |  |  |
+| **token** | **String** | The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally. | [optional] |
 
 ### Return type
 

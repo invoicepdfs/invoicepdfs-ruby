@@ -9,7 +9,10 @@ All URIs are relative to *http://localhost*
 | [**list_document_types**](ReferenceApi.md#list_document_types) | **GET** /api/v1/reference/document-types | List Document Types |
 | [**list_locales**](ReferenceApi.md#list_locales) | **GET** /api/v1/reference/locales | List Locales |
 | [**list_page_sizes**](ReferenceApi.md#list_page_sizes) | **GET** /api/v1/reference/page-sizes | List Page Sizes |
+| [**list_tax_categories**](ReferenceApi.md#list_tax_categories) | **GET** /api/v1/reference/tax-categories | List Tax Categories |
+| [**list_tax_schemes**](ReferenceApi.md#list_tax_schemes) | **GET** /api/v1/reference/tax-schemes | List Tax Schemes |
 | [**list_timezones**](ReferenceApi.md#list_timezones) | **GET** /api/v1/reference/timezones | List Timezones |
+| [**list_unit_codes**](ReferenceApi.md#list_unit_codes) | **GET** /api/v1/reference/unit-codes | List Unit Codes |
 
 
 ## list_countries
@@ -309,6 +312,128 @@ No authorization required
 - **Accept**: application/json
 
 
+## list_tax_categories
+
+> <CodeListResponse> list_tax_categories
+
+List Tax Categories
+
+UNCL5305, in full — the VAT treatment of a line, which its rate does not say.  Two lines at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 puts them in separate VAT breakdown groups with different mandatory fields. Exhaustive: a category outside this list is wrong.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+
+api_instance = InvoicePDFs::ReferenceApi.new
+
+begin
+  # List Tax Categories
+  result = api_instance.list_tax_categories
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ReferenceApi->list_tax_categories: #{e}"
+end
+```
+
+#### Using the list_tax_categories_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CodeListResponse>, Integer, Hash)> list_tax_categories_with_http_info
+
+```ruby
+begin
+  # List Tax Categories
+  data, status_code, headers = api_instance.list_tax_categories_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CodeListResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ReferenceApi->list_tax_categories_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CodeListResponse**](CodeListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_tax_schemes
+
+> <CodeListResponse> list_tax_schemes
+
+List Tax Schemes
+
+UNCL5153 — which tax regime a document is issued under, one per document.  `VAT` is the only member an e-invoice can carry; the others exist so a caller can state that their tax is *not* VAT and be told so, rather than have VAT assumed on their behalf. There is no default: a PDF does not need a scheme, and guessing one puts a claim in a document a tax authority reads that the caller never made.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+
+api_instance = InvoicePDFs::ReferenceApi.new
+
+begin
+  # List Tax Schemes
+  result = api_instance.list_tax_schemes
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ReferenceApi->list_tax_schemes: #{e}"
+end
+```
+
+#### Using the list_tax_schemes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CodeListResponse>, Integer, Hash)> list_tax_schemes_with_http_info
+
+```ruby
+begin
+  # List Tax Schemes
+  data, status_code, headers = api_instance.list_tax_schemes_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CodeListResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ReferenceApi->list_tax_schemes_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CodeListResponse**](CodeListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## list_timezones
 
 > <TimezonesListResponse> list_timezones
@@ -357,6 +482,67 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**TimezonesListResponse**](TimezonesListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_unit_codes
+
+> <CodeListResponse> list_unit_codes
+
+List Unit Codes
+
+UN/ECE Recommendation 20 — the unit a line item is measured in.  A **shortlist**: twenty-one of hundreds, ordered by how often an invoice needs them. `exhaustive` is false, and it means it — `unit_code` accepts any value, nothing validates against this list, and an uncommon code is still correct. Offered because the field takes a code rather than the printed label: mapping \"hrs\" to HUR is an inference that is right until it silently is not, and the audience for the result is a tax authority.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+
+api_instance = InvoicePDFs::ReferenceApi.new
+
+begin
+  # List Unit Codes
+  result = api_instance.list_unit_codes
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ReferenceApi->list_unit_codes: #{e}"
+end
+```
+
+#### Using the list_unit_codes_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CodeListResponse>, Integer, Hash)> list_unit_codes_with_http_info
+
+```ruby
+begin
+  # List Unit Codes
+  data, status_code, headers = api_instance.list_unit_codes_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CodeListResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling ReferenceApi->list_unit_codes_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CodeListResponse**](CodeListResponse.md)
 
 ### Authorization
 

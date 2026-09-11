@@ -296,6 +296,120 @@ module InvoicePDFs
       return data, status_code, headers
     end
 
+    # List Tax Categories
+    # UNCL5305, in full — the VAT treatment of a line, which its rate does not say.  Two lines at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 puts them in separate VAT breakdown groups with different mandatory fields. Exhaustive: a category outside this list is wrong.
+    # @param [Hash] opts the optional parameters
+    # @return [CodeListResponse]
+    def list_tax_categories(opts = {})
+      data, _status_code, _headers = list_tax_categories_with_http_info(opts)
+      data
+    end
+
+    # List Tax Categories
+    # UNCL5305, in full — the VAT treatment of a line, which its rate does not say.  Two lines at 0% may be zero-rated, exempt, reverse-charge or outside scope, and EN 16931 puts them in separate VAT breakdown groups with different mandatory fields. Exhaustive: a category outside this list is wrong.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CodeListResponse, Integer, Hash)>] CodeListResponse data, response status code and response headers
+    def list_tax_categories_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_tax_categories ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/reference/tax-categories'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CodeListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"ReferenceApi.list_tax_categories",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReferenceApi#list_tax_categories\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Tax Schemes
+    # UNCL5153 — which tax regime a document is issued under, one per document.  `VAT` is the only member an e-invoice can carry; the others exist so a caller can state that their tax is *not* VAT and be told so, rather than have VAT assumed on their behalf. There is no default: a PDF does not need a scheme, and guessing one puts a claim in a document a tax authority reads that the caller never made.
+    # @param [Hash] opts the optional parameters
+    # @return [CodeListResponse]
+    def list_tax_schemes(opts = {})
+      data, _status_code, _headers = list_tax_schemes_with_http_info(opts)
+      data
+    end
+
+    # List Tax Schemes
+    # UNCL5153 — which tax regime a document is issued under, one per document.  &#x60;VAT&#x60; is the only member an e-invoice can carry; the others exist so a caller can state that their tax is *not* VAT and be told so, rather than have VAT assumed on their behalf. There is no default: a PDF does not need a scheme, and guessing one puts a claim in a document a tax authority reads that the caller never made.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CodeListResponse, Integer, Hash)>] CodeListResponse data, response status code and response headers
+    def list_tax_schemes_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_tax_schemes ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/reference/tax-schemes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CodeListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"ReferenceApi.list_tax_schemes",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReferenceApi#list_tax_schemes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Timezones
     # @param [Hash] opts the optional parameters
     # @return [TimezonesListResponse]
@@ -347,6 +461,63 @@ module InvoicePDFs
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ReferenceApi#list_timezones\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Unit Codes
+    # UN/ECE Recommendation 20 — the unit a line item is measured in.  A **shortlist**: twenty-one of hundreds, ordered by how often an invoice needs them. `exhaustive` is false, and it means it — `unit_code` accepts any value, nothing validates against this list, and an uncommon code is still correct. Offered because the field takes a code rather than the printed label: mapping \"hrs\" to HUR is an inference that is right until it silently is not, and the audience for the result is a tax authority.
+    # @param [Hash] opts the optional parameters
+    # @return [CodeListResponse]
+    def list_unit_codes(opts = {})
+      data, _status_code, _headers = list_unit_codes_with_http_info(opts)
+      data
+    end
+
+    # List Unit Codes
+    # UN/ECE Recommendation 20 — the unit a line item is measured in.  A **shortlist**: twenty-one of hundreds, ordered by how often an invoice needs them. &#x60;exhaustive&#x60; is false, and it means it — &#x60;unit_code&#x60; accepts any value, nothing validates against this list, and an uncommon code is still correct. Offered because the field takes a code rather than the printed label: mapping \&quot;hrs\&quot; to HUR is an inference that is right until it silently is not, and the audience for the result is a tax authority.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CodeListResponse, Integer, Hash)>] CodeListResponse data, response status code and response headers
+    def list_unit_codes_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ReferenceApi.list_unit_codes ...'
+      end
+      # resource path
+      local_var_path = '/api/v1/reference/unit-codes'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CodeListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"ReferenceApi.list_unit_codes",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ReferenceApi#list_unit_codes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

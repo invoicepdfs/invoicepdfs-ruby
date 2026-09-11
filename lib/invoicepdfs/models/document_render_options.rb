@@ -22,6 +22,7 @@ module InvoicePDFs
 
     attr_accessor :page_size
 
+    # How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
     attr_accessor :expires_in
 
     # `facturx_pdf` embeds the EN 16931 CII XML in a PDF/A-3, which is what a French or German counterparty means by Factur-X or ZUGFeRD.
@@ -136,6 +137,14 @@ module InvoicePDFs
         invalid_properties.push('invalid value for "template_version", must be greater than or equal to 1.')
       end
 
+      if !@expires_in.nil? && @expires_in > 604800
+        invalid_properties.push('invalid value for "expires_in", must be smaller than or equal to 604800.')
+      end
+
+      if !@expires_in.nil? && @expires_in < 60
+        invalid_properties.push('invalid value for "expires_in", must be greater than or equal to 60.')
+      end
+
       invalid_properties
     end
 
@@ -144,6 +153,8 @@ module InvoicePDFs
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if !@template_version.nil? && @template_version < 1
+      return false if !@expires_in.nil? && @expires_in > 604800
+      return false if !@expires_in.nil? && @expires_in < 60
       format_validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
       return false unless format_validator.valid?(@format)
       true
@@ -157,6 +168,24 @@ module InvoicePDFs
       end
 
       @template_version = template_version
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] expires_in Value to be assigned
+    def expires_in=(expires_in)
+      if expires_in.nil?
+        fail ArgumentError, 'expires_in cannot be nil'
+      end
+
+      if expires_in > 604800
+        fail ArgumentError, 'invalid value for "expires_in", must be smaller than or equal to 604800.'
+      end
+
+      if expires_in < 60
+        fail ArgumentError, 'invalid value for "expires_in", must be greater than or equal to 60.'
+      end
+
+      @expires_in = expires_in
     end
 
     # Custom attribute writer method checking allowed values (enum).

@@ -34,8 +34,10 @@ describe 'RendersApi' do
 
   # unit tests for download_render
   # Download Render
+  # Fetch the PDF, by signature or by API key.  Two ways in, and the signature is checked *first* — before the row is looked up — so a forged token cannot be used to tell a real render id from an invented one. It also means the token path costs no auth work at all, which matters because this is the one endpoint a browser hits directly.
   # @param render_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :token The signature from this render&#39;s &#x60;download_url&#x60;. Present it and no API key is needed — that is what makes the URL a link. Omit it and the request authenticates normally.
   # @return [File]
   describe 'download_render test' do
     it 'should work' do
