@@ -35,6 +35,8 @@ module InvoicePDFs
 
     attr_accessor :created_at
 
+    attr_accessor :compliance
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -69,7 +71,8 @@ module InvoicePDFs
         :'download_url' => :'download_url',
         :'expires_at' => :'expires_at',
         :'calculation' => :'calculation',
-        :'created_at' => :'created_at'
+        :'created_at' => :'created_at',
+        :'compliance' => :'compliance'
       }
     end
 
@@ -90,7 +93,8 @@ module InvoicePDFs
         :'download_url' => :'String',
         :'expires_at' => :'String',
         :'calculation' => :'CalculationBreakdown',
-        :'created_at' => :'String'
+        :'created_at' => :'String',
+        :'compliance' => :'RenderComplianceOut'
       }
     end
 
@@ -98,6 +102,7 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'template_version',
+        :'compliance'
       ])
     end
 
@@ -172,6 +177,10 @@ module InvoicePDFs
         self.created_at = attributes[:'created_at']
       else
         self.created_at = nil
+      end
+
+      if attributes.key?(:'compliance')
+        self.compliance = attributes[:'compliance']
       end
     end
 
@@ -285,7 +294,8 @@ module InvoicePDFs
           download_url == o.download_url &&
           expires_at == o.expires_at &&
           calculation == o.calculation &&
-          created_at == o.created_at
+          created_at == o.created_at &&
+          compliance == o.compliance
     end
 
     # @see the `==` method
@@ -297,7 +307,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, status, document_type, template_id, template_version, format, download_url, expires_at, calculation, created_at].hash
+      [id, status, document_type, template_id, template_version, format, download_url, expires_at, calculation, created_at, compliance].hash
     end
 
     # Builds the object from hash

@@ -191,6 +191,7 @@ docs/RecurringInvoiceResponse.md
 docs/RecurringInvoicesApi.md
 docs/RecurringInvoicesListResponse.md
 docs/ReferenceApi.md
+docs/RenderComplianceOut.md
 docs/RenderOut.md
 docs/RenderResponse.md
 docs/RendersApi.md
@@ -456,6 +457,7 @@ lib/invoicepdfs/models/recurring_invoice_out.rb
 lib/invoicepdfs/models/recurring_invoice_patch_request.rb
 lib/invoicepdfs/models/recurring_invoice_response.rb
 lib/invoicepdfs/models/recurring_invoices_list_response.rb
+lib/invoicepdfs/models/render_compliance_out.rb
 lib/invoicepdfs/models/render_out.rb
 lib/invoicepdfs/models/render_response.rb
 lib/invoicepdfs/models/simple_bool_response.rb
@@ -708,6 +710,7 @@ spec/models/recurring_invoice_out_spec.rb
 spec/models/recurring_invoice_patch_request_spec.rb
 spec/models/recurring_invoice_response_spec.rb
 spec/models/recurring_invoices_list_response_spec.rb
+spec/models/render_compliance_out_spec.rb
 spec/models/render_out_spec.rb
 spec/models/render_response_spec.rb
 spec/models/simple_bool_response_spec.rb

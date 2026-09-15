@@ -14,6 +14,7 @@
 | **expires_at** | **String** |  |  |
 | **calculation** | [**CalculationBreakdown**](CalculationBreakdown.md) |  |  |
 | **created_at** | **String** |  |  |
+| **compliance** | [**RenderComplianceOut**](RenderComplianceOut.md) |  | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = InvoicePDFs::RenderOut.new(
   download_url: null,
   expires_at: null,
   calculation: null,
-  created_at: null
+  created_at: null,
+  compliance: null
 )
 ```
 
