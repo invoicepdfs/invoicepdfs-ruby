@@ -76,6 +76,7 @@ docs/BusinessProfilesListResponse.md
 docs/CalculationBreakdown.md
 docs/CodeListResponse.md
 docs/CodeOut.md
+docs/ComplianceApi.md
 docs/ComplianceCheckOut.md
 docs/ComplianceRulesetOut.md
 docs/ComplianceViolationOut.md
@@ -267,6 +268,7 @@ lib/invoicepdfs/api/batches_api.rb
 lib/invoicepdfs/api/billing_api.rb
 lib/invoicepdfs/api/branding_profiles_api.rb
 lib/invoicepdfs/api/business_profiles_api.rb
+lib/invoicepdfs/api/compliance_api.rb
 lib/invoicepdfs/api/customers_api.rb
 lib/invoicepdfs/api/deliveries_api.rb
 lib/invoicepdfs/api/document_attachments_api.rb
@@ -523,6 +525,7 @@ spec/api/batches_api_spec.rb
 spec/api/billing_api_spec.rb
 spec/api/branding_profiles_api_spec.rb
 spec/api/business_profiles_api_spec.rb
+spec/api/compliance_api_spec.rb
 spec/api/customers_api_spec.rb
 spec/api/deliveries_api_spec.rb
 spec/api/document_attachments_api_spec.rb

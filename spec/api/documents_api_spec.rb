@@ -90,19 +90,6 @@ describe 'DocumentsApi' do
     end
   end
 
-  # unit tests for download_document_xml
-  # Download Document Xml
-  # The e-invoicing XML for a document already stored here.  Reads &#x60;data_json&#x60; directly rather than going through the render path&#39;s reconstruction: the status, the logo and the source document&#39;s number are all attached there for the *PDF*, and none of them belong in the XML. The credit note&#39;s BG-3 reference is already in the stored payload, resolved when the document was written.
-  # @param document_id 
-  # @param profile Which ruleset to write this against. No default: a document valid under one can be rejected by another, so the choice is the request.
-  # @param [Hash] opts the optional parameters
-  # @return [String]
-  describe 'download_document_xml test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for duplicate_document
   # Duplicate Document
   # @param document_id 
@@ -208,18 +195,6 @@ describe 'DocumentsApi' do
     end
   end
 
-  # unit tests for render_document_xml
-  # Render Document Xml
-  # The e-invoicing XML for a document, without storing anything.  Takes the same body as &#x60;/validate-compliance&#x60;, and the pairing is the point: check first, then take the XML once it passes. Nothing here validates against the ruleset — a document missing mandatory fields serialises to XML missing those elements, which is a more useful artefact to look at than a refusal, and &#x60;/validate-compliance&#x60; is where the refusal belongs.  The syntax is not a parameter. It follows from the profile, because a profile already is a syntax plus a ruleset, and asking a caller for both is asking them to know that Peppol means UBL.
-  # @param document_compliance_request 
-  # @param [Hash] opts the optional parameters
-  # @return [String]
-  describe 'render_document_xml test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for restore_document
   # Restore Document
   # @param document_id 
@@ -250,18 +225,6 @@ describe 'DocumentsApi' do
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
   describe 'update_document test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for validate_compliance
-  # Validate Compliance
-  # Check a document against an e-invoicing ruleset without rendering it.  Costs no renders: nothing is stored and no PDF is produced, so a caller can check every invoice they are about to send rather than discovering the problem from a rejection weeks later.  Two tiers run, and both are reported. The mandatory-field check names a field of the request you can go and change. Schematron then serializes the document and runs the **published rules at a pinned version** over the result — the same artefacts an access point runs — so a finding here quotes the rule id a rejection notice would quote.  Read &#x60;valid&#x60; together with &#x60;fully_checked&#x60;: &#x60;valid&#x60; says nothing fatal was found, and &#x60;rulesets&#x60; says what actually ran to find it.
-  # @param document_compliance_request 
-  # @param [Hash] opts the optional parameters
-  # @return [DocumentComplianceResponse]
-  describe 'validate_compliance test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
