@@ -54,6 +54,19 @@ describe 'JobsApi' do
     end
   end
 
+  # unit tests for list_jobs
+  # List Jobs
+  # This account&#39;s jobs, newest first.  Without it the other three routes here were unreachable: a job id was never returned by anything, so there was no way to arrive at one.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :cursor 
+  # @return [JobsListResponse]
+  describe 'list_jobs test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for retry_job
   # Retry Job
   # @param job_id 

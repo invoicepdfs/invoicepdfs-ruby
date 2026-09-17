@@ -159,6 +159,7 @@ docs/JobOut.md
 docs/JobProgressOut.md
 docs/JobResponse.md
 docs/JobsApi.md
+docs/JobsListResponse.md
 docs/LineItemDiscountInput.md
 docs/LineItemTaxInput.md
 docs/LocaleOut.md
@@ -431,6 +432,7 @@ lib/invoicepdfs/models/invoices_list_response.rb
 lib/invoicepdfs/models/job_out.rb
 lib/invoicepdfs/models/job_progress_out.rb
 lib/invoicepdfs/models/job_response.rb
+lib/invoicepdfs/models/jobs_list_response.rb
 lib/invoicepdfs/models/line_item_discount_input.rb
 lib/invoicepdfs/models/line_item_tax_input.rb
 lib/invoicepdfs/models/locale_out.rb
@@ -685,6 +687,7 @@ spec/models/invoices_list_response_spec.rb
 spec/models/job_out_spec.rb
 spec/models/job_progress_out_spec.rb
 spec/models/job_response_spec.rb
+spec/models/jobs_list_response_spec.rb
 spec/models/line_item_discount_input_spec.rb
 spec/models/line_item_tax_input_spec.rb
 spec/models/locale_out_spec.rb

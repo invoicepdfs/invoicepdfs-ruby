@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost*
 | ------ | ------------ | ----------- |
 | [**cancel_job**](JobsApi.md#cancel_job) | **POST** /api/v1/jobs/{job_id}/cancel | Cancel Job |
 | [**get_job**](JobsApi.md#get_job) | **GET** /api/v1/jobs/{job_id} | Get Job |
+| [**list_jobs**](JobsApi.md#list_jobs) | **GET** /api/v1/jobs | List Jobs |
 | [**retry_job**](JobsApi.md#retry_job) | **POST** /api/v1/jobs/{job_id}/retry | Retry Job |
 
 
@@ -132,6 +133,79 @@ end
 ### Return type
 
 [**JobResponse**](JobResponse.md)
+
+### Authorization
+
+[HTTPBearer](../README.md#HTTPBearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_jobs
+
+> <JobsListResponse> list_jobs(opts)
+
+List Jobs
+
+This account's jobs, newest first.  Without it the other three routes here were unreachable: a job id was never returned by anything, so there was no way to arrive at one.
+
+### Examples
+
+```ruby
+require 'time'
+require 'invoicepdfs'
+# setup authorization
+InvoicePDFs.configure do |config|
+  # Configure Bearer authorization: HTTPBearer
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = InvoicePDFs::JobsApi.new
+opts = {
+  limit: 56, # Integer | 
+  cursor: 'cursor_example' # String | 
+}
+
+begin
+  # List Jobs
+  result = api_instance.list_jobs(opts)
+  p result
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling JobsApi->list_jobs: #{e}"
+end
+```
+
+#### Using the list_jobs_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<JobsListResponse>, Integer, Hash)> list_jobs_with_http_info(opts)
+
+```ruby
+begin
+  # List Jobs
+  data, status_code, headers = api_instance.list_jobs_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <JobsListResponse>
+rescue InvoicePDFs::ApiError => e
+  puts "Error when calling JobsApi->list_jobs_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **limit** | **Integer** |  | [optional][default to 50] |
+| **cursor** | **String** |  | [optional] |
+
+### Return type
+
+[**JobsListResponse**](JobsListResponse.md)
 
 ### Authorization
 

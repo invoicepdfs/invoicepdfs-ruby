@@ -141,6 +141,77 @@ module InvoicePDFs
       return data, status_code, headers
     end
 
+    # List Jobs
+    # This account's jobs, newest first.  Without it the other three routes here were unreachable: a job id was never returned by anything, so there was no way to arrive at one.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 50)
+    # @option opts [String] :cursor 
+    # @return [JobsListResponse]
+    def list_jobs(opts = {})
+      data, _status_code, _headers = list_jobs_with_http_info(opts)
+      data
+    end
+
+    # List Jobs
+    # This account&#39;s jobs, newest first.  Without it the other three routes here were unreachable: a job id was never returned by anything, so there was no way to arrive at one.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 50)
+    # @option opts [String] :cursor 
+    # @return [Array<(JobsListResponse, Integer, Hash)>] JobsListResponse data, response status code and response headers
+    def list_jobs_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: JobsApi.list_jobs ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling JobsApi.list_jobs, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling JobsApi.list_jobs, must be greater than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/api/v1/jobs'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'JobsListResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['HTTPBearer']
+
+      new_options = opts.merge(
+        :operation => :"JobsApi.list_jobs",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: JobsApi#list_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Retry Job
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
