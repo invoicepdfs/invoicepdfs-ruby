@@ -208,6 +208,7 @@ describe 'DocumentsApi' do
 
   # unit tests for send_document
   # Send Document
+  # Queue the document to be emailed.  Returns 202 with the delivery in &#x60;queued&#x60;. The mail is sent in the background and retried on transient failure; poll &#x60;GET /deliveries/{id}&#x60; for the outcome.
   # @param document_id 
   # @param delivery_send_request 
   # @param [Hash] opts the optional parameters

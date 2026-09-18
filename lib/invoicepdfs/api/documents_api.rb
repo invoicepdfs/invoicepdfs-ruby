@@ -998,6 +998,7 @@ module InvoicePDFs
     end
 
     # Send Document
+    # Queue the document to be emailed.  Returns 202 with the delivery in `queued`. The mail is sent in the background and retried on transient failure; poll `GET /deliveries/{id}` for the outcome.
     # @param document_id [String] 
     # @param delivery_send_request [DeliverySendRequest] 
     # @param [Hash] opts the optional parameters
@@ -1008,6 +1009,7 @@ module InvoicePDFs
     end
 
     # Send Document
+    # Queue the document to be emailed.  Returns 202 with the delivery in &#x60;queued&#x60;. The mail is sent in the background and retried on transient failure; poll &#x60;GET /deliveries/{id}&#x60; for the outcome.
     # @param document_id [String] 
     # @param delivery_send_request [DeliverySendRequest] 
     # @param [Hash] opts the optional parameters

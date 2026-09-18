@@ -81,6 +81,8 @@ end
 
 Retry Delivery
 
+Queue a fresh delivery copying a failed one.  Returns 202 with the new delivery in `queued`. Transient failures are already retried automatically; this is for after those are exhausted.
+
 ### Examples
 
 ```ruby

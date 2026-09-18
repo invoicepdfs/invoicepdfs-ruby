@@ -45,6 +45,7 @@ describe 'DeliveriesApi' do
 
   # unit tests for retry_delivery
   # Retry Delivery
+  # Queue a fresh delivery copying a failed one.  Returns 202 with the new delivery in &#x60;queued&#x60;. Transient failures are already retried automatically; this is for after those are exhausted.
   # @param delivery_id 
   # @param [Hash] opts the optional parameters
   # @return [DeliveryResponse]
