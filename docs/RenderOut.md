@@ -10,11 +10,12 @@
 | **template_id** | **String** |  |  |
 | **template_version** | **Integer** |  | [optional] |
 | **format** | **String** |  |  |
-| **download_url** | **String** |  |  |
-| **expires_at** | **String** |  |  |
+| **download_url** | **String** |  | [optional] |
+| **expires_at** | **String** |  | [optional] |
 | **calculation** | [**CalculationBreakdown**](CalculationBreakdown.md) |  |  |
 | **created_at** | **String** |  |  |
 | **compliance** | [**RenderComplianceOut**](RenderComplianceOut.md) |  | [optional] |
+| **failure** | [**RenderFailureOut**](RenderFailureOut.md) |  | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = InvoicePDFs::RenderOut.new(
   expires_at: null,
   calculation: null,
   created_at: null,
-  compliance: null
+  compliance: null,
+  failure: null
 )
 ```
 

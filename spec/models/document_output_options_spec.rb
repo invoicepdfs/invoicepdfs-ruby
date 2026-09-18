@@ -47,6 +47,16 @@ describe InvoicePDFs::DocumentOutputOptions do
     end
   end
 
+  describe 'test attribute "mode"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["sync", "async"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.mode = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "expires_in"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

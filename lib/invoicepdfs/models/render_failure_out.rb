@@ -14,46 +14,21 @@ require 'date'
 require 'time'
 
 module InvoicePDFs
-  class DocumentOutputOptions
-    attr_accessor :format
+  # Why a render failed, in the same shape the synchronous path returns.  A synchronous render of a document EN 16931 would reject answers `422 compliance_failed` with every violation at once — a list of fields to go and fill in. A queued render has to be able to say the same thing: the caller who chose `async` did not choose a worse answer.
+  class RenderFailureOut
+    # `compliance_failed` for a document that is well-formed and would be rejected by the ruleset it asked for; `unprocessable_entity` for one the renderer could not make sense of. The same codes the synchronous path returns.
+    attr_accessor :code
 
-    attr_accessor :delivery
+    attr_accessor :message
 
-    # `sync` renders inside the request and answers with the finished document. `async` returns `202` with a `queued` render a worker picks up; follow it with `GET /renders/{id}`. Use it for bursts — rendering is CPU-bound, so a hundred at once queue behind each other whichever mode you ask for, and only one of the two holds a connection open while they do.
-    attr_accessor :mode
-
-    # How long the render stays downloadable, in seconds (1 minute to 7 days). It is also the lifetime of the signature in `download_url`, which is why it is bounded: an unbounded value meant an unbounded grant. A value below the floor used to be accepted and produced a render that had already expired.
-    attr_accessor :expires_in
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :details
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'format' => :'format',
-        :'delivery' => :'delivery',
-        :'mode' => :'mode',
-        :'expires_in' => :'expires_in'
+        :'code' => :'code',
+        :'message' => :'message',
+        :'details' => :'details'
       }
     end
 
@@ -65,16 +40,16 @@ module InvoicePDFs
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'format' => :'String',
-        :'delivery' => :'String',
-        :'mode' => :'String',
-        :'expires_in' => :'Integer'
+        :'code' => :'String',
+        :'message' => :'String',
+        :'details' => :'Hash<String, Object>'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'details'
       ])
     end
 
@@ -82,39 +57,33 @@ module InvoicePDFs
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::DocumentOutputOptions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `InvoicePDFs::RenderFailureOut` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::DocumentOutputOptions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `InvoicePDFs::RenderFailureOut`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'format')
-        self.format = attributes[:'format']
+      if attributes.key?(:'code')
+        self.code = attributes[:'code']
       else
-        self.format = 'pdf'
+        self.code = nil
       end
 
-      if attributes.key?(:'delivery')
-        self.delivery = attributes[:'delivery']
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       else
-        self.delivery = 'url'
+        self.message = nil
       end
 
-      if attributes.key?(:'mode')
-        self.mode = attributes[:'mode']
-      else
-        self.mode = 'sync'
-      end
-
-      if attributes.key?(:'expires_in')
-        self.expires_in = attributes[:'expires_in']
-      else
-        self.expires_in = 3600
+      if attributes.key?(:'details')
+        if (value = attributes[:'details']).is_a?(Hash)
+          self.details = value
+        end
       end
     end
 
@@ -123,12 +92,12 @@ module InvoicePDFs
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if !@expires_in.nil? && @expires_in > 604800
-        invalid_properties.push('invalid value for "expires_in", must be smaller than or equal to 604800.')
+      if @code.nil?
+        invalid_properties.push('invalid value for "code", code cannot be nil.')
       end
 
-      if !@expires_in.nil? && @expires_in < 60
-        invalid_properties.push('invalid value for "expires_in", must be greater than or equal to 60.')
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
       end
 
       invalid_properties
@@ -138,63 +107,9 @@ module InvoicePDFs
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      format_validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
-      return false unless format_validator.valid?(@format)
-      delivery_validator = EnumAttributeValidator.new('String', ["url", "binary"])
-      return false unless delivery_validator.valid?(@delivery)
-      mode_validator = EnumAttributeValidator.new('String', ["sync", "async"])
-      return false unless mode_validator.valid?(@mode)
-      return false if !@expires_in.nil? && @expires_in > 604800
-      return false if !@expires_in.nil? && @expires_in < 60
+      return false if @code.nil?
+      return false if @message.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] format Object to be assigned
-    def format=(format)
-      validator = EnumAttributeValidator.new('String', ["pdf", "facturx_pdf"])
-      unless validator.valid?(format)
-        fail ArgumentError, "invalid value for \"format\", must be one of #{validator.allowable_values}."
-      end
-      @format = format
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] delivery Object to be assigned
-    def delivery=(delivery)
-      validator = EnumAttributeValidator.new('String', ["url", "binary"])
-      unless validator.valid?(delivery)
-        fail ArgumentError, "invalid value for \"delivery\", must be one of #{validator.allowable_values}."
-      end
-      @delivery = delivery
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] mode Object to be assigned
-    def mode=(mode)
-      validator = EnumAttributeValidator.new('String', ["sync", "async"])
-      unless validator.valid?(mode)
-        fail ArgumentError, "invalid value for \"mode\", must be one of #{validator.allowable_values}."
-      end
-      @mode = mode
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] expires_in Value to be assigned
-    def expires_in=(expires_in)
-      if expires_in.nil?
-        fail ArgumentError, 'expires_in cannot be nil'
-      end
-
-      if expires_in > 604800
-        fail ArgumentError, 'invalid value for "expires_in", must be smaller than or equal to 604800.'
-      end
-
-      if expires_in < 60
-        fail ArgumentError, 'invalid value for "expires_in", must be greater than or equal to 60.'
-      end
-
-      @expires_in = expires_in
     end
 
     # Checks equality by comparing each attribute.
@@ -202,10 +117,9 @@ module InvoicePDFs
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          format == o.format &&
-          delivery == o.delivery &&
-          mode == o.mode &&
-          expires_in == o.expires_in
+          code == o.code &&
+          message == o.message &&
+          details == o.details
     end
 
     # @see the `==` method
@@ -217,7 +131,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [format, delivery, mode, expires_in].hash
+      [code, message, details].hash
     end
 
     # Builds the object from hash

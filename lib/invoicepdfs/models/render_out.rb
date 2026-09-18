@@ -37,6 +37,8 @@ module InvoicePDFs
 
     attr_accessor :compliance
 
+    attr_accessor :failure
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -72,7 +74,8 @@ module InvoicePDFs
         :'expires_at' => :'expires_at',
         :'calculation' => :'calculation',
         :'created_at' => :'created_at',
-        :'compliance' => :'compliance'
+        :'compliance' => :'compliance',
+        :'failure' => :'failure'
       }
     end
 
@@ -94,7 +97,8 @@ module InvoicePDFs
         :'expires_at' => :'String',
         :'calculation' => :'CalculationBreakdown',
         :'created_at' => :'String',
-        :'compliance' => :'RenderComplianceOut'
+        :'compliance' => :'RenderComplianceOut',
+        :'failure' => :'RenderFailureOut'
       }
     end
 
@@ -102,7 +106,10 @@ module InvoicePDFs
     def self.openapi_nullable
       Set.new([
         :'template_version',
-        :'compliance'
+        :'download_url',
+        :'expires_at',
+        :'compliance',
+        :'failure'
       ])
     end
 
@@ -157,14 +164,10 @@ module InvoicePDFs
 
       if attributes.key?(:'download_url')
         self.download_url = attributes[:'download_url']
-      else
-        self.download_url = nil
       end
 
       if attributes.key?(:'expires_at')
         self.expires_at = attributes[:'expires_at']
-      else
-        self.expires_at = nil
       end
 
       if attributes.key?(:'calculation')
@@ -181,6 +184,10 @@ module InvoicePDFs
 
       if attributes.key?(:'compliance')
         self.compliance = attributes[:'compliance']
+      end
+
+      if attributes.key?(:'failure')
+        self.failure = attributes[:'failure']
       end
     end
 
@@ -209,14 +216,6 @@ module InvoicePDFs
         invalid_properties.push('invalid value for "format", format cannot be nil.')
       end
 
-      if @download_url.nil?
-        invalid_properties.push('invalid value for "download_url", download_url cannot be nil.')
-      end
-
-      if @expires_at.nil?
-        invalid_properties.push('invalid value for "expires_at", expires_at cannot be nil.')
-      end
-
       if @calculation.nil?
         invalid_properties.push('invalid value for "calculation", calculation cannot be nil.')
       end
@@ -234,7 +233,7 @@ module InvoicePDFs
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["completed"])
+      status_validator = EnumAttributeValidator.new('String', ["queued", "processing", "completed", "failed"])
       return false unless status_validator.valid?(@status)
       return false if @document_type.nil?
       document_type_validator = EnumAttributeValidator.new('String', ["invoice", "credit_note", "debit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
@@ -243,8 +242,6 @@ module InvoicePDFs
       return false if @format.nil?
       format_validator = EnumAttributeValidator.new('String', ["pdf"])
       return false unless format_validator.valid?(@format)
-      return false if @download_url.nil?
-      return false if @expires_at.nil?
       return false if @calculation.nil?
       return false if @created_at.nil?
       true
@@ -253,7 +250,7 @@ module InvoicePDFs
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["completed"])
+      validator = EnumAttributeValidator.new('String', ["queued", "processing", "completed", "failed"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
@@ -295,7 +292,8 @@ module InvoicePDFs
           expires_at == o.expires_at &&
           calculation == o.calculation &&
           created_at == o.created_at &&
-          compliance == o.compliance
+          compliance == o.compliance &&
+          failure == o.failure
     end
 
     # @see the `==` method
@@ -307,7 +305,7 @@ module InvoicePDFs
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, status, document_type, template_id, template_version, format, download_url, expires_at, calculation, created_at, compliance].hash
+      [id, status, document_type, template_id, template_version, format, download_url, expires_at, calculation, created_at, compliance, failure].hash
     end
 
     # Builds the object from hash
