@@ -34,6 +34,7 @@ describe 'DocumentsApi' do
 
   # unit tests for archive_document
   # Archive Document
+  # Move a document out of the active list.  Archiving hides a document from the default listing without destroying it; &#x60;restore_document&#x60; brings it back. Drafts are deleted rather than archived.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -45,6 +46,7 @@ describe 'DocumentsApi' do
 
   # unit tests for calculate_document
   # Calculate Document
+  # Compute the totals for a document without storing or rendering it.  Returns the same breakdown — subtotal, discounts, tax, shipping, total — that a render would print, so a checkout page can show a figure before committing to one.
   # @param document_calculate_request 
   # @param [Hash] opts the optional parameters
   # @return [DocumentCalculateResponse]
@@ -56,6 +58,7 @@ describe 'DocumentsApi' do
 
   # unit tests for create_document
   # Create Document
+  # Create a document in &#x60;draft&#x60;.  Totals are computed and stored at creation, so the figures you read back are the ones that were issued rather than a recalculation. Nothing is rendered — use &#x60;create_document_render&#x60; once the document is final.
   # @param document_create_request 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :idempotency_key 
@@ -68,6 +71,7 @@ describe 'DocumentsApi' do
 
   # unit tests for create_document_render
   # Create Document Render
+  # Render a stored document to a PDF.  Use this when the document lives here. To render one you hold yourself, without storing it, use &#x60;render_document&#x60;.  The response carries a signed &#x60;download_url&#x60; that needs no API key, valid until &#x60;expires_at&#x60;.
   # @param document_id 
   # @param document_render_options 
   # @param [Hash] opts the optional parameters
@@ -81,6 +85,7 @@ describe 'DocumentsApi' do
 
   # unit tests for delete_document
   # Delete Document
+  # Permanently remove a &#x60;draft&#x60;.  &#x60;409&#x60; if anything still points at it — a render, a delivery or a payment — naming what does. Finalized documents are voided or archived, not deleted.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [SimpleBoolResponse]
@@ -92,6 +97,7 @@ describe 'DocumentsApi' do
 
   # unit tests for duplicate_document
   # Duplicate Document
+  # Copy a document into a new &#x60;draft&#x60;.  The copy gets the next available number rather than the original&#39;s, so it can be finalized without colliding with the document it came from.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -103,6 +109,7 @@ describe 'DocumentsApi' do
 
   # unit tests for finalize_document
   # Finalize Document
+  # Issue a &#x60;draft&#x60;: fix its number and totals.  From here the document is a record. It can be sent, marked paid, voided or archived, but not edited — &#x60;update_document&#x60; returns &#x60;409&#x60; afterwards.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -114,6 +121,7 @@ describe 'DocumentsApi' do
 
   # unit tests for get_document
   # Get Document
+  # One document, with the totals stored when it was created.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -125,6 +133,7 @@ describe 'DocumentsApi' do
 
   # unit tests for list_document_deliveries
   # List Document Deliveries
+  # Every email delivery attempted for this document.  One row per attempt, newest first, including the ones that failed — which is where to look when a customer says the invoice never arrived.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
@@ -138,6 +147,7 @@ describe 'DocumentsApi' do
 
   # unit tests for list_documents
   # List Documents
+  # Every document on the account, newest first.  Cursor-paginated: pass the &#x60;next_cursor&#x60; from a response to fetch the page after it. Filter by &#x60;document_type&#x60; or &#x60;status&#x60; to narrow the list.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
   # @option opts [String] :cursor 
@@ -152,6 +162,7 @@ describe 'DocumentsApi' do
 
   # unit tests for mark_paid
   # Mark Paid
+  # Record that the document was paid in full.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -163,6 +174,7 @@ describe 'DocumentsApi' do
 
   # unit tests for mark_sent
   # Mark Sent
+  # Record that the document reached the customer.  **This does not send anything** — it only moves the status, for when the document was delivered by some means of your own. Use &#x60;send_document&#x60; to have us email it.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -174,6 +186,7 @@ describe 'DocumentsApi' do
 
   # unit tests for mark_unpaid
   # Mark Unpaid
+  # Undo &#x60;mark_paid&#x60;, returning the document to &#x60;sent&#x60;.  For a payment that was recorded in error or later reversed.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -185,6 +198,7 @@ describe 'DocumentsApi' do
 
   # unit tests for render_document
   # Render Document
+  # Render a document supplied inline, storing nothing but the PDF.  The stateless path: pass the whole document in the body and get a PDF back, with no customer, business profile or stored document required. To render a document that already lives here, use &#x60;create_document_render&#x60;.  Returns JSON with a signed &#x60;download_url&#x60; by default. Ask for the bytes directly with &#x60;output.delivery: \&quot;binary\&quot;&#x60; or &#x60;Accept: application/pdf&#x60;.
   # @param document_render_request 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :idempotency_key 
@@ -197,6 +211,7 @@ describe 'DocumentsApi' do
 
   # unit tests for restore_document
   # Restore Document
+  # Bring an archived document back to &#x60;finalized&#x60;.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]
@@ -221,6 +236,7 @@ describe 'DocumentsApi' do
 
   # unit tests for update_document
   # Update Document
+  # Change a document that is still a &#x60;draft&#x60;.  A finalized document is a record of what was issued and cannot be edited; &#x60;409&#x60; if it has moved past &#x60;draft&#x60;. Only the fields you send are changed — omit one to leave it alone, and send &#x60;null&#x60; to clear it.
   # @param document_id 
   # @param document_patch_request 
   # @param [Hash] opts the optional parameters
@@ -233,6 +249,7 @@ describe 'DocumentsApi' do
 
   # unit tests for validate_document
   # Validate Document
+  # Check that a document body is well-formed, without pricing it.  The cheapest of the three stateless operations: no totals are computed and no PDF is produced. Use &#x60;calculate_document&#x60; for the money and &#x60;render_document&#x60; for the document.
   # @param document_validate_request 
   # @param [Hash] opts the optional parameters
   # @return [DocumentValidateResponse]
@@ -244,6 +261,7 @@ describe 'DocumentsApi' do
 
   # unit tests for void_document
   # Void Document
+  # Cancel a document that was issued.  Voiding is how a finalized document is withdrawn, since it cannot be deleted. The PDF renders with a &#x60;VOID&#x60; mark from then on, so a copy already sent is distinguishable from the live one.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [DocumentResponse]

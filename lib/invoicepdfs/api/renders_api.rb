@@ -86,6 +86,7 @@ module InvoicePDFs
     end
 
     # Get Render
+    # One render: its status, its totals, and how to download it.  `download_url` and `expires_at` are `null` until the render is `completed`, and a `failed` render carries a `failure` explaining why. Poll this after an asynchronous render.
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RenderResponse]
@@ -95,6 +96,7 @@ module InvoicePDFs
     end
 
     # Get Render
+    # One render: its status, its totals, and how to download it.  &#x60;download_url&#x60; and &#x60;expires_at&#x60; are &#x60;null&#x60; until the render is &#x60;completed&#x60;, and a &#x60;failed&#x60; render carries a &#x60;failure&#x60; explaining why. Poll this after an asynchronous render.
     # @param render_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RenderResponse, Integer, Hash)>] RenderResponse data, response status code and response headers
