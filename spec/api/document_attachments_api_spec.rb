@@ -34,6 +34,7 @@ describe 'DocumentAttachmentsApi' do
 
   # unit tests for create_document_attachment
   # Create Document Attachment
+  # Attach an already-uploaded file to a document.  Takes the &#x60;file_id&#x60; from &#x60;upload_file&#x60; rather than the bytes, so one upload can be attached to several documents.
   # @param document_id 
   # @param invoice_attachment_create_request 
   # @param [Hash] opts the optional parameters
@@ -46,6 +47,7 @@ describe 'DocumentAttachmentsApi' do
 
   # unit tests for delete_document_attachment
   # Delete Document Attachment
+  # Detach a file from this document. The file itself is kept.
   # @param document_id 
   # @param attachment_id 
   # @param [Hash] opts the optional parameters
@@ -58,6 +60,7 @@ describe 'DocumentAttachmentsApi' do
 
   # unit tests for list_document_attachments
   # List Document Attachments
+  # Files attached to this document.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @return [InvoiceAttachmentsListResponse]

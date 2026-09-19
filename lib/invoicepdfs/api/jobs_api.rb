@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Cancel Job
+    # Stop a job that has not finished.
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [JobResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Cancel Job
+    # Stop a job that has not finished.
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobResponse, Integer, Hash)>] JobResponse data, response status code and response headers
@@ -81,6 +83,7 @@ module InvoicePDFs
     end
 
     # Get Job
+    # One job's status and progress.
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [JobResponse]
@@ -90,6 +93,7 @@ module InvoicePDFs
     end
 
     # Get Job
+    # One job&#39;s status and progress.
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobResponse, Integer, Hash)>] JobResponse data, response status code and response headers
@@ -213,6 +217,7 @@ module InvoicePDFs
     end
 
     # Retry Job
+    # Return a `failed` or `cancelled` job to `queued`, clearing its progress and error.  `409` from any other status.
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [JobResponse]
@@ -222,6 +227,7 @@ module InvoicePDFs
     end
 
     # Retry Job
+    # Return a &#x60;failed&#x60; or &#x60;cancelled&#x60; job to &#x60;queued&#x60;, clearing its progress and error.  &#x60;409&#x60; from any other status.
     # @param job_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobResponse, Integer, Hash)>] JobResponse data, response status code and response headers

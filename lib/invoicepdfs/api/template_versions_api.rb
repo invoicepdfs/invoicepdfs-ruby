@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Template Version
+    # Snapshot a template's current configuration as a new version.  A document can pin a version, so a render months later reproduces the design that was live when it was issued rather than today's.
     # @param template_id [String] 
     # @param template_version_create_request [TemplateVersionCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -30,6 +31,7 @@ module InvoicePDFs
     end
 
     # Create Template Version
+    # Snapshot a template&#39;s current configuration as a new version.  A document can pin a version, so a render months later reproduces the design that was live when it was issued rather than today&#39;s.
     # @param template_id [String] 
     # @param template_version_create_request [TemplateVersionCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -92,6 +94,7 @@ module InvoicePDFs
     end
 
     # Get Template Version
+    # One version's stored configuration.
     # @param template_id [String] 
     # @param version [Integer] 
     # @param [Hash] opts the optional parameters
@@ -102,6 +105,7 @@ module InvoicePDFs
     end
 
     # Get Template Version
+    # One version&#39;s stored configuration.
     # @param template_id [String] 
     # @param version [Integer] 
     # @param [Hash] opts the optional parameters
@@ -159,6 +163,7 @@ module InvoicePDFs
     end
 
     # List Template Versions
+    # Every published version of a custom template, newest first.
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [TemplateVersionsListResponse]
@@ -168,6 +173,7 @@ module InvoicePDFs
     end
 
     # List Template Versions
+    # Every published version of a custom template, newest first.
     # @param template_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TemplateVersionsListResponse, Integer, Hash)>] TemplateVersionsListResponse data, response status code and response headers

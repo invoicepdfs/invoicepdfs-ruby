@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Document Attachment
+    # Attach an already-uploaded file to a document.  Takes the `file_id` from `upload_file` rather than the bytes, so one upload can be attached to several documents.
     # @param document_id [String] 
     # @param invoice_attachment_create_request [InvoiceAttachmentCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -30,6 +31,7 @@ module InvoicePDFs
     end
 
     # Create Document Attachment
+    # Attach an already-uploaded file to a document.  Takes the &#x60;file_id&#x60; from &#x60;upload_file&#x60; rather than the bytes, so one upload can be attached to several documents.
     # @param document_id [String] 
     # @param invoice_attachment_create_request [InvoiceAttachmentCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -92,6 +94,7 @@ module InvoicePDFs
     end
 
     # Delete Document Attachment
+    # Detach a file from this document. The file itself is kept.
     # @param document_id [String] 
     # @param attachment_id [String] 
     # @param [Hash] opts the optional parameters
@@ -102,6 +105,7 @@ module InvoicePDFs
     end
 
     # Delete Document Attachment
+    # Detach a file from this document. The file itself is kept.
     # @param document_id [String] 
     # @param attachment_id [String] 
     # @param [Hash] opts the optional parameters
@@ -159,6 +163,7 @@ module InvoicePDFs
     end
 
     # List Document Attachments
+    # Files attached to this document.
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [InvoiceAttachmentsListResponse]
@@ -168,6 +173,7 @@ module InvoicePDFs
     end
 
     # List Document Attachments
+    # Files attached to this document.
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(InvoiceAttachmentsListResponse, Integer, Hash)>] InvoiceAttachmentsListResponse data, response status code and response headers

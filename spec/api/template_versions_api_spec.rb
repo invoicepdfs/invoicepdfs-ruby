@@ -34,6 +34,7 @@ describe 'TemplateVersionsApi' do
 
   # unit tests for create_template_version
   # Create Template Version
+  # Snapshot a template&#39;s current configuration as a new version.  A document can pin a version, so a render months later reproduces the design that was live when it was issued rather than today&#39;s.
   # @param template_id 
   # @param template_version_create_request 
   # @param [Hash] opts the optional parameters
@@ -46,6 +47,7 @@ describe 'TemplateVersionsApi' do
 
   # unit tests for get_template_version
   # Get Template Version
+  # One version&#39;s stored configuration.
   # @param template_id 
   # @param version 
   # @param [Hash] opts the optional parameters
@@ -58,6 +60,7 @@ describe 'TemplateVersionsApi' do
 
   # unit tests for list_template_versions
   # List Template Versions
+  # Every published version of a custom template, newest first.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [TemplateVersionsListResponse]

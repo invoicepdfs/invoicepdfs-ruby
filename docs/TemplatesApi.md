@@ -23,6 +23,8 @@ All URIs are relative to *http://localhost*
 
 Create Template
 
+Design a template of your own, starting as a `draft`.  A custom template is a built-in plus your own configuration — it does not replace the layout, it adjusts it. Drafts can be rendered while you iterate; publish it when you want a version pinned.
+
 ### Examples
 
 ```ruby
@@ -90,6 +92,8 @@ end
 
 Delete Template
 
+Remove a custom template.  `409` if a document or a recurring schedule still names it.
+
 ### Examples
 
 ```ruby
@@ -155,6 +159,8 @@ nil (empty response body)
 > <CustomTemplateResponse> duplicate_template(template_id)
 
 Duplicate Template
+
+Copy a custom template into a new `draft`, to change without affecting the original.
 
 ### Examples
 
@@ -223,6 +229,8 @@ end
 
 Get Builtin Template
 
+One built-in template: its id, name and the options it accepts.
+
 ### Examples
 
 ```ruby
@@ -289,6 +297,8 @@ end
 > <CustomTemplateResponse> get_custom_template(template_id)
 
 Get Custom Template
+
+One of this account's templates.
 
 ### Examples
 
@@ -357,6 +367,8 @@ end
 
 Get Template
 
+One built-in template: its id, name and the options it accepts.
+
 ### Examples
 
 ```ruby
@@ -423,6 +435,8 @@ end
 > <CustomTemplatesListResponse> list_custom_templates(opts)
 
 List Custom Templates
+
+Templates this account has designed, newest first. Cursor-paginated.
 
 ### Examples
 
@@ -495,6 +509,8 @@ end
 
 List Templates
 
+The built-in templates every account can render with.  Your own designs are listed separately by `list_custom_templates`.
+
 ### Examples
 
 ```ruby
@@ -558,6 +574,8 @@ This endpoint does not need any parameter.
 > <RenderResponse> preview_template(template_id, document_render_request, opts)
 
 Preview Template
+
+Render a template against sample data to see how it looks.  **This is a real render**: it counts against the monthly quota and is metered like any other, because it does the same work. Use it to check a design, not as a way to render documents.
 
 ### Examples
 
@@ -634,6 +652,8 @@ end
 
 Publish Template
 
+Mark a custom template `published`.  `409` if it is published already. Publishing is what makes a version pinnable, so a document rendered months from now can still be reproduced.
+
 ### Examples
 
 ```ruby
@@ -700,6 +720,8 @@ end
 > <CustomTemplateResponse> update_template(template_id, template_patch_request)
 
 Update Template
+
+Change a custom template. Only the fields you send are changed.
 
 ### Examples
 

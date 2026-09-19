@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Cancel Import
+    # Discard an import without creating anything. Only while it is `pending` or `processing`.
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Cancel Import
+    # Discard an import without creating anything. Only while it is &#x60;pending&#x60; or &#x60;processing&#x60;.
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
@@ -81,6 +83,7 @@ module InvoicePDFs
     end
 
     # Confirm Import
+    # Commit a reviewed import, creating its documents.  Only from `pending` — an import already confirmed or cancelled returns `409`.
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
@@ -90,6 +93,7 @@ module InvoicePDFs
     end
 
     # Confirm Import
+    # Commit a reviewed import, creating its documents.  Only from &#x60;pending&#x60; — an import already confirmed or cancelled returns &#x60;409&#x60;.
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
@@ -142,6 +146,7 @@ module InvoicePDFs
     end
 
     # Create Import
+    # Upload rows to be turned into documents, for review first.  Nothing is created yet: the rows are parsed and held so you can check them. `confirm_import` commits them, `cancel_import` discards them.
     # @param import_create_request [ImportCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
@@ -151,6 +156,7 @@ module InvoicePDFs
     end
 
     # Create Import
+    # Upload rows to be turned into documents, for review first.  Nothing is created yet: the rows are parsed and held so you can check them. &#x60;confirm_import&#x60; commits them, &#x60;cancel_import&#x60; discards them.
     # @param import_create_request [ImportCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers
@@ -208,6 +214,7 @@ module InvoicePDFs
     end
 
     # Get Import
+    # An import's status and how many rows it holds.
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ImportResponse]
@@ -217,6 +224,7 @@ module InvoicePDFs
     end
 
     # Get Import
+    # An import&#39;s status and how many rows it holds.
     # @param import_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ImportResponse, Integer, Hash)>] ImportResponse data, response status code and response headers

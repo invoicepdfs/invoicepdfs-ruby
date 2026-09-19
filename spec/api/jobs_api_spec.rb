@@ -34,6 +34,7 @@ describe 'JobsApi' do
 
   # unit tests for cancel_job
   # Cancel Job
+  # Stop a job that has not finished.
   # @param job_id 
   # @param [Hash] opts the optional parameters
   # @return [JobResponse]
@@ -45,6 +46,7 @@ describe 'JobsApi' do
 
   # unit tests for get_job
   # Get Job
+  # One job&#39;s status and progress.
   # @param job_id 
   # @param [Hash] opts the optional parameters
   # @return [JobResponse]
@@ -69,6 +71,7 @@ describe 'JobsApi' do
 
   # unit tests for retry_job
   # Retry Job
+  # Return a &#x60;failed&#x60; or &#x60;cancelled&#x60; job to &#x60;queued&#x60;, clearing its progress and error.  &#x60;409&#x60; from any other status.
   # @param job_id 
   # @param [Hash] opts the optional parameters
   # @return [JobResponse]

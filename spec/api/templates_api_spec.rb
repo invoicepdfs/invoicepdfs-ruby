@@ -34,6 +34,7 @@ describe 'TemplatesApi' do
 
   # unit tests for create_template
   # Create Template
+  # Design a template of your own, starting as a &#x60;draft&#x60;.  A custom template is a built-in plus your own configuration — it does not replace the layout, it adjusts it. Drafts can be rendered while you iterate; publish it when you want a version pinned.
   # @param template_create_request 
   # @param [Hash] opts the optional parameters
   # @return [CustomTemplateResponse]
@@ -45,6 +46,7 @@ describe 'TemplatesApi' do
 
   # unit tests for delete_template
   # Delete Template
+  # Remove a custom template.  &#x60;409&#x60; if a document or a recurring schedule still names it.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -56,6 +58,7 @@ describe 'TemplatesApi' do
 
   # unit tests for duplicate_template
   # Duplicate Template
+  # Copy a custom template into a new &#x60;draft&#x60;, to change without affecting the original.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [CustomTemplateResponse]
@@ -67,6 +70,7 @@ describe 'TemplatesApi' do
 
   # unit tests for get_builtin_template
   # Get Builtin Template
+  # One built-in template: its id, name and the options it accepts.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [TemplateDetailResponse]
@@ -78,6 +82,7 @@ describe 'TemplatesApi' do
 
   # unit tests for get_custom_template
   # Get Custom Template
+  # One of this account&#39;s templates.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [CustomTemplateResponse]
@@ -89,6 +94,7 @@ describe 'TemplatesApi' do
 
   # unit tests for get_template
   # Get Template
+  # One built-in template: its id, name and the options it accepts.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [TemplateDetailResponse]
@@ -100,6 +106,7 @@ describe 'TemplatesApi' do
 
   # unit tests for list_custom_templates
   # List Custom Templates
+  # Templates this account has designed, newest first. Cursor-paginated.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
   # @option opts [String] :cursor 
@@ -112,6 +119,7 @@ describe 'TemplatesApi' do
 
   # unit tests for list_templates
   # List Templates
+  # The built-in templates every account can render with.  Your own designs are listed separately by &#x60;list_custom_templates&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [TemplatesListResponse]
   describe 'list_templates test' do
@@ -122,6 +130,7 @@ describe 'TemplatesApi' do
 
   # unit tests for preview_template
   # Preview Template
+  # Render a template against sample data to see how it looks.  **This is a real render**: it counts against the monthly quota and is metered like any other, because it does the same work. Use it to check a design, not as a way to render documents.
   # @param template_id 
   # @param document_render_request 
   # @param [Hash] opts the optional parameters
@@ -136,6 +145,7 @@ describe 'TemplatesApi' do
 
   # unit tests for publish_template
   # Publish Template
+  # Mark a custom template &#x60;published&#x60;.  &#x60;409&#x60; if it is published already. Publishing is what makes a version pinnable, so a document rendered months from now can still be reproduced.
   # @param template_id 
   # @param [Hash] opts the optional parameters
   # @return [CustomTemplateResponse]
@@ -147,6 +157,7 @@ describe 'TemplatesApi' do
 
   # unit tests for update_template
   # Update Template
+  # Change a custom template. Only the fields you send are changed.
   # @param template_id 
   # @param template_patch_request 
   # @param [Hash] opts the optional parameters

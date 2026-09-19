@@ -16,6 +16,8 @@ All URIs are relative to *http://localhost*
 
 Create Template Version
 
+Snapshot a template's current configuration as a new version.  A document can pin a version, so a render months later reproduces the design that was live when it was issued rather than today's.
+
 ### Examples
 
 ```ruby
@@ -85,6 +87,8 @@ end
 
 Get Template Version
 
+One version's stored configuration.
+
 ### Examples
 
 ```ruby
@@ -153,6 +157,8 @@ end
 > <TemplateVersionsListResponse> list_template_versions(template_id)
 
 List Template Versions
+
+Every published version of a custom template, newest first.
 
 ### Examples
 

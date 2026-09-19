@@ -15,6 +15,8 @@ All URIs are relative to *http://localhost*
 
 Delete File
 
+Remove a stored file.  `409` if a branding profile or a document attachment still references it.
+
 ### Examples
 
 ```ruby
@@ -82,6 +84,8 @@ end
 
 Get File
 
+A stored file's metadata — name, type and size.
+
 ### Examples
 
 ```ruby
@@ -148,6 +152,8 @@ end
 > <FileResponse> upload_file(file, opts)
 
 Upload File
+
+Store a file and get an id for it.  Where logos and document attachments come from: upload once, then reference the returned `file_id` from a branding profile or an attachment.
 
 ### Examples
 

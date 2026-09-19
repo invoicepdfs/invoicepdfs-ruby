@@ -16,6 +16,8 @@ All URIs are relative to *http://localhost*
 
 Cancel Job
 
+Stop a job that has not finished.
+
 ### Examples
 
 ```ruby
@@ -82,6 +84,8 @@ end
 > <JobResponse> get_job(job_id)
 
 Get Job
+
+One job's status and progress.
 
 ### Examples
 
@@ -222,6 +226,8 @@ end
 > <JobResponse> retry_job(job_id)
 
 Retry Job
+
+Return a `failed` or `cancelled` job to `queued`, clearing its progress and error.  `409` from any other status.
 
 ### Examples
 

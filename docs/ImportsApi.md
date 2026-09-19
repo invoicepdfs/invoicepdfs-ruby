@@ -16,6 +16,8 @@ All URIs are relative to *http://localhost*
 
 Cancel Import
 
+Discard an import without creating anything. Only while it is `pending` or `processing`.
+
 ### Examples
 
 ```ruby
@@ -82,6 +84,8 @@ end
 > <ImportResponse> confirm_import(import_id)
 
 Confirm Import
+
+Commit a reviewed import, creating its documents.  Only from `pending` — an import already confirmed or cancelled returns `409`.
 
 ### Examples
 
@@ -150,6 +154,8 @@ end
 
 Create Import
 
+Upload rows to be turned into documents, for review first.  Nothing is created yet: the rows are parsed and held so you can check them. `confirm_import` commits them, `cancel_import` discards them.
+
 ### Examples
 
 ```ruby
@@ -216,6 +222,8 @@ end
 > <ImportResponse> get_import(import_id)
 
 Get Import
+
+An import's status and how many rows it holds.
 
 ### Examples
 

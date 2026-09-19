@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Delete File
+    # Remove a stored file.  `409` if a branding profile or a document attachment still references it.
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Delete File
+    # Remove a stored file.  &#x60;409&#x60; if a branding profile or a document attachment still references it.
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -81,6 +83,7 @@ module InvoicePDFs
     end
 
     # Get File
+    # A stored file's metadata — name, type and size.
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [FileResponse]
@@ -90,6 +93,7 @@ module InvoicePDFs
     end
 
     # Get File
+    # A stored file&#39;s metadata — name, type and size.
     # @param file_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(FileResponse, Integer, Hash)>] FileResponse data, response status code and response headers
@@ -142,6 +146,7 @@ module InvoicePDFs
     end
 
     # Upload File
+    # Store a file and get an id for it.  Where logos and document attachments come from: upload once, then reference the returned `file_id` from a branding profile or an attachment.
     # @param file [File] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -152,6 +157,7 @@ module InvoicePDFs
     end
 
     # Upload File
+    # Store a file and get an id for it.  Where logos and document attachments come from: upload once, then reference the returned &#x60;file_id&#x60; from a branding profile or an attachment.
     # @param file [File] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 

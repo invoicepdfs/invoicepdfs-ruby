@@ -34,6 +34,7 @@ describe 'BatchesApi' do
 
   # unit tests for cancel_batch
   # Cancel Batch
+  # Stop a batch that has not finished.  Items not yet started are cancelled. An item already rendering completes — the work is done and cancelling it would waste it.
   # @param batch_id 
   # @param [Hash] opts the optional parameters
   # @return [BatchResponse]
@@ -45,6 +46,7 @@ describe 'BatchesApi' do
 
   # unit tests for create_batch
   # Create Batch
+  # Queue many documents to be rendered at once.  Returns &#x60;202&#x60; — the batch is recorded and a worker renders it; nothing is rendered inside this request. Poll &#x60;get_batch&#x60; for progress, then &#x60;download_batch&#x60; for the results.  The whole batch is refused if it would exceed the monthly quota, rather than rendering part of it.
   # @param batch_create_request 
   # @param [Hash] opts the optional parameters
   # @return [BatchResponse]
@@ -56,6 +58,7 @@ describe 'BatchesApi' do
 
   # unit tests for download_batch
   # Download Batch
+  # Every completed render in the batch, as a ZIP.  &#x60;409&#x60; until the batch is &#x60;completed&#x60;. Items that failed are simply absent, so check &#x60;failed_items&#x60; rather than counting files.
   # @param batch_id 
   # @param [Hash] opts the optional parameters
   # @return [File]
@@ -67,6 +70,7 @@ describe 'BatchesApi' do
 
   # unit tests for get_batch
   # Get Batch
+  # A batch&#39;s status and its per-item counts.  The poll surface: &#x60;total_items&#x60;, &#x60;completed_items&#x60; and &#x60;failed_items&#x60; say how far it has got without listing every item.
   # @param batch_id 
   # @param [Hash] opts the optional parameters
   # @return [BatchResponse]
@@ -78,6 +82,7 @@ describe 'BatchesApi' do
 
   # unit tests for list_batch_items
   # List Batch Items
+  # Every item in a batch with its own status, newest first.  Where to look when &#x60;failed_items&#x60; is not zero: each row carries its error and, once rendered, its &#x60;render_id&#x60;.
   # @param batch_id 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
@@ -91,6 +96,7 @@ describe 'BatchesApi' do
 
   # unit tests for list_batches
   # List Batches
+  # Batch jobs on this account, newest first.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
   # @option opts [String] :cursor 

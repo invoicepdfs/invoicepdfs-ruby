@@ -34,6 +34,7 @@ describe 'ImportsApi' do
 
   # unit tests for cancel_import
   # Cancel Import
+  # Discard an import without creating anything. Only while it is &#x60;pending&#x60; or &#x60;processing&#x60;.
   # @param import_id 
   # @param [Hash] opts the optional parameters
   # @return [ImportResponse]
@@ -45,6 +46,7 @@ describe 'ImportsApi' do
 
   # unit tests for confirm_import
   # Confirm Import
+  # Commit a reviewed import, creating its documents.  Only from &#x60;pending&#x60; — an import already confirmed or cancelled returns &#x60;409&#x60;.
   # @param import_id 
   # @param [Hash] opts the optional parameters
   # @return [ImportResponse]
@@ -56,6 +58,7 @@ describe 'ImportsApi' do
 
   # unit tests for create_import
   # Create Import
+  # Upload rows to be turned into documents, for review first.  Nothing is created yet: the rows are parsed and held so you can check them. &#x60;confirm_import&#x60; commits them, &#x60;cancel_import&#x60; discards them.
   # @param import_create_request 
   # @param [Hash] opts the optional parameters
   # @return [ImportResponse]
@@ -67,6 +70,7 @@ describe 'ImportsApi' do
 
   # unit tests for get_import
   # Get Import
+  # An import&#39;s status and how many rows it holds.
   # @param import_id 
   # @param [Hash] opts the optional parameters
   # @return [ImportResponse]

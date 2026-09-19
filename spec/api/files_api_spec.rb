@@ -34,6 +34,7 @@ describe 'FilesApi' do
 
   # unit tests for delete_file
   # Delete File
+  # Remove a stored file.  &#x60;409&#x60; if a branding profile or a document attachment still references it.
   # @param file_id 
   # @param [Hash] opts the optional parameters
   # @return [SimpleBoolResponse]
@@ -45,6 +46,7 @@ describe 'FilesApi' do
 
   # unit tests for get_file
   # Get File
+  # A stored file&#39;s metadata — name, type and size.
   # @param file_id 
   # @param [Hash] opts the optional parameters
   # @return [FileResponse]
@@ -56,6 +58,7 @@ describe 'FilesApi' do
 
   # unit tests for upload_file
   # Upload File
+  # Store a file and get an id for it.  Where logos and document attachments come from: upload once, then reference the returned &#x60;file_id&#x60; from a branding profile or an attachment.
   # @param file 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :idempotency_key 
