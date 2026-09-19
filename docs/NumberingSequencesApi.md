@@ -88,6 +88,8 @@ end
 
 Create Sequence
 
+Define how a document type's numbers are built.  A prefix, an optional date pattern, and a zero-padded counter — `INV-2026-0001`. `reset` decides whether the counter returns to one each year.
+
 ### Examples
 
 ```ruby
@@ -154,6 +156,8 @@ end
 > <SimpleBoolResponse> delete_sequence(sequence_id)
 
 Delete Sequence
+
+Remove a numbering scheme.  Documents of that type then need their number supplied explicitly.
 
 ### Examples
 
@@ -222,6 +226,8 @@ end
 
 Get Sequence
 
+One numbering sequence, including the number it will issue next.
+
 ### Examples
 
 ```ruby
@@ -288,6 +294,8 @@ end
 > <NumberingSequencesListResponse> list_sequences(opts)
 
 List Sequences
+
+The numbering schemes that produce document numbers, newest first.  Each names the document type it numbers, so invoices and credit notes can run on separate counters.
 
 ### Examples
 
@@ -360,6 +368,8 @@ end
 
 Preview Sequence
 
+Show the next number **without consuming it**.  Nothing is claimed, so calling this twice returns the same number and the number stays available. Use `consume_sequence_number` to take it.
+
 ### Examples
 
 ```ruby
@@ -426,6 +436,8 @@ end
 > <NumberingSequenceResponse> update_sequence(sequence_id, numbering_sequence_patch_request)
 
 Update Sequence
+
+Change a numbering scheme.  Numbers already issued are not rewritten, so a change takes effect from the next document. Moving the counter backwards can collide with a number already used.
 
 ### Examples
 

@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Branding Profile
+    # Create a look: colours, logo, fonts and footer.  Applies on top of whichever template a render names, so one template can serve several brands. Mark one as the default and documents that name no profile will use it.
     # @param branding_profile_create_request [BrandingProfileCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Create Branding Profile
+    # Create a look: colours, logo, fonts and footer.  Applies on top of whichever template a render names, so one template can serve several brands. Mark one as the default and documents that name no profile will use it.
     # @param branding_profile_create_request [BrandingProfileCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
@@ -86,6 +88,7 @@ module InvoicePDFs
     end
 
     # Delete Branding Logo
+    # Remove this profile's logo, leaving its colours and text intact.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -95,6 +98,7 @@ module InvoicePDFs
     end
 
     # Delete Branding Logo
+    # Remove this profile&#39;s logo, leaving its colours and text intact.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -147,6 +151,7 @@ module InvoicePDFs
     end
 
     # Delete Branding Profile
+    # Remove a branding profile.  Deleting the default is allowed: the oldest remaining profile becomes the default in its place, so documents that name no profile keep rendering.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -156,6 +161,7 @@ module InvoicePDFs
     end
 
     # Delete Branding Profile
+    # Remove a branding profile.  Deleting the default is allowed: the oldest remaining profile becomes the default in its place, so documents that name no profile keep rendering.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -208,6 +214,7 @@ module InvoicePDFs
     end
 
     # Get Branding Profile
+    # One branding profile.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
@@ -217,6 +224,7 @@ module InvoicePDFs
     end
 
     # Get Branding Profile
+    # One branding profile.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
@@ -269,6 +277,7 @@ module InvoicePDFs
     end
 
     # List Branding Profiles
+    # The looks a document can be rendered in, newest first.  Colours, logo, fonts and footer text — how a document appears. Who it is issued by is a business profile, which is a different thing.
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfilesListResponse]
     def list_branding_profiles(opts = {})
@@ -277,6 +286,7 @@ module InvoicePDFs
     end
 
     # List Branding Profiles
+    # The looks a document can be rendered in, newest first.  Colours, logo, fonts and footer text — how a document appears. Who it is issued by is a business profile, which is a different thing.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfilesListResponse, Integer, Hash)>] BrandingProfilesListResponse data, response status code and response headers
     def list_branding_profiles_with_http_info(opts = {})
@@ -324,6 +334,7 @@ module InvoicePDFs
     end
 
     # Set Default Branding Profile
+    # Make this the profile used when a document names none.  Exactly one profile is the default; setting a new one clears the previous.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BrandingProfileResponse]
@@ -333,6 +344,7 @@ module InvoicePDFs
     end
 
     # Set Default Branding Profile
+    # Make this the profile used when a document names none.  Exactly one profile is the default; setting a new one clears the previous.
     # @param profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BrandingProfileResponse, Integer, Hash)>] BrandingProfileResponse data, response status code and response headers
@@ -385,6 +397,7 @@ module InvoicePDFs
     end
 
     # Update Branding Profile
+    # Change a branding profile.  Only the fields you send are changed. `hide_invoicepdfs_branding` is stored on any plan but only honoured on a plan that includes it — it is applied when a document renders, not validated here, so setting it on a plan without it is accepted and has no effect.
     # @param profile_id [String] 
     # @param branding_profile_patch_request [BrandingProfilePatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -395,6 +408,7 @@ module InvoicePDFs
     end
 
     # Update Branding Profile
+    # Change a branding profile.  Only the fields you send are changed. &#x60;hide_invoicepdfs_branding&#x60; is stored on any plan but only honoured on a plan that includes it — it is applied when a document renders, not validated here, so setting it on a plan without it is accepted and has no effect.
     # @param profile_id [String] 
     # @param branding_profile_patch_request [BrandingProfilePatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -457,6 +471,7 @@ module InvoicePDFs
     end
 
     # Upload Branding Logo
+    # Attach a logo image to this branding profile.  Replaces whatever logo the profile carried. The image is embedded when a document renders, so a later change applies to future renders and leaves PDFs already produced as they were.
     # @param profile_id [String] 
     # @param file [File] 
     # @param [Hash] opts the optional parameters
@@ -467,6 +482,7 @@ module InvoicePDFs
     end
 
     # Upload Branding Logo
+    # Attach a logo image to this branding profile.  Replaces whatever logo the profile carried. The image is embedded when a document renders, so a later change applies to future renders and leaves PDFs already produced as they were.
     # @param profile_id [String] 
     # @param file [File] 
     # @param [Hash] opts the optional parameters

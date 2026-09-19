@@ -46,6 +46,7 @@ describe 'NumberingSequencesApi' do
 
   # unit tests for create_sequence
   # Create Sequence
+  # Define how a document type&#39;s numbers are built.  A prefix, an optional date pattern, and a zero-padded counter — &#x60;INV-2026-0001&#x60;. &#x60;reset&#x60; decides whether the counter returns to one each year.
   # @param numbering_sequence_create_request 
   # @param [Hash] opts the optional parameters
   # @return [NumberingSequenceResponse]
@@ -57,6 +58,7 @@ describe 'NumberingSequencesApi' do
 
   # unit tests for delete_sequence
   # Delete Sequence
+  # Remove a numbering scheme.  Documents of that type then need their number supplied explicitly.
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
   # @return [SimpleBoolResponse]
@@ -68,6 +70,7 @@ describe 'NumberingSequencesApi' do
 
   # unit tests for get_sequence
   # Get Sequence
+  # One numbering sequence, including the number it will issue next.
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
   # @return [NumberingSequenceResponse]
@@ -79,6 +82,7 @@ describe 'NumberingSequencesApi' do
 
   # unit tests for list_sequences
   # List Sequences
+  # The numbering schemes that produce document numbers, newest first.  Each names the document type it numbers, so invoices and credit notes can run on separate counters.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
   # @option opts [String] :cursor 
@@ -91,6 +95,7 @@ describe 'NumberingSequencesApi' do
 
   # unit tests for preview_sequence
   # Preview Sequence
+  # Show the next number **without consuming it**.  Nothing is claimed, so calling this twice returns the same number and the number stays available. Use &#x60;consume_sequence_number&#x60; to take it.
   # @param sequence_id 
   # @param [Hash] opts the optional parameters
   # @return [NumberingSequencePreviewResponse]
@@ -102,6 +107,7 @@ describe 'NumberingSequencesApi' do
 
   # unit tests for update_sequence
   # Update Sequence
+  # Change a numbering scheme.  Numbers already issued are not rewritten, so a change takes effect from the next document. Moving the counter backwards can collide with a number already used.
   # @param sequence_id 
   # @param numbering_sequence_patch_request 
   # @param [Hash] opts the optional parameters

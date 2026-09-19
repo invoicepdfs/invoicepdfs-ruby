@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Customer
+    # Store a customer you can bill repeatedly.  `tax_id` and `electronic_address` are what e-invoicing needs: a buyer VAT number and the Peppol identifier a receiver is addressed by. Neither is required for a plain PDF.
     # @param customer_create [CustomerCreate] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -30,6 +31,7 @@ module InvoicePDFs
     end
 
     # Create Customer
+    # Store a customer you can bill repeatedly.  &#x60;tax_id&#x60; and &#x60;electronic_address&#x60; are what e-invoicing needs: a buyer VAT number and the Peppol identifier a receiver is addressed by. Neither is required for a plain PDF.
     # @param customer_create [CustomerCreate] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -89,6 +91,7 @@ module InvoicePDFs
     end
 
     # Delete Customer
+    # Remove a customer.  `409` if any document still references them, naming what does. History is kept rather than rewritten.
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -98,6 +101,7 @@ module InvoicePDFs
     end
 
     # Delete Customer
+    # Remove a customer.  &#x60;409&#x60; if any document still references them, naming what does. History is kept rather than rewritten.
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -150,6 +154,7 @@ module InvoicePDFs
     end
 
     # Get Customer
+    # One stored customer.
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [CustomerResponse]
@@ -159,6 +164,7 @@ module InvoicePDFs
     end
 
     # Get Customer
+    # One stored customer.
     # @param customer_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CustomerResponse, Integer, Hash)>] CustomerResponse data, response status code and response headers
@@ -211,6 +217,7 @@ module InvoicePDFs
     end
 
     # List Customers
+    # The people and companies you bill, newest first.  Cursor-paginated. A customer is optional — the stateless render endpoints take a buyer inline — but storing one lets a document reference it by id.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -221,6 +228,7 @@ module InvoicePDFs
     end
 
     # List Customers
+    # The people and companies you bill, newest first.  Cursor-paginated. A customer is optional — the stateless render endpoints take a buyer inline — but storing one lets a document reference it by id.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -280,6 +288,7 @@ module InvoicePDFs
     end
 
     # Update Customer
+    # Change a stored customer.  Only the fields you send are changed — omit one to leave it alone, send `null` to clear it. Documents already issued keep the details they were issued with; this does not rewrite them.
     # @param customer_id [String] 
     # @param customer_patch [CustomerPatch] 
     # @param [Hash] opts the optional parameters
@@ -291,6 +300,7 @@ module InvoicePDFs
     end
 
     # Update Customer
+    # Change a stored customer.  Only the fields you send are changed — omit one to leave it alone, send &#x60;null&#x60; to clear it. Documents already issued keep the details they were issued with; this does not rewrite them.
     # @param customer_id [String] 
     # @param customer_patch [CustomerPatch] 
     # @param [Hash] opts the optional parameters

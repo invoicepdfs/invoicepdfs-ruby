@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Business Profile
+    # Create an identity to issue documents as: the seller side.  `legal_name`, `tax_id`, address and bank details are what appears as the issuer, and what an e-invoicing ruleset checks. Distinct from a branding profile, which sets colours and a logo and says nothing about who you are.
     # @param business_profile_create [BusinessProfileCreate] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -30,6 +31,7 @@ module InvoicePDFs
     end
 
     # Create Business Profile
+    # Create an identity to issue documents as: the seller side.  &#x60;legal_name&#x60;, &#x60;tax_id&#x60;, address and bank details are what appears as the issuer, and what an e-invoicing ruleset checks. Distinct from a branding profile, which sets colours and a logo and says nothing about who you are.
     # @param business_profile_create [BusinessProfileCreate] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -89,6 +91,7 @@ module InvoicePDFs
     end
 
     # Delete Business Profile
+    # Remove a business profile.  `409` if any document was issued under it, naming what still points at it.
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -98,6 +101,7 @@ module InvoicePDFs
     end
 
     # Delete Business Profile
+    # Remove a business profile.  &#x60;409&#x60; if any document was issued under it, naming what still points at it.
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -150,6 +154,7 @@ module InvoicePDFs
     end
 
     # Get Business Profile
+    # One business profile.
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [BusinessProfileResponse]
@@ -159,6 +164,7 @@ module InvoicePDFs
     end
 
     # Get Business Profile
+    # One business profile.
     # @param business_profile_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(BusinessProfileResponse, Integer, Hash)>] BusinessProfileResponse data, response status code and response headers
@@ -211,6 +217,7 @@ module InvoicePDFs
     end
 
     # List Business Profiles
+    # The identities you issue documents *as*, newest first.  One per entity you bill from — a business with two trading names or two tax registrations needs two. For how documents *look* rather than who issues them, see the branding profiles.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -221,6 +228,7 @@ module InvoicePDFs
     end
 
     # List Business Profiles
+    # The identities you issue documents *as*, newest first.  One per entity you bill from — a business with two trading names or two tax registrations needs two. For how documents *look* rather than who issues them, see the branding profiles.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -280,6 +288,7 @@ module InvoicePDFs
     end
 
     # Update Business Profile
+    # Change a business profile.  Only the fields you send are changed. Documents already issued keep the issuer details they carried at the time.
     # @param business_profile_id [String] 
     # @param business_profile_patch [BusinessProfilePatch] 
     # @param [Hash] opts the optional parameters
@@ -291,6 +300,7 @@ module InvoicePDFs
     end
 
     # Update Business Profile
+    # Change a business profile.  Only the fields you send are changed. Documents already issued keep the issuer details they carried at the time.
     # @param business_profile_id [String] 
     # @param business_profile_patch [BusinessProfilePatch] 
     # @param [Hash] opts the optional parameters

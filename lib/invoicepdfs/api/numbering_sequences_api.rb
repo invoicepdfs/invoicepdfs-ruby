@@ -83,6 +83,7 @@ module InvoicePDFs
     end
 
     # Create Sequence
+    # Define how a document type's numbers are built.  A prefix, an optional date pattern, and a zero-padded counter — `INV-2026-0001`. `reset` decides whether the counter returns to one each year.
     # @param numbering_sequence_create_request [NumberingSequenceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequenceResponse]
@@ -92,6 +93,7 @@ module InvoicePDFs
     end
 
     # Create Sequence
+    # Define how a document type&#39;s numbers are built.  A prefix, an optional date pattern, and a zero-padded counter — &#x60;INV-2026-0001&#x60;. &#x60;reset&#x60; decides whether the counter returns to one each year.
     # @param numbering_sequence_create_request [NumberingSequenceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
@@ -149,6 +151,7 @@ module InvoicePDFs
     end
 
     # Delete Sequence
+    # Remove a numbering scheme.  Documents of that type then need their number supplied explicitly.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -158,6 +161,7 @@ module InvoicePDFs
     end
 
     # Delete Sequence
+    # Remove a numbering scheme.  Documents of that type then need their number supplied explicitly.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -210,6 +214,7 @@ module InvoicePDFs
     end
 
     # Get Sequence
+    # One numbering sequence, including the number it will issue next.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequenceResponse]
@@ -219,6 +224,7 @@ module InvoicePDFs
     end
 
     # Get Sequence
+    # One numbering sequence, including the number it will issue next.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequenceResponse, Integer, Hash)>] NumberingSequenceResponse data, response status code and response headers
@@ -271,6 +277,7 @@ module InvoicePDFs
     end
 
     # List Sequences
+    # The numbering schemes that produce document numbers, newest first.  Each names the document type it numbers, so invoices and credit notes can run on separate counters.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -281,6 +288,7 @@ module InvoicePDFs
     end
 
     # List Sequences
+    # The numbering schemes that produce document numbers, newest first.  Each names the document type it numbers, so invoices and credit notes can run on separate counters.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -340,6 +348,7 @@ module InvoicePDFs
     end
 
     # Preview Sequence
+    # Show the next number **without consuming it**.  Nothing is claimed, so calling this twice returns the same number and the number stays available. Use `consume_sequence_number` to take it.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [NumberingSequencePreviewResponse]
@@ -349,6 +358,7 @@ module InvoicePDFs
     end
 
     # Preview Sequence
+    # Show the next number **without consuming it**.  Nothing is claimed, so calling this twice returns the same number and the number stays available. Use &#x60;consume_sequence_number&#x60; to take it.
     # @param sequence_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(NumberingSequencePreviewResponse, Integer, Hash)>] NumberingSequencePreviewResponse data, response status code and response headers
@@ -401,6 +411,7 @@ module InvoicePDFs
     end
 
     # Update Sequence
+    # Change a numbering scheme.  Numbers already issued are not rewritten, so a change takes effect from the next document. Moving the counter backwards can collide with a number already used.
     # @param sequence_id [String] 
     # @param numbering_sequence_patch_request [NumberingSequencePatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -411,6 +422,7 @@ module InvoicePDFs
     end
 
     # Update Sequence
+    # Change a numbering scheme.  Numbers already issued are not rewritten, so a change takes effect from the next document. Moving the counter backwards can collide with a number already used.
     # @param sequence_id [String] 
     # @param numbering_sequence_patch_request [NumberingSequencePatchRequest] 
     # @param [Hash] opts the optional parameters
