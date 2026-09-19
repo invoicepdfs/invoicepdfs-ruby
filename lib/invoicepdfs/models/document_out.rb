@@ -105,7 +105,7 @@ module InvoicePDFs
         :'id' => :'String',
         :'document_type' => :'String',
         :'number' => :'String',
-        :'status' => :'String',
+        :'status' => :'DocumentStatus',
         :'issue_date' => :'Date',
         :'due_date' => :'Date',
         :'currency' => :'String',

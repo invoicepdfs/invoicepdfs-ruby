@@ -8,7 +8,7 @@
 | **endpoint_id** | **String** |  |  |
 | **event_id** | **String** |  |  |
 | **event_type** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**WebhookDeliveryStatus**](WebhookDeliveryStatus.md) |  |  |
 | **http_status** | **Integer** |  | [optional] |
 | **attempts** | **Integer** |  |  |
 | **error_message** | **String** |  | [optional] |

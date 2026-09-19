@@ -97,7 +97,7 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'id' => :'String',
-        :'status' => :'String',
+        :'status' => :'DocumentStatus',
         :'invoice_number' => :'String',
         :'document_type' => :'String',
         :'issue_date' => :'Date',
@@ -287,8 +287,6 @@ module InvoicePDFs
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @id.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["draft", "finalized", "sent", "paid", "void", "archived"])
-      return false unless status_validator.valid?(@status)
       return false if @invoice_number.nil?
       return false if @document_type.nil?
       document_type_validator = EnumAttributeValidator.new('String', ["invoice", "credit_note", "debit_note", "quote", "receipt", "proforma", "purchase_order", "delivery_note"])
@@ -302,16 +300,6 @@ module InvoicePDFs
       return false if @created_at.nil?
       return false if @updated_at.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status Object to be assigned
-    def status=(status)
-      validator = EnumAttributeValidator.new('String', ["draft", "finalized", "sent", "paid", "void", "archived"])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      @status = status
     end
 
     # Custom attribute writer method checking allowed values (enum).

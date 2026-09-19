@@ -83,7 +83,7 @@ module InvoicePDFs
       {
         :'id' => :'String',
         :'source_format' => :'String',
-        :'status' => :'String',
+        :'status' => :'ImportStatus',
         :'total_rows' => :'Integer',
         :'imported_rows' => :'Integer',
         :'failed_rows' => :'Integer',
@@ -223,24 +223,12 @@ module InvoicePDFs
       return false if @id.nil?
       return false if @source_format.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["pending", "processing", "completed", "failed", "cancelled"])
-      return false unless status_validator.valid?(@status)
       return false if @total_rows.nil?
       return false if @imported_rows.nil?
       return false if @failed_rows.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status Object to be assigned
-    def status=(status)
-      validator = EnumAttributeValidator.new('String', ["pending", "processing", "completed", "failed", "cancelled"])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      @status = status
     end
 
     # Checks equality by comparing each attribute.

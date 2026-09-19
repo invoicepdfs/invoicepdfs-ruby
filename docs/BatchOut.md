@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**BatchStatus**](BatchStatus.md) |  |  |
 | **operation** | **String** |  |  |
 | **template_id** | **String** |  |  |
 | **template_version** | **Integer** |  | [optional] |

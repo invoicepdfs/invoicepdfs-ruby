@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
 | **source_format** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**ImportStatus**](ImportStatus.md) |  |  |
 | **total_rows** | **Integer** |  |  |
 | **imported_rows** | **Integer** |  |  |
 | **failed_rows** | **Integer** |  |  |

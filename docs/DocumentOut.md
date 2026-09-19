@@ -7,7 +7,7 @@
 | **id** | **String** |  |  |
 | **document_type** | **String** |  |  |
 | **number** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**DocumentStatus**](DocumentStatus.md) |  |  |
 | **issue_date** | **Date** |  |  |
 | **due_date** | **Date** |  | [optional] |
 | **currency** | **String** |  |  |

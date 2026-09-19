@@ -36,10 +36,6 @@ describe InvoicePDFs::InvoiceOut do
   describe 'test attribute "status"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["draft", "finalized", "sent", "paid", "void", "archived"])
-      # validator.allowable_values.each do |value|
-      #   expect { instance.status = value }.not_to raise_error
-      # end
     end
   end
 

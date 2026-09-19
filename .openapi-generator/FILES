@@ -42,10 +42,12 @@ docs/AuthTokenResponse.md
 docs/BatchCreateRequest.md
 docs/BatchItemInput.md
 docs/BatchItemOut.md
+docs/BatchItemStatus.md
 docs/BatchItemsListResponse.md
 docs/BatchOut.md
 docs/BatchOutputOptions.md
 docs/BatchResponse.md
+docs/BatchStatus.md
 docs/BatchesApi.md
 docs/BatchesListResponse.md
 docs/BillingApi.md
@@ -99,6 +101,7 @@ docs/DeliveriesListResponse.md
 docs/DeliveryOut.md
 docs/DeliveryResponse.md
 docs/DeliverySendRequest.md
+docs/DeliveryStatus.md
 docs/DocumentAttachmentsApi.md
 docs/DocumentBrandingInput.md
 docs/DocumentCalculateRequest.md
@@ -120,6 +123,7 @@ docs/DocumentRenderOptions.md
 docs/DocumentRenderRequest.md
 docs/DocumentResponse.md
 docs/DocumentShippingInput.md
+docs/DocumentStatus.md
 docs/DocumentTemplateRef.md
 docs/DocumentTypeOut.md
 docs/DocumentTypesListResponse.md
@@ -136,6 +140,7 @@ docs/HealthResponse.md
 docs/ImportCreateRequest.md
 docs/ImportOut.md
 docs/ImportResponse.md
+docs/ImportStatus.md
 docs/ImportsApi.md
 docs/InvoiceAttachmentCreateRequest.md
 docs/InvoiceAttachmentOut.md
@@ -158,6 +163,7 @@ docs/InvoicesListResponse.md
 docs/JobOut.md
 docs/JobProgressOut.md
 docs/JobResponse.md
+docs/JobStatus.md
 docs/JobsApi.md
 docs/JobsListResponse.md
 docs/LineItemDiscountInput.md
@@ -190,6 +196,7 @@ docs/RecurringInvoiceCreateRequest.md
 docs/RecurringInvoiceOut.md
 docs/RecurringInvoicePatchRequest.md
 docs/RecurringInvoiceResponse.md
+docs/RecurringInvoiceStatus.md
 docs/RecurringInvoicesApi.md
 docs/RecurringInvoicesListResponse.md
 docs/ReferenceApi.md
@@ -197,6 +204,7 @@ docs/RenderComplianceOut.md
 docs/RenderFailureOut.md
 docs/RenderOut.md
 docs/RenderResponse.md
+docs/RenderStatus.md
 docs/RendersApi.md
 docs/SimpleBoolResponse.md
 docs/StandardLineItemInput.md
@@ -243,6 +251,7 @@ docs/VersionResponse.md
 docs/WebhookDeliveriesListResponse.md
 docs/WebhookDeliveryOut.md
 docs/WebhookDeliveryResponse.md
+docs/WebhookDeliveryStatus.md
 docs/WebhookEndpointCreateRequest.md
 docs/WebhookEndpointOut.md
 docs/WebhookEndpointPatchRequest.md
@@ -329,10 +338,12 @@ lib/invoicepdfs/models/auth_token_response.rb
 lib/invoicepdfs/models/batch_create_request.rb
 lib/invoicepdfs/models/batch_item_input.rb
 lib/invoicepdfs/models/batch_item_out.rb
+lib/invoicepdfs/models/batch_item_status.rb
 lib/invoicepdfs/models/batch_items_list_response.rb
 lib/invoicepdfs/models/batch_out.rb
 lib/invoicepdfs/models/batch_output_options.rb
 lib/invoicepdfs/models/batch_response.rb
+lib/invoicepdfs/models/batch_status.rb
 lib/invoicepdfs/models/batches_list_response.rb
 lib/invoicepdfs/models/billing_checkout_data.rb
 lib/invoicepdfs/models/billing_checkout_request.rb
@@ -379,6 +390,7 @@ lib/invoicepdfs/models/deliveries_list_response.rb
 lib/invoicepdfs/models/delivery_out.rb
 lib/invoicepdfs/models/delivery_response.rb
 lib/invoicepdfs/models/delivery_send_request.rb
+lib/invoicepdfs/models/delivery_status.rb
 lib/invoicepdfs/models/document_branding_input.rb
 lib/invoicepdfs/models/document_calculate_request.rb
 lib/invoicepdfs/models/document_calculate_response.rb
@@ -399,6 +411,7 @@ lib/invoicepdfs/models/document_render_options.rb
 lib/invoicepdfs/models/document_render_request.rb
 lib/invoicepdfs/models/document_response.rb
 lib/invoicepdfs/models/document_shipping_input.rb
+lib/invoicepdfs/models/document_status.rb
 lib/invoicepdfs/models/document_template_ref.rb
 lib/invoicepdfs/models/document_type_out.rb
 lib/invoicepdfs/models/document_types_list_response.rb
@@ -412,6 +425,7 @@ lib/invoicepdfs/models/health_response.rb
 lib/invoicepdfs/models/import_create_request.rb
 lib/invoicepdfs/models/import_out.rb
 lib/invoicepdfs/models/import_response.rb
+lib/invoicepdfs/models/import_status.rb
 lib/invoicepdfs/models/invoice_attachment_create_request.rb
 lib/invoicepdfs/models/invoice_attachment_out.rb
 lib/invoicepdfs/models/invoice_attachment_response.rb
@@ -433,6 +447,7 @@ lib/invoicepdfs/models/invoices_list_response.rb
 lib/invoicepdfs/models/job_out.rb
 lib/invoicepdfs/models/job_progress_out.rb
 lib/invoicepdfs/models/job_response.rb
+lib/invoicepdfs/models/job_status.rb
 lib/invoicepdfs/models/jobs_list_response.rb
 lib/invoicepdfs/models/line_item_discount_input.rb
 lib/invoicepdfs/models/line_item_tax_input.rb
@@ -461,11 +476,13 @@ lib/invoicepdfs/models/recurring_invoice_create_request.rb
 lib/invoicepdfs/models/recurring_invoice_out.rb
 lib/invoicepdfs/models/recurring_invoice_patch_request.rb
 lib/invoicepdfs/models/recurring_invoice_response.rb
+lib/invoicepdfs/models/recurring_invoice_status.rb
 lib/invoicepdfs/models/recurring_invoices_list_response.rb
 lib/invoicepdfs/models/render_compliance_out.rb
 lib/invoicepdfs/models/render_failure_out.rb
 lib/invoicepdfs/models/render_out.rb
 lib/invoicepdfs/models/render_response.rb
+lib/invoicepdfs/models/render_status.rb
 lib/invoicepdfs/models/simple_bool_response.rb
 lib/invoicepdfs/models/standard_line_item_input.rb
 lib/invoicepdfs/models/stats_counts.rb
@@ -506,6 +523,7 @@ lib/invoicepdfs/models/version_response.rb
 lib/invoicepdfs/models/webhook_deliveries_list_response.rb
 lib/invoicepdfs/models/webhook_delivery_out.rb
 lib/invoicepdfs/models/webhook_delivery_response.rb
+lib/invoicepdfs/models/webhook_delivery_status.rb
 lib/invoicepdfs/models/webhook_endpoint_create_request.rb
 lib/invoicepdfs/models/webhook_endpoint_out.rb
 lib/invoicepdfs/models/webhook_endpoint_patch_request.rb
@@ -585,10 +603,12 @@ spec/models/auth_token_response_spec.rb
 spec/models/batch_create_request_spec.rb
 spec/models/batch_item_input_spec.rb
 spec/models/batch_item_out_spec.rb
+spec/models/batch_item_status_spec.rb
 spec/models/batch_items_list_response_spec.rb
 spec/models/batch_out_spec.rb
 spec/models/batch_output_options_spec.rb
 spec/models/batch_response_spec.rb
+spec/models/batch_status_spec.rb
 spec/models/batches_list_response_spec.rb
 spec/models/billing_checkout_data_spec.rb
 spec/models/billing_checkout_request_spec.rb
@@ -635,6 +655,7 @@ spec/models/deliveries_list_response_spec.rb
 spec/models/delivery_out_spec.rb
 spec/models/delivery_response_spec.rb
 spec/models/delivery_send_request_spec.rb
+spec/models/delivery_status_spec.rb
 spec/models/document_branding_input_spec.rb
 spec/models/document_calculate_request_spec.rb
 spec/models/document_calculate_response_spec.rb
@@ -655,6 +676,7 @@ spec/models/document_render_options_spec.rb
 spec/models/document_render_request_spec.rb
 spec/models/document_response_spec.rb
 spec/models/document_shipping_input_spec.rb
+spec/models/document_status_spec.rb
 spec/models/document_template_ref_spec.rb
 spec/models/document_type_out_spec.rb
 spec/models/document_types_list_response_spec.rb
@@ -668,6 +690,7 @@ spec/models/health_response_spec.rb
 spec/models/import_create_request_spec.rb
 spec/models/import_out_spec.rb
 spec/models/import_response_spec.rb
+spec/models/import_status_spec.rb
 spec/models/invoice_attachment_create_request_spec.rb
 spec/models/invoice_attachment_out_spec.rb
 spec/models/invoice_attachment_response_spec.rb
@@ -689,6 +712,7 @@ spec/models/invoices_list_response_spec.rb
 spec/models/job_out_spec.rb
 spec/models/job_progress_out_spec.rb
 spec/models/job_response_spec.rb
+spec/models/job_status_spec.rb
 spec/models/jobs_list_response_spec.rb
 spec/models/line_item_discount_input_spec.rb
 spec/models/line_item_tax_input_spec.rb
@@ -717,11 +741,13 @@ spec/models/recurring_invoice_create_request_spec.rb
 spec/models/recurring_invoice_out_spec.rb
 spec/models/recurring_invoice_patch_request_spec.rb
 spec/models/recurring_invoice_response_spec.rb
+spec/models/recurring_invoice_status_spec.rb
 spec/models/recurring_invoices_list_response_spec.rb
 spec/models/render_compliance_out_spec.rb
 spec/models/render_failure_out_spec.rb
 spec/models/render_out_spec.rb
 spec/models/render_response_spec.rb
+spec/models/render_status_spec.rb
 spec/models/simple_bool_response_spec.rb
 spec/models/standard_line_item_input_spec.rb
 spec/models/stats_counts_spec.rb
@@ -762,6 +788,7 @@ spec/models/version_response_spec.rb
 spec/models/webhook_deliveries_list_response_spec.rb
 spec/models/webhook_delivery_out_spec.rb
 spec/models/webhook_delivery_response_spec.rb
+spec/models/webhook_delivery_status_spec.rb
 spec/models/webhook_endpoint_create_request_spec.rb
 spec/models/webhook_endpoint_out_spec.rb
 spec/models/webhook_endpoint_patch_request_spec.rb

@@ -43,6 +43,28 @@ module InvoicePDFs
 
     attr_accessor :updated_at
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -72,7 +94,7 @@ module InvoicePDFs
     def self.openapi_types
       {
         :'id' => :'String',
-        :'status' => :'String',
+        :'status' => :'RecurringInvoiceStatus',
         :'business_profile_id' => :'String',
         :'customer_id' => :'String',
         :'frequency' => :'String',

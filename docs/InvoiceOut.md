@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**DocumentStatus**](DocumentStatus.md) |  |  |
 | **invoice_number** | **String** |  |  |
 | **document_type** | **String** |  |  |
 | **issue_date** | **Date** |  |  |

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
 | **type** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**JobStatus**](JobStatus.md) |  |  |
 | **progress** | [**JobProgressOut**](JobProgressOut.md) |  |  |
 | **result** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **error** | **String** |  | [optional] |

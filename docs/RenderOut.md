@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**RenderStatus**](RenderStatus.md) |  |  |
 | **document_type** | **String** |  |  |
 | **template_id** | **String** |  |  |
 | **template_version** | **Integer** |  | [optional] |

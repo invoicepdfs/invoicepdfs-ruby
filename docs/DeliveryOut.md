@@ -12,7 +12,7 @@
 | **subject** | **String** |  |  |
 | **message** | **String** |  | [optional] |
 | **attach_pdf** | **Boolean** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**DeliveryStatus**](DeliveryStatus.md) |  |  |
 | **created_at** | **String** |  |  |
 | **sent_at** | **String** |  | [optional] |
 

@@ -7,7 +7,7 @@
 | **id** | **String** |  |  |
 | **external_id** | **String** |  | [optional] |
 | **document_type** | **String** |  |  |
-| **status** | **String** |  |  |
+| **status** | [**BatchItemStatus**](BatchItemStatus.md) |  |  |
 | **render_id** | **String** |  | [optional] |
 | **error_message** | **String** |  | [optional] |
 | **created_at** | **String** |  |  |
