@@ -218,7 +218,7 @@ module InvoicePDFs
       return false if @event_id.nil?
       return false if @event_type.nil?
       return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["pending", "delivered", "failed"])
+      status_validator = EnumAttributeValidator.new('String', ["pending", "retrying", "delivered", "failed"])
       return false unless status_validator.valid?(@status)
       return false if @attempts.nil?
       return false if @created_at.nil?
@@ -228,7 +228,7 @@ module InvoicePDFs
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["pending", "delivered", "failed"])
+      validator = EnumAttributeValidator.new('String', ["pending", "retrying", "delivered", "failed"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end
