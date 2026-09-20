@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 
 Get Audit Event
 
+One audit event by id.
+
 ### Examples
 
 ```ruby
@@ -80,6 +82,8 @@ end
 > <AuditEventsListResponse> list_audit_events(opts)
 
 List Audit Events
+
+Who changed what on this account, newest first.  Filter by `action`, `resource_type` and `resource_id` to follow a single object's history.
 
 ### Examples
 

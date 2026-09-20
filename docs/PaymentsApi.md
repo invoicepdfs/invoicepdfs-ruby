@@ -17,6 +17,8 @@ All URIs are relative to *http://localhost*
 
 Create Document Payment
 
+Record a payment received against an invoice.  The currency is taken from the invoice rather than from the request, so a payment can never disagree with what was billed.  Refused with 409 while the invoice is still a draft. Recording a payment does not move the invoice to `paid` — use `mark_paid` for that.
+
 ### Examples
 
 ```ruby
@@ -86,6 +88,8 @@ end
 
 Delete Payment
 
+Remove a recorded payment.  The payment is deleted outright rather than reversed, and the invoice's status is left alone. The deletion is kept in the audit log.
+
 ### Examples
 
 ```ruby
@@ -153,6 +157,8 @@ end
 
 Get Payment
 
+One recorded payment by id.
+
 ### Examples
 
 ```ruby
@@ -219,6 +225,8 @@ end
 > <PaymentsListResponse> list_document_payments(document_id, opts)
 
 List Document Payments
+
+Payments recorded against one document, newest first.
 
 ### Examples
 
@@ -292,6 +300,8 @@ end
 > <PaymentResponse> update_payment(payment_id, payment_patch_request)
 
 Update Payment
+
+Correct a payment that was already recorded.  Only the fields you send are changed. The invoice's status and totals are left alone.
 
 ### Examples
 

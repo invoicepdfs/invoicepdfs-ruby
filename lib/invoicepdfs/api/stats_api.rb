@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Get Stats
+    # Counts and recent activity for the account, in one call.  Totals for documents, customers and business profiles, a breakdown of documents by status, and the ten most recent documents — cheaper than paging each collection to build a dashboard.  The `invoice`-prefixed fields cover every document type, not only invoices.
     # @param [Hash] opts the optional parameters
     # @return [StatsResponse]
     def get_stats(opts = {})
@@ -28,6 +29,7 @@ module InvoicePDFs
     end
 
     # Get Stats
+    # Counts and recent activity for the account, in one call.  Totals for documents, customers and business profiles, a breakdown of documents by status, and the ten most recent documents — cheaper than paging each collection to build a dashboard.  The &#x60;invoice&#x60;-prefixed fields cover every document type, not only invoices.
     # @param [Hash] opts the optional parameters
     # @return [Array<(StatsResponse, Integer, Hash)>] StatsResponse data, response status code and response headers
     def get_stats_with_http_info(opts = {})

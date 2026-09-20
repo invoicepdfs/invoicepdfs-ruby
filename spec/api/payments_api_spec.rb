@@ -34,6 +34,7 @@ describe 'PaymentsApi' do
 
   # unit tests for create_document_payment
   # Create Document Payment
+  # Record a payment received against an invoice.  The currency is taken from the invoice rather than from the request, so a payment can never disagree with what was billed.  Refused with 409 while the invoice is still a draft. Recording a payment does not move the invoice to &#x60;paid&#x60; — use &#x60;mark_paid&#x60; for that.
   # @param document_id 
   # @param payment_create_request 
   # @param [Hash] opts the optional parameters
@@ -46,6 +47,7 @@ describe 'PaymentsApi' do
 
   # unit tests for delete_payment
   # Delete Payment
+  # Remove a recorded payment.  The payment is deleted outright rather than reversed, and the invoice&#39;s status is left alone. The deletion is kept in the audit log.
   # @param payment_id 
   # @param [Hash] opts the optional parameters
   # @return [SimpleBoolResponse]
@@ -57,6 +59,7 @@ describe 'PaymentsApi' do
 
   # unit tests for get_payment
   # Get Payment
+  # One recorded payment by id.
   # @param payment_id 
   # @param [Hash] opts the optional parameters
   # @return [PaymentResponse]
@@ -68,6 +71,7 @@ describe 'PaymentsApi' do
 
   # unit tests for list_document_payments
   # List Document Payments
+  # Payments recorded against one document, newest first.
   # @param document_id 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
@@ -81,6 +85,7 @@ describe 'PaymentsApi' do
 
   # unit tests for update_payment
   # Update Payment
+  # Correct a payment that was already recorded.  Only the fields you send are changed. The invoice&#39;s status and totals are left alone.
   # @param payment_id 
   # @param payment_patch_request 
   # @param [Hash] opts the optional parameters

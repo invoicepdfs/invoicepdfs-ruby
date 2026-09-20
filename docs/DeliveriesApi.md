@@ -14,6 +14,8 @@ All URIs are relative to *http://localhost*
 
 Get Delivery
 
+One email delivery by id — an email sent to a customer.  Not to be confused with `get_webhook_delivery`, which is an HTTP POST to one of your webhook endpoints.
+
 ### Examples
 
 ```ruby

@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Webhook Endpoint
+    # Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  A signing secret is generated but is **not** returned here. Call `rotate_webhook_secret` to obtain one before you can verify signatures.
     # @param webhook_endpoint_create_request [WebhookEndpointCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookEndpointResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Create Webhook Endpoint
+    # Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  A signing secret is generated but is **not** returned here. Call &#x60;rotate_webhook_secret&#x60; to obtain one before you can verify signatures.
     # @param webhook_endpoint_create_request [WebhookEndpointCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookEndpointResponse, Integer, Hash)>] WebhookEndpointResponse data, response status code and response headers
@@ -86,6 +88,7 @@ module InvoicePDFs
     end
 
     # Delete Webhook Endpoint
+    # Remove an endpoint and its delivery history.  The endpoint's delivery records are deleted with it, including any still waiting to be retried. To stop deliveries without losing the history, set `is_active` to false instead.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -95,6 +98,7 @@ module InvoicePDFs
     end
 
     # Delete Webhook Endpoint
+    # Remove an endpoint and its delivery history.  The endpoint&#39;s delivery records are deleted with it, including any still waiting to be retried. To stop deliveries without losing the history, set &#x60;is_active&#x60; to false instead.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -147,6 +151,7 @@ module InvoicePDFs
     end
 
     # Get Webhook Delivery
+    # One webhook delivery by id — an HTTP POST to one of your endpoints.  Not to be confused with `get_delivery`, which is an email sent to a customer.
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
@@ -156,6 +161,7 @@ module InvoicePDFs
     end
 
     # Get Webhook Delivery
+    # One webhook delivery by id — an HTTP POST to one of your endpoints.  Not to be confused with &#x60;get_delivery&#x60;, which is an email sent to a customer.
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
@@ -208,6 +214,7 @@ module InvoicePDFs
     end
 
     # Get Webhook Endpoint
+    # One webhook endpoint by id.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookEndpointResponse]
@@ -217,6 +224,7 @@ module InvoicePDFs
     end
 
     # Get Webhook Endpoint
+    # One webhook endpoint by id.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookEndpointResponse, Integer, Hash)>] WebhookEndpointResponse data, response status code and response headers
@@ -269,6 +277,7 @@ module InvoicePDFs
     end
 
     # List Webhook Deliveries
+    # Every webhook delivery attempt on the account, newest first.  One row per attempt to POST an event to one of your endpoints, with the HTTP status and attempt count. For emails sent to your customers, see `get_delivery`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -279,6 +288,7 @@ module InvoicePDFs
     end
 
     # List Webhook Deliveries
+    # Every webhook delivery attempt on the account, newest first.  One row per attempt to POST an event to one of your endpoints, with the HTTP status and attempt count. For emails sent to your customers, see &#x60;get_delivery&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -338,6 +348,7 @@ module InvoicePDFs
     end
 
     # List Webhook Endpoints
+    # Every webhook endpoint registered on the account, newest first.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -348,6 +359,7 @@ module InvoicePDFs
     end
 
     # List Webhook Endpoints
+    # Every webhook endpoint registered on the account, newest first.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -407,6 +419,7 @@ module InvoicePDFs
     end
 
     # Retry Webhook Delivery
+    # Send a failed or pending webhook delivery again, immediately.  Resets the attempt counter on the same delivery and dispatches it without waiting for the retry schedule. Failed deliveries are already retried automatically with backoff, so this is for after those are exhausted — or to send a delivery created by `test_webhook_endpoint`.  Refused with 409 in any other status. To re-send an email, use `retry_delivery`.
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
@@ -416,6 +429,7 @@ module InvoicePDFs
     end
 
     # Retry Webhook Delivery
+    # Send a failed or pending webhook delivery again, immediately.  Resets the attempt counter on the same delivery and dispatches it without waiting for the retry schedule. Failed deliveries are already retried automatically with backoff, so this is for after those are exhausted — or to send a delivery created by &#x60;test_webhook_endpoint&#x60;.  Refused with 409 in any other status. To re-send an email, use &#x60;retry_delivery&#x60;.
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
@@ -468,6 +482,7 @@ module InvoicePDFs
     end
 
     # Rotate Webhook Secret
+    # Issue a new signing secret and return it.  This is the only response that contains the secret, so it is also how you obtain the first one after creating an endpoint. The previous secret stops being accepted immediately: signatures computed with it will not verify.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookSecretResponse]
@@ -477,6 +492,7 @@ module InvoicePDFs
     end
 
     # Rotate Webhook Secret
+    # Issue a new signing secret and return it.  This is the only response that contains the secret, so it is also how you obtain the first one after creating an endpoint. The previous secret stops being accepted immediately: signatures computed with it will not verify.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookSecretResponse, Integer, Hash)>] WebhookSecretResponse data, response status code and response headers
@@ -529,6 +545,7 @@ module InvoicePDFs
     end
 
     # Test Webhook Endpoint
+    # Record a test event against this endpoint.  Creates a `test` event and a delivery in `pending`, which you can inspect with `get_webhook_delivery`.  This call does not send the delivery. Pass the returned delivery id to `retry_webhook_delivery` to have it dispatched.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
@@ -538,6 +555,7 @@ module InvoicePDFs
     end
 
     # Test Webhook Endpoint
+    # Record a test event against this endpoint.  Creates a &#x60;test&#x60; event and a delivery in &#x60;pending&#x60;, which you can inspect with &#x60;get_webhook_delivery&#x60;.  This call does not send the delivery. Pass the returned delivery id to &#x60;retry_webhook_delivery&#x60; to have it dispatched.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
@@ -590,6 +608,7 @@ module InvoicePDFs
     end
 
     # Update Webhook Endpoint
+    # Change an endpoint's URL, description, event list or active flag.  Only the fields you send are changed. Setting `is_active` to false stops new deliveries while keeping the endpoint and its history, which is the reversible alternative to deleting it.
     # @param endpoint_id [String] 
     # @param webhook_endpoint_patch_request [WebhookEndpointPatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -600,6 +619,7 @@ module InvoicePDFs
     end
 
     # Update Webhook Endpoint
+    # Change an endpoint&#39;s URL, description, event list or active flag.  Only the fields you send are changed. Setting &#x60;is_active&#x60; to false stops new deliveries while keeping the endpoint and its history, which is the reversible alternative to deleting it.
     # @param endpoint_id [String] 
     # @param webhook_endpoint_patch_request [WebhookEndpointPatchRequest] 
     # @param [Hash] opts the optional parameters

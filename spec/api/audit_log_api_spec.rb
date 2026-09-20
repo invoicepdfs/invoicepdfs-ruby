@@ -34,6 +34,7 @@ describe 'AuditLogApi' do
 
   # unit tests for get_audit_event
   # Get Audit Event
+  # One audit event by id.
   # @param audit_event_id 
   # @param [Hash] opts the optional parameters
   # @return [AuditEventResponse]
@@ -45,6 +46,7 @@ describe 'AuditLogApi' do
 
   # unit tests for list_audit_events
   # List Audit Events
+  # Who changed what on this account, newest first.  Filter by &#x60;action&#x60;, &#x60;resource_type&#x60; and &#x60;resource_id&#x60; to follow a single object&#39;s history.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
   # @option opts [String] :cursor 

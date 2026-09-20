@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Get Audit Event
+    # One audit event by id.
     # @param audit_event_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [AuditEventResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Get Audit Event
+    # One audit event by id.
     # @param audit_event_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AuditEventResponse, Integer, Hash)>] AuditEventResponse data, response status code and response headers
@@ -81,6 +83,7 @@ module InvoicePDFs
     end
 
     # List Audit Events
+    # Who changed what on this account, newest first.  Filter by `action`, `resource_type` and `resource_id` to follow a single object's history.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -94,6 +97,7 @@ module InvoicePDFs
     end
 
     # List Audit Events
+    # Who changed what on this account, newest first.  Filter by &#x60;action&#x60;, &#x60;resource_type&#x60; and &#x60;resource_id&#x60; to follow a single object&#39;s history.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 

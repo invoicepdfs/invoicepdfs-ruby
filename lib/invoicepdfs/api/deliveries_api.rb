@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Get Delivery
+    # One email delivery by id — an email sent to a customer.  Not to be confused with `get_webhook_delivery`, which is an HTTP POST to one of your webhook endpoints.
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [DeliveryResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Get Delivery
+    # One email delivery by id — an email sent to a customer.  Not to be confused with &#x60;get_webhook_delivery&#x60;, which is an HTTP POST to one of your webhook endpoints.
     # @param delivery_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeliveryResponse, Integer, Hash)>] DeliveryResponse data, response status code and response headers

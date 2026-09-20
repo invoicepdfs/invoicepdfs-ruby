@@ -34,6 +34,7 @@ describe 'StatsApi' do
 
   # unit tests for get_stats
   # Get Stats
+  # Counts and recent activity for the account, in one call.  Totals for documents, customers and business profiles, a breakdown of documents by status, and the ten most recent documents — cheaper than paging each collection to build a dashboard.  The &#x60;invoice&#x60;-prefixed fields cover every document type, not only invoices.
   # @param [Hash] opts the optional parameters
   # @return [StatsResponse]
   describe 'get_stats test' do

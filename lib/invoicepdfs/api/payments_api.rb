@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Document Payment
+    # Record a payment received against an invoice.  The currency is taken from the invoice rather than from the request, so a payment can never disagree with what was billed.  Refused with 409 while the invoice is still a draft. Recording a payment does not move the invoice to `paid` — use `mark_paid` for that.
     # @param document_id [String] 
     # @param payment_create_request [PaymentCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -30,6 +31,7 @@ module InvoicePDFs
     end
 
     # Create Document Payment
+    # Record a payment received against an invoice.  The currency is taken from the invoice rather than from the request, so a payment can never disagree with what was billed.  Refused with 409 while the invoice is still a draft. Recording a payment does not move the invoice to &#x60;paid&#x60; — use &#x60;mark_paid&#x60; for that.
     # @param document_id [String] 
     # @param payment_create_request [PaymentCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -92,6 +94,7 @@ module InvoicePDFs
     end
 
     # Delete Payment
+    # Remove a recorded payment.  The payment is deleted outright rather than reversed, and the invoice's status is left alone. The deletion is kept in the audit log.
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -101,6 +104,7 @@ module InvoicePDFs
     end
 
     # Delete Payment
+    # Remove a recorded payment.  The payment is deleted outright rather than reversed, and the invoice&#39;s status is left alone. The deletion is kept in the audit log.
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -153,6 +157,7 @@ module InvoicePDFs
     end
 
     # Get Payment
+    # One recorded payment by id.
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [PaymentResponse]
@@ -162,6 +167,7 @@ module InvoicePDFs
     end
 
     # Get Payment
+    # One recorded payment by id.
     # @param payment_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(PaymentResponse, Integer, Hash)>] PaymentResponse data, response status code and response headers
@@ -214,6 +220,7 @@ module InvoicePDFs
     end
 
     # List Document Payments
+    # Payments recorded against one document, newest first.
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
@@ -225,6 +232,7 @@ module InvoicePDFs
     end
 
     # List Document Payments
+    # Payments recorded against one document, newest first.
     # @param document_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
@@ -289,6 +297,7 @@ module InvoicePDFs
     end
 
     # Update Payment
+    # Correct a payment that was already recorded.  Only the fields you send are changed. The invoice's status and totals are left alone.
     # @param payment_id [String] 
     # @param payment_patch_request [PaymentPatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -299,6 +308,7 @@ module InvoicePDFs
     end
 
     # Update Payment
+    # Correct a payment that was already recorded.  Only the fields you send are changed. The invoice&#39;s status and totals are left alone.
     # @param payment_id [String] 
     # @param payment_patch_request [PaymentPatchRequest] 
     # @param [Hash] opts the optional parameters
