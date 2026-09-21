@@ -253,6 +253,8 @@ docs/WebhookDeliveryOut.md
 docs/WebhookDeliveryResponse.md
 docs/WebhookDeliveryStatus.md
 docs/WebhookEndpointCreateRequest.md
+docs/WebhookEndpointCreatedOut.md
+docs/WebhookEndpointCreatedResponse.md
 docs/WebhookEndpointOut.md
 docs/WebhookEndpointPatchRequest.md
 docs/WebhookEndpointResponse.md
@@ -525,6 +527,8 @@ lib/invoicepdfs/models/webhook_delivery_out.rb
 lib/invoicepdfs/models/webhook_delivery_response.rb
 lib/invoicepdfs/models/webhook_delivery_status.rb
 lib/invoicepdfs/models/webhook_endpoint_create_request.rb
+lib/invoicepdfs/models/webhook_endpoint_created_out.rb
+lib/invoicepdfs/models/webhook_endpoint_created_response.rb
 lib/invoicepdfs/models/webhook_endpoint_out.rb
 lib/invoicepdfs/models/webhook_endpoint_patch_request.rb
 lib/invoicepdfs/models/webhook_endpoint_response.rb
@@ -790,6 +794,8 @@ spec/models/webhook_delivery_out_spec.rb
 spec/models/webhook_delivery_response_spec.rb
 spec/models/webhook_delivery_status_spec.rb
 spec/models/webhook_endpoint_create_request_spec.rb
+spec/models/webhook_endpoint_created_out_spec.rb
+spec/models/webhook_endpoint_created_response_spec.rb
 spec/models/webhook_endpoint_out_spec.rb
 spec/models/webhook_endpoint_patch_request_spec.rb
 spec/models/webhook_endpoint_response_spec.rb

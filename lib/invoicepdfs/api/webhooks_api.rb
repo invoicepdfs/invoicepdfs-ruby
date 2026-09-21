@@ -20,20 +20,20 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Webhook Endpoint
-    # Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  A signing secret is generated but is **not** returned here. Call `rotate_webhook_secret` to obtain one before you can verify signatures.
+    # Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  The response carries the signing secret, and is the only one that ever will — store it now. Reading or listing endpoints never returns it, and the only way to get another is `rotate_webhook_secret`, which stops this one working.
     # @param webhook_endpoint_create_request [WebhookEndpointCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [WebhookEndpointResponse]
+    # @return [WebhookEndpointCreatedResponse]
     def create_webhook_endpoint(webhook_endpoint_create_request, opts = {})
       data, _status_code, _headers = create_webhook_endpoint_with_http_info(webhook_endpoint_create_request, opts)
       data
     end
 
     # Create Webhook Endpoint
-    # Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  A signing secret is generated but is **not** returned here. Call &#x60;rotate_webhook_secret&#x60; to obtain one before you can verify signatures.
+    # Register a URL to receive events.  The endpoint starts active and begins receiving the events you list.  The response carries the signing secret, and is the only one that ever will — store it now. Reading or listing endpoints never returns it, and the only way to get another is &#x60;rotate_webhook_secret&#x60;, which stops this one working.
     # @param webhook_endpoint_create_request [WebhookEndpointCreateRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(WebhookEndpointResponse, Integer, Hash)>] WebhookEndpointResponse data, response status code and response headers
+    # @return [Array<(WebhookEndpointCreatedResponse, Integer, Hash)>] WebhookEndpointCreatedResponse data, response status code and response headers
     def create_webhook_endpoint_with_http_info(webhook_endpoint_create_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WebhooksApi.create_webhook_endpoint ...'
@@ -65,7 +65,7 @@ module InvoicePDFs
       post_body = opts[:debug_body] || @api_client.object_to_http_body(webhook_endpoint_create_request)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'WebhookEndpointResponse'
+      return_type = opts[:debug_return_type] || 'WebhookEndpointCreatedResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['HTTPBearer']
@@ -545,7 +545,7 @@ module InvoicePDFs
     end
 
     # Test Webhook Endpoint
-    # Record a test event against this endpoint.  Creates a `test` event and a delivery in `pending`, which you can inspect with `get_webhook_delivery`.  This call does not send the delivery. Pass the returned delivery id to `retry_webhook_delivery` to have it dispatched.
+    # Send a test event to this endpoint.  Delivers a `test` event immediately, so you can confirm the URL is reachable and your signature check works before real events depend on it.  Returns straight away with the delivery in `pending`; follow it with `get_webhook_delivery` to see whether it arrived.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WebhookDeliveryResponse]
@@ -555,7 +555,7 @@ module InvoicePDFs
     end
 
     # Test Webhook Endpoint
-    # Record a test event against this endpoint.  Creates a &#x60;test&#x60; event and a delivery in &#x60;pending&#x60;, which you can inspect with &#x60;get_webhook_delivery&#x60;.  This call does not send the delivery. Pass the returned delivery id to &#x60;retry_webhook_delivery&#x60; to have it dispatched.
+    # Send a test event to this endpoint.  Delivers a &#x60;test&#x60; event immediately, so you can confirm the URL is reachable and your signature check works before real events depend on it.  Returns straight away with the delivery in &#x60;pending&#x60;; follow it with &#x60;get_webhook_delivery&#x60; to see whether it arrived.
     # @param endpoint_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WebhookDeliveryResponse, Integer, Hash)>] WebhookDeliveryResponse data, response status code and response headers
