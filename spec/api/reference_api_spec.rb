@@ -34,6 +34,7 @@ describe 'ReferenceApi' do
 
   # unit tests for list_countries
   # List Countries
+  # The country codes accepted anywhere an address is given.  ISO 3166-1 alpha-2.
   # @param [Hash] opts the optional parameters
   # @return [CountriesListResponse]
   describe 'list_countries test' do
@@ -44,6 +45,7 @@ describe 'ReferenceApi' do
 
   # unit tests for list_currencies
   # List Currencies
+  # The currency codes a document may be issued in.  ISO 4217, with the minor-unit count each one uses — the amounts in this API are integers in the currency&#39;s smallest unit, so that figure is what says where the decimal point goes.
   # @param [Hash] opts the optional parameters
   # @return [CurrenciesListResponse]
   describe 'list_currencies test' do
@@ -65,6 +67,7 @@ describe 'ReferenceApi' do
 
   # unit tests for list_locales
   # List Locales
+  # The locale codes accepted on a document or business profile.  The value is stored and returned as given; it is not currently applied to anything a render produces.
   # @param [Hash] opts the optional parameters
   # @return [LocalesListResponse]
   describe 'list_locales test' do
@@ -75,6 +78,7 @@ describe 'ReferenceApi' do
 
   # unit tests for list_page_sizes
   # List Page Sizes
+  # The page sizes a render can use.
   # @param [Hash] opts the optional parameters
   # @return [PageSizesListResponse]
   describe 'list_page_sizes test' do
@@ -107,6 +111,7 @@ describe 'ReferenceApi' do
 
   # unit tests for list_timezones
   # List Timezones
+  # The time zone names accepted on a business profile.  IANA names. Stored and returned as given: recurring schedules are evaluated in UTC and do not consult it.
   # @param [Hash] opts the optional parameters
   # @return [TimezonesListResponse]
   describe 'list_timezones test' do

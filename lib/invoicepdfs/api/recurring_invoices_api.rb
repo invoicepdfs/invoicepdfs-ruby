@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Cancel Recurring Invoice
+    # End a schedule permanently.  Terminal: it cannot be resumed or edited afterwards, and cancelling twice is refused with 409. To stop issuing temporarily, use `pause_recurring_invoice` instead.  Invoices already issued are left alone.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Cancel Recurring Invoice
+    # End a schedule permanently.  Terminal: it cannot be resumed or edited afterwards, and cancelling twice is refused with 409. To stop issuing temporarily, use &#x60;pause_recurring_invoice&#x60; instead.  Invoices already issued are left alone.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
@@ -81,6 +83,7 @@ module InvoicePDFs
     end
 
     # Create Recurring Invoice
+    # Set up a schedule that issues invoices on its own.  Starts `active`, so the first invoice is issued when the schedule next falls due. The invoices it produces are ordinary documents — read them with `list_generated_invoices`.
     # @param recurring_invoice_create_request [RecurringInvoiceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
@@ -90,6 +93,7 @@ module InvoicePDFs
     end
 
     # Create Recurring Invoice
+    # Set up a schedule that issues invoices on its own.  Starts &#x60;active&#x60;, so the first invoice is issued when the schedule next falls due. The invoices it produces are ordinary documents — read them with &#x60;list_generated_invoices&#x60;.
     # @param recurring_invoice_create_request [RecurringInvoiceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
@@ -147,6 +151,7 @@ module InvoicePDFs
     end
 
     # Get Recurring Invoice
+    # One recurring schedule by id.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
@@ -156,6 +161,7 @@ module InvoicePDFs
     end
 
     # Get Recurring Invoice
+    # One recurring schedule by id.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
@@ -208,6 +214,7 @@ module InvoicePDFs
     end
 
     # List Generated Invoices
+    # The invoices one schedule has actually issued, newest first.  The documents produced by this schedule, as opposed to `list_recurring_invoices`, which lists the schedules themselves.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
@@ -219,6 +226,7 @@ module InvoicePDFs
     end
 
     # List Generated Invoices
+    # The invoices one schedule has actually issued, newest first.  The documents produced by this schedule, as opposed to &#x60;list_recurring_invoices&#x60;, which lists the schedules themselves.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
@@ -283,6 +291,7 @@ module InvoicePDFs
     end
 
     # List Recurring Invoices
+    # The schedules on this account, newest first.  These are the recurring definitions, not the invoices they produce; for those, use `list_generated_invoices`. Narrow with `status`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -294,6 +303,7 @@ module InvoicePDFs
     end
 
     # List Recurring Invoices
+    # The schedules on this account, newest first.  These are the recurring definitions, not the invoices they produce; for those, use &#x60;list_generated_invoices&#x60;. Narrow with &#x60;status&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -355,6 +365,7 @@ module InvoicePDFs
     end
 
     # Pause Recurring Invoice
+    # Stop a schedule issuing invoices, for now.  Only an `active` schedule can be paused; anything else is refused with 409. Nothing already issued changes. Restart it with `resume_recurring_invoice`.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
@@ -364,6 +375,7 @@ module InvoicePDFs
     end
 
     # Pause Recurring Invoice
+    # Stop a schedule issuing invoices, for now.  Only an &#x60;active&#x60; schedule can be paused; anything else is refused with 409. Nothing already issued changes. Restart it with &#x60;resume_recurring_invoice&#x60;.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
@@ -416,6 +428,7 @@ module InvoicePDFs
     end
 
     # Resume Recurring Invoice
+    # Start a paused schedule issuing again.  Only a `paused` schedule can be resumed; anything else is refused with 409. A cancelled schedule cannot be brought back — create a new one.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [RecurringInvoiceResponse]
@@ -425,6 +438,7 @@ module InvoicePDFs
     end
 
     # Resume Recurring Invoice
+    # Start a paused schedule issuing again.  Only a &#x60;paused&#x60; schedule can be resumed; anything else is refused with 409. A cancelled schedule cannot be brought back — create a new one.
     # @param recurring_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(RecurringInvoiceResponse, Integer, Hash)>] RecurringInvoiceResponse data, response status code and response headers
@@ -477,6 +491,7 @@ module InvoicePDFs
     end
 
     # Update Recurring Invoice
+    # Change a recurring schedule.  Only the fields you send are changed. Refused with 409 once the schedule is cancelled, which is terminal. Invoices already issued are not revisited.
     # @param recurring_id [String] 
     # @param recurring_invoice_patch_request [RecurringInvoicePatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -487,6 +502,7 @@ module InvoicePDFs
     end
 
     # Update Recurring Invoice
+    # Change a recurring schedule.  Only the fields you send are changed. Refused with 409 once the schedule is cancelled, which is terminal. Invoices already issued are not revisited.
     # @param recurring_id [String] 
     # @param recurring_invoice_patch_request [RecurringInvoicePatchRequest] 
     # @param [Hash] opts the optional parameters

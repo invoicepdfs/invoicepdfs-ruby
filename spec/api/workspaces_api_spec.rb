@@ -34,6 +34,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for add_workspace_member
   # Add Workspace Member
+  # Add someone to a workspace by email address.  Refused with 409 if that email is already a member. The address does not have to belong to an existing account.
   # @param workspace_id 
   # @param workspace_member_create_request 
   # @param [Hash] opts the optional parameters
@@ -47,6 +48,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for create_workspace
   # Create Workspace
+  # Create a workspace, owned by this account.  The creating account is added as its first member with the &#x60;owner&#x60; role.  Send an &#x60;Idempotency-Key&#x60; header to make retrying safe: a repeat with the same key and body returns the original workspace instead of a second one.
   # @param workspace_create_request 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :idempotency_key 
@@ -59,6 +61,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for delete_workspace
   # Delete Workspace
+  # Delete a workspace and its membership list.  Every member record goes with it. This cannot be undone, and documents are unaffected — they belong to the account, not the workspace.
   # @param workspace_id 
   # @param [Hash] opts the optional parameters
   # @return [SimpleBoolResponse]
@@ -70,6 +73,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for get_workspace
   # Get Workspace
+  # One workspace by id.
   # @param workspace_id 
   # @param [Hash] opts the optional parameters
   # @return [WorkspaceResponse]
@@ -81,6 +85,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for list_workspace_members
   # List Workspace Members
+  # Everyone on a workspace, with their role.
   # @param workspace_id 
   # @param [Hash] opts the optional parameters
   # @return [WorkspaceMembersListResponse]
@@ -92,6 +97,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for list_workspaces
   # List Workspaces
+  # Workspaces this account owns, newest first.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit 
   # @option opts [String] :cursor 
@@ -104,6 +110,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for remove_workspace_member
   # Remove Workspace Member
+  # Remove someone from a workspace.  Removes the membership only; nothing they created is affected.
   # @param workspace_id 
   # @param member_id 
   # @param [Hash] opts the optional parameters
@@ -116,6 +123,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for update_workspace
   # Update Workspace
+  # Rename a workspace.  Only the fields you send are changed.
   # @param workspace_id 
   # @param workspace_patch_request 
   # @param [Hash] opts the optional parameters
@@ -129,6 +137,7 @@ describe 'WorkspacesApi' do
 
   # unit tests for update_workspace_member
   # Update Workspace Member
+  # Change a member&#39;s role.
   # @param workspace_id 
   # @param member_id 
   # @param workspace_member_patch_request 

@@ -21,6 +21,8 @@ All URIs are relative to *http://localhost*
 
 Add Workspace Member
 
+Add someone to a workspace by email address.  Refused with 409 if that email is already a member. The address does not have to belong to an existing account.
+
 ### Examples
 
 ```ruby
@@ -94,6 +96,8 @@ end
 
 Create Workspace
 
+Create a workspace, owned by this account.  The creating account is added as its first member with the `owner` role.  Send an `Idempotency-Key` header to make retrying safe: a repeat with the same key and body returns the original workspace instead of a second one.
+
 ### Examples
 
 ```ruby
@@ -165,6 +169,8 @@ end
 
 Delete Workspace
 
+Delete a workspace and its membership list.  Every member record goes with it. This cannot be undone, and documents are unaffected — they belong to the account, not the workspace.
+
 ### Examples
 
 ```ruby
@@ -231,6 +237,8 @@ end
 > <WorkspaceResponse> get_workspace(workspace_id)
 
 Get Workspace
+
+One workspace by id.
 
 ### Examples
 
@@ -299,6 +307,8 @@ end
 
 List Workspace Members
 
+Everyone on a workspace, with their role.
+
 ### Examples
 
 ```ruby
@@ -365,6 +375,8 @@ end
 > <WorkspacesListResponse> list_workspaces(opts)
 
 List Workspaces
+
+Workspaces this account owns, newest first.
 
 ### Examples
 
@@ -437,6 +449,8 @@ end
 
 Remove Workspace Member
 
+Remove someone from a workspace.  Removes the membership only; nothing they created is affected.
+
 ### Examples
 
 ```ruby
@@ -505,6 +519,8 @@ end
 > <WorkspaceResponse> update_workspace(workspace_id, workspace_patch_request, opts)
 
 Update Workspace
+
+Rename a workspace.  Only the fields you send are changed.
 
 ### Examples
 
@@ -578,6 +594,8 @@ end
 > <WorkspaceMemberOut> update_workspace_member(workspace_id, member_id, workspace_member_patch_request)
 
 Update Workspace Member
+
+Change a member's role.
 
 ### Examples
 

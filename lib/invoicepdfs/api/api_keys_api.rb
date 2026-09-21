@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Create Api Key
+    # Create an API key and return it once.  The response is the only place the key appears — it is stored hashed, so a lost key cannot be recovered, only replaced.  Keys are not scoped: any key can do anything this account can, including creating further keys and deleting data. Treat one as a full credential.
     # @param api_key_create_request [ApiKeyCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyCreateResponse]
@@ -29,6 +30,7 @@ module InvoicePDFs
     end
 
     # Create Api Key
+    # Create an API key and return it once.  The response is the only place the key appears — it is stored hashed, so a lost key cannot be recovered, only replaced.  Keys are not scoped: any key can do anything this account can, including creating further keys and deleting data. Treat one as a full credential.
     # @param api_key_create_request [ApiKeyCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyCreateResponse, Integer, Hash)>] ApiKeyCreateResponse data, response status code and response headers
@@ -86,6 +88,7 @@ module InvoicePDFs
     end
 
     # Get Api Key
+    # One API key's details by id, without the key itself.
     # @param api_key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyDetailResponse]
@@ -95,6 +98,7 @@ module InvoicePDFs
     end
 
     # Get Api Key
+    # One API key&#39;s details by id, without the key itself.
     # @param api_key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyDetailResponse, Integer, Hash)>] ApiKeyDetailResponse data, response status code and response headers
@@ -147,6 +151,7 @@ module InvoicePDFs
     end
 
     # List Api Keys
+    # Every API key on the account, including revoked ones.  Shows only the last four characters: the key itself is stored hashed and cannot be recovered.
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyListResponse]
     def list_api_keys(opts = {})
@@ -155,6 +160,7 @@ module InvoicePDFs
     end
 
     # List Api Keys
+    # Every API key on the account, including revoked ones.  Shows only the last four characters: the key itself is stored hashed and cannot be recovered.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyListResponse, Integer, Hash)>] ApiKeyListResponse data, response status code and response headers
     def list_api_keys_with_http_info(opts = {})
@@ -202,6 +208,7 @@ module InvoicePDFs
     end
 
     # Revoke Api Key
+    # Stop an API key working, permanently.  Takes effect immediately and cannot be undone — issue a new key with `create_api_key` instead. The record is kept, so the key still appears in `list_api_keys` with a revoked date and the audit log stays readable.  Revoking an already-revoked key succeeds and changes nothing.
     # @param api_key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [ApiKeyRevokeResponse]
@@ -211,6 +218,7 @@ module InvoicePDFs
     end
 
     # Revoke Api Key
+    # Stop an API key working, permanently.  Takes effect immediately and cannot be undone — issue a new key with &#x60;create_api_key&#x60; instead. The record is kept, so the key still appears in &#x60;list_api_keys&#x60; with a revoked date and the audit log stays readable.  Revoking an already-revoked key succeeds and changes nothing.
     # @param api_key_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiKeyRevokeResponse, Integer, Hash)>] ApiKeyRevokeResponse data, response status code and response headers
@@ -326,6 +334,7 @@ module InvoicePDFs
     end
 
     # Update Api Key
+    # Rename an API key.  The key itself is unchanged and keeps working. To replace the secret while keeping the record, use `rotate_api_key`.
     # @param api_key_id [String] 
     # @param api_key_patch_request [ApiKeyPatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -336,6 +345,7 @@ module InvoicePDFs
     end
 
     # Update Api Key
+    # Rename an API key.  The key itself is unchanged and keeps working. To replace the secret while keeping the record, use &#x60;rotate_api_key&#x60;.
     # @param api_key_id [String] 
     # @param api_key_patch_request [ApiKeyPatchRequest] 
     # @param [Hash] opts the optional parameters

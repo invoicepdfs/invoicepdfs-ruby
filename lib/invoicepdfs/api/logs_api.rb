@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # List Logs
+    # Recent API requests made with your keys, newest first.  Method, path, status, duration and the request and response bodies, so you can see what an integration actually sent rather than what it meant to.  Filter to `success` or `error` with `status`. How long these are kept depends on the plan — `get_usage_limits` reports the retention.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :status  (default to '')
     # @option opts [Integer] :limit  (default to 100)
@@ -30,6 +31,7 @@ module InvoicePDFs
     end
 
     # List Logs
+    # Recent API requests made with your keys, newest first.  Method, path, status, duration and the request and response bodies, so you can see what an integration actually sent rather than what it meant to.  Filter to &#x60;success&#x60; or &#x60;error&#x60; with &#x60;status&#x60;. How long these are kept depends on the plan — &#x60;get_usage_limits&#x60; reports the retention.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :status  (default to '')
     # @option opts [Integer] :limit  (default to 100)

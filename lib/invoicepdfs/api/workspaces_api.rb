@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Add Workspace Member
+    # Add someone to a workspace by email address.  Refused with 409 if that email is already a member. The address does not have to belong to an existing account.
     # @param workspace_id [String] 
     # @param workspace_member_create_request [WorkspaceMemberCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -31,6 +32,7 @@ module InvoicePDFs
     end
 
     # Add Workspace Member
+    # Add someone to a workspace by email address.  Refused with 409 if that email is already a member. The address does not have to belong to an existing account.
     # @param workspace_id [String] 
     # @param workspace_member_create_request [WorkspaceMemberCreateRequest] 
     # @param [Hash] opts the optional parameters
@@ -95,6 +97,7 @@ module InvoicePDFs
     end
 
     # Create Workspace
+    # Create a workspace, owned by this account.  The creating account is added as its first member with the `owner` role.  Send an `Idempotency-Key` header to make retrying safe: a repeat with the same key and body returns the original workspace instead of a second one.
     # @param workspace_create_request [WorkspaceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -105,6 +108,7 @@ module InvoicePDFs
     end
 
     # Create Workspace
+    # Create a workspace, owned by this account.  The creating account is added as its first member with the &#x60;owner&#x60; role.  Send an &#x60;Idempotency-Key&#x60; header to make retrying safe: a repeat with the same key and body returns the original workspace instead of a second one.
     # @param workspace_create_request [WorkspaceCreateRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :idempotency_key 
@@ -164,6 +168,7 @@ module InvoicePDFs
     end
 
     # Delete Workspace
+    # Delete a workspace and its membership list.  Every member record goes with it. This cannot be undone, and documents are unaffected — they belong to the account, not the workspace.
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [SimpleBoolResponse]
@@ -173,6 +178,7 @@ module InvoicePDFs
     end
 
     # Delete Workspace
+    # Delete a workspace and its membership list.  Every member record goes with it. This cannot be undone, and documents are unaffected — they belong to the account, not the workspace.
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SimpleBoolResponse, Integer, Hash)>] SimpleBoolResponse data, response status code and response headers
@@ -225,6 +231,7 @@ module InvoicePDFs
     end
 
     # Get Workspace
+    # One workspace by id.
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WorkspaceResponse]
@@ -234,6 +241,7 @@ module InvoicePDFs
     end
 
     # Get Workspace
+    # One workspace by id.
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WorkspaceResponse, Integer, Hash)>] WorkspaceResponse data, response status code and response headers
@@ -286,6 +294,7 @@ module InvoicePDFs
     end
 
     # List Workspace Members
+    # Everyone on a workspace, with their role.
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [WorkspaceMembersListResponse]
@@ -295,6 +304,7 @@ module InvoicePDFs
     end
 
     # List Workspace Members
+    # Everyone on a workspace, with their role.
     # @param workspace_id [String] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(WorkspaceMembersListResponse, Integer, Hash)>] WorkspaceMembersListResponse data, response status code and response headers
@@ -347,6 +357,7 @@ module InvoicePDFs
     end
 
     # List Workspaces
+    # Workspaces this account owns, newest first.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -357,6 +368,7 @@ module InvoicePDFs
     end
 
     # List Workspaces
+    # Workspaces this account owns, newest first.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 50)
     # @option opts [String] :cursor 
@@ -416,6 +428,7 @@ module InvoicePDFs
     end
 
     # Remove Workspace Member
+    # Remove someone from a workspace.  Removes the membership only; nothing they created is affected.
     # @param workspace_id [String] 
     # @param member_id [String] 
     # @param [Hash] opts the optional parameters
@@ -426,6 +439,7 @@ module InvoicePDFs
     end
 
     # Remove Workspace Member
+    # Remove someone from a workspace.  Removes the membership only; nothing they created is affected.
     # @param workspace_id [String] 
     # @param member_id [String] 
     # @param [Hash] opts the optional parameters
@@ -483,6 +497,7 @@ module InvoicePDFs
     end
 
     # Update Workspace
+    # Rename a workspace.  Only the fields you send are changed.
     # @param workspace_id [String] 
     # @param workspace_patch_request [WorkspacePatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -494,6 +509,7 @@ module InvoicePDFs
     end
 
     # Update Workspace
+    # Rename a workspace.  Only the fields you send are changed.
     # @param workspace_id [String] 
     # @param workspace_patch_request [WorkspacePatchRequest] 
     # @param [Hash] opts the optional parameters
@@ -558,6 +574,7 @@ module InvoicePDFs
     end
 
     # Update Workspace Member
+    # Change a member's role.
     # @param workspace_id [String] 
     # @param member_id [String] 
     # @param workspace_member_patch_request [WorkspaceMemberPatchRequest] 
@@ -569,6 +586,7 @@ module InvoicePDFs
     end
 
     # Update Workspace Member
+    # Change a member&#39;s role.
     # @param workspace_id [String] 
     # @param member_id [String] 
     # @param workspace_member_patch_request [WorkspaceMemberPatchRequest] 

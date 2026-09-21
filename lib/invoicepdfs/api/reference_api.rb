@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # List Countries
+    # The country codes accepted anywhere an address is given.  ISO 3166-1 alpha-2.
     # @param [Hash] opts the optional parameters
     # @return [CountriesListResponse]
     def list_countries(opts = {})
@@ -28,6 +29,7 @@ module InvoicePDFs
     end
 
     # List Countries
+    # The country codes accepted anywhere an address is given.  ISO 3166-1 alpha-2.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CountriesListResponse, Integer, Hash)>] CountriesListResponse data, response status code and response headers
     def list_countries_with_http_info(opts = {})
@@ -75,6 +77,7 @@ module InvoicePDFs
     end
 
     # List Currencies
+    # The currency codes a document may be issued in.  ISO 4217, with the minor-unit count each one uses — the amounts in this API are integers in the currency's smallest unit, so that figure is what says where the decimal point goes.
     # @param [Hash] opts the optional parameters
     # @return [CurrenciesListResponse]
     def list_currencies(opts = {})
@@ -83,6 +86,7 @@ module InvoicePDFs
     end
 
     # List Currencies
+    # The currency codes a document may be issued in.  ISO 4217, with the minor-unit count each one uses — the amounts in this API are integers in the currency&#39;s smallest unit, so that figure is what says where the decimal point goes.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CurrenciesListResponse, Integer, Hash)>] CurrenciesListResponse data, response status code and response headers
     def list_currencies_with_http_info(opts = {})
@@ -187,6 +191,7 @@ module InvoicePDFs
     end
 
     # List Locales
+    # The locale codes accepted on a document or business profile.  The value is stored and returned as given; it is not currently applied to anything a render produces.
     # @param [Hash] opts the optional parameters
     # @return [LocalesListResponse]
     def list_locales(opts = {})
@@ -195,6 +200,7 @@ module InvoicePDFs
     end
 
     # List Locales
+    # The locale codes accepted on a document or business profile.  The value is stored and returned as given; it is not currently applied to anything a render produces.
     # @param [Hash] opts the optional parameters
     # @return [Array<(LocalesListResponse, Integer, Hash)>] LocalesListResponse data, response status code and response headers
     def list_locales_with_http_info(opts = {})
@@ -242,6 +248,7 @@ module InvoicePDFs
     end
 
     # List Page Sizes
+    # The page sizes a render can use.
     # @param [Hash] opts the optional parameters
     # @return [PageSizesListResponse]
     def list_page_sizes(opts = {})
@@ -250,6 +257,7 @@ module InvoicePDFs
     end
 
     # List Page Sizes
+    # The page sizes a render can use.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PageSizesListResponse, Integer, Hash)>] PageSizesListResponse data, response status code and response headers
     def list_page_sizes_with_http_info(opts = {})
@@ -411,6 +419,7 @@ module InvoicePDFs
     end
 
     # List Timezones
+    # The time zone names accepted on a business profile.  IANA names. Stored and returned as given: recurring schedules are evaluated in UTC and do not consult it.
     # @param [Hash] opts the optional parameters
     # @return [TimezonesListResponse]
     def list_timezones(opts = {})
@@ -419,6 +428,7 @@ module InvoicePDFs
     end
 
     # List Timezones
+    # The time zone names accepted on a business profile.  IANA names. Stored and returned as given: recurring schedules are evaluated in UTC and do not consult it.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TimezonesListResponse, Integer, Hash)>] TimezonesListResponse data, response status code and response headers
     def list_timezones_with_http_info(opts = {})

@@ -20,6 +20,7 @@ module InvoicePDFs
       @api_client = api_client
     end
     # Get Health
+    # Is the API process alive.  Answers as long as the process can serve a request; it checks nothing behind it. For whether the service can actually do work, use `get_readiness`.
     # @param [Hash] opts the optional parameters
     # @return [HealthResponse]
     def get_health(opts = {})
@@ -28,6 +29,7 @@ module InvoicePDFs
     end
 
     # Get Health
+    # Is the API process alive.  Answers as long as the process can serve a request; it checks nothing behind it. For whether the service can actually do work, use &#x60;get_readiness&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(HealthResponse, Integer, Hash)>] HealthResponse data, response status code and response headers
     def get_health_with_http_info(opts = {})
@@ -75,6 +77,7 @@ module InvoicePDFs
     end
 
     # Get Readiness
+    # Can the API serve real traffic — dependencies included.  Checks the database, storage, and the separate render service, and reports each one. `status` is `ready` only when all three are `ok`, so this is the check to point a load balancer at. `get_health` answers sooner but proves less.
     # @param [Hash] opts the optional parameters
     # @return [ReadyResponse]
     def get_readiness(opts = {})
@@ -83,6 +86,7 @@ module InvoicePDFs
     end
 
     # Get Readiness
+    # Can the API serve real traffic — dependencies included.  Checks the database, storage, and the separate render service, and reports each one. &#x60;status&#x60; is &#x60;ready&#x60; only when all three are &#x60;ok&#x60;, so this is the check to point a load balancer at. &#x60;get_health&#x60; answers sooner but proves less.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReadyResponse, Integer, Hash)>] ReadyResponse data, response status code and response headers
     def get_readiness_with_http_info(opts = {})
@@ -130,6 +134,7 @@ module InvoicePDFs
     end
 
     # Get Version
+    # Which build is deployed.
     # @param [Hash] opts the optional parameters
     # @return [VersionResponse]
     def get_version(opts = {})
@@ -138,6 +143,7 @@ module InvoicePDFs
     end
 
     # Get Version
+    # Which build is deployed.
     # @param [Hash] opts the optional parameters
     # @return [Array<(VersionResponse, Integer, Hash)>] VersionResponse data, response status code and response headers
     def get_version_with_http_info(opts = {})
